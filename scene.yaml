@@ -25,6 +25,7 @@
     light.living_roomkitchen:
       state: true
       brightness: 255
+      color_temp: 360
     light.living_room_1:
       state: true
       brightness: 255

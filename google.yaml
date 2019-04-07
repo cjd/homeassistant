@@ -29,3 +29,11 @@ entity_config:
     expose: false
   light.office:
     expose: false
+  switch.backroom_left:
+    expose: false
+  switch.backroom_right:
+    expose: false
+  switch.backroom_up:
+    expose: false
+  switch.backroom_down:
+    expose: false
