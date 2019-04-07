@@ -1,0 +1,147 @@
+homeassistant:
+  name: Home
+  latitude: -33.403710
+  longitude: 151.336280
+  elevation: 0
+  unit_system: metric
+  time_zone: Australia/Sydney
+  customize: !include customize.yaml
+
+config:
+discovery:
+conversation:
+logbook:
+history:
+sun:
+system_health:
+stream:
+person:
+
+custom_updater:
+  show_installable: true
+  track:
+    - components
+    - python_scripts
+    - cards
+  component_urls:
+    - https://raw.githubusercontent.com/pnbrucker/homeassistant-config/master/custom_components.json
+    - https://raw.githubusercontent.com/robmarkcole/Hue-sensors-HASS/master/custom_updater.json
+  python_script_urls:
+    - https://raw.githubusercontent.com/pnbrucker/homeassistant-config/master/python_scripts.json
+
+logger:
+  default: info
+
+http:
+  base_url: https://home.adebenham.com:8123
+  api_password: !secret http_password
+  ssl_certificate: /ssl/fullchain.pem
+  ssl_key: /ssl/privkey.pem
+
+updater:
+  include_used_components: true
+
+weather:
+  - platform: bom
+    station: IDN60901.94782
+
+panel_iframe:
+  configurator:
+    title: Configurator
+    icon: mdi:wrench
+    url: https://home.adebenham.com:3218
+
+# Sensors
+sensor:
+  # Weather prediction
+  - platform: bom
+    station: IDN60901.94782
+    name: Gosford
+    monitored_conditions:
+      - air_temp
+      - weather
+      - wind_dir
+      - wind_spd_kmh
+  - platform: efergy
+    app_token: !secret efergy_app_token
+    utc_offset: UTC_OFFSET
+    monitored_variables:
+      - type: instant_readings
+  - platform: huesensor
+  - platform: template
+    sensors:
+      tvpower:
+        value_template: '{{ states.switch.entertainment_unit.attributes["current_power_w"] }}'
+        unit_of_measurement: 'W'
+        friendly_name: "TV Power Usage"
+    
+# Text to speech
+tts:
+  - platform: google
+
+
+device_tracker:
+  - platform: luci
+    host: 192.168.0.254
+    username: root
+    password: !secret router_password
+    new_device_defaults:
+      track_new_devices: false
+      hide_if_away: false
+  - platform: life360
+    username: !secret life360_username
+    password: !secret life360_password
+    max_gps_accuracy: 200
+    prefix: life360
+    show_as_state: driving, moving, places
+  - platform: huesensor
+
+googlehome:
+  devices:
+    - host: 192.168.0.221
+      device_types: 1
+    - host: 192.168.0.116
+      device_types: 1
+    - host: 192.168.0.144
+      device_types: 1
+
+notify:
+  - name: Home assistant
+    platform: html5
+    vapid_pub_key: !secret vapid_pub_key
+    vapid_prv_key: !secret vapid_prv_key
+    vapid_email: !secret email
+  - name: android
+    platform: fcm-android
+
+netatmo:
+  api_key: !secret netatmo_api_key
+  secret_key: !secret netatmo_secret_key
+  username: !secret email 
+  password: !secret netatmo_password
+
+climate:
+  - platform: sensibo
+    api_key: !secret sensibo_api_key
+
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: !secret influx_username
+  password: !secret influx_password
+  max_retries: 3
+  default_measurement: state
+
+binary_sensor:
+  - platform: huesensor
+
+recorder: !include recorder.yaml
+camera: !include camera.yaml
+google_assistant: !include google.yaml
+zone: !include zone.yaml
+group: !include groups.yaml
+scene: !include scene.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+switch: !include ptz.yaml

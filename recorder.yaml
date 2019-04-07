@@ -1,0 +1,38 @@
+exclude:
+  domains:
+    - group
+    - history_graph
+    - media_player
+    - zone
+    - automation
+    - persistent_notification
+    - camera
+  entities:
+    - sensor.date
+    - sensor.time
+    - sensor.date_time
+    - switch.entertainment_unit
+    - sun.sun
+    - sensor.efergy_686946
+    - sensor.netatmo_indoor_wifi
+    - sensor.netatmo_outdoor_battery
+    - sensor.netatmo_outdoor_battery_percent
+    - sensor.netatmo_outdoor_radio
+    - sensor.per_device_usage
+    - weather.bom_gosford
+    - sensor.bom_gosford_wind_direction
+    - sensor.bom_gosford_weather
+    - light.entertainment_area_1
+    - light.bedroom
+    - light.craft_room
+    - light.family_room
+    - light.kitchen
+    - light.living_room
+    - light.office
+    - sensor.bom_gosford_wind_speed_kmh
+    - switch.backroom_down
+    - switch.backroom_left
+    - switch.backroom_right
+    - switch.backroom_up
+    - sensor.custom_card_tracker
+    - sensor.custom_component_tracker

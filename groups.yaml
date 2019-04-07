@@ -1,0 +1,44 @@
+chris:
+  entities:
+    - device_tracker.pixel3
+    - device_tracker.life360_chris
+mel:
+  entities:
+    - device_tracker.melphone
+family:
+  entities:
+    - group.chris
+    - group.mel
+backroom_lights:
+  name: Back room
+  entities:
+    - light.family_room_middle
+    - light.hue_white_lamp_1
+    - light.family_room_left
+livingroom_lights:
+  name: Living Room
+  entities:
+    - light.living_roomkitchen
+    - light.living_room_1
+    - light.living_room_2
+    - light.livingroom_side
+office_lights:
+  name: Office
+  entities:
+    - light.office
+    - switch.speaker
+bedroom_lights:
+  name: Bedroom
+  entities:
+    - light.bedroom_light_1
+    - light.bedroom_light_2
+craftroom_lights:
+  name: Craft Room
+  entities:
+    - light.craft_room
+kitchen_lights:
+  name: Kitchen
+  entities:
+    - light.kitchen_light_back
+    - light.kitchen_light_front
+    - light.tv_backlight

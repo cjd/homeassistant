@@ -1,0 +1,81 @@
+- name: Movies
+  entities:
+    light.kitchen_light_back: false
+    light.kitchen_light_front: false
+    light.living_roomkitchen: false
+    light.livingroom_side:
+      brightness: 100
+      state: true
+      rgb_color: [ 0,0,255]
+    light.living_room_1:
+      state: true
+      brightness: 100
+    light.living_room_2:
+      state: true
+      brightness: 100
+    light.tv_backlight:
+      state: true
+      brightness: 255
+      rgb_color: [0,0,255]
+    light.tv_backlight_2:
+      state: true
+      effect: Slow Random Effect
+- name: Normal
+  entities:
+    light.living_roomkitchen:
+      state: true
+      brightness: 255
+    light.living_room_1:
+      state: true
+      brightness: 255
+    light.living_room_2:
+      state: true
+      brightness: 255
+    light.livingroom_side :
+      state: true
+      brightness: 255
+      rgb_color: [ 255,255,255]
+    light.tv_backlight_2:
+      state: true
+      brightness:  255
+      effect: Slow Random Effect
+    light.tv_backlight:
+      brightness: 255
+      rgb_color: [ 255,255,255]
+    light.tv_backlight: false
+- name: Night mode
+  entities:
+    light.living_roomkitchen:
+      state: true
+      brightness: 50
+    light.living_room_1:
+      state: true
+      brightness: 50
+    light.living_room_2:
+      state: true
+      brightness: 50
+    light.livingroom_side :
+      state: true
+      brightness: 100
+      rgb_color: [ 0,0,255]
+    light.tv_backlight_2:
+      state: true
+      brightness:  255
+      effect: Random Twinkle
+    light.tv_backlight:
+      state: true
+      brightness: 255
+      rgb_color: [ 0,0,255]
+- name: Turn off
+  entities:
+    light.kitchen_light_back: false
+    light.kitchen_light_front: false
+    light.living_roomkitchen: false
+    light.living_room_1: false
+    light.living_room_2: false
+    light.livingroom_side : false
+    light.tv_backlight: false
+    light.tv_backlight_2:
+      state: true
+      brightness:  255
+      effect: Random Twinkle

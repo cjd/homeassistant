@@ -1,0 +1,31 @@
+project_id: homeassistant-234121
+api_key: !secret google_api_key
+exposed_domains:
+  - switch
+  - light
+  - climate
+  - scene
+expose_by_default: true
+entity_config:
+  switch.entertainment_unit:
+    expose: false
+  group.all_lights:
+    expose: false
+  group.all_devices:
+    expose: false
+  group.all_switches:
+    expose: false
+  group.all_automations:
+    expose: false
+  light.entertainment_area_1:
+    expose: false
+  light.family_room:
+    expose: false
+  light.bedroom:
+    expose: false
+  light.kitchen:
+    expose: false
+  light.living_room:
+    expose: false
+  light.office:
+    expose: false
