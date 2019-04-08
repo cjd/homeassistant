@@ -1,0 +1,20 @@
+- platform: bom
+  station: IDN60901.94782
+  name: Gosford
+  monitored_conditions:
+    - air_temp
+    - weather
+    - wind_dir
+    - wind_spd_kmh
+- platform: efergy
+  app_token: !secret efergy_app_token
+  utc_offset: UTC_OFFSET
+  monitored_variables:
+    - type: instant_readings
+- platform: huesensor
+- platform: template
+  sensors:
+    tvpower:
+      value_template: '{{ states.switch.entertainment_unit.attributes["current_power_w"] }}'
+      unit_of_measurement: 'W'
+      friendly_name: "TV Power Usage"

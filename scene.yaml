@@ -80,3 +80,15 @@
       state: true
       brightness:  255
       effect: Random Twinkle
+- name: All off
+  entities:
+    group.kitchen_lights: false
+    light.living_lights: false
+    light.backroom_lights: false
+    light.craftroom_lights: false
+    light.office_lights: false
+    light.bedroom_lights: false
+    light.tv_backlight_2:
+      state: true
+      brightness:  255
+      effect: Random Twinkle

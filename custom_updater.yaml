@@ -1,0 +1,10 @@
+show_installable: true
+track:
+  - components
+  - python_scripts
+  - cards
+component_urls:
+  - https://raw.githubusercontent.com/pnbrucker/homeassistant-config/master/custom_components.json
+  - https://raw.githubusercontent.com/robmarkcole/Hue-sensors-HASS/master/custom_updater.json
+python_script_urls:
+  - https://raw.githubusercontent.com/pnbrucker/homeassistant-config/master/python_scripts.json

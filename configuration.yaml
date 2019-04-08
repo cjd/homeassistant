@@ -17,18 +17,6 @@ system_health:
 stream:
 person:
 
-custom_updater:
-  show_installable: true
-  track:
-    - components
-    - python_scripts
-    - cards
-  component_urls:
-    - https://raw.githubusercontent.com/pnbrucker/homeassistant-config/master/custom_components.json
-    - https://raw.githubusercontent.com/robmarkcole/Hue-sensors-HASS/master/custom_updater.json
-  python_script_urls:
-    - https://raw.githubusercontent.com/pnbrucker/homeassistant-config/master/python_scripts.json
-
 logger:
   default: info
 
@@ -51,50 +39,10 @@ panel_iframe:
     icon: mdi:wrench
     url: https://home.adebenham.com:3218
 
-# Sensors
-sensor:
-  # Weather prediction
-  - platform: bom
-    station: IDN60901.94782
-    name: Gosford
-    monitored_conditions:
-      - air_temp
-      - weather
-      - wind_dir
-      - wind_spd_kmh
-  - platform: efergy
-    app_token: !secret efergy_app_token
-    utc_offset: UTC_OFFSET
-    monitored_variables:
-      - type: instant_readings
-  - platform: huesensor
-  - platform: template
-    sensors:
-      tvpower:
-        value_template: '{{ states.switch.entertainment_unit.attributes["current_power_w"] }}'
-        unit_of_measurement: 'W'
-        friendly_name: "TV Power Usage"
     
 # Text to speech
 tts:
   - platform: google
-
-
-device_tracker:
-  - platform: luci
-    host: 192.168.0.254
-    username: root
-    password: !secret router_password
-    new_device_defaults:
-      track_new_devices: false
-      hide_if_away: false
-  - platform: life360
-    username: !secret life360_username
-    password: !secret life360_password
-    max_gps_accuracy: 200
-    prefix: life360
-    show_as_state: driving, moving, places
-  - platform: huesensor
 
 googlehome:
   devices:
@@ -136,12 +84,15 @@ influxdb:
 binary_sensor:
   - platform: huesensor
 
-recorder: !include recorder.yaml
+sensor: !include sensors.yaml
+custom_updater: !include custom_updater.yaml
 camera: !include camera.yaml
 google_assistant: !include google.yaml
 zone: !include zone.yaml
-group: !include groups.yaml
-scene: !include scene.yaml
 automation: !include_dir_merge_list automation
 script: !include scripts.yaml
 switch: !include ptz.yaml
+device_tracker: !include device_tracker.yaml
+scene: !include scene.yaml
+group: !include groups.yaml
+recorder: !include recorder.yaml
