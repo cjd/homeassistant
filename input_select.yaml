@@ -1,0 +1,6 @@
+livingroom_preset:
+  options:
+    - Normal
+    - Movie
+    - Night
+    - Turn Off

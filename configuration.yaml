@@ -84,6 +84,7 @@ influxdb:
 binary_sensor:
   - platform: huesensor
 
+input_select: !include input_select.yaml
 sensor: !include sensors.yaml
 custom_updater: !include custom_updater.yaml
 camera: !include camera.yaml

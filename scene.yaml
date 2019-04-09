@@ -1,5 +1,6 @@
 - name: Movies
   entities:
+    input_select.livingroom_preset: Movie
     light.kitchen_light_back: false
     light.kitchen_light_front: false
     light.living_roomkitchen: false
@@ -22,6 +23,7 @@
       effect: Slow Random Effect
 - name: Normal
   entities:
+    input_select.livingroom_preset: Normal
     light.living_roomkitchen:
       state: true
       brightness: 255
@@ -46,6 +48,7 @@
     light.tv_backlight: false
 - name: Night mode
   entities:
+    input_select.livingroom_preset: Night
     light.living_roomkitchen:
       state: true
       brightness: 50
@@ -69,6 +72,7 @@
       rgb_color: [ 0,0,255]
 - name: Turn off
   entities:
+    input_select.livingroom_preset: False
     light.kitchen_light_back: false
     light.kitchen_light_front: false
     light.living_roomkitchen: false
