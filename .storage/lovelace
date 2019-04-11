@@ -1,0 +1,602 @@
+{
+    "data": {
+        "config": {
+            "resources": [
+                {
+                    "type": "module",
+                    "url": "/local/mini-graph-card-bundle.js?v=0.3.2"
+                },
+                {
+                    "type": "module",
+                    "url": "/customcards/github/custom-cards/tracker-card.js?track=true"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/custom-cards/weather-card.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/customcards/github/nervetattoo/simple-thermostat.js?track=true"
+                },
+                {
+                    "type": "module",
+                    "url": "/customcards/github/custom-cards/button-card.js?track=true"
+                },
+                {
+                    "type": "module",
+                    "url": "/customcards/github/maykar/compact-custom-header.js?track=true"
+                }
+            ],
+            "title": "Home",
+            "views": [
+                {
+                    "badges": [
+                        "person.mel",
+                        "person.chris",
+                        "sensor.netatmo_indoor_temperature",
+                        "sensor.netatmo_outdoor_temperature",
+                        "sensor.netatmo_indoor_humidity",
+                        "sensor.netatmo_outdoor_humidity"
+                    ],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "cards": [
+                                        {
+                                            "card": {
+                                                "action": "service",
+                                                "entity": "input_select.livingroom_preset",
+                                                "icon": "mdi:sofa",
+                                                "name": "Livingroom",
+                                                "service": {
+                                                    "action": "select_option",
+                                                    "data": {
+                                                        "entity_id": "input_select.livingroom_preset",
+                                                        "option": "Normal"
+                                                    },
+                                                    "domain": "input_select"
+                                                },
+                                                "type": "custom:button-card"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "entity": "input_select.livingroom_preset",
+                                                    "state": "TurnOff"
+                                                }
+                                            ],
+                                            "type": "conditional"
+                                        },
+                                        {
+                                            "card": {
+                                                "action": "service",
+                                                "entity": "input_select.livingroom_preset",
+                                                "icon": "mdi:sofa",
+                                                "name": "Livingroom",
+                                                "service": {
+                                                    "action": "select_option",
+                                                    "data": {
+                                                        "entity_id": "input_select.livingroom_preset",
+                                                        "option": "TurnOff"
+                                                    },
+                                                    "domain": "input_select"
+                                                },
+                                                "state": [
+                                                    {
+                                                        "color": "rgb(5, 147, 255)",
+                                                        "value": "Normal"
+                                                    },
+                                                    {
+                                                        "color": "rgb(5, 147, 255)",
+                                                        "value": "Movie"
+                                                    },
+                                                    {
+                                                        "color": "rgb(5, 147, 255)",
+                                                        "value": "Night"
+                                                    }
+                                                ],
+                                                "type": "custom:button-card"
+                                            },
+                                            "conditions": [
+                                                {
+                                                    "entity": "input_select.livingroom_preset",
+                                                    "state_not": "TurnOff"
+                                                }
+                                            ],
+                                            "type": "conditional"
+                                        },
+                                        {
+                                            "entity": "group.kitchen_lights",
+                                            "icon": "mdi:fridge",
+                                            "name": "Kitchen",
+                                            "state": [
+                                                {
+                                                    "color": "rgb(180,180,180)",
+                                                    "value": "off"
+                                                },
+                                                {
+                                                    "color": "rgb(5, 147, 255)",
+                                                    "value": "on"
+                                                }
+                                            ],
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "entity": "group.backroom_lights",
+                                            "icon": "mdi:castle",
+                                            "name": "Backroom",
+                                            "state": [
+                                                {
+                                                    "color": "rgb(180,180,180)",
+                                                    "value": "off"
+                                                },
+                                                {
+                                                    "color": "rgb(5, 147, 255)",
+                                                    "value": "on"
+                                                }
+                                            ],
+                                            "type": "custom:button-card"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "group.craftroom_lights",
+                                            "icon": "mdi:content-cut",
+                                            "name": "Craft",
+                                            "state": [
+                                                {
+                                                    "color": "rgb(180,180,180)",
+                                                    "value": "off"
+                                                },
+                                                {
+                                                    "color": "rgb(5, 147, 255)",
+                                                    "value": "on"
+                                                }
+                                            ],
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "entity": "group.office_lights",
+                                            "icon": "mdi:desktop-classic",
+                                            "name": "Office",
+                                            "state": [
+                                                {
+                                                    "color": "rgb(180,180,180)",
+                                                    "value": "off"
+                                                },
+                                                {
+                                                    "color": "rgb(5, 147, 255)",
+                                                    "value": "on"
+                                                }
+                                            ],
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color-type": "card",
+                                            "entity": "group.bedroom_lights",
+                                            "icon": "mdi:bed-empty",
+                                            "name": "Bedroom",
+                                            "state": [
+                                                {
+                                                    "color": "rgb(180,180,180)",
+                                                    "value": "off"
+                                                },
+                                                {
+                                                    "color": "rgb(5, 147, 255)",
+                                                    "value": "on"
+                                                }
+                                            ],
+                                            "type": "custom:button-card"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "color": "rgb(44, 109, 214)",
+                                    "color_type": "label-card",
+                                    "name": "Scenes",
+                                    "type": "custom:button-card"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "action": "service",
+                                            "entity": "input_select.livingroom_preset",
+                                            "icon": "mdi:lightbulb",
+                                            "name": "Normal",
+                                            "service": {
+                                                "action": "select_option",
+                                                "data": {
+                                                    "entity_id": "input_select.livingroom_preset",
+                                                    "option": "Normal"
+                                                },
+                                                "domain": "input_select"
+                                            },
+                                            "state": [
+                                                {
+                                                    "color": "rgb(5, 147, 255)",
+                                                    "value": "Normal"
+                                                }
+                                            ],
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "action": "service",
+                                            "entity": "input_select.livingroom_preset",
+                                            "icon": "mdi:movie",
+                                            "name": "Movies",
+                                            "service": {
+                                                "action": "select_option",
+                                                "data": {
+                                                    "entity_id": "input_select.livingroom_preset",
+                                                    "option": "Movie"
+                                                },
+                                                "domain": "input_select"
+                                            },
+                                            "state": [
+                                                {
+                                                    "color": "rgb(5, 147, 255)",
+                                                    "value": "Movie"
+                                                }
+                                            ],
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "action": "service",
+                                            "entity": "input_select.livingroom_preset",
+                                            "icon": "mdi:weather-night",
+                                            "name": "Night",
+                                            "service": {
+                                                "action": "select_option",
+                                                "data": {
+                                                    "entity_id": "input_select.livingroom_preset",
+                                                    "option": "Night"
+                                                },
+                                                "domain": "input_select"
+                                            },
+                                            "state": [
+                                                {
+                                                    "color": "rgb(5, 147, 255)",
+                                                    "value": "Night"
+                                                }
+                                            ],
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "action": "service",
+                                            "entity": "input_select.livingroom_preset",
+                                            "icon": "mdi:do-not-disturb",
+                                            "name": "Off",
+                                            "service": {
+                                                "action": "select_option",
+                                                "data": {
+                                                    "entity_id": "input_select.livingroom_preset",
+                                                    "option": "TurnOff"
+                                                },
+                                                "domain": "input_select"
+                                            },
+                                            "state": [
+                                                {
+                                                    "color": "rgb(5, 147, 255)",
+                                                    "value": "TurnOff"
+                                                }
+                                            ],
+                                            "type": "custom:button-card"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "entity": "climate.living_room",
+                            "modes": {
+                                "dry": {
+                                    "include": false
+                                },
+                                "fan_only": {
+                                    "include": false
+                                }
+                            },
+                            "sensors": [
+                                {
+                                    "entity": "sensor.netatmo_outdoor_temperature"
+                                }
+                            ],
+                            "step_size": 1,
+                            "type": "custom:simple-thermostat"
+                        },
+                        {
+                            "chevrons": true,
+                            "main_config": true,
+                            "type": "custom:compact-custom-header",
+                            "voice": "hide"
+                        }
+                    ],
+                    "icon": "mdi:home",
+                    "panel": false,
+                    "path": "default_view",
+                    "title": "Home"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:compact-custom-header"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "group.bedroom_lights"
+                                },
+                                {
+                                    "entity": "group.backroom_lights"
+                                },
+                                {
+                                    "entity": "group.craftroom_lights"
+                                },
+                                {
+                                    "entity": "group.kitchen_lights"
+                                },
+                                {
+                                    "entity": "group.livingroom_lights"
+                                },
+                                {
+                                    "entity": "group.office_lights"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Lights",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.tv_backlight_2"
+                                },
+                                {
+                                    "entity": "light.family_room_strip"
+                                },
+                                {
+                                    "entity": "light.tv_backlight"
+                                },
+                                {
+                                    "entity": "light.livingroom_side"
+                                },
+                                {
+                                    "entity": "light.office_strip"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Colour Lights",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:lightbulb",
+                    "panel": false,
+                    "title": "Lights"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:compact-custom-header"
+                        },
+                        {
+                            "entity": "media_player.living_room_display",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.whole_house",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.living_room_tv",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.bedroom_tv",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.craft_room",
+                            "type": "media-control"
+                        }
+                    ],
+                    "icon": "mdi:movie",
+                    "title": "Media"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:compact-custom-header"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_indoor_temperature",
+                                    "name": "Livingroom Temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_humidity",
+                                    "name": "Livingroom Humidity"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_pressure",
+                                    "name": "Livingroom Pressure"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_co2",
+                                    "name": "Livingroom CO2"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_temperature",
+                                    "name": "Backyard Temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_humidity",
+                                    "name": "Backyard Humidity"
+                                },
+                                {
+                                    "entity": "sensor.office_temperature_2",
+                                    "name": "Office Temperature"
+                                },
+                                {
+                                    "entity": "sensor.office_pressure",
+                                    "name": "Office Pressure"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Weather",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.office_temperature_2"
+                                },
+                                {
+                                    "entity": "sensor.bom_gosford_air_temp_c",
+                                    "name": "BOM Air Temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_temperature",
+                                    "name": "Living room Temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_temperature",
+                                    "name": "Backyard Temperature"
+                                }
+                            ],
+                            "hours_to_show": 72,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_indoor_humidity",
+                                    "name": "Indoor Humidity"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_humidity",
+                                    "name": "Outdoor Humidity"
+                                }
+                            ],
+                            "hours_to_show": 72,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                "sensor.energy_usage",
+                                "sensor.tvpower"
+                            ],
+                            "hours_to_show": 24,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_indoor_noise",
+                                    "name": "Noise level"
+                                }
+                            ],
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_indoor_pressure",
+                                    "name": "Living Room Pressure"
+                                },
+                                {
+                                    "entity": "sensor.office_pressure",
+                                    "name": "Office pressure"
+                                }
+                            ],
+                            "hours_to_show": 72,
+                            "type": "history-graph"
+                        },
+                        {
+                            "type": "custom:tracker-card"
+                        }
+                    ],
+                    "icon": "mdi:chart-line",
+                    "panel": false,
+                    "title": "Charts"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:compact-custom-header"
+                        },
+                        {
+                            "camera_image": "camera.backroom",
+                            "entities": [
+                                {
+                                    "entity": "switch.backroom_up",
+                                    "icon": "mdi:arrow-up-thick"
+                                },
+                                {
+                                    "entity": "switch.backroom_down",
+                                    "icon": "mdi:arrow-down-thick"
+                                },
+                                {
+                                    "entity": "switch.backroom_left",
+                                    "icon": "mdi:arrow-left-thick"
+                                },
+                                {
+                                    "entity": "switch.backroom_right",
+                                    "icon": "mdi:arrow-right-thick"
+                                }
+                            ],
+                            "title": "Living room",
+                            "type": "picture-glance"
+                        },
+                        {
+                            "entity": "camera.my_camera",
+                            "type": "picture-entity"
+                        }
+                    ],
+                    "icon": "mdi:camera",
+                    "title": "Cameras"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "default_zoom": 13,
+                                    "entities": [
+                                        {
+                                            "entity": "person.mel"
+                                        },
+                                        {
+                                            "entity": "person.chris"
+                                        }
+                                    ],
+                                    "type": "map"
+                                },
+                                {
+                                    "type": "custom:compact-custom-header"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:map",
+                    "panel": true,
+                    "title": "Map"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}
