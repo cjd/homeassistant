@@ -492,7 +492,7 @@
                         },
                         {
                             "entities": [
-                                "sensor.energy_usage",
+                                "sensor.house_power",
                                 "sensor.tvpower"
                             ],
                             "hours_to_show": 24,

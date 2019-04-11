@@ -22,5 +22,6 @@
   name: "House Power"
   entity_id: sensor.energy_usage
   filters:
-    - filter: range
-      upper_bound: 1200
+    - filter: outlier
+      window_size: 4
+      radius: 2.0
