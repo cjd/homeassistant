@@ -6,6 +6,7 @@ esphome:
 wifi:
   ssid: "malware-24"
   password: !secret wifi_password
+  fast_connect: true
 
 # Enable logging
 logger:
@@ -16,7 +17,6 @@ api:
 ota:
 
 i2c:
-  scan: True
 
 # Example configuration entry
 sensor:

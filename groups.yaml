@@ -13,7 +13,7 @@ backroom_lights:
   name: Back room
   entities:
     - light.family_room_middle
-    - light.hue_white_lamp_1
+    - light.family_room_right
     - light.family_room_left
 livingroom_lights:
   name: Living Room

@@ -64,7 +64,7 @@
   - service: input_select.select_option
     data:
       entity_id: input_select.livingroom_preset
-      option: "Turn Off"
+      option: "TurnOff"
 
 - alias: Living Room Normal selected
   trigger:
@@ -81,7 +81,7 @@
     to: "Movie"
   action:
     service: scene.turn_on
-    entity_id: scene.movie
+    entity_id: scene.movies
 - alias: Living Room Night selected
   trigger:
     platform: state
@@ -94,7 +94,7 @@
   trigger:
     platform: state
     entity_id: input_select.livingroom_preset
-    to: "Turn Off"
+    to: "TurnOff"
   action:
     service: scene.turn_on
     entity_id: scene.turn_off
