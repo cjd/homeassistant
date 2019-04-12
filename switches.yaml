@@ -1,0 +1,28 @@
+- platform: command_line
+  switches:
+    backroom_up:
+      command_on: '/config/ptz_script.sh 1'
+      command_off: '/config/ptz_script.sh 1'
+    backroom_down:
+      command_on: '/config/ptz_script.sh 2'
+      command_off: '/config/ptz_script.sh 2'
+    backroom_right:
+      command_on: '/config/ptz_script.sh 3'
+      command_off: '/config/ptz_script.sh 3'
+    backroom_left:
+      command_on: '/config/ptz_script.sh 4'
+      command_off: '/config/ptz_script.sh 4'
+- platform: template
+  switches:
+    livingroom_master:
+      value_template: "{{ is_state('input_select.livingroom_preset', 'TurnOff') }}"
+      turn_on:
+        service: input_select.select_option
+        data:
+          entity_id: input_select.livingroom_preset
+          option: "TurnOff"
+      turn_off:
+        service: input_select.select_option
+        data:
+          entity_id: input_select.livingroom_preset
+          option: "Normal"
