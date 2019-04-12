@@ -3,3 +3,5 @@
   mjpeg_url: http://192.168.0.232/media?action=stream&user=admin&pwd=
   still_image_url: http://192.168.0.232/snapshot.cgi?user=admin&pwd=
   verify_ssl: false
+- platform: onvif
+  host: 192.168.0.190

@@ -4,12 +4,12 @@
     light.kitchen_light_front:
       brightness: 100
       state: true
-      rgb_color: [ 0,0,255]
+      color_name: blue
     light.living_roomkitchen: false
     light.livingroom_side:
       brightness: 100
       state: true
-      rgb_color: [ 0,0,255]
+      color_name: blue
     light.living_room_1:
       state: true
       brightness: 100
@@ -19,7 +19,7 @@
     light.tv_backlight:
       state: true
       brightness: 255
-      rgb_color: [0,0,255]
+      color_name: blue
     light.tv_backlight_2:
       state: true
       effect: Slow Random Effect
@@ -38,14 +38,14 @@
     light.livingroom_side :
       state: true
       brightness: 255
-      rgb_color: [ 255,255,255]
+      color_name: white
     light.tv_backlight_2:
       state: true
       brightness:  255
       effect: Slow Random Effect
     light.tv_backlight:
       brightness: 255
-      rgb_color: [ 255,255,255]
+      color_name: white
     light.tv_backlight: false
 - name: Night
   entities:
@@ -55,7 +55,7 @@
     light.kitchen_light_front:
       state: true
       brightness: 100
-      rgb_color: [ 0,0,255]
+      color_name: blue
     light.living_room_1:
       state: true
       brightness: 50
@@ -65,7 +65,7 @@
     light.livingroom_side :
       state: true
       brightness: 100
-      rgb_color: [ 0,0,255]
+      color_name: blue
     light.tv_backlight_2:
       state: true
       brightness:  255
@@ -73,7 +73,7 @@
     light.tv_backlight:
       state: true
       brightness: 255
-      rgb_color: [ 0,0,255]
+      color_name: blue
 - name: Turn off
   entities:
     light.kitchen_light_back: false

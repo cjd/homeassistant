@@ -44,66 +44,20 @@
                                 {
                                     "cards": [
                                         {
-                                            "card": {
-                                                "action": "service",
-                                                "entity": "input_select.livingroom_preset",
-                                                "icon": "mdi:sofa",
-                                                "name": "Livingroom",
-                                                "service": {
-                                                    "action": "select_option",
-                                                    "data": {
-                                                        "entity_id": "input_select.livingroom_preset",
-                                                        "option": "Normal"
-                                                    },
-                                                    "domain": "input_select"
-                                                },
-                                                "type": "custom:button-card"
-                                            },
-                                            "conditions": [
+                                            "entity": "switch.livingroom_master",
+                                            "icon": "mdi:sofa",
+                                            "name": "Livingroom",
+                                            "state": [
                                                 {
-                                                    "entity": "input_select.livingroom_preset",
-                                                    "state": "TurnOff"
+                                                    "color": "rgb(180, 180, 180)",
+                                                    "value": "on"
+                                                },
+                                                {
+                                                    "color": "rgb(5, 147, 255)",
+                                                    "value": "off"
                                                 }
                                             ],
-                                            "type": "conditional"
-                                        },
-                                        {
-                                            "card": {
-                                                "action": "service",
-                                                "entity": "input_select.livingroom_preset",
-                                                "icon": "mdi:sofa",
-                                                "name": "Livingroom",
-                                                "service": {
-                                                    "action": "select_option",
-                                                    "data": {
-                                                        "entity_id": "input_select.livingroom_preset",
-                                                        "option": "TurnOff"
-                                                    },
-                                                    "domain": "input_select"
-                                                },
-                                                "state": [
-                                                    {
-                                                        "color": "rgb(5, 147, 255)",
-                                                        "value": "Normal"
-                                                    },
-                                                    {
-                                                        "color": "rgb(5, 147, 255)",
-                                                        "value": "Movie"
-                                                    },
-                                                    {
-                                                        "color": "rgb(5, 147, 255)",
-                                                        "value": "Night"
-                                                    }
-                                                ],
-                                                "type": "custom:button-card"
-                                            },
-                                            "conditions": [
-                                                {
-                                                    "entity": "input_select.livingroom_preset",
-                                                    "state_not": "TurnOff"
-                                                }
-                                            ],
-                                            "type": "conditional"
+                                            "type": "custom:button-card"
                                         },
                                         {
                                             "entity": "group.kitchen_lights",
@@ -369,6 +323,9 @@
                                 },
                                 {
                                     "entity": "light.office_strip"
+                                },
+                                {
+                                    "entity": "light.kitchen_light_front"
                                 }
                             ],
                             "show_header_toggle": false,
