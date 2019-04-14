@@ -25,3 +25,5 @@
     - filter: outlier
       window_size: 4
       radius: 2.0
+    - filter: range
+      upper_bound: 1200

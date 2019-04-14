@@ -14,7 +14,7 @@
       command_off: '/config/ptz_script.sh 4'
 - platform: template
   switches:
-    livingroom_master:
+    livingroom_lights:
       value_template: "{{ is_state('input_select.livingroom_preset', 'TurnOff') }}"
       turn_on:
         service: input_select.select_option
@@ -26,3 +26,53 @@
         data:
           entity_id: input_select.livingroom_preset
           option: "Normal"
+    kitchen_lights:
+      value_template: "{{ states('group.kitchen_lights') }}"
+      turn_on:
+        service: homeassistant.turn_on
+        data:
+            entity_id: group.kitchen_lights
+      turn_off:
+        service: homeassistant.turn_off
+        data:
+            entity_id: group.kitchen_lights
+    backroom_lights:
+      value_template: "{{ states('group.backroom_lights') }}"
+      turn_on:
+        service: homeassistant.turn_on
+        data:
+            entity_id: group.backroom_lights
+      turn_off:
+        service: homeassistant.turn_off
+        data:
+            entity_id: group.backroom_lights
+    craftroom_lights:
+      value_template: "{{ states('group.craftroom_lights') }}"
+      turn_on:
+        service: homeassistant.turn_on
+        data:
+            entity_id: group.craftroom_lights
+      turn_off:
+        service: homeassistant.turn_off
+        data:
+            entity_id: group.craftroom_lights
+    office_lights:
+      value_template: "{{ states('group.office_lights') }}"
+      turn_on:
+        service: homeassistant.turn_on
+        data:
+            entity_id: group.office_lights
+      turn_off:
+        service: homeassistant.turn_off
+        data:
+            entity_id: group.office_lights
+    bedroom_lights:
+      value_template: "{{ states('group.bedroom_lights') }}"
+      turn_on:
+        service: homeassistant.turn_on
+        data:
+            entity_id: group.bedroom_lights
+      turn_off:
+        service: homeassistant.turn_off
+        data:
+            entity_id: group.bedroom_lights

@@ -44,7 +44,7 @@
                                 {
                                     "cards": [
                                         {
-                                            "entity": "switch.livingroom_master",
+                                            "entity": "switch.livingroom_lights",
                                             "icon": "mdi:sofa",
                                             "name": "Livingroom",
                                             "state": [
@@ -60,7 +60,7 @@
                                             "type": "custom:button-card"
                                         },
                                         {
-                                            "entity": "group.kitchen_lights",
+                                            "entity": "switch.kitchen_lights",
                                             "icon": "mdi:fridge",
                                             "name": "Kitchen",
                                             "state": [
@@ -76,7 +76,7 @@
                                             "type": "custom:button-card"
                                         },
                                         {
-                                            "entity": "group.backroom_lights",
+                                            "entity": "switch.backroom_lights",
                                             "icon": "mdi:castle",
                                             "name": "Backroom",
                                             "state": [
@@ -97,7 +97,7 @@
                                 {
                                     "cards": [
                                         {
-                                            "entity": "group.craftroom_lights",
+                                            "entity": "switch.craftroom_lights",
                                             "icon": "mdi:content-cut",
                                             "name": "Craft",
                                             "state": [
@@ -113,7 +113,7 @@
                                             "type": "custom:button-card"
                                         },
                                         {
-                                            "entity": "group.office_lights",
+                                            "entity": "switch.office_lights",
                                             "icon": "mdi:desktop-classic",
                                             "name": "Office",
                                             "state": [
@@ -130,7 +130,7 @@
                                         },
                                         {
                                             "color-type": "card",
-                                            "entity": "group.bedroom_lights",
+                                            "entity": "switch.bedroom_lights",
                                             "icon": "mdi:bed-empty",
                                             "name": "Bedroom",
                                             "state": [
@@ -181,7 +181,7 @@
                                             "action": "service",
                                             "entity": "input_select.livingroom_preset",
                                             "icon": "mdi:movie",
-                                            "name": "Movies",
+                                            "name": "Movie",
                                             "service": {
                                                 "action": "select_option",
                                                 "data": {
@@ -269,6 +269,28 @@
                             "main_config": true,
                             "type": "custom:compact-custom-header",
                             "voice": "hide"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "group.kitchen_lights"
+                                },
+                                {
+                                    "entity": "light.kitchen_light_back"
+                                },
+                                {
+                                    "entity": "light.kitchen_light_front"
+                                },
+                                {
+                                    "entity": "light.tv_backlight"
+                                },
+                                {
+                                    "entity": "switch.kitchen_lights"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "kitchen",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:home",

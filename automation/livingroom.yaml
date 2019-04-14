@@ -42,7 +42,7 @@
   - service: input_select.select_option
     data:
       entity_id: input_select.livingroom_preset
-      option: "Movies"
+      option: "Movie"
 - alias: Living Room Click 3
   trigger:
   - entity_id: sensor.living_room_switch
