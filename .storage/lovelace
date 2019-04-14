@@ -44,51 +44,24 @@
                                 {
                                     "cards": [
                                         {
+                                            "color": "rgb(5, 147, 255)",
                                             "entity": "switch.livingroom_lights",
                                             "icon": "mdi:sofa",
                                             "name": "Livingroom",
-                                            "state": [
-                                                {
-                                                    "color": "rgb(180, 180, 180)",
-                                                    "value": "on"
-                                                },
-                                                {
-                                                    "color": "rgb(5, 147, 255)",
-                                                    "value": "off"
-                                                }
-                                            ],
                                             "type": "custom:button-card"
                                         },
                                         {
+                                            "color": "rgb(5, 147, 255)",
                                             "entity": "switch.kitchen_lights",
                                             "icon": "mdi:fridge",
                                             "name": "Kitchen",
-                                            "state": [
-                                                {
-                                                    "color": "rgb(180,180,180)",
-                                                    "value": "off"
-                                                },
-                                                {
-                                                    "color": "rgb(5, 147, 255)",
-                                                    "value": "on"
-                                                }
-                                            ],
                                             "type": "custom:button-card"
                                         },
                                         {
+                                            "color": "rgb(5, 147, 255)",
                                             "entity": "switch.backroom_lights",
                                             "icon": "mdi:castle",
                                             "name": "Backroom",
-                                            "state": [
-                                                {
-                                                    "color": "rgb(180,180,180)",
-                                                    "value": "off"
-                                                },
-                                                {
-                                                    "color": "rgb(5, 147, 255)",
-                                                    "value": "on"
-                                                }
-                                            ],
                                             "type": "custom:button-card"
                                         }
                                     ],
@@ -97,52 +70,25 @@
                                 {
                                     "cards": [
                                         {
+                                            "color": "rgb(5, 147, 255)",
                                             "entity": "switch.craftroom_lights",
                                             "icon": "mdi:content-cut",
                                             "name": "Craft",
-                                            "state": [
-                                                {
-                                                    "color": "rgb(180,180,180)",
-                                                    "value": "off"
-                                                },
-                                                {
-                                                    "color": "rgb(5, 147, 255)",
-                                                    "value": "on"
-                                                }
-                                            ],
                                             "type": "custom:button-card"
                                         },
                                         {
+                                            "color": "rgb(5, 147, 255)",
                                             "entity": "switch.office_lights",
                                             "icon": "mdi:desktop-classic",
                                             "name": "Office",
-                                            "state": [
-                                                {
-                                                    "color": "rgb(180,180,180)",
-                                                    "value": "off"
-                                                },
-                                                {
-                                                    "color": "rgb(5, 147, 255)",
-                                                    "value": "on"
-                                                }
-                                            ],
                                             "type": "custom:button-card"
                                         },
                                         {
+                                            "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
                                             "entity": "switch.bedroom_lights",
                                             "icon": "mdi:bed-empty",
                                             "name": "Bedroom",
-                                            "state": [
-                                                {
-                                                    "color": "rgb(180,180,180)",
-                                                    "value": "off"
-                                                },
-                                                {
-                                                    "color": "rgb(5, 147, 255)",
-                                                    "value": "on"
-                                                }
-                                            ],
                                             "type": "custom:button-card"
                                         }
                                     ],

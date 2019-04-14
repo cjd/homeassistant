@@ -15,17 +15,17 @@
 - platform: template
   switches:
     livingroom_lights:
-      value_template: "{{ is_state('input_select.livingroom_preset', 'TurnOff') }}"
+      value_template: "{{ not is_state('input_select.livingroom_preset', 'TurnOff') }}"
       turn_on:
         service: input_select.select_option
         data:
           entity_id: input_select.livingroom_preset
-          option: "TurnOff"
+          option: "Normal"
       turn_off:
         service: input_select.select_option
         data:
           entity_id: input_select.livingroom_preset
-          option: "Normal"
+          option: "TurnOff"
     kitchen_lights:
       value_template: "{{ states('group.kitchen_lights') }}"
       turn_on:
