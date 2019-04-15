@@ -15,6 +15,8 @@
 - platform: template
   switches:
     livingroom_lights:
+      icon_template: mdi:sofa
+      friendly_name: "Livingroom"
       value_template: "{{ not is_state('input_select.livingroom_preset', 'TurnOff') }}"
       turn_on:
         service: input_select.select_option
@@ -27,6 +29,8 @@
           entity_id: input_select.livingroom_preset
           option: "TurnOff"
     kitchen_lights:
+      icon_template: mdi:fridge
+      friendly_name: "Kitchen"
       value_template: "{{ states('group.kitchen_lights') }}"
       turn_on:
         service: homeassistant.turn_on
@@ -37,6 +41,8 @@
         data:
             entity_id: group.kitchen_lights
     backroom_lights:
+      icon_template: mdi:castle
+      friendly_name: "Backroom"
       value_template: "{{ states('group.backroom_lights') }}"
       turn_on:
         service: homeassistant.turn_on
@@ -47,6 +53,8 @@
         data:
             entity_id: group.backroom_lights
     craftroom_lights:
+      icon_template: mdi:content-cut
+      friendly_name: "Craft"
       value_template: "{{ states('group.craftroom_lights') }}"
       turn_on:
         service: homeassistant.turn_on
@@ -58,6 +66,8 @@
             entity_id: group.craftroom_lights
     office_lights:
       value_template: "{{ states('group.office_lights') }}"
+      icon_template: mdi:desktop-classic
+      friendly_name: "Office"
       turn_on:
         service: homeassistant.turn_on
         data:
@@ -68,6 +78,8 @@
             entity_id: group.office_lights
     bedroom_lights:
       value_template: "{{ states('group.bedroom_lights') }}"
+      icon_template: mdi:bed-empty
+      friendly_name: "Bedroom"
       turn_on:
         service: homeassistant.turn_on
         data:

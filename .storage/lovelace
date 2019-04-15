@@ -215,28 +215,6 @@
                             "main_config": true,
                             "type": "custom:compact-custom-header",
                             "voice": "hide"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "group.kitchen_lights"
-                                },
-                                {
-                                    "entity": "light.kitchen_light_back"
-                                },
-                                {
-                                    "entity": "light.kitchen_light_front"
-                                },
-                                {
-                                    "entity": "light.tv_backlight"
-                                },
-                                {
-                                    "entity": "switch.kitchen_lights"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "kitchen",
-                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:home",
