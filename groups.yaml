@@ -41,4 +41,12 @@ kitchen_lights:
   entities:
     - light.kitchen_light_back
     - light.kitchen_light_front
-    - light.tv_backlight
+    - light.kitchen_counter
+xander_bedroom_lights:
+  name: Xander  Bedroom
+  entities:
+    - light.xander_bedroom_light
+lucas_bedroom_lights:
+  name: Lucas Bedroom
+  entities:
+    - light.lucas_bedroom_light

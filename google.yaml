@@ -7,6 +7,10 @@ exposed_domains:
   - scene
 expose_by_default: true
 entity_config:
+  script.leaving_home:
+    expose: true
+  script.arriving_home:
+    expose: true
   switch.entertainment_unit:
     expose: false
   group.all_lights:
@@ -29,6 +33,10 @@ entity_config:
     expose: false
   light.office:
     expose: false
+  light.lucas_bedroom:
+    expose: false
+  light.xander_bedroom:
+    expose: false
   switch.backroom_left:
     expose: false
   switch.backroom_right:
@@ -36,4 +44,20 @@ entity_config:
   switch.backroom_up:
     expose: false
   switch.backroom_down:
+    expose: false
+  switch.backroom_lights:
+    expose: false
+  switch.bedroom_lights:
+    expose: false
+  switch.lucas_bedroom_lights:
+    expose: false
+  switch.xander_bedroom_lights:
+    expose: false
+  switch.craftroom_lights:
+    expose: false
+  switch.kitchen_lights:
+    expose: false
+  switch.livingroom_lights:
+    expose: false
+  switch.office_lights:
     expose: false

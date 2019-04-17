@@ -63,19 +63,19 @@
                                             "icon": "mdi:castle",
                                             "name": "Backroom",
                                             "type": "custom:button-card"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
+                                        },
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "entity": "switch.craftroom_lights",
                                             "icon": "mdi:content-cut",
                                             "name": "Craft",
                                             "type": "custom:button-card"
-                                        },
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "entity": "switch.office_lights",
@@ -88,7 +88,23 @@
                                             "color-type": "card",
                                             "entity": "switch.bedroom_lights",
                                             "icon": "mdi:bed-empty",
-                                            "name": "Bedroom",
+                                            "name": "Main",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color": "rgb(5, 147, 255)",
+                                            "color-type": "card",
+                                            "entity": "switch.lucas_bedroom_lights",
+                                            "icon": "mdi:bed-empty",
+                                            "name": "Lucas",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color": "rgb(5, 147, 255)",
+                                            "color-type": "card",
+                                            "entity": "switch.xander_bedroom_lights",
+                                            "icon": "mdi:bed-empty",
+                                            "name": "Xander",
                                             "type": "custom:button-card"
                                         }
                                     ],
@@ -247,6 +263,12 @@
                                 },
                                 {
                                     "entity": "group.office_lights"
+                                },
+                                {
+                                    "entity": "group.lucas_bedroom_lights"
+                                },
+                                {
+                                    "entity": "group.xander_bedroom_lights"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -262,7 +284,7 @@
                                     "entity": "light.family_room_strip"
                                 },
                                 {
-                                    "entity": "light.tv_backlight"
+                                    "entity": "light.kitchen_counter"
                                 },
                                 {
                                     "entity": "light.livingroom_side"

@@ -33,9 +33,10 @@
       friendly_name: "Kitchen"
       value_template: "{{ states('group.kitchen_lights') }}"
       turn_on:
-        service: homeassistant.turn_on
+        service: light.turn_on
         data:
             entity_id: group.kitchen_lights
+            brightness_pct: 100
       turn_off:
         service: homeassistant.turn_off
         data:
@@ -45,9 +46,10 @@
       friendly_name: "Backroom"
       value_template: "{{ states('group.backroom_lights') }}"
       turn_on:
-        service: homeassistant.turn_on
+        service: light.turn_on
         data:
             entity_id: group.backroom_lights
+            brightness_pct: 100
       turn_off:
         service: homeassistant.turn_off
         data:
@@ -57,9 +59,10 @@
       friendly_name: "Craft"
       value_template: "{{ states('group.craftroom_lights') }}"
       turn_on:
-        service: homeassistant.turn_on
+        service: light.turn_on
         data:
             entity_id: group.craftroom_lights
+            brightness_pct: 100
       turn_off:
         service: homeassistant.turn_off
         data:
@@ -69,8 +72,12 @@
       icon_template: mdi:desktop-classic
       friendly_name: "Office"
       turn_on:
-        service: homeassistant.turn_on
-        data:
+        - service: light.turn_on
+          data:
+            entity_id: group.office_lights
+            brightness_pct: 100
+        - service: homeassistant.turn_on
+          data:
             entity_id: group.office_lights
       turn_off:
         service: homeassistant.turn_off
@@ -81,10 +88,37 @@
       icon_template: mdi:bed-empty
       friendly_name: "Bedroom"
       turn_on:
-        service: homeassistant.turn_on
+        service: light.turn_on
         data:
             entity_id: group.bedroom_lights
+            brightness_pct: 100
       turn_off:
         service: homeassistant.turn_off
         data:
             entity_id: group.bedroom_lights
+    lucas_bedroom_lights:
+      value_template: "{{ states('group.lucas_bedroom_lights') }}"
+      icon_template: mdi:bed-empty
+      friendly_name: "Lucas Bedroom"
+      turn_on:
+        service: light.turn_on
+        data:
+            entity_id: group.lucas_bedroom_lights
+            brightness_pct: 100
+      turn_off:
+        service: homeassistant.turn_off
+        data:
+            entity_id: group.lucas_bedroom_lights
+    xander_bedroom_lights:
+      value_template: "{{ states('group.xander_bedroom_lights') }}"
+      icon_template: mdi:bed-empty
+      friendly_name: "Xander Bedroom"
+      turn_on:
+        service: light.turn_on
+        data:
+            entity_id: group.xander_bedroom_lights
+            brightness_pct: 100
+      turn_off:
+        service: homeassistant.turn_off
+        data:
+            entity_id: group.xander_bedroom_lights

@@ -1,19 +1,16 @@
-noone_home:
+leaving_home:
   alias: Leaving Home
   sequence:
     - service: homeassistant.turn_off
       data:
         entity_id: group.all_lights
-someone_home:
+arriving_home:
   alias: Arrived Home
   sequence:
-    - service: homeassistant.turn_on
+    - service: input_select.select_option
       data:
-        entity_id: light.living_room
-    - service: light.turn_on
-      data:
-        entity_id: light.tv_backlight_2
-        effect: Slow Random Effect
+        entity_id: input_select.livingroom_preset
+        option: "Normal"
     - service: light.turn_on
       data:
         entity_id: light.family_room_strip
