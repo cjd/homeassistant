@@ -2,23 +2,23 @@
   entities:
     light.kitchen_light_back: false
     light.kitchen_light_front:
-      brightness: 100
+      brightness_pct: 40
       state: true
       color_name: blue
     light.living_roomkitchen: false
     light.livingroom_side:
-      brightness: 100
+      brightness_pct: 40
       state: true
       color_name: blue
     light.living_room_1:
       state: true
-      brightness: 100
+      brightness_pct: 40
     light.living_room_2:
       state: true
-      brightness: 100
+      brightness_pct: 40
     light.kitchen_counter:
       state: true
-      brightness: 255
+      brightness_pct: 100
       color_name: blue
     light.tv_backlight_2:
       state: true
@@ -27,52 +27,52 @@
   entities:
     light.living_roomkitchen:
       state: true
-      brightness: 255
+      brightness_pct: 100
       color_temp: 390
     light.living_room_1:
       state: true
-      brightness: 255
+      brightness_pct: 100
     light.living_room_2:
       state: true
-      brightness: 255
+      brightness_pct: 100
     light.livingroom_side :
       state: true
-      brightness: 255
+      brightness_pct: 100
       color_name: white
     light.tv_backlight_2:
       state: true
-      brightness:  255
+      brightness_pct: 100
       effect: Slow Random Effect
     light.kitchen_counter:
-      brightness: 255
+      brightness_pct: 100
       color_name: white
     light.kitchen_counter: false
 - name: Night
   entities:
     light.living_roomkitchen:
       state: true
-      brightness: 50
+      brightness_pct: 40
     light.kitchen_light_front:
       state: true
-      brightness: 100
+      brightness_pct: 40
       color_name: blue
     light.living_room_1:
       state: true
-      brightness: 50
+      brightness_pct: 20
     light.living_room_2:
       state: true
-      brightness: 50
+      brightness_pct: 20
     light.livingroom_side :
       state: true
-      brightness: 100
+      brightness_pct: 40
       color_name: blue
     light.tv_backlight_2:
       state: true
-      brightness:  255
+      brightness_pct: 100
       effect: Random Twinkle
     light.kitchen_counter:
       state: true
-      brightness: 255
+      brightness_pct: 100
       color_name: blue
 - name: Turn off
   entities:
@@ -85,7 +85,7 @@
     light.kitchen_counter: false
     light.tv_backlight_2:
       state: true
-      brightness:  255
+      brightness_pct: 100
       effect: Random Twinkle
 - name: All off
   entities:
@@ -97,5 +97,5 @@
     light.bedroom_lights: false
     light.tv_backlight_2:
       state: true
-      brightness:  255
+      brightness_pct: 100
       effect: Random Twinkle

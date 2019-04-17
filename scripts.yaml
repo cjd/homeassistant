@@ -4,6 +4,16 @@ leaving_home:
     - service: homeassistant.turn_off
       data:
         entity_id: group.all_lights
+    - service: light.turn_on
+      data:
+        entity_id: light.tv_backlight_2
+        state: true
+        brightness_pct:  100
+        effect: Random Twinkle
+    - service: light.turn_on
+      data:
+        entity_id: light.family_room_strip
+        effect: Slow Random Effect
 arriving_home:
   alias: Arrived Home
   sequence:
@@ -11,7 +21,3 @@ arriving_home:
       data:
         entity_id: input_select.livingroom_preset
         option: "Normal"
-    - service: light.turn_on
-      data:
-        entity_id: light.family_room_strip
-        effect: Slow Random Effect
