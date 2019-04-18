@@ -119,87 +119,83 @@
                                 {
                                     "cards": [
                                         {
-                                            "action": "service",
                                             "entity": "input_select.livingroom_preset",
                                             "icon": "mdi:lightbulb",
                                             "name": "Normal",
-                                            "service": {
-                                                "action": "select_option",
-                                                "data": {
-                                                    "entity_id": "input_select.livingroom_preset",
-                                                    "option": "Normal"
-                                                },
-                                                "domain": "input_select"
-                                            },
                                             "state": [
                                                 {
                                                     "color": "rgb(5, 147, 255)",
                                                     "value": "Normal"
                                                 }
                                             ],
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_option",
+                                                "service_data": {
+                                                    "entity_id": "input_select.livingroom_preset",
+                                                    "option": "Normal"
+                                                }
+                                            },
                                             "type": "custom:button-card"
                                         },
                                         {
-                                            "action": "service",
                                             "entity": "input_select.livingroom_preset",
                                             "icon": "mdi:movie",
                                             "name": "Movie",
-                                            "service": {
-                                                "action": "select_option",
-                                                "data": {
-                                                    "entity_id": "input_select.livingroom_preset",
-                                                    "option": "Movie"
-                                                },
-                                                "domain": "input_select"
-                                            },
                                             "state": [
                                                 {
                                                     "color": "rgb(5, 147, 255)",
                                                     "value": "Movie"
                                                 }
                                             ],
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_option",
+                                                "service_data": {
+                                                    "entity_id": "input_select.livingroom_preset",
+                                                    "option": "Movie"
+                                                }
+                                            },
                                             "type": "custom:button-card"
                                         },
                                         {
-                                            "action": "service",
                                             "entity": "input_select.livingroom_preset",
                                             "icon": "mdi:weather-night",
                                             "name": "Night",
-                                            "service": {
-                                                "action": "select_option",
-                                                "data": {
-                                                    "entity_id": "input_select.livingroom_preset",
-                                                    "option": "Night"
-                                                },
-                                                "domain": "input_select"
-                                            },
                                             "state": [
                                                 {
                                                     "color": "rgb(5, 147, 255)",
                                                     "value": "Night"
                                                 }
                                             ],
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_option",
+                                                "service_data": {
+                                                    "entity_id": "input_select.livingroom_preset",
+                                                    "option": "Night"
+                                                }
+                                            },
                                             "type": "custom:button-card"
                                         },
                                         {
-                                            "action": "service",
                                             "entity": "input_select.livingroom_preset",
                                             "icon": "mdi:do-not-disturb",
                                             "name": "Off",
-                                            "service": {
-                                                "action": "select_option",
-                                                "data": {
-                                                    "entity_id": "input_select.livingroom_preset",
-                                                    "option": "TurnOff"
-                                                },
-                                                "domain": "input_select"
-                                            },
                                             "state": [
                                                 {
                                                     "color": "rgb(5, 147, 255)",
                                                     "value": "TurnOff"
                                                 }
                                             ],
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "input_select.select_option",
+                                                "service_data": {
+                                                    "entity_id": "input_select.livingroom_preset",
+                                                    "option": "TurnOff"
+                                                }
+                                            },
                                             "type": "custom:button-card"
                                         }
                                     ],
@@ -339,7 +335,14 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "custom:compact-custom-header"
+                            "hold_action": {
+                                "action": "none"
+                            },
+                            "image": "https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?station=071&brand=wui&num=6&delay=15&type=A0Q&frame=0&scale=0.125&noclutter=0&showstorms=5&mapx=400&mapy=240&centerx=510&centery=250&transx=110&transy=10&showlabels=1&severe=0&rainsnow=1&lightning=1&smooth=1&rand=25926123&lat=0&lon=0&label=you",
+                            "tap_action": {
+                                "action": "none"
+                            },
+                            "type": "picture"
                         },
                         {
                             "entities": [
@@ -379,6 +382,9 @@
                             "show_header_toggle": false,
                             "title": "Weather",
                             "type": "entities"
+                        },
+                        {
+                            "type": "custom:compact-custom-header"
                         },
                         {
                             "entities": [
