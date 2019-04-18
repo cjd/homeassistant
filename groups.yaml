@@ -18,7 +18,6 @@ backroom_lights:
 livingroom_lights:
   name: Living Room
   entities:
-    - light.living_roomkitchen
     - light.living_room_1
     - light.living_room_2
     - light.livingroom_side
@@ -26,7 +25,7 @@ office_lights:
   name: Office
   entities:
     - light.office
-    - switch.speaker
+    - switch.office_speaker
 bedroom_lights:
   name: Bedroom
   entities:

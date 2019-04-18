@@ -5,7 +5,6 @@
       brightness_pct: 40
       state: true
       color_name: blue
-    light.living_roomkitchen: false
     light.livingroom_side:
       brightness_pct: 40
       state: true
@@ -25,10 +24,6 @@
       effect: Slow Random Effect
 - name: Normal
   entities:
-    light.living_roomkitchen:
-      state: true
-      brightness_pct: 100
-      color_temp: 390
     light.living_room_1:
       state: true
       brightness_pct: 100
@@ -39,6 +34,7 @@
       state: true
       brightness_pct: 100
       color_name: white
+      color_temp: 390
     light.tv_backlight_2:
       state: true
       brightness_pct: 100
@@ -49,9 +45,6 @@
     light.kitchen_counter: false
 - name: Night
   entities:
-    light.living_roomkitchen:
-      state: true
-      brightness_pct: 40
     light.kitchen_light_front:
       state: true
       brightness_pct: 40
@@ -78,7 +71,6 @@
   entities:
     light.kitchen_light_back: false
     light.kitchen_light_front: false
-    light.living_roomkitchen: false
     light.living_room_1: false
     light.living_room_2: false
     light.livingroom_side : false

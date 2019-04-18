@@ -516,7 +516,7 @@
                         }
                     ],
                     "icon": "mdi:map",
-                    "panel": true,
+                    "panel": false,
                     "title": "Map"
                 }
             ]
