@@ -33,7 +33,6 @@
     light.livingroom_side :
       state: true
       brightness_pct: 100
-      color_name: white
       color_temp: 390
     light.tv_backlight_2:
       state: true
@@ -53,8 +52,7 @@
       state: true
       brightness_pct: 20
     light.living_room_2:
-      state: true
-      brightness_pct: 20
+      state: false
     light.livingroom_side :
       state: true
       brightness_pct: 40
