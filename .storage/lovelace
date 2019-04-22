@@ -126,6 +126,10 @@
                                                 {
                                                     "color": "rgb(5, 147, 255)",
                                                     "value": "Normal"
+                                                },
+                                                {
+                                                    "color": "var(--paper-item-icon-color)",
+                                                    "operator": "default"
                                                 }
                                             ],
                                             "tap_action": {
@@ -146,6 +150,10 @@
                                                 {
                                                     "color": "rgb(5, 147, 255)",
                                                     "value": "Movie"
+                                                },
+                                                {
+                                                    "color": "var(--paper-item-icon-color)",
+                                                    "operator": "default"
                                                 }
                                             ],
                                             "tap_action": {
@@ -166,6 +174,10 @@
                                                 {
                                                     "color": "rgb(5, 147, 255)",
                                                     "value": "Night"
+                                                },
+                                                {
+                                                    "color": "var(--paper-item-icon-color)",
+                                                    "operator": "default"
                                                 }
                                             ],
                                             "tap_action": {
@@ -186,6 +198,10 @@
                                                 {
                                                     "color": "rgb(5, 147, 255)",
                                                     "value": "TurnOff"
+                                                },
+                                                {
+                                                    "color": "var(--paper-item-icon-color)",
+                                                    "operator": "default"
                                                 }
                                             ],
                                             "tap_action": {
