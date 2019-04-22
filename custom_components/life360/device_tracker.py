@@ -34,9 +34,6 @@ from homeassistant.util.async_ import run_coroutine_threadsafe
 from homeassistant.util.distance import convert
 import homeassistant.util.dt as dt_util
 
-
-__version__ = '2.9.0'
-
 _LOGGER = logging.getLogger(__name__)
 
 DEPENDENCIES = ['zone']
