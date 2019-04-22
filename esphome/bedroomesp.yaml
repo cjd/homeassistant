@@ -1,0 +1,23 @@
+esphome:
+  name: bedroomesp
+  platform: ESP32
+  board: esp32doit-devkit-v1
+
+wifi:
+  ssid: malware-24
+  password: !secret wifi_password
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+light:
+  - platform: fastled_clockless
+    chipset: WS2812B
+    pin: GPIO13
+    num_leds: 1
+    rgb_order: RGB
+    name: "Bedroom LED"
