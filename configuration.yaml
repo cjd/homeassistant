@@ -36,20 +36,10 @@ weather:
   - platform: bom
     station: IDN60901.94782
 
-panel_custom:
-  - name: hassio-main
-    sidebar_title: VSCode
-    sidebar_icon: mdi:visual-studio-code
-    js_url: /api/hassio/app/entrypoint.js
-    url_path: vscode
-    embed_iframe: true
-    require_admin: true
-    config:
-      ingress: a0d7b954_vscode
-
 # Text to speech
 tts:
-  - platform: google
+  - platform: google_translate
+    service_name: google_say
 
 googlehome:
   devices:
