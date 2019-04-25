@@ -39,16 +39,14 @@ weather:
 panel_custom:
   - name: hassio-main
     sidebar_title: VSCode
-    sidebar_icon: hass:settings
+    sidebar_icon: mdi:visual-studio-code
     js_url: /api/hassio/app/entrypoint.js
-    url_path: configurator
+    url_path: vscode
     embed_iframe: true
     require_admin: true
     config:
       ingress: a0d7b954_vscode
 
-
-    
 # Text to speech
 tts:
   - platform: google
