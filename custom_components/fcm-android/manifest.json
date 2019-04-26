@@ -1,0 +1,9 @@
+{
+        "domain": "fcm-android",
+        "name": "FCM Android custom component",
+        "documentation": "https://github.com/Crewski/HANotify",
+        "requirements": [],
+        "dependencies": [],
+        "codeowners": ["@crewski"]
+}
+
