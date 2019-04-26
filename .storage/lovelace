@@ -8,6 +8,14 @@
                 },
                 {
                     "type": "module",
+                    "url": "/local/slider-entity-row.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/light-entity-row.js"
+                },
+                {
+                    "type": "module",
                     "url": "/customcards/github/custom-cards/tracker-card.js?track=true"
                 },
                 {
@@ -259,28 +267,44 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "group.bedroom_lights"
+                                    "entity": "group.bedroom_lights",
+                                    "hideColorTemp": true,
+                                    "type": "custom:light-entity-row"
                                 },
                                 {
-                                    "entity": "group.backroom_lights"
+                                    "entity": "group.backroom_lights",
+                                    "hideColorTemp": true,
+                                    "type": "custom:light-entity-row"
                                 },
                                 {
-                                    "entity": "group.craftroom_lights"
+                                    "entity": "group.craftroom_lights",
+                                    "hideColorTemp": true,
+                                    "type": "custom:light-entity-row"
                                 },
                                 {
-                                    "entity": "group.kitchen_lights"
+                                    "entity": "group.kitchen_lights",
+                                    "hideColorTemp": true,
+                                    "type": "custom:light-entity-row"
                                 },
                                 {
-                                    "entity": "group.livingroom_lights"
+                                    "entity": "group.livingroom_lights",
+                                    "hideColorTemp": true,
+                                    "type": "custom:light-entity-row"
                                 },
                                 {
-                                    "entity": "group.office_lights"
+                                    "entity": "group.office_lights",
+                                    "hideColorTemp": true,
+                                    "type": "custom:light-entity-row"
                                 },
                                 {
-                                    "entity": "group.lucas_bedroom_lights"
+                                    "entity": "group.lucas_bedroom_lights",
+                                    "hideColorTemp": true,
+                                    "type": "custom:light-entity-row"
                                 },
                                 {
-                                    "entity": "group.xander_bedroom_lights"
+                                    "entity": "group.xander_bedroom_lights",
+                                    "hideColorTemp": true,
+                                    "type": "custom:light-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -290,22 +314,105 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.tv_backlight_2"
+                                    "buttons": [
+                                        {
+                                            "name": "Random Colours",
+                                            "service_data": {
+                                                "effect": "Slow Random Effect"
+                                            }
+                                        },
+                                        {
+                                            "name": "Twinkle",
+                                            "service_data": {
+                                                "effect": "Random Twinkle"
+                                            }
+                                        },
+                                        {
+                                            "name": "Rainbow",
+                                            "service_data": {
+                                                "effect": "Rainbow Effect"
+                                            }
+                                        }
+                                    ],
+                                    "entity": "light.tv_backlight_2",
+                                    "hideBrightness": true,
+                                    "hideColorTemp": true,
+                                    "showColorSliders": false,
+                                    "type": "custom:light-entity-row"
                                 },
                                 {
-                                    "entity": "light.family_room_strip"
+                                    "buttons": [
+                                        {
+                                            "name": "Random Colours",
+                                            "service_data": {
+                                                "effect": "Slow Random Effect"
+                                            }
+                                        },
+                                        {
+                                            "name": "Twinkle",
+                                            "service_data": {
+                                                "effect": "Random Twinkle"
+                                            }
+                                        },
+                                        {
+                                            "name": "Rainbow",
+                                            "service_data": {
+                                                "effect": "Rainbow Effect"
+                                            }
+                                        }
+                                    ],
+                                    "entity": "light.family_room_strip",
+                                    "hideBrightness": true,
+                                    "hideColorTemp": true,
+                                    "type": "custom:light-entity-row"
                                 },
                                 {
-                                    "entity": "light.kitchen_counter"
+                                    "buttons": [
+                                        {
+                                            "name": "Random Colours",
+                                            "service_data": {
+                                                "effect": "Slow Random Effect"
+                                            }
+                                        },
+                                        {
+                                            "name": "Twinkle",
+                                            "service_data": {
+                                                "effect": "Random Twinkle"
+                                            }
+                                        },
+                                        {
+                                            "name": "Rainbow",
+                                            "service_data": {
+                                                "effect": "Rainbow Effect"
+                                            }
+                                        }
+                                    ],
+                                    "entity": "light.office_strip",
+                                    "hideBrightness": true,
+                                    "hideColorTemp": true,
+                                    "showColorSliders": false,
+                                    "type": "custom:light-entity-row"
                                 },
                                 {
-                                    "entity": "light.livingroom_side"
+                                    "entity": "light.kitchen_counter",
+                                    "hideBrightness": true,
+                                    "hideColorTemp": true,
+                                    "showColorSliders": true,
+                                    "type": "custom:light-entity-row"
                                 },
                                 {
-                                    "entity": "light.office_strip"
+                                    "entity": "light.livingroom_side",
+                                    "hideBrightness": true,
+                                    "hideColorTemp": true,
+                                    "showColorSliders": true,
+                                    "type": "custom:light-entity-row"
                                 },
                                 {
-                                    "entity": "light.kitchen_light_front"
+                                    "entity": "light.kitchen_light_front",
+                                    "hideBrightness": true,
+                                    "hideColorTemp": true,
+                                    "showColorSliders": true,
+                                    "type": "custom:light-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
