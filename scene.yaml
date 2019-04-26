@@ -41,10 +41,10 @@
     light.kitchen_counter:
       brightness_pct: 100
       color_name: white
-    light.kitchen_counter: <
-      {% if states('light.kitchen_counter.color_name') == 'blue' %}false
-      {% else %}true
-      {% endif %}
+      state: <
+        {% if states('light.kitchen_counter.color_name') == 'blue' %}false
+        {% else %}true
+        {% endif %}
 - name: Night
   entities:
     light.kitchen_light_front:
