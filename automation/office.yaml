@@ -1,17 +1,17 @@
 - alias: Office light on
   trigger:
-  - entity_id: sensor.office_switch
+  - entity_id: light.office_light
     platform: state
-    to: 1_click_up
+    to: 'on'
   condition: []
   action:
   - entity_id: switch.office_speaker
     service: switch.turn_on
 - alias: Office light off
   trigger:
-  - entity_id: sensor.office_switch
+  - entity_id: light.office_light
     platform: state
-    to: 4_click_up
+    to: 'off'
   condition: []
   action:
   - entity_id: switch.office_speaker

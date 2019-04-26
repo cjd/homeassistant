@@ -25,7 +25,6 @@ office_lights:
   name: Office
   entities:
     - light.office
-    - switch.office_speaker
 bedroom_lights:
   name: Bedroom
   entities:
