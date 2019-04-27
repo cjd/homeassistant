@@ -19,6 +19,7 @@ sun:
 system_health:
 stream:
 person:
+ffmpeg:
 
 logger:
   default: info

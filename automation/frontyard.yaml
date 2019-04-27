@@ -1,0 +1,18 @@
+- alias: Door Motion on
+  trigger:
+    - platform: state
+      entity_id:  binary_sensor.hue_motion_sensor_1_motion
+      to: 'on'
+  condition:
+  action:
+    service: light.turn_on
+    entity_id:  light.sensor_light
+- alias: Door Motion off
+  trigger:
+    - platform: state
+      entity_id:  binary_sensor.hue_motion_sensor_1_motion
+      to: 'off'
+  condition:
+  action:
+    service: light.turn_off
+    entity_id:  light.sensor_light

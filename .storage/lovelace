@@ -267,44 +267,28 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "group.bedroom_lights",
-                                    "hideColorTemp": true,
-                                    "type": "custom:light-entity-row"
+                                    "entity": "group.bedroom_lights"
                                 },
                                 {
-                                    "entity": "group.backroom_lights",
-                                    "hideColorTemp": true,
-                                    "type": "custom:light-entity-row"
+                                    "entity": "group.backroom_lights"
                                 },
                                 {
-                                    "entity": "group.craftroom_lights",
-                                    "hideColorTemp": true,
-                                    "type": "custom:light-entity-row"
+                                    "entity": "group.craftroom_lights"
                                 },
                                 {
-                                    "entity": "group.kitchen_lights",
-                                    "hideColorTemp": true,
-                                    "type": "custom:light-entity-row"
+                                    "entity": "group.kitchen_lights"
                                 },
                                 {
-                                    "entity": "group.livingroom_lights",
-                                    "hideColorTemp": true,
-                                    "type": "custom:light-entity-row"
+                                    "entity": "group.livingroom_lights"
                                 },
                                 {
-                                    "entity": "group.office_lights",
-                                    "hideColorTemp": true,
-                                    "type": "custom:light-entity-row"
+                                    "entity": "group.office_lights"
                                 },
                                 {
-                                    "entity": "group.lucas_bedroom_lights",
-                                    "hideColorTemp": true,
-                                    "type": "custom:light-entity-row"
+                                    "entity": "group.lucas_bedroom_lights"
                                 },
                                 {
-                                    "entity": "group.xander_bedroom_lights",
-                                    "hideColorTemp": true,
-                                    "type": "custom:light-entity-row"
+                                    "entity": "group.xander_bedroom_lights"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -330,7 +314,7 @@
                                         {
                                             "name": "Rainbow",
                                             "service_data": {
-                                                "effect": "Rainbow Effect"
+                                                "effect": "Rainbow"
                                             }
                                         }
                                     ],
@@ -357,7 +341,7 @@
                                         {
                                             "name": "Rainbow",
                                             "service_data": {
-                                                "effect": "Rainbow Effect"
+                                                "effect": "Rainbow"
                                             }
                                         }
                                     ],
@@ -613,7 +597,7 @@
                             "type": "picture-glance"
                         },
                         {
-                            "entity": "camera.my_camera",
+                            "entity": "camera.camera2",
                             "type": "picture-entity"
                         }
                     ],

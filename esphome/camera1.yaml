@@ -27,3 +27,4 @@ esp32_camera:
   power_down_pin: GPIO32
   name: My Camera
   resolution: 800x600
+  jpeg_quality: 10
