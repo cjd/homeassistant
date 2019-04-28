@@ -27,3 +27,8 @@
       radius: 2.0
     - filter: range
       upper_bound: 1200
+- platform: broadlink
+  host: 192.168.0.163
+  mac: 'C8:F7:42:16:AD:21'
+  monitored_conditions:
+     - 'temperature'

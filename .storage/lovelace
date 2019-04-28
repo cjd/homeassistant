@@ -412,6 +412,27 @@
                     "badges": [],
                     "cards": [
                         {
+                            "entities": [
+                                {
+                                    "entity": "switch.lg_amp"
+                                },
+                                {
+                                    "entity": "switch.lg_amp_input"
+                                },
+                                {
+                                    "entity": "switch.lg_amp_voldown"
+                                },
+                                {
+                                    "entity": "switch.lg_amp_voldown"
+                                },
+                                {
+                                    "entity": "switch.livingroomtv"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "type": "entities"
+                        },
+                        {
                             "type": "custom:compact-custom-header"
                         },
                         {
@@ -428,10 +449,6 @@
                         },
                         {
                             "entity": "media_player.bedroom_tv",
-                            "type": "media-control"
-                        },
-                        {
-                            "entity": "media_player.craft_room",
                             "type": "media-control"
                         }
                     ],
