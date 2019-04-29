@@ -4,3 +4,7 @@ livingroom_preset:
     - Movie
     - Night
     - TurnOff
+livingroom_amp_input:
+  options:
+    - "Media Player"
+    - "PS4"

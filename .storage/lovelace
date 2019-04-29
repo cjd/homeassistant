@@ -417,7 +417,7 @@
                                     "entity": "switch.lg_amp"
                                 },
                                 {
-                                    "entity": "switch.lg_amp_input"
+                                    "entity": "input_select.livingroom_amp_input"
                                 },
                                 {
                                     "entity": "switch.lg_amp_voldown"
@@ -436,15 +436,15 @@
                             "type": "custom:compact-custom-header"
                         },
                         {
+                            "entity": "media_player.livingroom_tv",
+                            "type": "media-control"
+                        },
+                        {
                             "entity": "media_player.living_room_display",
                             "type": "media-control"
                         },
                         {
                             "entity": "media_player.whole_house",
-                            "type": "media-control"
-                        },
-                        {
-                            "entity": "media_player.living_room_tv",
                             "type": "media-control"
                         },
                         {
@@ -610,11 +610,12 @@
                                     "icon": "mdi:arrow-right-thick"
                                 }
                             ],
-                            "title": "Living room",
+                            "title": "Backroom",
                             "type": "picture-glance"
                         },
                         {
                             "entity": "camera.camera2",
+                            "name": "Livingroom",
                             "type": "picture-entity"
                         }
                     ],

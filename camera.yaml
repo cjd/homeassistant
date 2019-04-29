@@ -6,3 +6,9 @@
 - platform: ffmpeg
   input: rtsp://192.168.0.210:554/
   name: camera2
+- platform: onvif
+  name: livingcam
+  host: 192.168.0.210
+  username: admin
+  password: admin
+  extra_arguments: -rtsp_transport udp

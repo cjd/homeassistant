@@ -95,3 +95,4 @@ device_tracker: !include device_tracker.yaml
 scene: !include scene.yaml
 group: !include groups.yaml
 recorder: !include recorder.yaml
+media_player: !include media_player.yaml
