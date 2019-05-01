@@ -37,6 +37,10 @@
                 {
                     "type": "js",
                     "url": "/local/lovelace-swipe-navigation/lovelace-swipe-navigation.js?v=1.0.0"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/mini-media-player-bundle.js?v=1.0.4"
                 }
             ],
             "title": "Home",
@@ -437,23 +441,59 @@
                             "type": "entities"
                         },
                         {
-                            "type": "custom:compact-custom-header"
-                        },
-                        {
                             "entity": "media_player.livingroom_tv",
-                            "type": "media-control"
+                            "type": "custom:mini-media-player"
                         },
                         {
                             "entity": "media_player.living_room_display",
-                            "type": "media-control"
+                            "type": "custom:mini-media-player"
                         },
                         {
-                            "entity": "media_player.whole_house",
-                            "type": "media-control"
+                            "entities": [
+                                {
+                                    "entity": "media_player.whole_house",
+                                    "group": true,
+                                    "hide": {
+                                        "power": true,
+                                        "volume": true
+                                    },
+                                    "info": "short",
+                                    "source": "icon",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.family_room_speaker",
+                                    "group": true,
+                                    "hide": {
+                                        "controls": true
+                                    },
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.living_room_display",
+                                    "group": true,
+                                    "hide": {
+                                        "controls": true
+                                    },
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.living_room_mini",
+                                    "group": true,
+                                    "hide": {
+                                        "controls": true
+                                    },
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "type": "entities"
                         },
                         {
                             "entity": "media_player.bedroom_tv",
-                            "type": "media-control"
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "type": "custom:compact-custom-header"
                         }
                     ],
                     "icon": "mdi:movie",
