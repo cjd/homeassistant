@@ -28,7 +28,11 @@ exclude:
     - light.family_room
     - light.kitchen
     - light.living_room
+    - light.lucas_bedroom
+    - light.xander_bedroom
     - light.office
+    - light.hallway
+    - light.front_yard
     - sensor.bom_gosford_wind_speed_kmh
     - switch.backroom_down
     - switch.backroom_left
@@ -36,3 +40,14 @@ exclude:
     - switch.backroom_up
     - sensor.custom_card_tracker
     - sensor.custom_component_tracker
+    - switch.backroom_lights
+    - switch.bedroom_lights
+    - switch.craftroom_lights
+    - switch.kitchen_lights
+    - switch.lg_amp_voldown
+    - switch.lg_amp_voldown
+    - switch.livingroom_lights
+    - switch.lucas_bedroom_lights
+    - switch.office_lights
+    - switch.office_speaker
+    - switch.xander_bedroom_lights
