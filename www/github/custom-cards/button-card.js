@@ -2353,6 +2353,103 @@ const styleMap = directive(styleInfo => part => {
     styleMapCache.set(part, styleInfo);
 });
 
+/** Constants to be used in the frontend. */
+// Constants should be alphabetically sorted by name.
+// Arrays with values should be alphabetically sorted if order doesn't matter.
+// Each constant should have a description what it is supposed to be used for.
+/** Icon to use when no icon specified for domain. */
+const DEFAULT_DOMAIN_ICON = "hass:bookmark";
+/** States that we consider "off". */
+const STATES_OFF = ["closed", "locked", "off"];
+
+/**
+ * Return the icon to be used for a domain.
+ *
+ * Optionally pass in a state to influence the domain icon.
+ */
+const fixedIcons = {
+    alert: "hass:alert",
+    automation: "hass:playlist-play",
+    calendar: "hass:calendar",
+    camera: "hass:video",
+    climate: "hass:thermostat",
+    configurator: "hass:settings",
+    conversation: "hass:text-to-speech",
+    device_tracker: "hass:account",
+    fan: "hass:fan",
+    group: "hass:google-circles-communities",
+    history_graph: "hass:chart-line",
+    homeassistant: "hass:home-assistant",
+    homekit: "hass:home-automation",
+    image_processing: "hass:image-filter-frames",
+    input_boolean: "hass:drawing",
+    input_datetime: "hass:calendar-clock",
+    input_number: "hass:ray-vertex",
+    input_select: "hass:format-list-bulleted",
+    input_text: "hass:textbox",
+    light: "hass:lightbulb",
+    mailbox: "hass:mailbox",
+    notify: "hass:comment-alert",
+    person: "hass:account",
+    plant: "hass:flower",
+    proximity: "hass:apple-safari",
+    remote: "hass:remote",
+    scene: "hass:google-pages",
+    script: "hass:file-document",
+    sensor: "hass:eye",
+    simple_alarm: "hass:bell",
+    sun: "hass:white-balance-sunny",
+    switch: "hass:flash",
+    timer: "hass:timer",
+    updater: "hass:cloud-upload",
+    vacuum: "hass:robot-vacuum",
+    water_heater: "hass:thermometer",
+    weblink: "hass:open-in-new"
+};
+function domainIcon(domain, state) {
+    if (domain in fixedIcons) {
+        return fixedIcons[domain];
+    }
+    switch (domain) {
+        case "alarm_control_panel":
+            switch (state) {
+                case "armed_home":
+                    return "hass:bell-plus";
+                case "armed_night":
+                    return "hass:bell-sleep";
+                case "disarmed":
+                    return "hass:bell-outline";
+                case "triggered":
+                    return "hass:bell-ring";
+                default:
+                    return "hass:bell";
+            }
+        case "binary_sensor":
+            return state && state === "off" ? "hass:radiobox-blank" : "hass:checkbox-marked-circle";
+        case "cover":
+            return state === "closed" ? "hass:window-closed" : "hass:window-open";
+        case "lock":
+            return state && state === "unlocked" ? "hass:lock-open" : "hass:lock";
+        case "media_player":
+            return state && state !== "off" && state !== "idle" ? "hass:cast-connected" : "hass:cast";
+        case "zwave":
+            switch (state) {
+                case "dead":
+                    return "hass:emoticon-dead";
+                case "sleeping":
+                    return "hass:sleep";
+                case "initializing":
+                    return "hass:timer-sand";
+                default:
+                    return "hass:z-wave";
+            }
+        default:
+            // tslint:disable-next-line
+            console.warn("Unable to find icon for domain " + domain + " (" + state + ")");
+            return DEFAULT_DOMAIN_ICON;
+    }
+}
+
 function bound01(n, max) {
     if (isOnePointZero(n)) {
         n = '100%';
@@ -3194,108 +3291,64 @@ var TinyColor = function () {
     return TinyColor;
 }();
 
-/** Constants to be used in the frontend. */
-// Constants should be alphabetically sorted by name.
-// Arrays with values should be alphabetically sorted if order doesn't matter.
-// Each constant should have a description what it is supposed to be used for.
-/** Icon to use when no icon specified for domain. */
-const DEFAULT_DOMAIN_ICON = "hass:bookmark";
-/** States that we consider "off". */
-const STATES_OFF = ["closed", "locked", "off"];
-
-/**
- * Return the icon to be used for a domain.
- *
- * Optionally pass in a state to influence the domain icon.
- */
-const fixedIcons = {
-    alert: "hass:alert",
-    automation: "hass:playlist-play",
-    calendar: "hass:calendar",
-    camera: "hass:video",
-    climate: "hass:thermostat",
-    configurator: "hass:settings",
-    conversation: "hass:text-to-speech",
-    device_tracker: "hass:account",
-    fan: "hass:fan",
-    group: "hass:google-circles-communities",
-    history_graph: "hass:chart-line",
-    homeassistant: "hass:home-assistant",
-    homekit: "hass:home-automation",
-    image_processing: "hass:image-filter-frames",
-    input_boolean: "hass:drawing",
-    input_datetime: "hass:calendar-clock",
-    input_number: "hass:ray-vertex",
-    input_select: "hass:format-list-bulleted",
-    input_text: "hass:textbox",
-    light: "hass:lightbulb",
-    mailbox: "hass:mailbox",
-    notify: "hass:comment-alert",
-    person: "hass:account",
-    plant: "hass:flower",
-    proximity: "hass:apple-safari",
-    remote: "hass:remote",
-    scene: "hass:google-pages",
-    script: "hass:file-document",
-    sensor: "hass:eye",
-    simple_alarm: "hass:bell",
-    sun: "hass:white-balance-sunny",
-    switch: "hass:flash",
-    timer: "hass:timer",
-    updater: "hass:cloud-upload",
-    vacuum: "hass:robot-vacuum",
-    water_heater: "hass:thermometer",
-    weblink: "hass:open-in-new"
-};
-function domainIcon(domain, state) {
-    if (domain in fixedIcons) {
-        return fixedIcons[domain];
-    }
-    switch (domain) {
-        case "alarm_control_panel":
-            switch (state) {
-                case "armed_home":
-                    return "hass:bell-plus";
-                case "armed_night":
-                    return "hass:bell-sleep";
-                case "disarmed":
-                    return "hass:bell-outline";
-                case "triggered":
-                    return "hass:bell-ring";
-                default:
-                    return "hass:bell";
-            }
-        case "binary_sensor":
-            return state && state === "off" ? "hass:radiobox-blank" : "hass:checkbox-marked-circle";
-        case "cover":
-            return state === "closed" ? "hass:window-closed" : "hass:window-open";
-        case "lock":
-            return state && state === "unlocked" ? "hass:lock-open" : "hass:lock";
-        case "media_player":
-            return state && state !== "off" && state !== "idle" ? "hass:cast-connected" : "hass:cast";
-        case "zwave":
-            switch (state) {
-                case "dead":
-                    return "hass:emoticon-dead";
-                case "sleeping":
-                    return "hass:sleep";
-                case "initializing":
-                    return "hass:timer-sand";
-                default:
-                    return "hass:z-wave";
-            }
-        default:
-            // tslint:disable-next-line
-            console.warn("Unable to find icon for domain " + domain + " (" + state + ")");
-            return DEFAULT_DOMAIN_ICON;
-    }
-}
-
 function computeDomain(entityId) {
-    return entityId.substr(0, entityId.indexOf("."));
+    return entityId.substr(0, entityId.indexOf('.'));
 }
 function computeEntity(entityId) {
-    return entityId.substr(entityId.indexOf(".") + 1);
+    return entityId.substr(entityId.indexOf('.') + 1);
+}
+function getColorFromVariable(color) {
+    if (color.substring(0, 3) === 'var') {
+        return window.getComputedStyle(document.documentElement).getPropertyValue(color.substring(4).slice(0, -1)).trim();
+    }
+    return color;
+}
+function getFontColorBasedOnBackgroundColor(backgroundColor) {
+    const colorObj = new TinyColor(getColorFromVariable(backgroundColor));
+    if (colorObj.isValid && colorObj.getLuminance() > 0.5) {
+        return 'rgb(62, 62, 62)'; // bright colors - black font
+    } else {
+        return 'rgb(234, 234, 234)'; // dark colors - white font
+    }
+}
+function buildNameStateConcat(name, stateString) {
+    if (!name && !stateString) {
+        return undefined;
+    }
+    let nameStateString;
+    if (stateString) {
+        if (name) {
+            nameStateString = `${name}: ${stateString}`;
+        } else {
+            nameStateString = stateString;
+        }
+    } else {
+        nameStateString = name;
+    }
+    return nameStateString;
+}
+function applyBrightnessToColor(color, brightness) {
+    const colorObj = new TinyColor(getColorFromVariable(color));
+    if (colorObj.isValid) {
+        const validColor = colorObj.darken(100 - brightness).toString();
+        if (validColor) return validColor;
+    }
+    return color;
+}
+// Check if config or Entity changed
+function hasConfigOrEntityChanged(element, changedProps, forceUpdate) {
+    if (changedProps.has('config') || forceUpdate) {
+        return true;
+    }
+    if (element.config.entity) {
+        const oldHass = changedProps.get('hass');
+        if (oldHass) {
+            return oldHass.states[element.config.entity] !== element.hass.states[element.config.entity];
+        }
+        return true;
+    } else {
+        return false;
+    }
 }
 
 // Polymer legacy event helpers used courtesy of the Polymer project.
@@ -3579,147 +3632,335 @@ const longPress = directive(() => part => {
     longPressBind(part.committer.element);
 });
 
-// Check if config or Entity changed
-function hasConfigOrEntityChanged(element, changedProps) {
-    if (changedProps.has("config")) {
-        return true;
+const styles = css`
+  ha-card {
+    cursor: pointer;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+  ha-card.disabled {
+    pointer-events: none;
+    cursor: default;
+  }
+  ha-icon {
+    display: inline-block;
+    margin: auto;
+  }
+  ha-card.button-card-main {
+    padding: 4% 0px;
+    text-transform: none;
+    font-weight: 400;
+    font-size: 1.2rem;
+    align-items: center;
+    text-align: center;
+    letter-spacing: normal;
+    width: 100%;
+  }
+  div {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  @keyframes blink{
+    0%{opacity:0;}
+    50%{opacity:1;}
+    100%{opacity:0;}
+  }
+  @-webkit-keyframes rotating /* Safari and Chrome */ {
+    from {
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
     }
-    if (element.config.entity) {
-        const oldHass = changedProps.get("hass");
-        if (oldHass) {
-            return oldHass.states[element.config.entity] !== element.hass.states[element.config.entity];
-        }
-        return true;
-    } else {
-        return false;
+    to {
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
     }
-}
+  }
+  @keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+  [rotating] {
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+  }
+
+  .container {
+    display: grid;
+    max-height: 100%;
+    text-align: center;
+    height: 100%;
+    align-items: center;
+  }
+  .img-cell {
+    grid-area: i;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .icon {
+    height: 100%;
+    max-width: 100%;
+    object-fit: scale;
+    overflow: hidden;
+  }
+  .name {
+    grid-area: n;
+    max-width: 100%;
+    align-self: center;
+    justify-self: center;
+    /* margin: auto; */
+  }
+  .state {
+    grid-area: s;
+    max-width: 100%;
+    align-self: center;
+    justify-self: center;
+    /* margin: auto; */
+  }
+
+  .label {
+    grid-area: l;
+    max-width: 100%;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .container.vertical {
+    grid-template-areas: "i" "n" "s" "l";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr min-content min-content min-content;
+  }
+  /* Vertical No Icon */
+  .container.vertical.no-icon {
+    grid-template-areas: "n" "s" "l";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr min-content 1fr;
+  }
+  .container.vertical.no-icon .state {
+    align-self: center;
+  }
+  .container.vertical.no-icon .name {
+    align-self: end;
+  }
+  .container.vertical.no-icon .label {
+    align-self: start;
+  }
+
+  /* Vertical No Icon No Name */
+  .container.vertical.no-icon.no-name {
+    grid-template-areas: "s" "l";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .container.vertical.no-icon.no-name .state {
+    align-self: end;
+  }
+  .container.vertical.no-icon.no-name .label {
+    align-self: start;
+  }
+
+  /* Vertical No Icon No State */
+  .container.vertical.no-icon.no-state {
+    grid-template-areas: "n" "l";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .container.vertical.no-icon.no-state .name {
+    align-self: end;
+  }
+  .container.vertical.no-icon.no-state .label {
+    align-self: start;
+  }
+
+  /* Vertical No Icon No Label */
+  .container.vertical.no-icon.no-label {
+    grid-template-areas: "n" "s";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .container.vertical.no-icon.no-label .name {
+    align-self: end;
+  }
+  .container.vertical.no-icon.no-label .state {
+    align-self: start;
+  }
+
+  /* Vertical No Icon No Label No Name */
+  .container.vertical.no-icon.no-label.no-name {
+    grid-template-areas: "s";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .container.vertical.no-icon.no-label.no-name .state {
+    align-self: center;
+  }
+  /* Vertical No Icon No Label No State */
+  .container.vertical.no-icon.no-label.no-state {
+    grid-template-areas: "n";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .container.vertical.no-icon.no-label.no-state .name {
+    align-self: center;
+  }
+
+  /* Vertical No Icon No Name No State */
+  .container.vertical.no-icon.no-name.no-state {
+    grid-template-areas: "l";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .container.vertical.no-icon.no-name.no-state .label {
+    align-self: center;
+  }
+
+  .container.icon_name_state {
+    grid-template-areas: "i n" "l l";
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 1fr min-content;
+  }
+
+  .container.icon_name {
+    grid-template-areas: "i n" "s s" "l l";
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 1fr min-content min-content;
+  }
+
+  .container.icon_state {
+    grid-template-areas: "i s" "n n" "l l";
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 1fr min-content min-content;
+  }
+
+  .container.name_state {
+    grid-template-areas: "i" "n" "l";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr min-content min-content;
+  }
+  .container.name_state.no-icon {
+    grid-template-areas: "n" "l";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .container.name_state.no-icon .name {
+    align-self: end
+  }
+  .container.name_state.no-icon .label {
+    align-self: start
+  }
+
+  .container.name_state.no-icon.no-label {
+    grid-template-areas: "n";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+  .container.name_state.no-icon.no-label .name {
+    align-self: center
+  }
+
+  /* icon_name_state2nd default */
+  .container.icon_name_state2nd {
+    grid-template-areas: "i n" "i s" "i l";
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 1fr min-content 1fr;
+  }
+  .container.icon_name_state2nd .name {
+    align-self: end;
+  }
+  .container.icon_name_state2nd .state {
+    align-self: center;
+  }
+  .container.icon_name_state2nd .label {
+    align-self: start;
+  }
+
+  /* icon_name_state2nd No Label */
+  .container.icon_name_state2nd.no-label {
+    grid-template-areas: "i n" "i s";
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .container.icon_name_state2nd .name {
+    align-self: end;
+  }
+  .container.icon_name_state2nd .state {
+    align-self: start;
+  }
+
+  /* icon_state_name2nd Default */
+  .container.icon_state_name2nd {
+    grid-template-areas: "i s" "i n" "i l";
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 1fr min-content 1fr;
+  }
+  .container.icon_state_name2nd .state {
+    align-self: end;
+  }
+  .container.icon_state_name2nd .name {
+    align-self: center;
+  }
+  .container.icon_state_name2nd .state {
+    align-self: start;
+  }
+
+  /* icon_state_name2nd No Label */
+  .container.icon_state_name2nd.no-label {
+    grid-template-areas: "i s" "i n";
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+  .container.icon_state_name2nd .state {
+    align-self: end;
+  }
+  .container.icon_state_name2nd .name {
+    align-self: start;
+  }
+
+  .container.icon_label {
+    grid-template-areas: "i l" "n n" "s s";
+    grid-template-columns: 40% 1fr;
+    grid-template-rows: 1fr min-content min-content;
+  }
+`;
 
 let ButtonCard = class ButtonCard extends LitElement {
     static get styles() {
-        return css`
-        ha-card {
-          cursor: pointer;
-          overflow: hidden;
-          box-sizing: border-box;
-        }
-        ha-card.disabled {
-          pointer-events: none;
-          cursor: default;
-        }
-        ha-icon {
-          display: inline-block;
-          margin: auto;
-        }
-        ha-card.button-card-main {
-          padding: 4% 0px;
-          text-transform: none;
-          font-weight: 400;
-          font-size: 1.2rem;
-          align-items: center;
-          text-align: center;
-          letter-spacing: normal;
-          width: 100%;
-        }
-        div.divTable{
-          display: table;
-          overflow: auto;
-          table-layout: fixed;
-          width: 100%;
-        }
-        div.divTableBody {
-          display: table-row-group;
-        }
-        div.divTableRow {
-          display: table-row;
-        }
-        .divTableCell {
-          display: table-cell;
-          vertical-align: middle;
-        }
-        div {
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-          min-width: 100%;
-        }
-        @keyframes blink{
-          0%{opacity:0;}
-          50%{opacity:1;}
-          100%{opacity:0;}
-        }
-        @-webkit-keyframes rotating /* Safari and Chrome */ {
-          from {
-            -webkit-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-          }
-          to {
-            -webkit-transform: rotate(360deg);
-            -o-transform: rotate(360deg);
-            transform: rotate(360deg);
-          }
-        }
-        @keyframes rotating {
-          from {
-            -ms-transform: rotate(0deg);
-            -moz-transform: rotate(0deg);
-            -webkit-transform: rotate(0deg);
-            -o-transform: rotate(0deg);
-            transform: rotate(0deg);
-          }
-          to {
-            -ms-transform: rotate(360deg);
-            -moz-transform: rotate(360deg);
-            -webkit-transform: rotate(360deg);
-            -o-transform: rotate(360deg);
-            transform: rotate(360deg);
-          }
-        }
-        .rotating {
-          -webkit-animation: rotating 2s linear infinite;
-          -moz-animation: rotating 2s linear infinite;
-          -ms-animation: rotating 2s linear infinite;
-          -o-animation: rotating 2s linear infinite;
-          animation: rotating 2s linear infinite;
-        }
-      `;
+        return styles;
     }
     render() {
         if (!this.config || !this.hass) {
             return html``;
         }
-        const state = this.config.entity ? this.hass.states[this.config.entity] : undefined;
-        const configState = this.testConfigState(state);
-        switch (this.config.color_type) {
-            case 'blank-card':
-                return this.blankCardColoredHtml(state);
-            case 'label-card':
-            case 'card':
-                return this.cardColoredHtml(state, configState);
-            case 'icon':
-            default:
-                return this.iconColoredHtml(state, configState);
-        }
+        return this._cardHtml();
     }
     shouldUpdate(changedProps) {
-        return hasConfigOrEntityChanged(this, changedProps);
+        const state = this.config.entity ? this.hass.states[this.config.entity] : undefined;
+        const configState = this._getMatchingConfigState(state);
+        const forceUpdate = this.config.show_label && (configState && configState.label_template || this.config.label_template) || this.config.state && this.config.state.find(elt => {
+            return elt.operator === 'template';
+        }) ? true : false;
+        return hasConfigOrEntityChanged(this, changedProps, forceUpdate);
     }
-    getFontColorBasedOnBackgroundColor(backgroundColor) {
-        let localColor = backgroundColor;
-        if (backgroundColor.substring(0, 3) === 'var') {
-            localColor = window.getComputedStyle(document.documentElement).getPropertyValue(backgroundColor.substring(4).slice(0, -1)).trim();
-        }
-        const colorObj = new TinyColor(localColor);
-        let fontColor = ''; // don't override by default
-        if (colorObj.isValid && colorObj.getLuminance() > 0.5) {
-            fontColor = 'rgb(62, 62, 62)'; // bright colors - black font
-        } else {
-            fontColor = 'rgb(234, 234, 234)'; // dark colors - white font
-        }
-        return fontColor;
-    }
-    testConfigState(state) {
+    _getMatchingConfigState(state) {
         if (!state || !this.config.state) {
             return undefined;
         }
@@ -3746,6 +3987,10 @@ let ButtonCard = class ButtonCard extends LitElement {
                             const matches = state.state.match(elt.value) ? true : false;
                             return matches;
                         }
+                    case 'template':
+                        {
+                            return new Function('states', 'entity', 'user', 'hass', `'use strict'; ${elt.value}`).call(this, this.hass.states, state, this.hass.user, this.hass);
+                        }
                     case 'default':
                         def = elt;
                         return false;
@@ -3761,7 +4006,7 @@ let ButtonCard = class ButtonCard extends LitElement {
         }
         return retval;
     }
-    getDefaultColorForState(state) {
+    _getDefaultColorForState(state) {
         switch (state.state) {
             case 'on':
                 return this.config.color_on;
@@ -3771,7 +4016,7 @@ let ButtonCard = class ButtonCard extends LitElement {
                 return this.config.default_color;
         }
     }
-    buildCssColorAttribute(state, configState) {
+    _buildCssColorAttribute(state, configState) {
         let colorValue = '';
         let color;
         if (configState && configState.color) {
@@ -3785,8 +4030,13 @@ let ButtonCard = class ButtonCard extends LitElement {
             if (state) {
                 if (state.attributes.rgb_color) {
                     color = `rgb(${state.attributes.rgb_color.join(',')})`;
+                    if (state.attributes.brightness) {
+                        color = applyBrightnessToColor(color, (state.attributes.brightness + 245) / 5);
+                    }
+                } else if (state.attributes.brightness) {
+                    color = applyBrightnessToColor(this._getDefaultColorForState(state), (state.attributes.brightness + 245) / 5);
                 } else {
-                    color = this.getDefaultColorForState(state);
+                    color = this._getDefaultColorForState(state);
                 }
             } else {
                 color = this.config.default_color;
@@ -3794,13 +4044,13 @@ let ButtonCard = class ButtonCard extends LitElement {
         } else if (colorValue) {
             color = colorValue;
         } else if (state) {
-            color = this.getDefaultColorForState(state);
+            color = this._getDefaultColorForState(state);
         } else {
             color = this.config.default_color;
         }
         return color;
     }
-    buildIcon(state, configState) {
+    _buildIcon(state, configState) {
         if (!this.config.show_icon) {
             return undefined;
         }
@@ -3814,7 +4064,7 @@ let ButtonCard = class ButtonCard extends LitElement {
         }
         return icon;
     }
-    buildEntityPicture(state, configState) {
+    _buildEntityPicture(state, configState) {
         if (!this.config.show_entity_picture || !state && !configState && !this.config.entity_picture) {
             return undefined;
         }
@@ -3828,7 +4078,7 @@ let ButtonCard = class ButtonCard extends LitElement {
         }
         return entityPicture;
     }
-    buildStyle(state, configState) {
+    _buildStyle(state, configState) {
         let cardStyle = {};
         let styleArray;
         if (state) {
@@ -3845,7 +4095,7 @@ let ButtonCard = class ButtonCard extends LitElement {
         }
         return cardStyle;
     }
-    buildEntityPictureStyle(state, configState) {
+    _buildEntityPictureStyle(state, configState) {
         let entityPictureStyle = {};
         let styleArray;
         if (state) {
@@ -3862,7 +4112,7 @@ let ButtonCard = class ButtonCard extends LitElement {
         }
         return entityPictureStyle;
     }
-    buildName(state, configState) {
+    _buildName(state, configState) {
         if (this.config.show_name === false) {
             return undefined;
         }
@@ -3876,10 +4126,10 @@ let ButtonCard = class ButtonCard extends LitElement {
         }
         return name;
     }
-    buildStateString(state) {
+    _buildStateString(state) {
         let stateString;
         if (this.config.show_state && state && state.state) {
-            const units = this.buildUnits(state);
+            const units = this._buildUnits(state);
             if (units) {
                 stateString = `${state.state} ${units}`;
             } else {
@@ -3888,7 +4138,7 @@ let ButtonCard = class ButtonCard extends LitElement {
         }
         return stateString;
     }
-    buildUnits(state) {
+    _buildUnits(state) {
         let units;
         if (state) {
             if (this.config.show_units) {
@@ -3901,23 +4151,29 @@ let ButtonCard = class ButtonCard extends LitElement {
         }
         return units;
     }
-    buildNameStateConcat(name, stateString) {
-        if (!name && !stateString) {
+    _buildLabel(state, configState) {
+        if (!this.config.show_label) {
             return undefined;
         }
-        let nameStateString;
-        if (stateString) {
-            if (name) {
-                nameStateString = `${name}: ${stateString}`;
-            } else {
-                nameStateString = stateString;
-            }
+        let label;
+        let matchingLabelTemplate;
+        if (configState && configState.label_template) {
+            matchingLabelTemplate = configState.label_template;
         } else {
-            nameStateString = name;
+            matchingLabelTemplate = this.config.label_template;
         }
-        return nameStateString;
+        if (!matchingLabelTemplate) {
+            if (configState && configState.label) {
+                label = configState.label;
+            } else {
+                label = this.config.label;
+            }
+            return label;
+        }
+        /* eslint no-new-func: 0 */
+        return new Function('states', 'entity', 'user', 'hass', `'use strict'; ${matchingLabelTemplate}`).call(this, this.hass.states, state, this.hass.user, this.hass);
     }
-    isClickable(state) {
+    _isClickable(state) {
         let clickable = true;
         if (this.config.tap_action.action === 'toggle' && this.config.hold_action.action === 'none' || this.config.hold_action.action === 'toggle' && this.config.tap_action.action === 'none') {
             if (state) {
@@ -3941,169 +4197,116 @@ let ButtonCard = class ButtonCard extends LitElement {
         }
         return clickable;
     }
-    rotate(configState) {
-        return configState && configState.spin ? 'rotating' : '';
+    _rotate(configState) {
+        return configState && configState.spin ? true : false;
     }
-    buttonContent(state, configState, color) {
-        const icon = this.buildIcon(state, configState);
-        const name = this.buildName(state, configState);
-        const stateString = this.buildStateString(state);
-        const nameStateString = this.buildNameStateConcat(name, stateString);
-        const entityPicture = this.buildEntityPicture(state, configState);
-        const entityPictureStyle = this.buildEntityPictureStyle(state, configState);
-        const divTableCellStyles = { width: this.config.size, height: 'auto' };
-        const haIconInlineStyle = {
-            color,
-            width: this.config.size,
-            height: 'auto'
-        };
-        const haIconTableStyle = Object.assign({}, haIconInlineStyle, { width: 'auto', 'max-width': this.config.size });
-        const entityPictureInlineStyle = Object.assign({}, haIconInlineStyle, entityPictureStyle);
-        const entityPictureTableStyle = Object.assign({}, haIconTableStyle, entityPictureStyle);
-        switch (this.config.layout) {
-            case 'icon_name_state':
-                return html`
-          <div class='divTable'>
-            <div class='divTableBody'>
-              <div class='divTableRow'>
-                <div class='divTableCell' style=${styleMap(divTableCellStyles)}>
-                  ${icon && !entityPicture ? html`<ha-icon style=${styleMap(haIconTableStyle)}
-                    icon="${icon}" class="${this.rotate(configState)}"></ha-icon>` : ''}
-                  ${entityPicture ? html`<img src="${entityPicture}" style=${styleMap(entityPictureTableStyle)}
-                    class="${this.rotate(configState)}" />` : ''}
-                </div>
-                ${nameStateString ? html`<div class="divTableCell">${nameStateString}</div>` : ''}
-              </div>
-            </div>
-          </div>
-          `;
-            case 'icon_name':
-                return html`
-          <div class="divTable">
-            <div class="divTableBody">
-              <div class="divTableRow">
-                <div class="divTableCell" style=${styleMap(divTableCellStyles)}>
-                  ${icon && !entityPicture ? html`<ha-icon style=${styleMap(haIconTableStyle)}
-                    icon="${icon}" class="${this.rotate(configState)}"></ha-icon>` : ''}
-                  ${entityPicture ? html`<img src="${entityPicture}" style=${styleMap(entityPictureTableStyle)}
-                    class="${this.rotate(configState)}" />` : ''}
-                </div>
-                ${name ? html`<div class="divTableCell">${name}</div>` : ''}
-              </div>
-            </div>
-          </div>
-          ${stateString !== undefined ? html`<div>${stateString}</div>` : ''}
-          `;
-            case 'icon_state':
-                return html`
-          <div class="divTable">
-            <div class="divTableBody">
-              <div class="divTableRow">
-                <div class="divTableCell" style=${styleMap(divTableCellStyles)}>
-                  ${icon && !entityPicture ? html`<ha-icon style=${styleMap(haIconTableStyle)}
-                    icon="${icon}" class="${this.rotate(configState)}"></ha-icon>` : ''}
-                  ${entityPicture ? html`<img src="${entityPicture}" style=${styleMap(entityPictureTableStyle)}
-                    class="${this.rotate(configState)}" />` : ''}
-                </div>
-                ${stateString !== undefined ? html`<div class="divTableCell">${stateString}</div>` : ''}
-              </div>
-            </div>
-          </div>
-          ${name ? html`<div>${name}</div>` : ''}
-          `;
-            case 'icon_state_name2nd':
-                return html`
-          <div class="divTable">
-            <div class="divTableBody">
-              <div class="divTableRow">
-                <div class="divTableCell" style=${styleMap(divTableCellStyles)}>
-                  ${icon && !entityPicture ? html`<ha-icon style=${styleMap(haIconTableStyle)}
-                    icon="${icon}" class="${this.rotate(configState)}"></ha-icon>` : ''}
-                  ${entityPicture ? html`<img src="${entityPicture}" style=${styleMap(entityPictureTableStyle)}
-                    class="${this.rotate(configState)}" />` : ''}
-                </div>
-                ${stateString !== undefined && name ? html`<div class="divTableCell">${stateString}<br />${name}</div>` : ''}
-                ${!stateString && name ? html`<div class="divTableCell">${name}</div>` : ''}
-                ${stateString && !name ? html`<div class="divTableCell">${stateString}</div>` : ''}
-              </div>
-            </div>
-          </div>
-          `;
-            case 'icon_name_state2nd':
-                return html`
-          <div class="divTable">
-            <div class="divTableBody">
-              <div class="divTableRow">
-                <div class="divTableCell" style=${styleMap(divTableCellStyles)}>
-                  ${icon && !entityPicture ? html`<ha-icon style=${styleMap(haIconTableStyle)}
-                    icon="${icon}" class="${this.rotate(configState)}"></ha-icon>` : ''}
-                  ${entityPicture ? html`<img src="${entityPicture}" style=${styleMap(entityPictureTableStyle)}
-                    class="${this.rotate(configState)}" />` : ''}
-                </div>
-                ${stateString !== undefined && name ? html`<div class="divTableCell">${name}<br />${stateString}</div>` : ''}
-                ${!stateString && name ? html`<div class="divTableCell">${name}</div>` : ''}
-                ${stateString && !name ? html`<div class="divTableCell">${stateString}</div>` : ''}
-              </div>
-            </div>
-          </div>
-          `;
-            case 'name_state':
-                return html`
-          ${icon && !entityPicture ? html`<ha-icon style=${styleMap(haIconInlineStyle)}
-            icon=${icon} class="${this.rotate(configState)}"></ha-icon>` : ''}
-          ${entityPicture ? html`<img src="${entityPicture}" style=${styleMap(entityPictureInlineStyle)}
-            class="${this.rotate(configState)}" />` : ''}
-          ${nameStateString ? html`<div>${nameStateString}</div>` : ''}
-          `;
-            case 'vertical':
-            default:
-                return html`
-          ${icon && !entityPicture ? html`<ha-icon style=${styleMap(haIconInlineStyle)}
-            icon=${icon} class="${this.rotate(configState)}"></ha-icon>` : ''}
-          ${entityPicture ? html`<img src="${entityPicture}" style=${styleMap(entityPictureInlineStyle)}
-            class="${this.rotate(configState)}" />` : ''}
-          ${name ? html`<div>${name}</div>` : ''}
-          ${stateString ? html`<div>${stateString}</div>` : ''}
-          `;
-        }
-    }
-    blankCardColoredHtml(state) {
-        const color = this.buildCssColorAttribute(state, undefined);
-        const fontColor = this.getFontColorBasedOnBackgroundColor(color);
+    _blankCardColoredHtml(state, cardStyle) {
+        const color = this._buildCssColorAttribute(state, undefined);
+        const fontColor = getFontColorBasedOnBackgroundColor(color);
         return html`
-      <ha-card class="disabled">
+      <ha-card class="disabled" style=${styleMap(cardStyle)}>
         <div style="color: ${fontColor}; background-color: ${color};"></div>
       </ha-card>
       `;
     }
-    cardColoredHtml(state, configState) {
-        const color = this.buildCssColorAttribute(state, configState);
-        const fontColor = this.getFontColorBasedOnBackgroundColor(color);
-        const style = Object.assign({ color: fontColor, 'background-color': color }, this.buildStyle(state, configState));
+    _cardHtml() {
+        const state = this.config.entity ? this.hass.states[this.config.entity] : undefined;
+        const configState = this._getMatchingConfigState(state);
+        const color = this._buildCssColorAttribute(state, configState);
+        let buttonColor = color;
+        let cardStyle = {};
+        const configCardStyle = this._buildStyle(state, configState);
+        if (configCardStyle.width) {
+            this.style.setProperty('flex', '0 0 auto');
+            this.style.setProperty('max-width', 'fit-content');
+        }
+        switch (this.config.color_type) {
+            case 'blank-card':
+                return this._blankCardColoredHtml(state, configCardStyle);
+            case 'card':
+            case 'label-card':
+                {
+                    const fontColor = getFontColorBasedOnBackgroundColor(color);
+                    cardStyle.color = fontColor;
+                    cardStyle['background-color'] = color;
+                    cardStyle = Object.assign({}, cardStyle, configCardStyle);
+                    buttonColor = 'inherit';
+                    break;
+                }
+            default:
+                cardStyle = configCardStyle;
+                break;
+        }
         return html`
-      <ha-card class="button-card-main ${this.isClickable(state) ? '' : 'disabled'}" style=${styleMap(style)} @ha-click="${this._handleTap}" @ha-hold="${this._handleHold}" .longpress="${longPress()}" .config="${this.config}">
-        ${this.buttonContent(state, configState, 'inherit')}
+      <ha-card class="button-card-main ${this._isClickable(state) ? '' : 'disabled'}" style=${styleMap(cardStyle)} @ha-click="${this._handleTap}" @ha-hold="${this._handleHold}" .longpress="${longPress()}" .config="${this.config}">
+        ${this._buttonContent(state, configState, buttonColor)}
       <mwc-ripple></mwc-ripple>
       </ha-card>
       `;
     }
-    iconColoredHtml(state, configState) {
-        const color = this.buildCssColorAttribute(state, configState);
-        const style = this.buildStyle(state, configState);
+    _buttonContent(state, configState, color) {
+        const name = this._buildName(state, configState);
+        const stateString = this._buildStateString(state);
+        const nameStateString = buildNameStateConcat(name, stateString);
+        switch (this.config.layout) {
+            case 'icon_name_state':
+            case 'name_state':
+                return this._gridHtml(state, configState, this.config.layout, color, nameStateString, undefined);
+            default:
+                return this._gridHtml(state, configState, this.config.layout, color, name, stateString);
+        }
+    }
+    _gridHtml(state, configState, containerClass, color, name, stateString) {
+        const iconTemplate = this._getIconHtml(state, configState, color);
+        const itemClass = ['container', containerClass];
+        const label = this._buildLabel(state, configState);
+        if (!iconTemplate) itemClass.push('no-icon');
+        if (!name) itemClass.push('no-name');
+        if (!stateString) itemClass.push('no-state');
+        if (!label) itemClass.push('no-label');
         return html`
-      <ha-card class="button-card-main ${this.isClickable(state) ? '' : 'disabled'}" style=${styleMap(style)} @ha-click="${this._handleTap}" @ha-hold="${this._handleHold}" .longpress="${longPress()}" .config="${this.config}">
-          ${this.buttonContent(state, configState, color)}
-      <mwc-ripple></mwc-ripple>
-      </ha-card>
+      <div class=${itemClass.join(' ')}>
+        ${iconTemplate ? iconTemplate : ''}
+        ${name ? html`<div class="name">${name}</div>` : ''}
+        ${stateString ? html`<div class="state">${stateString}</div>` : ''}
+        ${label ? html`<div class="label">${label}</div>` : ''}
+      </div>
+    `;
+    }
+    _getIconHtml(state, configState, color) {
+        const icon = this._buildIcon(state, configState);
+        const entityPicture = this._buildEntityPicture(state, configState);
+        const entityPictureStyleFromConfig = this._buildEntityPictureStyle(state, configState);
+        const haIconStyle = {
+            color,
+            width: this.config.size,
+            'min-width': this.config.size
+        };
+        const entityPictureStyle = Object.assign({}, haIconStyle, entityPictureStyleFromConfig);
+        if (icon || entityPicture) {
+            return html`
+        <div class="img-cell">
+          ${icon && !entityPicture ? html`<ha-icon style=${styleMap(haIconStyle)}
+            .icon="${icon}" class="icon" ?rotating=${this._rotate(configState)}></ha-icon>` : ''}
+          ${entityPicture ? html`<img src="${entityPicture}" style=${styleMap(entityPictureStyle)}
+            class="icon" ?rotating=${this._rotate(configState)} />` : ''}
+        </div>
       `;
+        } else {
+            return undefined;
+        }
     }
     setConfig(config) {
         if (!config) {
             throw new Error('Invalid configuration');
         }
-        this.config = Object.assign({ tap_action: { action: 'toggle' }, hold_action: { action: 'none' }, size: '40%', color_type: 'icon', show_name: true, show_state: false, show_icon: true, show_units: true, show_entity_picture: false }, config);
+        this.config = Object.assign({ tap_action: { action: 'toggle' }, hold_action: { action: 'none' }, layout: 'vertical', size: '40%', color_type: 'icon', show_name: true, show_state: false, show_icon: true, show_units: true, show_label: false, show_entity_picture: false }, config);
         this.config.default_color = 'var(--primary-text-color)';
-        this.config.color_off = 'var(--paper-item-icon-color)';
+        if (this.config.color_type !== 'icon') {
+            this.config.color_off = 'var(--paper-card-background-color)';
+        } else {
+            this.config.color_off = 'var(--paper-item-icon-color)';
+        }
         this.config.color_on = 'var(--paper-item-icon-active-color)';
     }
     // The height of your card. Home Assistant uses this to automatically

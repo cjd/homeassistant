@@ -33,6 +33,10 @@
                 {
                     "type": "module",
                     "url": "/customcards/github/maykar/compact-custom-header.js?track=true"
+                },
+                {
+                    "type": "js",
+                    "url": "/local/lovelace-swipe-navigation/lovelace-swipe-navigation.js?v=1.0.0"
                 }
             ],
             "title": "Home",
