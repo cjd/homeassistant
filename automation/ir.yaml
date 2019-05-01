@@ -1,0 +1,20 @@
+- alias: Set Amp to Media Player
+  trigger:
+    - platform: state
+      entity_id: input_select.livingroom_amp_input
+      to: "Media Player"
+  action:
+    - service: broadlink.send
+      data:
+        host: 192.168.0.163
+        packet: 'JgBcAAABJZITEhI3EzYTNhM2EzcSNxMSEjcTERMSExISEhMSEhITNhMSEzYTNBU3EjYUNhM2ExITNBUSExETEhMSEhITEhI3EwAFJAABJkgTAAVBCgAG/QABJUkTAA0FAAAAAAAAAAAAAAAA'
+- alias: Set Amp to PS4
+  trigger:
+    - platform: state
+      entity_id: input_select.livingroom_amp_input
+      to: "Media Player"
+  action:
+    - service: broadlink.send
+      data:
+        host: 192.168.0.163
+        packet: 'JgBQAAABJ5MUERQ2FDYTNhQ2FDYUMxYSEzYUERQRFBETEhMRFBEUNhQ2EzYUNhQ2FDYTNhQ2FBEUERMSExEUERQRFBETEhM2FAAFHgABJ0sUAA0FAAAAAAAAAAA='
