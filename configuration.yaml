@@ -42,14 +42,14 @@ tts:
   - platform: google_translate
     service_name: google_say
 
-googlehome:
-  devices:
-    - host: 192.168.0.221
-      device_types: 1
-    - host: 192.168.0.116
-      device_types: 1
-    - host: 192.168.0.144
-      device_types: 1
+#googlehome:
+#  devices:
+#    - host: 192.168.0.221
+#      device_types: 1
+#    - host: 192.168.0.116
+#      device_types: 1
+#    - host: 192.168.0.144
+#      device_types: 1
 
 notify:
   - name: Home assistant
@@ -81,6 +81,24 @@ influxdb:
 
 binary_sensor:
   - platform: huesensor
+
+mqtt:
+  broker: 192.168.86.2
+  discovery: true
+  port: 1883
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+input_boolean:
+  zigbee_permit_join:
+    name: Allow devices to join
+    initial: off
+    icon: mdi:cellphone-wireless
+
+timer:
+  zigbee_permit_join:
+    name: Time remaining
+    duration: 600 # Updated this to the number of seconds you wish
 
 input_select: !include input_select.yaml
 sensor: !include sensors.yaml

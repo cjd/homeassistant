@@ -1,10 +1,3 @@
-- platform: luci
-  host: 192.168.0.254
-  username: root
-  password: !secret router_password
-  new_device_defaults:
-    track_new_devices: false
-    hide_if_away: false
 - platform: life360
   username: !secret life360_username
   password: !secret life360_password
@@ -12,3 +5,9 @@
   prefix: life360
   show_as_state: driving, moving, places
 - platform: huesensor
+- platform: nmap_tracker
+  hosts: 192.168.86.0/24
+  scan_options: " --privileged -sP "
+  interval_seconds: 20
+  exclude:
+    - 192.168.86.2

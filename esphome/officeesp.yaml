@@ -4,7 +4,7 @@ esphome:
   board: d1_mini
 
 wifi:
-  ssid: "malware-24"
+  ssid: "virus"
   password: !secret wifi_password
   fast_connect: true
 

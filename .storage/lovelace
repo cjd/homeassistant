@@ -297,6 +297,9 @@
                                 },
                                 {
                                     "entity": "group.xander_bedroom_lights"
+                                },
+                                {
+                                    "entity": "light.sensor_light"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -356,33 +359,6 @@
                                     "entity": "light.family_room_strip",
                                     "hideBrightness": true,
                                     "hideColorTemp": true,
-                                    "type": "custom:light-entity-row"
-                                },
-                                {
-                                    "buttons": [
-                                        {
-                                            "name": "Random Colours",
-                                            "service_data": {
-                                                "effect": "Slow Random Effect"
-                                            }
-                                        },
-                                        {
-                                            "name": "Twinkle",
-                                            "service_data": {
-                                                "effect": "Random Twinkle"
-                                            }
-                                        },
-                                        {
-                                            "name": "Rainbow",
-                                            "service_data": {
-                                                "effect": "Rainbow Effect"
-                                            }
-                                        }
-                                    ],
-                                    "entity": "light.office_strip",
-                                    "hideBrightness": true,
-                                    "hideColorTemp": true,
-                                    "showColorSliders": false,
                                     "type": "custom:light-entity-row"
                                 },
                                 {
@@ -619,9 +595,6 @@
                             ],
                             "hours_to_show": 72,
                             "type": "history-graph"
-                        },
-                        {
-                            "type": "custom:tracker-card"
                         }
                     ],
                     "icon": "mdi:chart-line",
@@ -656,6 +629,10 @@
                             ],
                             "title": "Backroom",
                             "type": "picture-glance"
+                        },
+                        {
+                            "entity": "camera.livingcam",
+                            "type": "picture-entity"
                         },
                         {
                             "entity": "camera.camera2",
@@ -693,6 +670,91 @@
                     "icon": "mdi:map",
                     "panel": false,
                     "title": "Map"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.zigbee_permit_join"
+                                },
+                                {
+                                    "entity": "timer.zigbee_permit_join"
+                                },
+                                {
+                                    "entity": "sensor.bridge_state"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Zigbee",
+                            "type": "entities"
+                        },
+                        {
+                            "type": "custom:compact-custom-header"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.onhub_kbyte_sec_received_2"
+                                },
+                                {
+                                    "entity": "sensor.onhub_kbyte_sec_sent_2"
+                                },
+                                {
+                                    "entity": "sensor.onhub_bytes_received_2"
+                                },
+                                {
+                                    "entity": "sensor.onhub_bytes_sent_2"
+                                },
+                                {
+                                    "entity": "sensor.google_wifi_status"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.onhub_bytes_received_2",
+                                "sensor.onhub_bytes_sent_2"
+                            ],
+                            "type": "history-graph"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "sensor.onhub_kbyte_sec_sent_2",
+                                    "max": 1000,
+                                    "min": 0,
+                                    "severity": {
+                                        "green": 0,
+                                        "red": 0,
+                                        "yellow": 0
+                                    },
+                                    "theme": "default",
+                                    "type": "gauge"
+                                },
+                                {
+                                    "entity": "sensor.onhub_kbyte_sec_received_2",
+                                    "max": 1000,
+                                    "min": 0,
+                                    "severity": {
+                                        "green": 0,
+                                        "red": 0,
+                                        "yellow": 0
+                                    },
+                                    "theme": "default",
+                                    "type": "gauge"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "type": "custom:tracker-card"
+                        }
+                    ],
+                    "icon": "mdi:settings",
+                    "title": ""
                 }
             ]
         }

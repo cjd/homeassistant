@@ -1,14 +1,12 @@
 - platform: mjpeg
   name: backroom
-  mjpeg_url: http://192.168.0.232/media?action=stream&user=admin&pwd=
-  still_image_url: http://192.168.0.232/snapshot.cgi?user=admin&pwd=
+  mjpeg_url: http://192.168.86.41/media?action=stream&user=admin&pwd=
+  still_image_url: http://192.168.86.41/snapshot.cgi?user=admin&pwd=
   verify_ssl: false
 - platform: ffmpeg
-  input: rtsp://192.168.0.210:554/
+  input: rtsp://192.168.86.56:554/
   name: camera2
-- platform: onvif
+- platform: mjpeg
   name: livingcam
-  host: 192.168.0.210
-  username: admin
-  password: admin
-  extra_arguments: -rtsp_transport udp
+  still_image_url: http://192.168.86.61/image.jpg
+  mjpeg_url: http://192.168.86.61/MJPEG.CGI

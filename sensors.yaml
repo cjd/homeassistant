@@ -28,7 +28,13 @@
     - filter: range
       upper_bound: 1200
 - platform: broadlink
-  host: 192.168.0.163
+  host: 192.168.86.38
   mac: 'C8:F7:42:16:AD:21'
   monitored_conditions:
      - 'temperature'
+- platform: google_wifi
+  host: 192.168.86.1
+- platform: mqtt
+  name: Bridge state
+  state_topic: "zigbee2mqtt/bridge/state"
+  icon: mdi:router-wireless
