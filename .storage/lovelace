@@ -609,6 +609,7 @@
                         },
                         {
                             "camera_image": "camera.backroom",
+                            "camera_view": "live",
                             "entities": [
                                 {
                                     "entity": "switch.backroom_up",
@@ -631,10 +632,13 @@
                             "type": "picture-glance"
                         },
                         {
+                            "camera_view": "live",
                             "entity": "camera.livingcam",
                             "type": "picture-entity"
                         },
                         {
+                            "camera_image": "camera.camera2",
+                            "camera_view": "live",
                             "entity": "camera.camera2",
                             "name": "Livingroom",
                             "type": "picture-entity"

@@ -5,6 +5,7 @@ exposed_domains:
   - light
   - climate
   - scene
+  - camera
 expose_by_default: true
 entity_config:
   script.leaving_home:
