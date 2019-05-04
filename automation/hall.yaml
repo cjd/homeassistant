@@ -1,0 +1,51 @@
+- id: hall_onpress
+  alias: Hall Onpress
+  trigger:
+  - entity_id: sensor.0x00178801067215ce_action
+    platform: state
+    to: on-press
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.bulb_white_3
+- id: hall_uppress
+  alias: Hall Uppress
+  trigger:
+  - entity_id: sensor.0x00178801067215ce_action
+    platform: state
+    to: up-press
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.sensor_light
+- id: hall_downpress
+  alias: Hall Downpress
+  trigger:
+  - entity_id: sensor.0x00178801067215ce_action
+    platform: state
+    to: down-press
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.bulb_colour_3
+      color_name: blue
+- id: hall_offpress
+  alias: Hall Offpress
+  trigger:
+  - entity_id: sensor.0x00178801067215ce_action
+    platform: state
+    to: off-press
+  condition: []
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.bulb_white_3
+  - service: light.turn_off
+    data:
+      entity_id: light.bulb_colour_3
+  - service: light.turn_off
+    data:
+      entity_id: light.sensor_light
