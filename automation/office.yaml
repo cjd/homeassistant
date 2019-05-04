@@ -1,4 +1,5 @@
 - alias: Office light on
+  id: office_light_on
   trigger:
   - entity_id: light.office_light
     platform: state
@@ -8,6 +9,7 @@
   - entity_id: switch.office_speaker
     service: switch.turn_on
 - alias: Office light off
+  id: office_light_off
   trigger:
   - entity_id: light.office_light
     platform: state

@@ -1,4 +1,5 @@
-- alias: Kids Lights
+- id: kids_lights
+  alias: Kids Lights
   trigger:
     - platform: state
       entity_id: group.lucas_bedroom_lights

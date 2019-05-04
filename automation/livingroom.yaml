@@ -1,4 +1,5 @@
-- alias: Day
+- id: day
+  alias: Day
   trigger:
   - event: sunrise
     platform: sun
@@ -9,7 +10,8 @@
       entity_id: light.family_room_strip
     entity_id: light.family_room_strip
     service: light.turn_on
-- alias: Night
+- id: night
+  alias: Night
   trigger:
   - event: sunset
     platform: sun
@@ -21,7 +23,8 @@
     entity_id: light.family_room_strip
     service: light.turn_on
 
-- alias: Living Room Click 1
+- id: living_room_click_1
+  alias: Living Room Click 1
   trigger:
   - entity_id: sensor.living_room_switch
     platform: state
@@ -32,7 +35,8 @@
     data:
       entity_id: input_select.livingroom_preset
       option: "Normal"
-- alias: Living Room Click 2
+- id: living_room_click_2
+  alias: Living Room Click 2
   trigger:
   - entity_id: sensor.living_room_switch
     platform: state
@@ -43,7 +47,8 @@
     data:
       entity_id: input_select.livingroom_preset
       option: "Movie"
-- alias: Living Room Click 3
+- id: living_room_click_3
+  alias: Living Room Click 3
   trigger:
   - entity_id: sensor.living_room_switch
     platform: state
@@ -54,7 +59,8 @@
     data:
       entity_id: input_select.livingroom_preset
       option: "Night"
-- alias: Living Room Click 4
+- id: living_room_click_4
+  alias: Living Room Click 4
   trigger:
   - entity_id: sensor.living_room_switch
     platform: state
@@ -67,6 +73,7 @@
       option: "TurnOff"
 
 - alias: Living Room Normal selected
+  id: living_room_normal_selected
   trigger:
     platform: state
     entity_id: input_select.livingroom_preset
@@ -75,6 +82,7 @@
     service: scene.turn_on
     entity_id: scene.normal
 - alias: Living Room Movie selected
+  id: living_room_movie_selected
   trigger:
     platform: state
     entity_id: input_select.livingroom_preset
@@ -83,6 +91,7 @@
     service: scene.turn_on
     entity_id: scene.movies
 - alias: Living Room Night selected
+  id: living_room_night_selected
   trigger:
     platform: state
     entity_id: input_select.livingroom_preset
@@ -91,6 +100,7 @@
     service: scene.turn_on
     entity_id: scene.night
 - alias: Living Room Turn Off selected
+  id: living_room_turnoff_selected
   trigger:
     platform: state
     entity_id: input_select.livingroom_preset
