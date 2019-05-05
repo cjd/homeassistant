@@ -6,6 +6,9 @@ homeassistant:
   unit_system: metric
   time_zone: Australia/Sydney
   customize: !include customize.yaml
+  auth_providers:
+    - type: legacy_api_password
+      api_password: !secret http_password
 
 frontend:
   themes: !include_dir_merge_named themes/
@@ -26,7 +29,6 @@ logger:
 
 http:
   base_url: https://home.adebenham.com:8123
-  api_password: !secret http_password
   ssl_certificate: /ssl/fullchain.pem
   ssl_key: /ssl/privkey.pem
 
