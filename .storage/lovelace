@@ -743,62 +743,6 @@
                             "type": "custom:compact-custom-header"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "sensor.onhub_kbyte_sec_received_2"
-                                },
-                                {
-                                    "entity": "sensor.onhub_kbyte_sec_sent_2"
-                                },
-                                {
-                                    "entity": "sensor.onhub_bytes_received_2"
-                                },
-                                {
-                                    "entity": "sensor.onhub_bytes_sent_2"
-                                },
-                                {
-                                    "entity": "sensor.google_wifi_status"
-                                }
-                            ],
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "sensor.onhub_bytes_received_2",
-                                "sensor.onhub_bytes_sent_2"
-                            ],
-                            "type": "history-graph"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entity": "sensor.onhub_kbyte_sec_sent_2",
-                                    "max": 1000,
-                                    "min": 0,
-                                    "severity": {
-                                        "green": 0,
-                                        "red": 0,
-                                        "yellow": 0
-                                    },
-                                    "theme": "default",
-                                    "type": "gauge"
-                                },
-                                {
-                                    "entity": "sensor.onhub_kbyte_sec_received_2",
-                                    "max": 1000,
-                                    "min": 0,
-                                    "severity": {
-                                        "green": 0,
-                                        "red": 0,
-                                        "yellow": 0
-                                    },
-                                    "theme": "default",
-                                    "type": "gauge"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
                             "type": "custom:tracker-card"
                         }
                     ],
