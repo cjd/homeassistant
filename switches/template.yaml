@@ -1,17 +1,3 @@
-- platform: command_line
-  switches:
-    backroom_up:
-      command_on: '/config/ptz_script.sh 1'
-      command_off: '/config/ptz_script.sh 1'
-    backroom_down:
-      command_on: '/config/ptz_script.sh 2'
-      command_off: '/config/ptz_script.sh 2'
-    backroom_right:
-      command_on: '/config/ptz_script.sh 3'
-      command_off: '/config/ptz_script.sh 3'
-    backroom_left:
-      command_on: '/config/ptz_script.sh 4'
-      command_off: '/config/ptz_script.sh 4'
 - platform: template
   switches:
     livingroom_lights:
@@ -160,30 +146,3 @@
         service: homeassistant.turn_off
         data:
             entity_id: group.front_lights
-- platform: broadlink
-  host: 192.168.0.163
-  mac: 'C8:F7:42:16:AD:21'
-  type: rm_mini
-  timeout: 15
-  switches:
-    # Amp
-    lg_amp:
-      friendly_name: "AV Receiver"
-      command_on: 'JgBcAAABJZITEhI3EzYTNhM2EzcSNxMSEjcTERMSExISEhMSEhITNhMSEzYTNBU3EjYUNhM2ExITNBUSExETEhMSEhITEhI3EwAFJAABJkgTAAVBCgAG/QABJUkTAA0FAAAAAAAAAAAAAAAA'
-      command_off: 'JgBQAAABJ5MUERQ2FDYTNhQ2FDYUMxYSEzYUERQRFBETEhMRFBEUNhQ2EzYUNhQ2FDYTNhQ2FBEUERMSExEUERQRFBETEhM2FAAFHgABJ0sUAA0FAAAAAAAAAAA='
-    lg_amp_input:
-      friendly_name: "AV input to media"
-      command_on: 'JgBYAAABKZIUERQ2FBETNhQ2FDYUNhQRFDUUERQ2FBEUERQRFBETNhQRFBEUERQRFBEUERMRFBEUNhQ2FDYTNhQ2FDYUNhQREwAFQwABKUkUAAxRAAEpSRQADQU='
-      command_off: 'JgBYAAABKJMUERM2FBEUNhQ2FDYTNhQRFDYUERQ2FBETERQRFBEUNhQ2FDUUERQRFBEUERQRFBEUERMRFDYUNhQ2FDYTNhQRFAAFQwABKEoUAAxRAAEoShQADQU='
-    lg_amp_volup:
-      friendly_name: "AV volume up"
-      command_on: 'JgBgAAABKJMUERM2FBEUNhQ2FDYUNRQRFDYUERQ2FBETERQRFBEUNhQRFDYUERM2FDYUERQRFBEUNRQRFDYUERQRFDUVNRQ2FAAFHgABKEoUAAxRAAEoShQADFEAAShKFAANBQAAAAAAAAAA'
-      command_off: 'JgBgAAABKJMUERM2FBEUNhQ2FDYUNRQRFDYUERQ2FBETERQRFBEUNhQRFDYUERM2FDYUERQRFBEUNRQRFDYUERQRFDUVNRQ2FAAFHgABKEoUAAxRAAEoShQADFEAAShKFAANBQAAAAAAAAAA'
-    lg_amp_voldown:
-      friendly_name: "AV volume down"
-      command_on: 'JgBoAAABKJMUERQ2ExITNhQ2FDYUNhMSEzYUERQ2FBEUERMSExEUNhQ2FDYUERM2FDYUERQRFBEUERMSEzYUERQRFDYUNRQ2FAAFHgABKEoUAAxRAAEoShQADFEAAShKFAAMUQABKEoUAA0F'
-      command_off: 'JgBoAAABKJMUERQ2ExITNhQ2FDYUNhMSEzYUERQ2FBEUERMSExEUNhQ2FDYUERM2FDYUERQRFBEUERMSEzYUERQRFDYUNRQ2FAAFHgABKEoUAAxRAAEoShQADFEAAShKFAAMUQABKEoUAA0F'
-    livingroomtv:
-      friendly_name: "Hisense TV"
-      command_on: 'JgBgAAABKJEUERQRFBAVEBQRFBAUERQRFDUUNhQ1FDUUNhQ1FBEUNRQ2FBAUNhQ1FBEUERMRFBEUERQ1FBEUEBQ2FDUUNRQ2FAAFOQABKEgUAAw+AAEoSBQADD4AAShJFAANBQAAAAAAAAAA'
-      command_off: 'JgBgAAABKJEUERQRFBAVEBQRFBAUERQRFDUUNhQ1FDUUNhQ1FBEUNRQ2FBAUNhQ1FBEUERMRFBEUERQ1FBEUEBQ2FDUUNRQ2FAAFOQABKEgUAAw+AAEoSBQADD4AAShJFAANBQAAAAAAAAAA'
