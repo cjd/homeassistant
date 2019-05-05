@@ -1,7 +1,8 @@
+# Hall dimmer switch
 - id: hall_onpress
   alias: Hall Onpress
   trigger:
-  - entity_id: sensor.hue_dimmer_switch_1
+  - entity_id: sensor.hall_dimmer_switch
     platform: state
     to: 1_click_up
   condition: []
@@ -10,10 +11,14 @@
     data:
       entity_id: light.hall_white
       transition: 0
+  - service: light.turn_off
+    data:
+      entity_id: light.hall_colour
+      transition: 0
 - id: hall_uppress
   alias: Hall Uppress
   trigger:
-  - entity_id: sensor.hue_dimmer_switch_1
+  - entity_id: sensor.hall_dimmer_switch
     platform: state
     to: 2_click_up
   condition: []
@@ -23,10 +28,14 @@
       entity_id: light.hall_white
       brightness_pct: 50
       transition: 0
+  - service: light.turn_off
+    data:
+      entity_id: light.hall_colour
+      transition: 0 
 - id: hall_downpress
   alias: Hall Downpress
   trigger:
-  - entity_id: sensor.hue_dimmer_switch_1
+  - entity_id: sensor.hall_dimmer_switch
     platform: state
     to: 3_click_up
   condition: []
@@ -43,7 +52,7 @@
 - id: hall_offpress
   alias: Hall Offpress
   trigger:
-  - entity_id: sensor.hue_dimmer_switch_1
+  - entity_id: sensor.hall_dimmer_switch
     platform: state
     to: 4_click_up
   condition: []
@@ -56,6 +65,7 @@
     data:
       entity_id: light.hall_colour
       transition: 0
+# Change the hall light colour based on time and if the kids lights are on
 - id: hall_nightlight
   alias: Hall nightlight
   trigger:
@@ -63,25 +73,87 @@
     at: '19:00:00'
   condition: []
   action:
-  - service: light.turn_on
-    data:
-      entity_id: light.hall_colour
-      color_name: blue
   - service: light.turn_off
     data:
+      entity_id: light.hall_colour
+      transition: 0
+  - service: light.turn_on
+    data:
       entity_id: light.hall_white
+      transition: 0
+      brightness_pct: 50
 - id: hall_morning
   alias: Hall morning
   trigger:
-    platform: sun
-    event: sunrise
-    offset: '-00:30:00'
+    platform: time
+    at: '06:00:00'
   condition: []
   action:
   - service: light.turn_off
     data:
       entity_id: light.hall_colour
-      color_name: blue
   - service: light.turn_off
     data:
       entity_id: light.hall_white
+- id: hall_kidslightson
+  alias: Hall Kids lights on
+  trigger:
+    - platform: state
+      entity_id: group.lucas_bedroom_lights
+    - platform: state
+      entity_id: group.xander_bedroom_lights
+  condition:
+    condition: and
+    conditions:
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: group.lucas_bedroom_lights
+            state: 'on'
+          - condition: state
+            entity_id: group.xander_bedroom_lights
+            state: 'on'
+      - condition: time
+        after: '19:00:00'
+        before: '06:00:00'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.hall_colour
+        transition: 0
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_white
+        transition: 0
+        brightness_pct: 50
+- id: hall_kidslightsoff
+  alias: Hall Kids lights off
+  trigger:
+    - platform: state
+      entity_id: group.lucas_bedroom_lights
+    - platform: state
+      entity_id: group.xander_bedroom_lights
+  condition:
+    condition: and
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity_id: group.lucas_bedroom_lights
+            state: 'off'
+          - condition: state
+            entity_id: group.xander_bedroom_lights
+            state: 'off'
+      - condition: time
+        after: '19:00:00'
+        before: '06:00:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_colour
+        transition: 0
+        color_name: blue
+    - service: light.turn_off
+      data:
+        entity_id: light.hall_white
+        transition: 0
