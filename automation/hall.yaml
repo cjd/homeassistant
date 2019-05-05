@@ -1,51 +1,87 @@
 - id: hall_onpress
   alias: Hall Onpress
   trigger:
-  - entity_id: sensor.0x00178801067215ce_action
+  - entity_id: sensor.hue_dimmer_switch_1
     platform: state
-    to: on-press
+    to: 1_click_up
   condition: []
   action:
   - service: light.turn_on
     data:
-      entity_id: light.bulb_white_3
+      entity_id: light.hall_white
+      transition: 0
 - id: hall_uppress
   alias: Hall Uppress
   trigger:
-  - entity_id: sensor.0x00178801067215ce_action
+  - entity_id: sensor.hue_dimmer_switch_1
     platform: state
-    to: up-press
+    to: 2_click_up
   condition: []
   action:
   - service: light.turn_on
     data:
-      entity_id: light.sensor_light
+      entity_id: light.hall_white
+      brightness_pct: 50
+      transition: 0
 - id: hall_downpress
   alias: Hall Downpress
   trigger:
-  - entity_id: sensor.0x00178801067215ce_action
+  - entity_id: sensor.hue_dimmer_switch_1
     platform: state
-    to: down-press
+    to: 3_click_up
   condition: []
   action:
   - service: light.turn_on
     data:
-      entity_id: light.bulb_colour_3
+      entity_id: light.hall_colour
       color_name: blue
+      transition: 0
+  - service: light.turn_off
+    data:
+      entity_id: light.hall_white
+      transition: 0
 - id: hall_offpress
   alias: Hall Offpress
   trigger:
-  - entity_id: sensor.0x00178801067215ce_action
+  - entity_id: sensor.hue_dimmer_switch_1
     platform: state
-    to: off-press
+    to: 4_click_up
   condition: []
   action:
   - service: light.turn_off
     data:
-      entity_id: light.bulb_white_3
+      entity_id: light.hall_white
+      transition: 0
   - service: light.turn_off
     data:
-      entity_id: light.bulb_colour_3
+      entity_id: light.hall_colour
+      transition: 0
+- id: hall_nightlight
+  alias: Hall nightlight
+  trigger:
+    platform: time
+    at: '19:00:00'
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.hall_colour
+      color_name: blue
   - service: light.turn_off
     data:
-      entity_id: light.sensor_light
+      entity_id: light.hall_white
+- id: hall_morning
+  alias: Hall morning
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: '-00:30:00'
+  condition: []
+  action:
+  - service: light.turn_off
+    data:
+      entity_id: light.hall_colour
+      color_name: blue
+  - service: light.turn_off
+    data:
+      entity_id: light.hall_white

@@ -48,3 +48,17 @@ lucas_bedroom_lights:
   name: Lucas Bedroom
   entities:
     - light.lucas_bedroom_light
+hall_lights:
+  name: Hall
+  entities:
+    - light.hall_white
+    - light.hall_colour
+entry_lights:
+  name: Entry
+  entities:
+    - light.bulb_white_3
+    - light.bulb_colour_3
+front_lights:
+  name: Front
+  entities:
+    - light.sensor_light

@@ -61,6 +61,35 @@
                                     "cards": [
                                         {
                                             "color": "rgb(5, 147, 255)",
+                                            "color-type": "card",
+                                            "entity": "switch.bedroom_lights",
+                                            "icon": "mdi:bed-empty",
+                                            "name": "Main",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color": "rgb(5, 147, 255)",
+                                            "color-type": "card",
+                                            "entity": "switch.lucas_bedroom_lights",
+                                            "icon": "mdi:bed-empty",
+                                            "name": "Lucas",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color": "rgb(5, 147, 255)",
+                                            "color-type": "card",
+                                            "entity": "switch.xander_bedroom_lights",
+                                            "icon": "mdi:bed-empty",
+                                            "name": "Xander",
+                                            "type": "custom:button-card"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "color": "rgb(5, 147, 255)",
                                             "entity": "switch.livingroom_lights",
                                             "icon": "mdi:sofa",
                                             "name": "Livingroom",
@@ -95,32 +124,28 @@
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "entity": "switch.office_lights",
-                                            "icon": "mdi:desktop-classic",
                                             "name": "Office",
                                             "type": "custom:button-card"
                                         },
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "switch.bedroom_lights",
-                                            "icon": "mdi:bed-empty",
-                                            "name": "Main",
+                                            "entity": "switch.entry_lights",
+                                            "name": "Entry",
                                             "type": "custom:button-card"
                                         },
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "switch.lucas_bedroom_lights",
-                                            "icon": "mdi:bed-empty",
-                                            "name": "Lucas",
+                                            "entity": "switch.hall_lights",
+                                            "name": "Hall",
                                             "type": "custom:button-card"
                                         },
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "switch.xander_bedroom_lights",
-                                            "icon": "mdi:bed-empty",
-                                            "name": "Xander",
+                                            "entity": "switch.front_lights",
+                                            "name": "Front door",
                                             "type": "custom:button-card"
                                         }
                                     ],
@@ -300,6 +325,12 @@
                                 },
                                 {
                                     "entity": "light.sensor_light"
+                                },
+                                {
+                                    "entity": "light.bulb_white_3"
+                                },
+                                {
+                                    "entity": "light.hall_white"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -377,6 +408,20 @@
                                 },
                                 {
                                     "entity": "light.kitchen_light_front",
+                                    "hideBrightness": true,
+                                    "hideColorTemp": true,
+                                    "showColorSliders": true,
+                                    "type": "custom:light-entity-row"
+                                },
+                                {
+                                    "entity": "light.bulb_colour_3",
+                                    "hideBrightness": true,
+                                    "hideColorTemp": true,
+                                    "showColorSliders": true,
+                                    "type": "custom:light-entity-row"
+                                },
+                                {
+                                    "entity": "light.hall_colour",
                                     "hideBrightness": true,
                                     "hideColorTemp": true,
                                     "showColorSliders": true,

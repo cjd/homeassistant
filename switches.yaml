@@ -122,6 +122,44 @@
         service: homeassistant.turn_off
         data:
             entity_id: group.xander_bedroom_lights
+    entry_lights:
+      value_template: "{{ states('group.entry_lights') }}"
+      icon_template: mdi:door
+      friendly_name: "Entry"
+      turn_on:
+        service: light.turn_on
+        data:
+            entity_id: group.entry_lights
+            brightness_pct: 100
+      turn_off:
+        service: homeassistant.turn_off
+        data:
+            entity_id: group.entry_lights
+    hall_lights:
+      value_template: "{{ states('group.hall_lights') }}"
+      friendly_name: "Hall"
+      turn_on:
+        service: light.turn_on
+        data:
+            entity_id: group.hall_lights
+            brightness_pct: 100
+      turn_off:
+        service: homeassistant.turn_off
+        data:
+            entity_id: group.hall_lights
+    front_lights:
+      value_template: "{{ states('group.front_lights') }}"
+      icon_template: mdi:car
+      friendly_name: "Front"
+      turn_on:
+        service: light.turn_on
+        data:
+            entity_id: group.front_lights
+            brightness_pct: 100
+      turn_off:
+        service: homeassistant.turn_off
+        data:
+            entity_id: group.front_lights
 - platform: broadlink
   host: 192.168.0.163
   mac: 'C8:F7:42:16:AD:21'
