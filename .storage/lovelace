@@ -20,10 +20,6 @@
                 },
                 {
                     "type": "module",
-                    "url": "/local/custom-cards/weather-card.js"
-                },
-                {
-                    "type": "module",
                     "url": "/customcards/github/nervetattoo/simple-thermostat.js?track=true"
                 },
                 {
@@ -41,6 +37,14 @@
                 {
                     "type": "module",
                     "url": "/local/mini-media-player-bundle.js?v=1.0.4"
+                },
+                {
+                    "type": "js",
+                    "url": "/customcards/github/thomasloven/card-tools.js?track=true"
+                },
+                {
+                    "type": "js",
+                    "url": "/local/fold-entity-row.js?v=1"
                 }
             ],
             "title": "Home",
@@ -300,28 +304,36 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "group.bedroom_lights"
+                                    "head": "group.bedroom_lights",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "group.backroom_lights"
+                                    "head": "group.backroom_lights",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "group.craftroom_lights"
+                                    "head": "group.craftroom_lights",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "group.kitchen_lights"
+                                    "head": "group.kitchen_lights",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "group.livingroom_lights"
+                                    "head": "group.livingroom_lights",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "group.office_lights"
+                                    "head": "group.office_lights",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "group.lucas_bedroom_lights"
+                                    "head": "group.lucas_bedroom_lights",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "entity": "group.xander_bedroom_lights"
+                                    "head": "group.xander_bedroom_lights",
+                                    "type": "custom:fold-entity-row"
                                 },
                                 {
                                     "entity": "light.sensor_light"
@@ -677,15 +689,17 @@
                             "type": "picture-glance"
                         },
                         {
-                            "camera_view": "live",
                             "entity": "camera.livingcam",
                             "type": "picture-entity"
                         },
                         {
                             "camera_image": "camera.camera2",
-                            "camera_view": "live",
                             "entity": "camera.camera2",
                             "name": "Livingroom",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.my_camera",
                             "type": "picture-entity"
                         }
                     ],
@@ -696,28 +710,23 @@
                     "badges": [],
                     "cards": [
                         {
-                            "cards": [
+                            "default_zoom": 13,
+                            "entities": [
                                 {
-                                    "default_zoom": 13,
-                                    "entities": [
-                                        {
-                                            "entity": "person.mel"
-                                        },
-                                        {
-                                            "entity": "person.chris"
-                                        }
-                                    ],
-                                    "type": "map"
+                                    "entity": "person.mel"
                                 },
                                 {
-                                    "type": "custom:compact-custom-header"
+                                    "entity": "person.chris"
                                 }
                             ],
-                            "type": "vertical-stack"
+                            "type": "map"
+                        },
+                        {
+                            "type": "custom:compact-custom-header"
                         }
                     ],
                     "icon": "mdi:map",
-                    "panel": false,
+                    "panel": true,
                     "title": "Map"
                 },
                 {
