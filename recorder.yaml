@@ -52,3 +52,6 @@ exclude:
     - switch.office_lights
     - switch.office_speaker
     - switch.xander_bedroom_lights
+    - sensor.google_wifi_uptime
+    - sensor.google_wifi_new_version
+    - sensor.google_wifi_current_version

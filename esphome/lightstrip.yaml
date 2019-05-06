@@ -4,7 +4,7 @@ esphome:
   board: d1_mini
 
 wifi:
-  ssid: "virus"
+  ssid: !secret wifi_ssid
   password: !secret wifi_password
 
 # Enable logging

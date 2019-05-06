@@ -4,7 +4,7 @@ esphome:
   board: esp32dev
 
 wifi:
-  ssid: "malware-24"
+  ssid: !secret wifi_ssid
   password: !secret wifi_password
 
 # Enable logging

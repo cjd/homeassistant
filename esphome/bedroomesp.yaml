@@ -4,7 +4,7 @@ esphome:
   board: esp32doit-devkit-v1
 
 wifi:
-  ssid: virus
+  ssid: !secret wifi_ssid
   password: !secret wifi_password
 
 # Enable logging
