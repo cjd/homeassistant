@@ -70,7 +70,7 @@
   alias: Hall nightlight
   trigger:
     platform: time
-    at: '19:00:00'
+    at: '18:00:00'
   condition: []
   action:
   - service: light.turn_off
@@ -99,20 +99,13 @@
   alias: Hall Kids lights on
   trigger:
     - platform: state
-      entity_id: group.lucas_bedroom_lights
-    - platform: state
       entity_id: group.xander_bedroom_lights
   condition:
     condition: and
     conditions:
-      - condition: or
-        conditions:
-          - condition: state
-            entity_id: group.lucas_bedroom_lights
-            state: 'on'
-          - condition: state
-            entity_id: group.xander_bedroom_lights
-            state: 'on'
+      - condition: state
+        entity_id: group.xander_bedroom_lights
+        state: 'on'
       - condition: time
         after: '19:00:00'
         before: '06:00:00'
@@ -130,20 +123,13 @@
   alias: Hall Kids lights off
   trigger:
     - platform: state
-      entity_id: group.lucas_bedroom_lights
-    - platform: state
       entity_id: group.xander_bedroom_lights
   condition:
     condition: and
     conditions:
-      - condition: and
-        conditions:
-          - condition: state
-            entity_id: group.lucas_bedroom_lights
-            state: 'off'
-          - condition: state
-            entity_id: group.xander_bedroom_lights
-            state: 'off'
+      - condition: state
+        entity_id: group.xander_bedroom_lights
+        state: 'off'
       - condition: time
         after: '19:00:00'
         before: '06:00:00'

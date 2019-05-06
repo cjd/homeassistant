@@ -32,10 +32,6 @@ http:
 updater:
   include_used_components: true
 
-weather:
-  - platform: bom
-    station: IDN60901.94782
-
 # Text to speech
 tts:
   - platform: google_translate

@@ -11,3 +11,6 @@
   name: livingcam
   still_image_url: http://192.168.86.61/image.jpg
   mjpeg_url: http://192.168.86.61/MJPEG.CGI
+- platform: onvif
+  host: 192.168.86.56
+  name: livingcam2
