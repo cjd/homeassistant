@@ -4,7 +4,7 @@
   still_image_url: http://192.168.86.41/snapshot.cgi?user=admin&pwd=
   verify_ssl: false
 - platform: generic
-  stream_source: rtsp://192.168.86.56:554/0/av1
+  stream_source: rtsp://192.168.86.56:554/
   still_image_url: http://192.168.86.56:554/snapshot
   name: camera2
 - platform: mjpeg
