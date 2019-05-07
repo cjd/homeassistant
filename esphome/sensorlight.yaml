@@ -22,10 +22,6 @@ binary_sensor:
     name: "Sensorlight Button"
     on_press:
       - light.toggle: light
-  - platform: gpio
-    pin: GPIO2
-    name: "PIR Sensor"
-    device_class: motion
     
 light:
   - platform: binary
