@@ -1,2 +1,2 @@
 # homeassistant
-Home Assistant configuration
+Home Assistant configuration for home
