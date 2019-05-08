@@ -36,7 +36,7 @@
                 },
                 {
                     "type": "module",
-                    "url": "/local/mini-media-player-bundle.js?v=1.0.4"
+                    "url": "/local/mini-media-player-bundle.js?v=1.1.1"
                 },
                 {
                     "type": "js",
@@ -699,8 +699,28 @@
                             "type": "picture-entity"
                         },
                         {
-                            "entity": "camera.my_camera",
-                            "type": "picture-entity"
+                            "camera_image": "camera.camera3",
+                            "camera_view": "live",
+                            "entities": [
+                                {
+                                    "entity": "switch.camera3_ptz_up",
+                                    "icon": "mdi:arrow-up-thick"
+                                },
+                                {
+                                    "entity": "switch.camera3_ptz_down",
+                                    "icon": "mdi:arrow-down-thick"
+                                },
+                                {
+                                    "entity": "switch.camera3_ptz_left",
+                                    "icon": "mdi:arrow-left-thick"
+                                },
+                                {
+                                    "entity": "switch.camera3_ptz_right",
+                                    "icon": "mdi:arrow-right-thick"
+                                }
+                            ],
+                            "title": "Backroom",
+                            "type": "picture-glance"
                         }
                     ],
                     "icon": "mdi:camera",

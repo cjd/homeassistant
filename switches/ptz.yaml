@@ -1,0 +1,22 @@
+- platform: template
+  switches:
+    camera3_ptz_up:
+      value_template: "{{ False }}"
+      turn_off:
+      turn_on:
+        - service: script.camera3_ptz_up
+    camera3_ptz_down:
+      value_template: "{{ False }}"
+      turn_off:
+      turn_on:
+        - service: script.camera3_ptz_down
+    camera3_ptz_left:
+      value_template: "{{ False }}"
+      turn_off:
+      turn_on:
+        - service: script.camera3_ptz_left
+    camera3_ptz_right:
+      value_template: "{{ False }}"
+      turn_off:
+      turn_on:
+        - service: script.camera3_ptz_right

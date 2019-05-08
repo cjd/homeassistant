@@ -21,3 +21,51 @@ arriving_home:
       data:
         entity_id: input_select.livingroom_preset
         option: "Normal"
+camera3_ptz_up:
+  alias: Camera3 Up
+  sequence:
+    - service: camera.onvif_ptz
+      data:
+        entity_id: camera.camera3
+        tilt: 'UP'
+    - delay: '00:00:01'
+    - service: camera.onvif_ptz
+      data:
+        entity_id: camera.camera3
+        tilt: 'NONE' 
+camera3_ptz_down:
+  alias: Camera3 Down
+  sequence:
+    - service: camera.onvif_ptz
+      data:
+        entity_id: camera.camera3
+        tilt: 'DOWN'
+    - delay: '00:00:01'
+    - service: camera.onvif_ptz
+      data:
+        entity_id: camera.camera3
+        tilt: 'NONE'
+camera3_ptz_left:
+  alias: Camera3 Left
+  sequence:
+    - service: camera.onvif_ptz
+      data:
+        entity_id: camera.camera3
+        pan: 'LEFT'
+    - delay: '00:00:01'
+    - service: camera.onvif_ptz
+      data:
+        entity_id: camera.camera3
+        pan: 'NONE'  
+camera3_ptz_right:
+  alias: Camera3 Right
+  sequence:
+    - service: camera.onvif_ptz
+      data:
+        entity_id: camera.camera3
+        pan: 'RIGHT'
+    - delay: '00:00:01'
+    - service: camera.onvif_ptz
+      data:
+        entity_id: camera.camera3
+        pan: 'NONE'  

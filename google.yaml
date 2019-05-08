@@ -6,59 +6,79 @@ exposed_domains:
   - climate
   - scene
   - camera
-expose_by_default: true
+expose_by_default: false
 entity_config:
   script.leaving_home:
     expose: true
   script.arriving_home:
     expose: true
-  switch.entertainment_unit:
+  climate.living_room:
+    expose: true
+  light.bedroom_light_1:
+    expose: true
+  light.bedroom_light_2:
+    expose: true
+  light.bulb_colour_3:
+    expose: true
+  light.bulb_colour_4:
+    expose: true
+  light.bedroom_led:
+    expose: true
+  light.bedroom_light_1:
+    expose: true
+  light.bedroom_light_2:
+    expose: true
+  light.bulb_colour:
+    expose: true
+  light.bulb_colour_2:
+    expose: true
+  light.bulb_colour_3:
+    expose: true
+  light.bulb_colour_4:
+    expose: true
+  light.bulb_white:
+    expose: true
+  light.bulb_white_2:
+    expose: true
+  light.bulb_white_3:
+    expose: true
+  light.bulb_white_4:
+    expose: true
+  light.craft_room:
+    expose: true
+  light.family_room_left:
+    expose: true
+  light.family_room_middle:
+    expose: true
+  light.family_room_right:
+    expose: true
+  light.family_room_strip:
     expose: false
-  group.all_lights:
+  light.hall_colour:
+    expose: true
+  light.hall_white:
+    expose: true
+  light.kitchen_counter:
+    expose: true
+  light.kitchen_light_back:
+    expose: true
+  light.kitchen_light_front:
+    expose: true
+  light.living_room_1:
+    expose: true
+  light.living_room_2:
+    expose: true
+  light.livingroom_side:
+    expose: true
+  light.lucas_bedroom_light:
+    expose: true
+  light.office_light:
+    expose: true
+  light.office_strip:
     expose: false
-  group.all_devices:
+  light.sensor_light:
+    expose: true
+  light.tv_backlight_2:
     expose: false
-  group.all_switches:
-    expose: false
-  group.all_automations:
-    expose: false
-  light.entertainment_area_1:
-    expose: false
-  light.family_room:
-    expose: false
-  light.bedroom:
-    expose: false
-  light.kitchen:
-    expose: false
-  light.living_room:
-    expose: false
-  light.office:
-    expose: false
-  light.lucas_bedroom:
-    expose: false
-  light.xander_bedroom:
-    expose: false
-  switch.backroom_left:
-    expose: false
-  switch.backroom_right:
-    expose: false
-  switch.backroom_up:
-    expose: false
-  switch.backroom_down:
-    expose: false
-  switch.backroom_lights:
-    expose: false
-  switch.bedroom_lights:
-    expose: false
-  switch.lucas_bedroom_lights:
-    expose: false
-  switch.xander_bedroom_lights:
-    expose: false
-  switch.craftroom_lights:
-    expose: false
-  switch.kitchen_lights:
-    expose: false
-  switch.livingroom_lights:
-    expose: false
-  switch.office_lights:
-    expose: false
+  light.xander_bedroom_light:
+    expose: true

@@ -9,4 +9,4 @@ component_urls:
 python_script_urls:
   - https://raw.githubusercontent.com/pnbrucker/homeassistant-config/master/python_scripts.json
 card_urls:
-    - https://raw.githubusercontent.com/kalkih/mini-media-player/master/tracker.json
+  - https://raw.githubusercontent.com/kalkih/mini-media-player/master/tracker.json
