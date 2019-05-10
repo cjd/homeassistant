@@ -1,0 +1,31 @@
+- alias: 'Leaving home'
+  trigger:
+    - platform: state
+      entity_id: person.mel
+      from: 'home'
+    - platform: state
+      entity_id: person.chris
+      from: 'home'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: person.mel
+      state: 'not_home'
+    - condition: state
+      entity_id: person.chris
+      state: 'not_home'
+  action:
+    service: home_assistant.turn_on
+    entity_id: switch.camera3_away
+- alias: 'People home'
+  trigger:
+    - platform: state
+      entity_id: person.mel
+      to: 'home'
+    - platform: state
+      entity_id: person.chris
+      to: 'home'
+  action:
+    service: home_assistant.turn_on
+    entity_id: switch.camera3_home

@@ -28,7 +28,8 @@ camera3_ptz_up:
       data:
         entity_id: camera.camera3
         tilt: 'UP'
-    - delay: '00:00:01'
+    - delay:
+        milliseconds: 250
     - service: camera.onvif_ptz
       data:
         entity_id: camera.camera3
@@ -40,7 +41,8 @@ camera3_ptz_down:
       data:
         entity_id: camera.camera3
         tilt: 'DOWN'
-    - delay: '00:00:01'
+    - delay:
+        milliseconds: 250
     - service: camera.onvif_ptz
       data:
         entity_id: camera.camera3
@@ -52,7 +54,8 @@ camera3_ptz_left:
       data:
         entity_id: camera.camera3
         pan: 'LEFT'
-    - delay: '00:00:01'
+    - delay:
+        milliseconds: 250
     - service: camera.onvif_ptz
       data:
         entity_id: camera.camera3
@@ -64,7 +67,8 @@ camera3_ptz_right:
       data:
         entity_id: camera.camera3
         pan: 'RIGHT'
-    - delay: '00:00:01'
+    - delay:
+        milliseconds: 250
     - service: camera.onvif_ptz
       data:
         entity_id: camera.camera3
