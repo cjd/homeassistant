@@ -1,4 +1,4 @@
-- alias: 'Leaving home'
+- alias: 'People not home'
   trigger:
     - platform: state
       entity_id: person.mel
