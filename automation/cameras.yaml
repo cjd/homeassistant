@@ -16,7 +16,7 @@
       entity_id: person.chris
       state: 'not_home'
   action:
-    service: home_assistant.turn_on
+    service: switch.toggle
     entity_id: switch.camera3_away
 - alias: 'People home'
   trigger:
@@ -27,5 +27,5 @@
       entity_id: person.chris
       to: 'home'
   action:
-    service: home_assistant.turn_on
+    service: switch.toggle
     entity_id: switch.camera3_home
