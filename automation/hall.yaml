@@ -139,7 +139,9 @@
         entity_id: light.hall_colour
         transition: 0
         color_name: blue
+        brightness_pct: 50
     - service: light.turn_off
       data:
         entity_id: light.hall_white
         transition: 0
+      

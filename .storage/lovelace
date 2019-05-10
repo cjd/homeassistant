@@ -689,19 +689,30 @@
                             "type": "picture-glance"
                         },
                         {
+                            "camera_view": "live",
                             "entity": "camera.livingcam",
+                            "name": "Backyard",
                             "type": "picture-entity"
                         },
                         {
                             "camera_image": "camera.camera2",
+                            "camera_view": "live",
                             "entity": "camera.camera2",
                             "name": "Livingroom",
                             "type": "picture-entity"
                         },
                         {
-                            "camera_image": "camera.camera3",
+                            "camera_image": "camera.livingcam2",
                             "camera_view": "live",
                             "entities": [
+                                {
+                                    "entity": "switch.camera3_home",
+                                    "icon": "mdi:do-not-disturb"
+                                },
+                                {
+                                    "entity": "switch.camera3_away",
+                                    "icon": "mdi:home"
+                                },
                                 {
                                     "entity": "switch.camera3_ptz_up",
                                     "icon": "mdi:arrow-up-thick"
@@ -719,7 +730,6 @@
                                     "icon": "mdi:arrow-right-thick"
                                 }
                             ],
-                            "title": "Backroom",
                             "type": "picture-glance"
                         }
                     ],

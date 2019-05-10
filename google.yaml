@@ -18,15 +18,7 @@ entity_config:
     expose: true
   light.bedroom_light_2:
     expose: true
-  light.bulb_colour_3:
-    expose: true
-  light.bulb_colour_4:
-    expose: true
   light.bedroom_led:
-    expose: true
-  light.bedroom_light_1:
-    expose: true
-  light.bedroom_light_2:
     expose: true
   light.bulb_colour:
     expose: true
