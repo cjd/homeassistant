@@ -15,6 +15,10 @@ api:
 
 ota:
 
+web_server:
+  css_url: https://home.adebenham.com:8123/local/esphome/webserver-v1.min.css
+  js_url: https://home.adebenham.com:8123/local/esphome/webserver-v1.min.css
+
 i2c:
 
 # Example configuration entry

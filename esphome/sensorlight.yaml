@@ -13,6 +13,10 @@ logger:
 
 ota:
 
+web_server:
+  css_url: https://home.adebenham.com:8123/local/esphome/webserver-v1.min.css
+  js_url: https://home.adebenham.com:8123/local/esphome/webserver-v1.min.css
+
 binary_sensor:
   - platform: gpio
     pin:
