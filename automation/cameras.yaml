@@ -26,6 +26,7 @@
     - platform: state
       entity_id: person.chris
       to: 'home'
+  condition: []
   action:
     service: switch.toggle
     entity_id: switch.camera3_home

@@ -455,35 +455,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.lg_amp"
-                                },
-                                {
-                                    "entity": "input_select.livingroom_amp_input"
-                                },
-                                {
-                                    "entity": "switch.lg_amp_voldown"
-                                },
-                                {
-                                    "entity": "switch.lg_amp_voldown"
-                                },
-                                {
-                                    "entity": "switch.livingroomtv"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "type": "entities"
-                        },
-                        {
-                            "entity": "media_player.livingroom_tv",
-                            "type": "custom:mini-media-player"
-                        },
-                        {
-                            "entity": "media_player.living_room_display",
-                            "type": "custom:mini-media-player"
-                        },
-                        {
-                            "entities": [
-                                {
                                     "entity": "media_player.whole_house",
                                     "group": true,
                                     "hide": {
@@ -520,6 +491,35 @@
                                 }
                             ],
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.lg_amp"
+                                },
+                                {
+                                    "entity": "input_select.livingroom_amp_input"
+                                },
+                                {
+                                    "entity": "switch.lg_amp_voldown"
+                                },
+                                {
+                                    "entity": "switch.lg_amp_voldown"
+                                },
+                                {
+                                    "entity": "switch.livingroomtv"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "media_player.livingroom_tv",
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "entity": "media_player.living_room_display",
+                            "type": "custom:mini-media-player"
                         },
                         {
                             "entity": "media_player.bedroom_tv",
