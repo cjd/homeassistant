@@ -285,7 +285,10 @@
                         },
                         {
                             "chevrons": true,
+                            "clock_am_pm": false,
+                            "clock_format": "12",
                             "main_config": true,
+                            "options": "clock",
                             "type": "custom:compact-custom-header",
                             "voice": "hide"
                         }
@@ -304,45 +307,65 @@
                         {
                             "entities": [
                                 {
+                                    "group_config": {
+                                        "type": "custom:slider-entity-row"
+                                    },
                                     "head": "group.bedroom_lights",
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
+                                    "group_config": {
+                                        "type": "custom:slider-entity-row"
+                                    },
                                     "head": "group.backroom_lights",
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
+                                    "group_config": {
+                                        "type": "custom:slider-entity-row"
+                                    },
                                     "head": "group.craftroom_lights",
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
+                                    "group_config": {
+                                        "type": "custom:slider-entity-row"
+                                    },
                                     "head": "group.kitchen_lights",
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
+                                    "group_config": {
+                                        "type": "custom:slider-entity-row"
+                                    },
                                     "head": "group.livingroom_lights",
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
+                                    "group_config": {
+                                        "type": "custom:slider-entity-row"
+                                    },
                                     "head": "group.office_lights",
                                     "type": "custom:fold-entity-row"
                                 },
                                 {
-                                    "head": "group.lucas_bedroom_lights",
-                                    "type": "custom:fold-entity-row"
+                                    "entity": "light.lucas_bedroom",
+                                    "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "head": "group.xander_bedroom_lights",
-                                    "type": "custom:fold-entity-row"
+                                    "entity": "light.xander_bedroom",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.bulb_white_3",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.hall_white",
+                                    "type": "custom:slider-entity-row"
                                 },
                                 {
                                     "entity": "light.sensor_light"
-                                },
-                                {
-                                    "entity": "light.bulb_white_3"
-                                },
-                                {
-                                    "entity": "light.hall_white"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -779,6 +802,9 @@
                             "type": "entities"
                         },
                         {
+                            "clock_am_pm": false,
+                            "clock_format": "12",
+                            "options": "clock",
                             "type": "custom:compact-custom-header"
                         },
                         {
