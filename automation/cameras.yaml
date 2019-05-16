@@ -7,14 +7,8 @@
       entity_id: person.chris
       from: 'home'
   condition:
-    condition: and
-    conditions:
-    - condition: state
-      entity_id: person.mel
-      state: 'not_home'
-    - condition: state
-      entity_id: person.chris
-      state: 'not_home'
+    condition: template
+    value_template: "{% if not (is_state('person.chris', 'home') or is_state('person.mel', 'home')) %} true {% else %} false {% endif %}"
   action:
     service: switch.toggle
     entity_id: switch.camera3_away
