@@ -1,5 +1,5 @@
 - id: door_motion_on
-  alias: Door Motion on
+  alias: Turn on sensor light on movement
   trigger:
     - platform: state
       entity_id:  binary_sensor.hue_motion_sensor_1_motion
@@ -19,11 +19,13 @@
       entity_id:  light.sensor_light
       transition: 0
 - id: door_motion_off
-  alias: Door Motion off
+  alias: Turn off sensor light 5 minutes after last movement
   trigger:
     - platform: state
       entity_id:  binary_sensor.hue_motion_sensor_1_motion
       to: 'off'
+      for:
+        minutes: 5
   condition:
   action:
     service: light.turn_off

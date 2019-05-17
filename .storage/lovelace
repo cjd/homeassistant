@@ -809,6 +809,22 @@
                         },
                         {
                             "type": "custom:tracker-card"
+                        },
+                        {
+                            "entities": [
+                                "sensor.0x00158d000233bcba_linkquality",
+                                "sensor.0x00158d000233bcba_battery"
+                            ],
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.0x00158d000233bcba_smoke",
+                                    "name": "Is my house on fire?"
+                                }
+                            ],
+                            "type": "glance"
                         }
                     ],
                     "icon": "mdi:settings",

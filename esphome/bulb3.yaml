@@ -26,6 +26,21 @@ light:
     clock_pin: GPIO04
     num_leds: 8
     name: "Bulb Colour"
+    effects:
+      - addressable_rainbow:
+      - addressable_random_twinkle:
+      - addressable_color_wipe:
+          name: Police Lights
+          colors:
+            - red: 100%
+              green: 0%
+              blue: 0%
+              num_leds: 4
+            - red: 0%
+              green: 0%
+              blue: 100%
+              num_leds: 4
+          add_led_interval: 100ms
   - platform: monochromatic
     name: "Bulb White"
     output: IO1
