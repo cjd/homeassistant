@@ -5,7 +5,7 @@
       entity_id: group.lucas_bedroom_lights
     - platform: state
       entity_id: group.xander_bedroom_lights
-  condition:
+  condition: []
   action:
     service: light.turn_on
     data_template:
