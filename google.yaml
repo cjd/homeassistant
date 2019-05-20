@@ -74,3 +74,13 @@ entity_config:
     expose: false
   light.xander_bedroom_light:
     expose: true
+  camera.living_room:
+    expose: true
+  camera.livingcam:
+    expose: true
+  camera.livingcam2:
+    expose: true
+  camera.backroom:
+    expose: true
+  camera.camera2:
+    expose: true
