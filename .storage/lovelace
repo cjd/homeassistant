@@ -31,10 +31,6 @@
                     "url": "/customcards/github/maykar/compact-custom-header.js?track=true"
                 },
                 {
-                    "type": "js",
-                    "url": "/local/lovelace-swipe-navigation/lovelace-swipe-navigation.js?v=1.0.0"
-                },
-                {
                     "type": "module",
                     "url": "/local/mini-media-player-bundle.js?v=1.1.1"
                 },
@@ -45,14 +41,18 @@
                 {
                     "type": "js",
                     "url": "/local/fold-entity-row.js?v=1"
+                },
+                {
+                    "type": "js",
+                    "url": "/customcards/github/maykar/lovelace-swipe-navigation.js?track=true"
                 }
             ],
             "title": "Home",
             "views": [
                 {
                     "badges": [
-                        "person.mel",
-                        "person.chris",
+                        "device_tracker.life360_mel",
+                        "device_tracker.life360_chris",
                         "sensor.netatmo_indoor_temperature",
                         "sensor.netatmo_outdoor_temperature",
                         "sensor.netatmo_indoor_humidity",
