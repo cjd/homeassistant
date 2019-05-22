@@ -7,7 +7,7 @@
   action:
     - service: broadlink.send
       data:
-        host: 192.168.0.163
+        host: 192.168.86.38
         packet: 'JgBcAAABJZITEhI3EzYTNhM2EzcSNxMSEjcTERMSExISEhMSEhITNhMSEzYTNBU3EjYUNhM2ExITNBUSExETEhMSEhITEhI3EwAFJAABJkgTAAVBCgAG/QABJUkTAA0FAAAAAAAAAAAAAAAA'
 - id: set_amp_to_ps4
   alias: Set Amp to PS4
@@ -18,5 +18,5 @@
   action:
     - service: broadlink.send
       data:
-        host: 192.168.0.163
+        host: 192.168.86.38
         packet: 'JgBQAAABJ5MUERQ2FDYTNhQ2FDYUMxYSEzYUERQRFBETEhMRFBEUNhQ2EzYUNhQ2FDYTNhQ2FBEUERMSExEUERQRFBETEhM2FAAFHgABJ0sUAA0FAAAAAAAAAAA='
