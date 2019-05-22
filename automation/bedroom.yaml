@@ -17,3 +17,18 @@
         {% elif is_state('group.lucas_bedroom_lights', 'on') and is_state('group.xander_bedroom_lights', 'off') %} blue
         {% else %} white
         {% endif %}
+- id: main_bedroom_night_mode
+  alias: Main bedroom night mode
+  trigger:
+    platform: time
+    at: '20:30:00'
+  condition:
+    condition: state
+    entity_id: group.bedroom_lights
+    state: false
+  action:
+    service: light.turn_on
+    data:
+      entity_id: group.bedroom_lights
+      brightness_pct: 50
+      transition: 300
