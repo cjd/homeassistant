@@ -1,5 +1,7 @@
 - platform: universal
   name: "Livingroom TV"
+  state_template: >
+    {% if states.sensor.tvpower.state | float > 100 %} on {% else %} off {% endif %}
   children:
     - media_player.living_room_tv
   commands:
@@ -26,4 +28,3 @@
   attributes:
     source: input_select.livingroom_amp_input
     source_list: input_select.livingroom_amp_input
-    state: switch.lg_amp
