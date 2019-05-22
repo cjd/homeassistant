@@ -25,7 +25,7 @@
   condition:
     condition: state
     entity_id: group.bedroom_lights
-    state: false
+    state: 'off'
   action:
     service: light.turn_on
     data:
