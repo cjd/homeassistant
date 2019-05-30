@@ -110,3 +110,4 @@ group: !include groups.yaml
 recorder: !include recorder.yaml
 media_player: !include media_player.yaml
 shell_command: !include shell_command.yaml
+light: !include light.yaml
