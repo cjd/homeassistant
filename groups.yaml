@@ -11,41 +11,49 @@ family:
     - group.mel
 backroom_lights:
   name: Back room
+  icon: mdi:castle
   entities:
     - light.family_room_middle
     - light.family_room_right
     - light.family_room_left
 livingroom_lights:
   name: Living Room
+  icon: mdi:sofa
   entities:
     - light.living_room_1
     - light.living_room_2
     - light.livingroom_side
 office_lights:
   name: Office
+  icon: mdi:desktop-classic
   entities:
     - light.office
 bedroom_lights:
   name: Bedroom
+  icon: mdi:bed-empty
   entities:
     - light.bedroom_light_1
     - light.bedroom_light_2
 craftroom_lights:
   name: Craft Room
+  icon: mdi:content-cut
   entities:
     - light.craft_room
 kitchen_lights:
   name: Kitchen
+  icon: mdi:fridge
   entities:
     - light.kitchen_light_back
     - light.kitchen_light_front
     - light.kitchen_counter
 xander_bedroom_lights:
   name: Xander  Bedroom
+  icon: mdi:bed-empty
   entities:
     - light.xander_bedroom_light
 lucas_bedroom_lights:
   name: Lucas Bedroom
+  icon: mdi:bed-empty
   entities:
     - light.lucas_bedroom_light
 hall_lights:
@@ -55,10 +63,12 @@ hall_lights:
     - light.hall_colour
 entry_lights:
   name: Entry
+  icon: mdi:door
   entities:
     - light.bulb_white_3
     - light.bulb_colour_3
 front_lights:
   name: Front
+  icon: mdi:car
   entities:
     - light.sensor_light
