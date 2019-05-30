@@ -5,9 +5,3 @@
   prefix: life360
   show_as_state: driving, moving, places
 - platform: huesensor
-- platform: nmap_tracker
-  hosts: 192.168.86.0/24
-  scan_options: " --privileged -sn --host-timeout 5s "
-  interval_seconds: 20
-  exclude:
-    - 192.168.86.2
