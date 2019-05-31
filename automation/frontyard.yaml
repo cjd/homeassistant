@@ -7,6 +7,9 @@
     - platform: state
       entity_id:  binary_sensor.entry_motion_motion
       to: 'on'
+    - platform: state
+      entity_id: binary_sensor.0x00158d00028914f0_contact
+      to:  'Open'
   condition:
     condition: or
     conditions:
