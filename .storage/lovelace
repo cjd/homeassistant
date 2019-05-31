@@ -813,7 +813,9 @@
                         {
                             "entities": [
                                 "sensor.0x00158d000233bcba_linkquality",
-                                "sensor.0x00158d000233bcba_battery"
+                                "sensor.0x00158d000233bcba_battery",
+                                "sensor.0x00158d00028914f0_battery",
+                                "sensor.0x00158d00028914f0_linkquality"
                             ],
                             "type": "history-graph"
                         },
@@ -825,6 +827,14 @@
                                 }
                             ],
                             "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.0x00158d00028914f0_contact"
+                                }
+                            ],
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:settings",
