@@ -788,6 +788,15 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "binary_sensor.hall_smoke",
+                                    "name": "Is my house on fire?"
+                                }
+                            ],
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
                                     "entity": "input_boolean.zigbee_permit_join"
                                 },
                                 {
@@ -808,33 +817,44 @@
                             "type": "custom:compact-custom-header"
                         },
                         {
-                            "type": "custom:tracker-card"
-                        },
-                        {
                             "entities": [
-                                "sensor.0x00158d000233bcba_linkquality",
-                                "sensor.0x00158d000233bcba_battery",
-                                "sensor.0x00158d00028914f0_battery",
-                                "sensor.0x00158d00028914f0_linkquality"
+                                {
+                                    "entity": "sensor.frontdoor_linkquality"
+                                },
+                                {
+                                    "entity": "sensor.hall_smoke_detector_linkquality"
+                                },
+                                {
+                                    "entity": "sensor.hueswitch_1_linkquality"
+                                },
+                                {
+                                    "entity": "sensor.office_dimmer_linkquality"
+                                },
+                                {
+                                    "entity": "sensor.office_light_linkquality"
+                                },
+                                {
+                                    "entity": "sensor.hall_smoke_detector_battery"
+                                },
+                                {
+                                    "entity": "sensor.hueswitch_1_battery"
+                                },
+                                {
+                                    "entity": "sensor.office_dimmer_battery"
+                                }
                             ],
                             "type": "history-graph"
                         },
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.0x00158d000233bcba_smoke",
-                                    "name": "Is my house on fire?"
-                                }
-                            ],
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.0x00158d00028914f0_contact"
+                                    "entity": "binary_sensor.frontdoor_contact"
                                 }
                             ],
                             "type": "entities"
+                        },
+                        {
+                            "type": "custom:tracker-card"
                         }
                     ],
                     "icon": "mdi:settings",

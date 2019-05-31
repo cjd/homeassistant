@@ -1,20 +1,55 @@
 - alias: Office light on
   id: office_light_on
   trigger:
-  - entity_id: light.office_light
+  - entity_id: sensor.office_dimmer_action
     platform: state
-    to: 'on'
+    to: 'on-press'
   condition: []
   action:
   - entity_id: switch.office_speaker
     service: switch.turn_on
-- alias: Office light off
-  id: office_light_off
+  - entity_id: light.office_light1
+    service: light.turn_on
+    data:
+      brightness_pct: 100
+
+- alias: Office light up press
+  id: office_light_up
   trigger:
-  - entity_id: light.office_light
+  - entity_id: sensor.office_dimmer_action
     platform: state
-    to: 'off'
+    to: 'up-press'
+  condition: []
+  action:
+  - entity_id: switch.office_speaker
+    service: switch.turn_on
+  - entity_id: light.office_light1
+    service: light.turn_on
+    data:
+       brightness_pct: 50
+- alias: Office light down press
+  id: office_light_down
+  trigger:
+  - entity_id: sensor.office_dimmer_action
+    platform: state
+    to: 'down-press'
   condition: []
   action:
   - entity_id: switch.office_speaker
     service: switch.turn_off
+  - entity_id: light.office_light1
+    service: light.turn_on
+    data:
+      brightness_pct: 10
+- alias: Office light off
+  id: office_light_off
+  trigger:
+  - entity_id: sensor.office_dimmer_action
+    platform: state
+    to: 'off-press'
+  condition: []
+  action:
+  - entity_id: switch.office_speaker
+    service: switch.turn_off
+  - entity_id: light.office_light1
+    service: light.turn_off

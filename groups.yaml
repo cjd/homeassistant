@@ -27,7 +27,7 @@ office_lights:
   name: Office
   icon: mdi:desktop-classic
   entities:
-    - light.office
+    - light.office_light1
 bedroom_lights:
   name: Bedroom
   icon: mdi:bed-empty
