@@ -25,12 +25,12 @@ binary_sensor:
       inverted: True
     name: "Sensorlight Button"
     on_press:
-      - light.toggle: light
+      - light.toggle: lights
     
 light:
   - platform: binary
     name: "Sensor Light"
-    id: light
+    id: lights
     output: relay
     
 output:
