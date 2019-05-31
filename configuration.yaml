@@ -32,6 +32,19 @@ http:
 updater:
   include_used_components: true
 
+panel_iframe:
+  portainer:
+    title: 'Portainer'
+    url: 'https://home.adebenham.com/int/portainer/'
+    icon: mdi:ferry
+  deluge:
+    title: 'Deluge'
+    url: 'https://home.adebenham.com/int/deluge/'
+    icon: mdi:cloud-download
+  sickchill:
+    title: 'SickChill'
+    url: 'https://home.adebenham.com/int/sickchill/'
+    icon: mdi:library-movie
 # Text to speech
 tts:
   - platform: google_translate
