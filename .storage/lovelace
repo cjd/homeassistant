@@ -16,6 +16,10 @@
                 },
                 {
                     "type": "module",
+                    "url": "/local/monster-card.js"
+                },
+                {
+                    "type": "module",
                     "url": "/customcards/github/custom-cards/tracker-card.js?track=true"
                 },
                 {
@@ -53,10 +57,9 @@
                     "badges": [
                         "device_tracker.life360_mel",
                         "device_tracker.life360_chris",
-                        "sensor.netatmo_indoor_temperature",
-                        "sensor.hue_motion_sensor_1_temperature",
-                        "sensor.netatmo_indoor_humidity",
-                        "sensor.netatmo_outdoor_humidity"
+                        "sensor.sensibo_temperature",
+                        "sensor.entry_motion_temperature",
+                        "sensor.netatmo_outdoor_temperature"
                     ],
                     "cards": [
                         {
@@ -356,7 +359,7 @@
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.back_room_light_group",
+                                    "entity": "light.backroom_light_group",
                                     "name": "Backroom",
                                     "type": "custom:slider-entity-row"
                                 },
@@ -472,6 +475,31 @@
                     "badges": [],
                     "cards": [
                         {
+                            "entity": "media_player.livingroom_tv",
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.lg_amp"
+                                },
+                                {
+                                    "entity": "input_select.livingroom_amp_input"
+                                },
+                                {
+                                    "entity": "switch.lg_amp_volup"
+                                },
+                                {
+                                    "entity": "switch.lg_amp_voldown"
+                                },
+                                {
+                                    "entity": "switch.livingroomtv"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "type": "entities"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "media_player.whole_house",
@@ -510,31 +538,6 @@
                                 }
                             ],
                             "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "switch.lg_amp"
-                                },
-                                {
-                                    "entity": "input_select.livingroom_amp_input"
-                                },
-                                {
-                                    "entity": "switch.lg_amp_voldown"
-                                },
-                                {
-                                    "entity": "switch.lg_amp_voldown"
-                                },
-                                {
-                                    "entity": "switch.livingroomtv"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "type": "entities"
-                        },
-                        {
-                            "entity": "media_player.livingroom_tv",
-                            "type": "custom:mini-media-player"
                         },
                         {
                             "entity": "media_player.living_room_display",
@@ -612,6 +615,9 @@
                                     "entity": "sensor.office_temperature_2"
                                 },
                                 {
+                                    "entity": "sensor.sensibo_temperature"
+                                },
+                                {
                                     "entity": "sensor.bom_gosford_air_temp_c",
                                     "name": "BOM Air Temperature"
                                 },
@@ -624,7 +630,7 @@
                                     "name": "Backyard Temperature"
                                 },
                                 {
-                                    "entity": "sensor.hue_motion_sensor_1_temperature",
+                                    "entity": "sensor.entry_motion_temperature",
                                     "name": "Carport Temperature"
                                 }
                             ],
@@ -636,6 +642,10 @@
                                 {
                                     "entity": "sensor.netatmo_indoor_humidity",
                                     "name": "Indoor Humidity"
+                                },
+                                {
+                                    "entity": "sensor.sensibo_humidity",
+                                    "name": "Indoor Humidity 2"
                                 },
                                 {
                                     "entity": "sensor.netatmo_outdoor_humidity",
@@ -708,13 +718,13 @@
                                     "icon": "mdi:arrow-right-thick"
                                 }
                             ],
-                            "title": "Backroom",
+                            "title": "Backyard",
                             "type": "picture-glance"
                         },
                         {
                             "camera_view": "live",
                             "entity": "camera.livingcam",
-                            "name": "Backyard",
+                            "name": "Entry",
                             "type": "picture-entity"
                         },
                         {
@@ -788,15 +798,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.hall_smoke",
-                                    "name": "Is my house on fire?"
-                                }
-                            ],
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
                                     "entity": "input_boolean.zigbee_permit_join"
                                 },
                                 {
@@ -817,33 +818,15 @@
                             "type": "custom:compact-custom-header"
                         },
                         {
+                            "type": "custom:tracker-card"
+                        },
+                        {
                             "entities": [
                                 {
-                                    "entity": "sensor.frontdoor_linkquality"
-                                },
-                                {
-                                    "entity": "sensor.hall_smoke_detector_linkquality"
-                                },
-                                {
-                                    "entity": "sensor.hueswitch_1_linkquality"
-                                },
-                                {
-                                    "entity": "sensor.office_dimmer_linkquality"
-                                },
-                                {
-                                    "entity": "sensor.office_light_linkquality"
-                                },
-                                {
-                                    "entity": "sensor.hall_smoke_detector_battery"
-                                },
-                                {
-                                    "entity": "sensor.hueswitch_1_battery"
-                                },
-                                {
-                                    "entity": "sensor.office_dimmer_battery"
+                                    "entity": "binary_sensor.hall_smoke"
                                 }
                             ],
-                            "type": "history-graph"
+                            "type": "glance"
                         },
                         {
                             "entities": [
@@ -854,7 +837,46 @@
                             "type": "entities"
                         },
                         {
-                            "type": "custom:tracker-card"
+                            "card": {
+                                "title": "Notices",
+                                "type": "glance"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "attributes": {
+                                            "linkquality": "< 50"
+                                        },
+                                        "entity_id": "sensor.*linkquality"
+                                    },
+                                    {
+                                        "attributes": {
+                                            "battery": "< 50"
+                                        },
+                                        "domain": [
+                                            "()"
+                                        ]
+                                    }
+                                ]
+                            },
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "title": "History",
+                                "type": "history-graph"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.*linkquality"
+                                    },
+                                    {
+                                        "entity_id": "sensor.*battery"
+                                    }
+                                ]
+                            },
+                            "type": "custom:monster-card"
                         }
                     ],
                     "icon": "mdi:settings",

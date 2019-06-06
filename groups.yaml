@@ -56,6 +56,7 @@ lucas_bedroom_lights:
   icon: mdi:bed-empty
   entities:
     - light.lucas_bedroom_light
+    - light.lucas_bedroom_light_2
 hall_lights:
   name: Hall
   entities:

@@ -20,6 +20,8 @@ system_health:
 stream:
 person:
 ffmpeg:
+ssdp:
+zeroconf:
 
 logger:
   default: info
@@ -31,33 +33,11 @@ http:
 
 updater:
   include_used_components: true
-
-panel_iframe:
-  portainer:
-    title: 'Portainer'
-    url: 'https://home.adebenham.com/int/portainer/'
-    icon: mdi:ferry
-  deluge:
-    title: 'Deluge'
-    url: 'https://home.adebenham.com/int/deluge/'
-    icon: mdi:cloud-download
-  sickchill:
-    title: 'SickChill'
-    url: 'https://home.adebenham.com/int/sickchill/'
-    icon: mdi:library-movie
+    
 # Text to speech
 tts:
   - platform: google_translate
     service_name: google_say
-
-#googlehome:
-#  devices:
-#    - host: 192.168.0.221
-#      device_types: 1
-#    - host: 192.168.0.116
-#      device_types: 1
-#    - host: 192.168.0.144
-#      device_types: 1
 
 notify:
   - name: Home assistant
@@ -78,6 +58,11 @@ climate:
   - platform: sensibo
     api_key: !secret sensibo_api_key
 
+webhook:
+ 
+zigbee2mqtt_networkmap:
+   #topic: your topic (optional, default zigbee2mqtt)
+
 influxdb:
   host: a0d7b954-influxdb
   port: 8086
@@ -87,8 +72,6 @@ influxdb:
   max_retries: 3
   default_measurement: state
 
-binary_sensor:
-  - platform: huesensor
 
 mqtt:
   broker: 192.168.86.2
@@ -96,12 +79,6 @@ mqtt:
   port: 1883
   username: !secret mqtt_username
   password: !secret mqtt_password
-
-input_boolean:
-  zigbee_permit_join:
-    name: Allow devices to join
-    initial: off
-    icon: mdi:cellphone-wireless
 
 timer:
   zigbee_permit_join:
@@ -124,3 +101,6 @@ recorder: !include recorder.yaml
 media_player: !include media_player.yaml
 shell_command: !include shell_command.yaml
 light: !include light.yaml
+panel_iframe: !include panel_iframe.yaml
+binary_sensor: !include binary_sensor.yaml
+input_boolean: !include input_boolean.yaml

@@ -4,4 +4,3 @@
   max_gps_accuracy: 200
   prefix: life360
   show_as_state: driving, moving, places
-- platform: huesensor

@@ -2,14 +2,17 @@
   alias: Turn on sensor light on movement
   trigger:
     - platform: state
-      entity_id:  binary_sensor.hue_motion_sensor_1_motion
-      to: 'on'
+      entity_id:  binary_sensor.entry_motion_occupancy
+      to: 'Detected'
     - platform: state
-      entity_id:  binary_sensor.entry_motion_motion
-      to: 'on'
-    - platform: state
-      entity_id: binary_sensor.0x00158d00028914f0_contact
+      entity_id: binary_sensor.frontdoor_contact
       to:  'Open'
+    - platform: state
+      entity_id: person.mel
+      to: 'home'
+    - platform: state
+      entity_id: person.chris
+      to: 'home'
   condition:
     condition: or
     conditions:
@@ -28,8 +31,8 @@
   alias: Turn off sensor light 5 minutes after last movement
   trigger:
     - platform: state
-      entity_id:  binary_sensor.hue_motion_sensor_1_motion
-      to: 'off'
+      entity_id:  binary_sensor.entry_motion_occupancy
+      to: 'Clear'
       for:
         minutes: 5
   condition: []

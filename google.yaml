@@ -64,6 +64,8 @@ entity_config:
     expose: true
   light.lucas_bedroom_light:
     expose: true
+  light.lucas_bedroom_light_2:
+    expose: true
   light.office_light:
     expose: true
   light.office_strip:

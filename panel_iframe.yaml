@@ -1,0 +1,21 @@
+portainer:
+  title: 'Portainer'
+  url: 'https://home.adebenham.com/int/portainer/'
+  icon: mdi:ferry
+deluge:
+  title: 'Deluge'
+  url: 'https://home.adebenham.com/int/deluge/'
+  icon: mdi:cloud-download
+sickchill:
+  title: 'SickChill'
+  url: 'https://home.adebenham.com/int/sickchill/'
+  icon: mdi:library-movie
+pihole:
+  title: 'Pihole'
+  url: 'https://home.adebenham.com/int/pihole/'
+  icon: mdi:dns
+networkmap:
+  title: 'Zigbee Map'
+  url: '/local/zigbee2mqtt_networkmap/map.html'
+  icon: mdi:graphql
+

@@ -1,0 +1,47 @@
+- alias: Lucas light on
+  id: lucas_light_on
+  trigger:
+  - entity_id: sensor.lucas_bedroom_dimmer_action
+    platform: state
+    to: 'on-press'
+  condition: []
+  action:
+  - entity_id: group.lucas_bedroom_lights
+    service: light.turn_on
+    data:
+      brightness_pct: 100
+
+- alias: Lucas light up press
+  id: lucas_light_up
+  trigger:
+  - entity_id: sensor.lucas_bedroom_dimmer_action
+    platform: state
+    to: 'up-press'
+  condition: []
+  action:
+  - entity_id: group.lucas_bedroom_lights
+    service: light.turn_on
+    data:
+       brightness_pct: 50
+- alias: Lucas light down press
+  id: lucas_light_down
+  trigger:
+  - entity_id: sensor.lucas_bedroom_dimmer_action
+    platform: state
+    to: 'down-press'
+  condition: []
+  action:
+  - entity_id: group.lucas_bedroom_lights
+    service: light.turn_on
+    data:
+      brightness_pct: 10
+- alias: Lucas light off
+  id: lucas_light_off
+  trigger:
+  - entity_id: sensor.lucas_bedroom_dimmer_action
+    platform: state
+    to: 'off-press'
+  condition: []
+  action:
+  - entity_id: group.lucas_bedroom_lights
+    service: light.turn_off

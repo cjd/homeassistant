@@ -31,6 +31,7 @@ exclude:
     - light.kitchen
     - light.living_room
     - light.lucas_bedroom
+    - light.lucas_bedroom_2
     - light.xander_bedroom
     - light.office
     - light.hallway
