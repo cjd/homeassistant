@@ -1,0 +1,8 @@
+- platform: huesensor
+- platform: command_line
+  scan_interval: 5
+  name: TV
+  command: ping -W 1 -c 1 192.168.86.48 > /dev/null 2>&1 && echo on || echo off
+  device_class: connectivity
+  payload_on: "On"
+  payload_off: "Off"
