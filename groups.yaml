@@ -38,7 +38,7 @@ craftroom_lights:
   name: Craft Room
   icon: mdi:content-cut
   entities:
-    - light.craft_room
+    - light.craftroom_light
 kitchen_lights:
   name: Kitchen
   icon: mdi:fridge
@@ -56,7 +56,6 @@ lucas_bedroom_lights:
   icon: mdi:bed-empty
   entities:
     - light.lucas_bedroom_light
-    - light.lucas_bedroom_light_2
 hall_lights:
   name: Hall
   entities:

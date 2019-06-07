@@ -37,7 +37,6 @@
   name: Lucas Bedroom Light Group
   entities:
     - light.lucas_bedroom_light
-    - light.lucas_bedroom_light_2
 - platform: group
   name: Hall Light Group
   entities:
