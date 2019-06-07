@@ -13,7 +13,7 @@ frontend:
 config:
 discovery:
 conversation:
-logbook:
+#logbook:
 history:
 sun:
 system_health:
@@ -22,6 +22,8 @@ person:
 ffmpeg:
 ssdp:
 zeroconf:
+webhook:
+zigbee2mqtt_networkmap:
 
 logger:
   default: info
@@ -58,11 +60,6 @@ climate:
   - platform: sensibo
     api_key: !secret sensibo_api_key
 
-webhook:
- 
-zigbee2mqtt_networkmap:
-   #topic: your topic (optional, default zigbee2mqtt)
-
 influxdb:
   host: a0d7b954-influxdb
   port: 8086
@@ -83,7 +80,12 @@ mqtt:
 timer:
   zigbee_permit_join:
     name: Time remaining
-    duration: 600 # Updated this to the number of seconds you wish
+    duration: 600
+
+upnp:
+  port_mapping: false
+  sensors: true
+  local_ip: 192.168.86.2
 
 input_select: !include input_select.yaml
 sensor: !include sensors.yaml
