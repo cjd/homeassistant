@@ -1,5 +1,5 @@
   - id: enable_zigbee_join
-    alias: Enable Zigbee joining
+    alias: Zigbee - Enable joining
     hide_entity: true
     trigger:
       platform: state
@@ -14,7 +14,7 @@
       data:
         entity_id: timer.zigbee_permit_join
   - id: disable_zigbee_join
-    alias: Disable Zigbee joining
+    alias: Zigbee - Disable joining
     trigger:
     - entity_id: input_boolean.zigbee_permit_join
       platform: state
@@ -29,7 +29,7 @@
       service: timer.cancel
     hide_entity: true
   - id: disable_zigbee_join_timer
-    alias: Disable Zigbee joining by timer
+    alias: Zigbee - Disable joining by timer
     hide_entity: true
     trigger:
     - platform: event
@@ -44,3 +44,13 @@
     - service: input_boolean.turn_off
       data:
         entity_id: input_boolean.zigbee_permit_join
+  - id: update_networkmap
+    alias: Zigbee - Map update
+    hide_entity: true  
+    trigger:
+      platform: time_pattern
+      minutes: '/10'
+      seconds: 00
+    action:
+      service: zigbee2mqtt_networkmap.update
+

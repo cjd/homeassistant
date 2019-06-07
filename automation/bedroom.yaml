@@ -1,5 +1,5 @@
 - id: kids_lights
-  alias: Kids Lights
+  alias: Main bedroom - Kid indicator
   trigger:
     - platform: state
       entity_id: group.lucas_bedroom_lights

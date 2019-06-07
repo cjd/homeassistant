@@ -1,0 +1,42 @@
+- alias: Craftroom light on
+  trigger:
+  - entity_id: sensor.craftroom_dimmer_action
+    platform: state
+    to: 'on-press'
+  condition: []
+  action:
+  - entity_id: group.craftroom_lights
+    service: light.turn_on
+    data:
+      brightness_pct: 100
+- alias: Craftroom light up press
+  trigger:
+  - entity_id: sensor.craftroom_dimmer_action
+    platform: state
+    to: 'up-press'
+  condition: []
+  action:
+  - entity_id: group.craftroom_lights
+    service: light.turn_on
+    data:
+       brightness_pct: 50
+- alias: Craftroom light down press
+  trigger:
+  - entity_id: sensor.craftroom_dimmer_action
+    platform: state
+    to: 'down-press'
+  condition: []
+  action:
+  - entity_id: group.craftroom_lights
+    service: light.turn_on
+    data:
+      brightness_pct: 10
+- alias: Craftroom light off
+  trigger:
+  - entity_id: sensor.craftroom_dimmer_action
+    platform: state
+    to: 'off-press'
+  condition: []
+  action:
+  - entity_id: group.craftroom_lights
+    service: light.turn_off

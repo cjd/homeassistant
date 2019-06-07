@@ -1,4 +1,4 @@
-- alias: 'Set theme at startup'
+- alias: 'Startup - set theme'
   id: startup_actions
   initial_state: 'on'
   trigger:
