@@ -49,6 +49,10 @@
                 {
                     "type": "js",
                     "url": "/customcards/github/maykar/lovelace-swipe-navigation.js?track=true"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/surveillance-card.js?v=0"
                 }
             ],
             "title": "Home",
@@ -383,7 +387,7 @@
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.lucas_bedroom",
+                                    "entity": "light.lucas_bedroom_light",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
@@ -615,15 +619,12 @@
                                     "entity": "sensor.office_temperature_2"
                                 },
                                 {
-                                    "entity": "sensor.sensibo_temperature"
+                                    "entity": "sensor.sensibo_temperature",
+                                    "name": "Living room Temperature"
                                 },
                                 {
                                     "entity": "sensor.bom_gosford_air_temp_c",
                                     "name": "BOM Air Temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_indoor_temperature",
-                                    "name": "Living room Temperature"
                                 },
                                 {
                                     "entity": "sensor.netatmo_outdoor_temperature",
