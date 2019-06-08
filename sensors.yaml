@@ -21,11 +21,20 @@
     sensibo_temperature:
       value_template: '{{ states.climate.living_room.attributes["current_temperature"] }}'
       unit_of_measurement: '°C'
-      friendly_name: "Sensibo Temperature"
+      friendly_name: "Livingroom Temperature"
     sensibo_humidity:
       value_template: '{{ states.climate.living_room.attributes["current_humidity"] }}'
       unit_of_measurement: '%'
-      friendly_name: "Sensibo Humidity"
+      friendly_name: "Livingroom Humidity"
+    melphone_battery:
+      value_template: '{{ states.device_tracker.life360_mel.attributes["battery"] }}'
+      unit_of_measurement: '%'
+      friendly_name: "Mels Battery"
+    chrisphone_battery:
+      value_template: '{{ states.device_tracker.life360_chris.attributes["battery"] }}'
+      unit_of_measurement: '%'
+      friendly_name: "Chris' Battery"
+      
 - platform: filter
   name: "House Power"
   entity_id: sensor.energy_usage
