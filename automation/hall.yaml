@@ -2,9 +2,9 @@
 - id: hall_onpress
   alias: Hall Onpress
   trigger:
-  - entity_id: sensor.hall_dimmer_switch
+  - entity_id: sensor.hall_dimmer_action
     platform: state
-    to: 1_click_up
+    to: 'on-press'
   condition: []
   action:
   - service: light.turn_on
@@ -18,9 +18,9 @@
 - id: hall_uppress
   alias: Hall Uppress
   trigger:
-  - entity_id: sensor.hall_dimmer_switch
+  - entity_id: sensor.hall_dimmer_action
     platform: state
-    to: 2_click_up
+    to: 'up-press'
   condition: []
   action:
   - service: light.turn_on
@@ -35,9 +35,9 @@
 - id: hall_downpress
   alias: Hall Downpress
   trigger:
-  - entity_id: sensor.hall_dimmer_switch
+  - entity_id: sensor.hall_dimmer_action
     platform: state
-    to: 3_click_up
+    to: 'down-press'
   condition: []
   action:
   - service: light.turn_on
@@ -52,9 +52,9 @@
 - id: hall_offpress
   alias: Hall Offpress
   trigger:
-  - entity_id: sensor.hall_dimmer_switch
+  - entity_id: sensor.hall_dimmer_action
     platform: state
-    to: 4_click_up
+    to: 'off-press'
   condition: []
   action:
   - service: light.turn_off
