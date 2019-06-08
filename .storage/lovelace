@@ -797,47 +797,6 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.zigbee_permit_join"
-                                },
-                                {
-                                    "entity": "timer.zigbee_permit_join"
-                                },
-                                {
-                                    "entity": "sensor.bridge_state"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Zigbee",
-                            "type": "entities"
-                        },
-                        {
-                            "clock_am_pm": false,
-                            "clock_format": "12",
-                            "options": "clock",
-                            "type": "custom:compact-custom-header"
-                        },
-                        {
-                            "type": "custom:tracker-card"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.hall_smoke"
-                                }
-                            ],
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.frontdoor_contact"
-                                }
-                            ],
-                            "type": "entities"
-                        },
-                        {
                             "card": {
                                 "title": "Notices",
                                 "type": "glance"
@@ -863,21 +822,65 @@
                             "type": "custom:monster-card"
                         },
                         {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.hall_smoke"
+                                }
+                            ],
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.zigbee_permit_join"
+                                },
+                                {
+                                    "entity": "timer.zigbee_permit_join"
+                                },
+                                {
+                                    "entity": "sensor.bridge_state"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Zigbee",
+                            "type": "entities"
+                        },
+                        {
                             "card": {
-                                "title": "History",
+                                "title": "Zigbee Battery",
                                 "type": "history-graph"
                             },
                             "filter": {
                                 "include": [
-                                    {
-                                        "entity_id": "sensor.*linkquality"
-                                    },
                                     {
                                         "entity_id": "sensor.*battery"
                                     }
                                 ]
                             },
                             "type": "custom:monster-card"
+                        },
+                        {
+                            "card": {
+                                "title": "Zigbee Link quality",
+                                "type": "history-graph"
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.*linkquality"
+                                    }
+                                ]
+                            },
+                            "type": "custom:monster-card"
+                        },
+                        {
+                            "type": "custom:tracker-card"
+                        },
+                        {
+                            "clock_am_pm": false,
+                            "clock_format": "12",
+                            "options": "clock",
+                            "type": "custom:compact-custom-header"
                         }
                     ],
                     "icon": "mdi:settings",
