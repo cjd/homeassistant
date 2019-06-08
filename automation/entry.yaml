@@ -1,12 +1,9 @@
 - id: entry_onpress
   alias: Entry Onpress
   trigger:
-  - entity_id: sensor.0x00178801067215ce_action
+  - entity_id: sensor.entry_dimmer_action
     platform: state
     to: on-press
-  - entity_id: sensor.entry_dimmer_switch
-    platform: state
-    to: 1_click_up
   condition: []
   action:
   - service: light.turn_on
@@ -16,12 +13,9 @@
 - id: entry_uppress
   alias: Entry Uppress
   trigger:
-  - entity_id: sensor.0x00178801067215ce_action
+  - entity_id: sensor.entry_dimmer_action
     platform: state
     to: up-press
-  - entity_id: sensor.entry_dimmer_switch
-    platform: state
-    to: 2_click_up
   condition: []
   action:
   - service: light.turn_on
@@ -31,12 +25,9 @@
 - id: entry_downpress
   alias: Entry Downpress
   trigger:
-  - entity_id: sensor.0x00178801067215ce_action
+  - entity_id: sensor.entry_dimmer_action
     platform: state
     to: down-press
-  - entity_id: sensor.entry_dimmer_switch
-    platform: state
-    to: 3_click_up
   condition: []
   action:
   - service: light.turn_on
@@ -51,12 +42,9 @@
 - id: entry_offpress
   alias: Entry Offpress
   trigger:
-  - entity_id: sensor.0x00178801067215ce_action
+  - entity_id: sensor.entry_dimmer_action
     platform: state
     to: off-press
-  - entity_id: sensor.entry_dimmer_switch
-    platform: state
-    to: 4_click_up
   condition: []
   action:
   - service: light.turn_off
