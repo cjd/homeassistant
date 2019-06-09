@@ -39,6 +39,12 @@ craftroom_lights:
   icon: mdi:content-cut
   entities:
     - light.craftroom_light
+craftarea_lights:
+  name: Craft Area
+  icon: mdi:content-cut
+  entities:
+    - light.craftroom_light
+    - light.family_room_left
 kitchen_lights:
   name: Kitchen
   icon: mdi:fridge
