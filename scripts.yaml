@@ -1,3 +1,6 @@
+noop:
+  sequence:
+    delay: 00:00:00
 leaving_home:
   alias: Leaving Home
   sequence:
