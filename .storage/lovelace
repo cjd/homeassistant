@@ -805,7 +805,7 @@
                                 "include": [
                                     {
                                         "attributes": {
-                                            "linkquality": "< 50"
+                                            "linkquality": "< 20"
                                         },
                                         "entity_id": "sensor.*linkquality"
                                     },
