@@ -16,6 +16,6 @@ pihole:
   icon: mdi:dns
 networkmap:
   title: 'Zigbee Map'
-  url: '/local/zigbee2mqtt_networkmap/map.html?engine=dot'
+  url: '/local/zigbee2mqtt_networkmap/map.html'
   icon: mdi:graphql
 
