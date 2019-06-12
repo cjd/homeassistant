@@ -82,12 +82,18 @@
       effect: Random Twinkle
 - name: All off
   entities:
+    group.backroom_lights: false
+    group.livingroom_lights: false
+    group.office_lights: false
+    group.bedroom_lights: false
+    group.craftroom_lights: false
+    group.craftarea_lights: false
     group.kitchen_lights: false
-    light.living_lights: false
-    light.backroom_lights: false
-    light.craftroom_lights: false
-    light.office_lights: false
-    light.bedroom_lights: false
+    group.xander_bedroom_lights: false
+    group.lucas_bedroom_lights: false
+    group.hall_lights: false
+    group.entry_lights: false
+    group.front_lights: false
     light.tv_backlight_2:
       state: true
       brightness_pct: 100
