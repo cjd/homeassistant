@@ -22,7 +22,7 @@
 - platform: group
   name: Craft Room Light Group
   entities:
-    - light.craft_room
+    - light.craftroom_light
 - platform: group
   name: Kitchen Light Group
   entities:

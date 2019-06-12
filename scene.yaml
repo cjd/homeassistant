@@ -1,7 +1,7 @@
 - name: Movies
   entities:
-    light.kitchen_light_back: false
-    light.kitchen_light_front:
+    light.kitchen_back_light: false
+    light.kitchen_front_light:
       brightness_pct: 40
       state: true
       color_name: blue
@@ -9,13 +9,13 @@
       brightness_pct: 40
       state: true
       color_name: blue
-    light.living_room_1:
+    light.livingroom_main_a_light:
       state: true
       brightness_pct: 40
-    light.living_room_2:
+    light.livingroom_main_b_light:
       state: true
       brightness_pct: 40
-    light.kitchen_counter:
+    light.kitchen_counter_light:
       state: true
       brightness_pct: 100
       color_name: blue
@@ -24,10 +24,10 @@
       effect: Slow Random Effect
 - name: Normal
   entities:
-    light.living_room_1:
+    light.livingroom_main_a_light:
       state: true
       brightness_pct: 100
-    light.living_room_2:
+    light.livingroom_main_b_light:
       state: true
       brightness_pct: 100
     light.livingroom_side :
@@ -38,23 +38,23 @@
       state: true
       brightness_pct: 100
       effect: Slow Random Effect
-    light.kitchen_counter:
+    light.kitchen_counter_light:
       brightness_pct: 100
       color_name: white
       state: <
-        {% if states('light.kitchen_counter.color_name') == 'blue' %}false
+        {% if states('light.kitchen_counter_light.color_name') == 'blue' %}false
         {% else %}true
         {% endif %}
 - name: Night
   entities:
-    light.kitchen_light_front:
+    light.kitchen_front_light:
       state: true
       brightness_pct: 40
       color_name: blue
-    light.living_room_1:
+    light.livingroom_main_a_light:
       state: true
       brightness_pct: 20
-    light.living_room_2:
+    light.livingroom_main_b_light:
       state: false
     light.livingroom_side :
       state: true
@@ -64,18 +64,18 @@
       state: true
       brightness_pct: 100
       effect: Random Twinkle
-    light.kitchen_counter:
+    light.kitchen_counter_light:
       state: true
       brightness_pct: 100
       color_name: blue
 - name: Turn off
   entities:
-    light.kitchen_light_back: false
-    light.kitchen_light_front: false
-    light.living_room_1: false
-    light.living_room_2: false
+    light.kitchen_back_light: false
+    light.kitchen_front_light: false
+    light.livingroom_main_a_light: false
+    light.livingroom_main_b_light: false
     light.livingroom_side : false
-    light.kitchen_counter: false
+    light.kitchen_counter_light: false
     light.tv_backlight_2:
       state: true
       brightness_pct: 100

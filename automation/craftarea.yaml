@@ -1,0 +1,42 @@
+- alias: Craftarea light on
+  trigger:
+  - entity_id: sensor.craftarea_dimmer_action
+    platform: state
+    to: 'on-press'
+  condition: []
+  action:
+  - entity_id: group.craftarea_lights
+    service: light.turn_on
+    data:
+      brightness_pct: 100
+- alias: Craftarea light up press
+  trigger:
+  - entity_id: sensor.craftarea_dimmer_action
+    platform: state
+    to: 'up-press'
+  condition: []
+  action:
+  - entity_id: group.craftarea_lights
+    service: light.turn_on
+    data:
+       brightness_pct: 50
+- alias: Craftarea light down press
+  trigger:
+  - entity_id: sensor.craftarea_dimmer_action
+    platform: state
+    to: 'down-press'
+  condition: []
+  action:
+  - entity_id: group.craftarea_lights
+    service: light.turn_on
+    data:
+      brightness_pct: 10
+- alias: Craftarea light off
+  trigger:
+  - entity_id: sensor.craftarea_dimmer_action
+    platform: state
+    to: 'off-press'
+  condition: []
+  action:
+  - entity_id: group.craftarea_lights
+    service: light.turn_off

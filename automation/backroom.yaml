@@ -1,0 +1,42 @@
+- alias: Backroom light on
+  trigger:
+  - entity_id: sensor.backroom_dimmer_action
+    platform: state
+    to: 'on-press'
+  condition: []
+  action:
+  - entity_id: group.backroom_lights
+    service: light.turn_on
+    data:
+      brightness_pct: 100
+- alias: Backroom light up press
+  trigger:
+  - entity_id: sensor.backroom_dimmer_action
+    platform: state
+    to: 'up-press'
+  condition: []
+  action:
+  - entity_id: group.backroom_lights
+    service: light.turn_on
+    data:
+       brightness_pct: 50
+- alias: Backroom light down press
+  trigger:
+  - entity_id: sensor.backroom_dimmer_action
+    platform: state
+    to: 'down-press'
+  condition: []
+  action:
+  - entity_id: group.backroom_lights
+    service: light.turn_on
+    data:
+      brightness_pct: 10
+- alias: Backroom light off
+  trigger:
+  - entity_id: sensor.backroom_dimmer_action
+    platform: state
+    to: 'off-press'
+  condition: []
+  action:
+  - entity_id: group.backroom_lights
+    service: light.turn_off
