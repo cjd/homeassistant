@@ -2,13 +2,3 @@ zigbee_permit_join:
   name: Allow devices to join
   initial: off
   icon: mdi:cellphone-wireless
-tv_off:
-  name: 'TV Off'
-  initial: off
-tv_on:
-  name: 'TV On'
-  initial: off
-tv:
-  name: 'TV'
-  initial: off
-
