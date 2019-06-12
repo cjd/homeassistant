@@ -1,61 +1,41 @@
-- id: entry_onpress
-  alias: Entry Onpress
+- alias: Dimmer - Entry
   trigger:
   - entity_id: sensor.entry_dimmer_action
     platform: state
-    to: on-press
   condition: []
   action:
-  - service: light.turn_on
-    data:
-      entity_id: light.bulb_white_3
-      transition: 0
-- id: entry_uppress
-  alias: Entry Uppress
-  trigger:
-  - entity_id: sensor.entry_dimmer_action
-    platform: state
-    to: up-press
-  condition: []
-  action:
-  - service: light.turn_on
-    data:
-      entity_id: light.sensor_light
-      transition: 0
-- id: entry_downpress
-  alias: Entry Downpress
-  trigger:
-  - entity_id: sensor.entry_dimmer_action
-    platform: state
-    to: down-press
-  condition: []
-  action:
-  - service: light.turn_on
-    data:
-      entity_id: light.bulb_colour_3
-      color_name: blue
-      transition: 0
-  - service: light.turn_off
-    data:
-      entity_id: light.bulb_white_3
-      transition: 0
-- id: entry_offpress
-  alias: Entry Offpress
-  trigger:
-  - entity_id: sensor.entry_dimmer_action
-    platform: state
-    to: off-press
-  condition: []
-  action:
-  - service: light.turn_off
-    data:
-      entity_id: light.bulb_white_3
-      transition: 0
-  - service: light.turn_off
-    data:
-      entity_id: light.bulb_colour_3
-      transition: 0
-  - service: light.turn_off
-    data:
-      entity_id: light.sensor_light
-      transition: 0
+    - entity_id: light.bulb_white_3
+      service_template: >
+        {% if trigger.to_state.state == 'on-press' %}light.turn_on
+        {% elif trigger.to_state.state == 'up-press' %}script.noop
+        {% elif trigger.to_state.state == 'down-press' %}light.turn_off
+        {% elif trigger.to_state.state == 'off-press' %}light.turn_off
+        {% else %}script.noop
+        {% endif %}
+      data:
+        transition: 0
+    - entity_id: light.sensor_light
+      service_template: >
+        {% if trigger.to_state.state == 'on-press' %}script.noop
+        {% elif trigger.to_state.state == 'up-press' %}light.turn_on
+        {% elif trigger.to_state.state == 'down-press' %}script.noop
+        {% elif trigger.to_state.state == 'off-press' %}light.turn_off
+        {% else %}script.noop
+        {% endif %}
+      data:
+        transition: 0
+    - entity_id: light.bulb_colour_3
+      service_template: >
+        {% if trigger.to_state.state == 'on-press' %}light.turn_on
+        {% elif trigger.to_state.state == 'up-press' %}script.noop
+        {% elif trigger.to_state.state == 'down-press' %}light.turn_on
+        {% elif trigger.to_state.state == 'off-press' %}light.turn_on
+        {% else %}script.noop
+        {% endif %}
+      data_template:
+        transition: 0
+        color_name: blue
+        brightness_pct: >
+          {% if trigger.to_state.state == 'down-press' %}100
+          {% else %}0
+          {% endif %}

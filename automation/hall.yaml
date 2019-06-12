@@ -1,70 +1,32 @@
-# Hall dimmer switch
-- id: hall_onpress
-  alias: Hall Onpress
+- alias: Dimmer - Hall
   trigger:
   - entity_id: sensor.hall_dimmer_action
     platform: state
-    to: 'on-press'
   condition: []
   action:
-  - service: light.turn_on
-    data:
-      entity_id: light.hall_white
-      transition: 0
-  - service: light.turn_off
-    data:
-      entity_id: light.hall_colour
-      transition: 0
-- id: hall_uppress
-  alias: Hall Uppress
-  trigger:
-  - entity_id: sensor.hall_dimmer_action
-    platform: state
-    to: 'up-press'
-  condition: []
-  action:
-  - service: light.turn_on
-    data:
-      entity_id: light.hall_white
-      brightness_pct: 50
-      transition: 0
-  - service: light.turn_off
-    data:
-      entity_id: light.hall_colour
-      transition: 0 
-- id: hall_downpress
-  alias: Hall Downpress
-  trigger:
-  - entity_id: sensor.hall_dimmer_action
-    platform: state
-    to: 'down-press'
-  condition: []
-  action:
-  - service: light.turn_on
-    data:
-      entity_id: light.hall_colour
-      color_name: blue
-      transition: 0
-  - service: light.turn_off
-    data:
-      entity_id: light.hall_white
-      transition: 0
-- id: hall_offpress
-  alias: Hall Offpress
-  trigger:
-  - entity_id: sensor.hall_dimmer_action
-    platform: state
-    to: 'off-press'
-  condition: []
-  action:
-  - service: light.turn_off
-    data:
-      entity_id: light.hall_white
-      transition: 0
-  - service: light.turn_off
-    data:
-      entity_id: light.hall_colour
-      transition: 0
+    - entity_id: light.hall_white
+      service_template: >
+        {% if trigger.to_state.state|length %}light.turn_on
+        {% else %}script.noop
+        {% endif %}
+      data_template:
+        transition: 0
+        brightness_pct: >
+          {% if trigger.to_state.state == 'on-press' %}100
+          {% elif trigger.to_state.state == 'up-press' %}50
+          {% else %}0
+          {% endif %}
+    - entity_id: light.hall_colour
+      service_template: >
+        {% if trigger.to_state.state|length %}light.turn_on
+        {% else %}script.noop
+        {% endif %}
+      data_template:
+        transition: 0
+        brightness_pct: >
+          {% if trigger.to_state.state == 'down-press' %}100
+          {% else %}0
+          {% endif %}
 # Change the hall light colour based on time and if the kids lights are on
 - id: hall_nightlight
   alias: Hall nightlight

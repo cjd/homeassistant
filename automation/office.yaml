@@ -1,55 +1,27 @@
-- alias: Office light on
-  id: office_light_on
+- alias: Office light
+  id: office_light
   trigger:
   - entity_id: sensor.office_dimmer_action
     platform: state
-    to: 'on-press'
   condition: []
   action:
   - entity_id: switch.office_speaker
-    service: switch.turn_on
-  - entity_id: light.office_light1
-    service: light.turn_on
-    data:
-      brightness_pct: 100
-
-- alias: Office light up press
-  id: office_light_up
-  trigger:
-  - entity_id: sensor.office_dimmer_action
-    platform: state
-    to: 'up-press'
-  condition: []
-  action:
-  - entity_id: switch.office_speaker
-    service: switch.turn_on
-  - entity_id: light.office_light1
-    service: light.turn_on
-    data:
-       brightness_pct: 50
-- alias: Office light down press
-  id: office_light_down
-  trigger:
-  - entity_id: sensor.office_dimmer_action
-    platform: state
-    to: 'down-press'
-  condition: []
-  action:
-  - entity_id: switch.office_speaker
-    service: switch.turn_off
-  - entity_id: light.office_light1
-    service: light.turn_on
-    data:
-      brightness_pct: 10
-- alias: Office light off
-  id: office_light_off
-  trigger:
-  - entity_id: sensor.office_dimmer_action
-    platform: state
-    to: 'off-press'
-  condition: []
-  action:
-  - entity_id: switch.office_speaker
-    service: switch.turn_off
-  - entity_id: light.office_light1
-    service: light.turn_off
+    service_template: >
+        {% if trigger.to_state.state == 'on-press' %}switch.turn_on
+        {% elif trigger.to_state.state == 'up-press' %}switch.turn_on
+        {% elif trigger.to_state.state == 'down-press' %}switch.turn_off
+        {% elif trigger.to_state.state == 'off-press' %}switch.turn_off
+        {% else %}script.noop
+        {% endif %}
+  - entity_id: group.office_lights
+    service_template: >
+        {% if trigger.to_state.state|length %}light.turn_on
+        {% else %}script.noop
+        {% endif %}
+    data_template:
+      brightness_pct: >
+        {% if trigger.to_state.state == 'on-press' %} 100
+        {% elif trigger.to_state.state == 'up-press' %} 50
+        {% elif trigger.to_state.state == 'down-press' %} 1
+        {% elif trigger.to_state.state == 'off-press' %} 0
+        {% endif %}
