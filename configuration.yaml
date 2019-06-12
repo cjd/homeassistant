@@ -47,8 +47,10 @@ notify:
     vapid_pub_key: !secret vapid_pub_key
     vapid_prv_key: !secret vapid_prv_key
     vapid_email: !secret email
-  - name: android
-    platform: fcm-android
+  - name: Hangout Notify
+    platform: hangouts
+    default_conversations:
+      - id: hangout_id
 
 netatmo:
   api_key: !secret netatmo_api_key
@@ -86,6 +88,19 @@ upnp:
   port_mapping: false
   sensors: true
   local_ip: 192.168.86.2
+
+hangouts:
+  intents:
+    HangoutsHelp:
+      sentences:
+        - Help
+    LivingRoomTemperature:
+      sentences:
+        - What is the temperature in the living room
+  default_conversations:
+    - id: hangout_id
+  error_suppressed_conversations:
+    - id: hangout_id
 
 input_select: !include input_select.yaml
 sensor: !include sensors.yaml
