@@ -61,7 +61,7 @@
     entity_id: scene.turn_off
 - alias: Living room on
   trigger:
-  - entity_id: sensor.hueswitch_1_action
+  - entity_id: sensor.livingroom_dimmer_action
     platform: state
     to: 'on-press'
   condition: []
@@ -72,7 +72,7 @@
       option: "Normal"
 - alias: Living room up
   trigger:
-  - entity_id: sensor.hueswitch_1_action
+  - entity_id: sensor.livingroom_dimmer_action
     platform: state
     to: 'up-press'
   condition: []
@@ -83,7 +83,7 @@
       option: "Movie"
 - alias: Living room down
   trigger:
-  - entity_id: sensor.hueswitch_1_action
+  - entity_id: sensor.livingroom_dimmer_action
     platform: state
     to: 'down-press'
   condition: []
@@ -94,7 +94,7 @@
       option: "Night"
 - alias: Living room off
   trigger:
-  - entity_id: sensor.hueswitch_1_action
+  - entity_id: sensor.livingroom_dimmer_action
     platform: state
     to: 'off-press'
   condition: []
