@@ -14,68 +14,6 @@ entity_config:
     expose: true
   climate.living_room:
     expose: true
-  light.bedroom_light_1:
-    expose: true
-  light.bedroom_light_2:
-    expose: true
-  light.bedroom_led:
-    expose: true
-  light.bulb_colour:
-    expose: true
-  light.bulb_colour_2:
-    expose: true
-  light.bulb_colour_3:
-    expose: true
-  light.bulb_colour_4:
-    expose: true
-  light.bulb_white:
-    expose: true
-  light.bulb_white_2:
-    expose: true
-  light.bulb_white_3:
-    expose: true
-  light.bulb_white_4:
-    expose: true
-  light.craft_room:
-    expose: true
-  light.family_room_left:
-    expose: true
-  light.family_room_middle:
-    expose: true
-  light.family_room_right:
-    expose: true
-  light.family_room_strip:
-    expose: false
-  light.hall_colour:
-    expose: true
-  light.hall_white:
-    expose: true
-  light.kitchen_counter:
-    expose: true
-  light.kitchen_light_back:
-    expose: true
-  light.kitchen_light_front:
-    expose: true
-  light.living_room_1:
-    expose: true
-  light.living_room_2:
-    expose: true
-  light.livingroom_side:
-    expose: true
-  light.lucas_bedroom_light:
-    expose: true
-  light.office_light:
-    expose: true
-  light.office_strip:
-    expose: false
-  light.sensor_light:
-    expose: true
-  light.tv_backlight_2:
-    expose: false
-  light.xander_bedroom_light:
-    expose: true
-  camera.living_room:
-    expose: true
   camera.livingcam:
     expose: true
   camera.livingcam2:
@@ -83,4 +21,50 @@ entity_config:
   camera.backroom:
     expose: true
   camera.camera2:
+    expose: true
+  light.livingroom_side:
+    expose: true
+  light.bedroom_led:
+    expose: true
+  light.sensor_light:
+    expose: true
+  light.bulb_colour_3:
+    expose: true
+  light.bulb_white_3:
+    expose: true
+  light.hall_colour:
+    expose: true
+  light.hall_white:
+    expose: true
+  light.bulb_colour_4:
+    expose: true
+  light.bulb_white_4:
+    expose: true
+  light.office_light1:
+    expose: true
+  light.lucas_bedroom_light:
+    expose: true
+  light.craftroom_light:
+    expose: true
+  light.backroom_middle_light:
+    expose: true
+  light.backroom_right_light:
+    expose: true
+  light.main_bedroom_a_light:
+    expose: true
+  light.main_bedroom_b_light:
+    expose: true
+  light.craftarea_light:
+    expose: true
+  light.kitchen_back_light:
+    expose: true
+  light.kitchen_counter_light:
+    expose: true
+  light.kitchen_front_light:
+    expose: true
+  light.livingroom_main_a_light:
+    expose: true
+  light.livingroom_main_b_light:
+    expose: true
+  light.xander_bedroom_light:
     expose: true
