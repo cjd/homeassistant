@@ -23,83 +23,37 @@
     entity_id: light.family_room_strip
     service: light.turn_on
 
-- alias: Living Room Normal selected
-  id: living_room_normal_selected
+- alias: Living Room Preset selected
   trigger:
     platform: state
     entity_id: input_select.livingroom_preset
-    to: "Normal"
   action:
-    service: scene.turn_on
-    entity_id: scene.normal
-- alias: Living Room Movie selected
-  id: living_room_movie_selected
-  trigger:
-    platform: state
-    entity_id: input_select.livingroom_preset
-    to: "Movie"
-  action:
-    service: scene.turn_on
-    entity_id: scene.movies
-- alias: Living Room Night selected
-  id: living_room_night_selected
-  trigger:
-    platform: state
-    entity_id: input_select.livingroom_preset
-    to: "Night"
-  action:
-    service: scene.turn_on
-    entity_id: scene.night
-- alias: Living Room Turn Off selected
-  id: living_room_turnoff_selected
-  trigger:
-    platform: state
-    entity_id: input_select.livingroom_preset
-    to: "TurnOff"
-  action:
-    service: scene.turn_on
-    entity_id: scene.turn_off
-- alias: Living room on
+    service_template: >
+      {% if trigger.to_state.state|length %}scene.turn_on
+      {% else %}script.noop
+      {% endif %}
+    data_template:
+      entity_id: >
+        {% if trigger.to_state.state == "Normal" %}scene.normal
+        {% elif trigger.to_state.state == "Movie" %}scene.movies
+        {% elif trigger.to_state.state == "Night" %}scene.night
+        {% elif trigger.to_state.state == "TurnOff" %}scene.turn_off
+        {% endif %}
+- alias: Dimmer - Living room
   trigger:
   - entity_id: sensor.livingroom_dimmer_action
     platform: state
-    to: 'on-press'
   condition: []
   action:
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.livingroom_preset
-      option: "Normal"
-- alias: Living room up
-  trigger:
-  - entity_id: sensor.livingroom_dimmer_action
-    platform: state
-    to: 'up-press'
-  condition: []
-  action:
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.livingroom_preset
-      option: "Movie"
-- alias: Living room down
-  trigger:
-  - entity_id: sensor.livingroom_dimmer_action
-    platform: state
-    to: 'down-press'
-  condition: []
-  action:
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.livingroom_preset
-      option: "Night"
-- alias: Living room off
-  trigger:
-  - entity_id: sensor.livingroom_dimmer_action
-    platform: state
-    to: 'off-press'
-  condition: []
-  action:
-  - service: input_select.select_option
-    data:
-      entity_id: input_select.livingroom_preset
-      option: "TurnOff"
+    - entity_id: input_select.livingroom_preset
+      service_template: >
+        {% if trigger.to_state.state|length %}input_select.select_option
+        {% else %}script.noop
+        {% endif %}
+      data_template:
+        option: >
+          {% if trigger.to_state.state == "on-press" %}Normal
+          {% elif trigger.to_state.state == "up-press" %}Movie
+          {% elif trigger.to_state.state == "down-press" %}Night
+          {% elif trigger.to_state.state == "off-press" %}TurnOff
+          {% endif %}
