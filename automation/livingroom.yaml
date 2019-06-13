@@ -48,7 +48,7 @@
       value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
   action:
     - entity_id: input_select.livingroom_preset
-      service_template: input_select.select_option
+      service: input_select.select_option
       data_template:
         option: >
           {% if trigger.to_state.state == "on-press" %}Normal

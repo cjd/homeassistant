@@ -7,7 +7,7 @@
       value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
   action:
     - entity_id: light.hall_white
-      service_template: light.turn_on
+      service: light.turn_on
       data_template:
         transition: 0
         brightness_pct: >
@@ -16,7 +16,7 @@
           {% else %}0
           {% endif %}
     - entity_id: light.hall_colour
-      service_template: light.turn_on
+      service: light.turn_on
       data_template:
         transition: 0
         color_name: blue

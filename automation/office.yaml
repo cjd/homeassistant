@@ -15,7 +15,7 @@
         {% elif trigger.to_state.state == 'off-press' %}switch.turn_off
         {% endif %}
   - entity_id: light.office_light
-    service_template: light.turn_on
+    service: light.turn_on
     data_template:
       brightness_pct: >
         {% if trigger.to_state.state == 'on-press' %}100
