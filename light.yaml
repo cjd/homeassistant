@@ -1,0 +1,33 @@
+- platform: group
+  name: Backroom Light Group
+  entities:
+    - light.backroom_middle_light                                                                    
+    - light.backroom_right_light                                                                     
+    - light.craftarea_light
+- platform: group
+  name: Kitchen Light Group
+  entities:
+    - light.kitchen_front_light
+    - light.kitchen_back_light
+    - light.kitchen_counter_light
+- platform: group
+  name: Bedroom Light Group
+  entities:
+    - light.main_bedroom_a_light
+    - light.main_bedroom_b_light
+- platform: group
+  name: Livingroom Light Group
+  entities:
+    - light.livingroom_main_a_light                                                                  
+    - light.livingroom_main_b_light                                                                  
+    - light.livingroom_side
+- platform: group
+  name: Hall Light Group
+  entities:
+    - light.hall_color
+    - light.hall_white
+- platform: group
+  name: Entry Light Group
+  entities:
+    - light.bulb_color_3
+    - light.bulb_white_3
