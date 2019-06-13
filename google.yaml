@@ -22,49 +22,25 @@ entity_config:
     expose: true
   camera.camera2:
     expose: true
-  light.livingroom_side:
-    expose: true
-  light.bedroom_led:
-    expose: true
   light.sensor_light:
     expose: true
-  light.bulb_colour_3:
-    expose: true
-  light.bulb_white_3:
-    expose: true
-  light.hall_colour:
-    expose: true
-  light.hall_white:
-    expose: true
-  light.bulb_colour_4:
-    expose: true
-  light.bulb_white_4:
-    expose: true
-  light.office_light1:
+  light.office_light:
     expose: true
   light.lucas_bedroom_light:
     expose: true
   light.craftroom_light:
     expose: true
-  light.backroom_middle_light:
+  light.backroom_light_group:
     expose: true
-  light.backroom_right_light:
+  light.bedroom_light_group:
     expose: true
-  light.main_bedroom_a_light:
+  light.kitchen_light_group:
     expose: true
-  light.main_bedroom_b_light:
-    expose: true
-  light.craftarea_light:
-    expose: true
-  light.kitchen_back_light:
-    expose: true
-  light.kitchen_counter_light:
-    expose: true
-  light.kitchen_front_light:
-    expose: true
-  light.livingroom_main_a_light:
-    expose: true
-  light.livingroom_main_b_light:
+  light.livingroom_light_group:
     expose: true
   light.xander_bedroom_light:
+    expose: true
+  light.hall_light_group:
+    expose: true
+  light.entry_light_group:
     expose: true
