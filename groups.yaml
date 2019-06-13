@@ -1,10 +1,3 @@
-chris:
-  entities:
-    - device_tracker.pixel3
-    - device_tracker.life360_chris
-mel:
-  entities:
-    - device_tracker.melphone
 family:
   entities:
     - group.chris
