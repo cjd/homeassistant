@@ -765,6 +765,10 @@
                                 }
                             ],
                             "type": "picture-glance"
+                        },
+                        {
+                            "entity": "camera.minicam",
+                            "type": "picture-entity"
                         }
                     ],
                     "icon": "mdi:camera",
@@ -847,27 +851,13 @@
                         },
                         {
                             "card": {
-                                "title": "Zigbee Battery",
+                                "title": "Battery level",
                                 "type": "history-graph"
                             },
                             "filter": {
                                 "include": [
                                     {
                                         "entity_id": "sensor.*battery"
-                                    }
-                                ]
-                            },
-                            "type": "custom:monster-card"
-                        },
-                        {
-                            "card": {
-                                "title": "Zigbee Link quality",
-                                "type": "history-graph"
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.*linkquality"
                                     }
                                 ]
                             },
