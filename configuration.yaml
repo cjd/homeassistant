@@ -41,6 +41,12 @@ tts:
   - platform: google_translate
     service_name: google_say
 
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chatid
+
 notify:
   - name: Home assistant
     platform: html5
@@ -50,7 +56,10 @@ notify:
   - name: Hangout Notify
     platform: hangouts
     default_conversations:
-      - id: hangout_id
+      - id: !secret hangout_id
+  - name: Telegram Notify
+    platform: telegram
+    chat_id: !secret telegram_chatid
 
 netatmo:
   api_key: !secret netatmo_api_key
