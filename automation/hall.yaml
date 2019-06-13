@@ -61,12 +61,12 @@
   alias: Hall Kids lights on
   trigger:
     - platform: state
-      entity_id: group.xander_bedroom_lights
+      entity_id: light.xander_bedroom_light
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: group.xander_bedroom_lights
+        entity_id: light.xander_bedroom_light
         state: 'on'
       - condition: time
         after: '19:00:00'
@@ -85,12 +85,12 @@
   alias: Hall Kids lights off
   trigger:
     - platform: state
-      entity_id: group.xander_bedroom_lights
+      entity_id: light.xander_bedroom_light
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: group.xander_bedroom_lights
+        entity_id: light.xander_bedroom_light
         state: 'off'
       - condition: time
         after: '19:00:00'

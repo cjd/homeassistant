@@ -4,7 +4,7 @@
     platform: state
   condition: []
   action:
-  - entity_id: group.craftroom_lights
+  - entity_id: light.craftroom_light
     service_template: >
         {% if trigger.to_state.state|length %}light.turn_on
         {% else %}script.noop

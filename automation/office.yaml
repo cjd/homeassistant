@@ -13,15 +13,15 @@
         {% elif trigger.to_state.state == 'off-press' %}switch.turn_off
         {% else %}script.noop
         {% endif %}
-  - entity_id: group.office_lights
+  - entity_id: light.office_light
     service_template: >
         {% if trigger.to_state.state|length %}light.turn_on
         {% else %}script.noop
         {% endif %}
     data_template:
       brightness_pct: >
-        {% if trigger.to_state.state == 'on-press' %} 100
+        {% if trigger.to_state.state == 'on-press' %}100
         {% elif trigger.to_state.state == 'up-press' %} 50
-        {% elif trigger.to_state.state == 'down-press' %} 1
-        {% elif trigger.to_state.state == 'off-press' %} 0
+        {% elif trigger.to_state.state == 'down-press' %}1
+        {% elif trigger.to_state.state == 'off-press' %}0
         {% endif %}

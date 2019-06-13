@@ -73,10 +73,10 @@
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "switch.bedroom_lights",
+                                            "entity": "switch.bedroom_light_group",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "group.bedroom_lights"
+                                                "entity": "light.bedroom_light_group"
                                             },
                                             "icon": "mdi:bed-empty",
                                             "name": "Main",
@@ -85,10 +85,10 @@
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "switch.lucas_bedroom_lights",
+                                            "entity": "switch.lucas_bedroom_light",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "group.lucas_bedroom_lights"
+                                                "entity": "light.lucas_bedroom_light"
                                             },
                                             "icon": "mdi:bed-empty",
                                             "name": "Lucas",
@@ -97,10 +97,10 @@
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "switch.xander_bedroom_lights",
+                                            "entity": "switch.xander_bedroom_light",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "group.xander_bedroom_lights"
+                                                "entity": "light.xander_bedroom_light"
                                             },
                                             "icon": "mdi:bed-empty",
                                             "name": "Xander",
@@ -113,10 +113,10 @@
                                     "cards": [
                                         {
                                             "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.livingroom_lights",
+                                            "entity": "switch.livingroom_light_group",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "group.livingroom_lights"
+                                                "entity": "light.livingroom_light_group"
                                             },
                                             "icon": "mdi:sofa",
                                             "name": "Livingroom",
@@ -124,10 +124,10 @@
                                         },
                                         {
                                             "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.kitchen_lights",
+                                            "entity": "switch.kitchen_light_group",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "group.kitchen_lights"
+                                                "entity": "light.kitchen_light_group"
                                             },
                                             "icon": "mdi:fridge",
                                             "name": "Kitchen",
@@ -135,10 +135,10 @@
                                         },
                                         {
                                             "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.backroom_lights",
+                                            "entity": "switch.backroom_light_group",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "group.backroom_lights"
+                                                "entity": "light.backroom_light_group"
                                             },
                                             "icon": "mdi:castle",
                                             "name": "Backroom",
@@ -146,10 +146,10 @@
                                         },
                                         {
                                             "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.craftroom_lights",
+                                            "entity": "switch.craftroom_light",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "group.craftroom_lights"
+                                                "entity": "light.craftroom_light"
                                             },
                                             "icon": "mdi:content-cut",
                                             "name": "Craft",
@@ -162,10 +162,10 @@
                                     "cards": [
                                         {
                                             "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.office_lights",
+                                            "entity": "switch.office_light",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "group.office_lights"
+                                                "entity": "light.office_light"
                                             },
                                             "name": "Office",
                                             "type": "custom:button-card"
@@ -198,7 +198,7 @@
                                             "entity": "switch.front_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "group.front_lights"
+                                                "entity": "light.sensor_light"
                                             },
                                             "name": "Front door",
                                             "type": "custom:button-card"
@@ -368,7 +368,7 @@
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.craft_room_light_group",
+                                    "entity": "light.craftroom_light",
                                     "name": "Craftroom",
                                     "type": "custom:slider-entity-row"
                                 },
@@ -378,12 +378,12 @@
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.living_room_light_group",
+                                    "entity": "light.livingroom_light_group",
                                     "name": "Livingroom",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.office_light_group",
+                                    "entity": "light.office_light",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
@@ -391,7 +391,7 @@
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.xander_bedroom",
+                                    "entity": "light.xander_bedroom_light",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {

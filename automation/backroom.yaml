@@ -4,12 +4,13 @@
     platform: state
   condition: []
   action:
-  - entity_id: group.backroom_lights
+  - entity_id: light.backroom_light_group
     service_template: >
         {% if trigger.to_state.state|length %}light.turn_on
         {% else %}script.noop
         {% endif %}
     data_template:
+      transition: 2
       brightness_pct: >
         {% if trigger.to_state.state == 'on-press' %} 100
         {% elif trigger.to_state.state == 'up-press' %} 50
