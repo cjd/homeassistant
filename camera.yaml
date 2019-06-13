@@ -1,4 +1,8 @@
 - platform: mjpeg
+  name: minicam
+  mjpeg_url: http://192.168.86.105/media?action=stream&user=admin&pwd=
+  still_image_url: http://192.168.86.105/snapshot.cgi?user=admin&pwd=
+- platform: mjpeg
   name: backroom
   mjpeg_url: http://192.168.86.41/media?action=stream&user=admin&pwd=
   still_image_url: http://192.168.86.41/snapshot.cgi?user=admin&pwd=
