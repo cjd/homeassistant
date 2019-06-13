@@ -14,11 +14,15 @@ entity_config:
     expose: true
   climate.living_room:
     expose: true
-  camera.livingcam:
+  scene.all_off:
     expose: true
-  camera.livingcam2:
+  scene.movies:
     expose: true
-  camera.backroom:
+  scene.night:
+    expose: true
+  scene.normal:
+    expose: true
+  scene.turn_off:
     expose: true
   camera.camera2:
     expose: true
