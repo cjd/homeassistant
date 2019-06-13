@@ -2,13 +2,12 @@
   trigger:
   - entity_id: sensor.kitchen_dimmer_action
     platform: state
-  condition: []
+  condition:
+    - condition: template
+      value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
   action:
   - entity_id: light.kitchen_light_group
-    service_template: >
-        {% if trigger.to_state.state|length %}light.turn_on
-        {% else %}script.noop
-        {% endif %}
+    service_template: light.turn_on
     data_template:
       brightness_pct: >
         {% if trigger.to_state.state == 'on-press' %} 100

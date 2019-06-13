@@ -2,7 +2,9 @@
   trigger:
   - entity_id: sensor.craftroom_dimmer_action
     platform: state
-  condition: []
+  condition:
+    - condition: template
+      value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
   action:
   - entity_id: light.craftroom_light
     service_template: >
@@ -16,4 +18,3 @@
         {% elif trigger.to_state.state == 'down-press' %} 1
         {% elif trigger.to_state.state == 'off-press' %} 0
         {% endif %}
-

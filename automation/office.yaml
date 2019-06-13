@@ -3,7 +3,9 @@
   trigger:
   - entity_id: sensor.office_dimmer_action
     platform: state
-  condition: []
+  condition:
+    - condition: template
+      value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
   action:
   - entity_id: switch.office_speaker
     service_template: >
@@ -11,13 +13,9 @@
         {% elif trigger.to_state.state == 'up-press' %}switch.turn_on
         {% elif trigger.to_state.state == 'down-press' %}switch.turn_off
         {% elif trigger.to_state.state == 'off-press' %}switch.turn_off
-        {% else %}script.noop
         {% endif %}
   - entity_id: light.office_light
-    service_template: >
-        {% if trigger.to_state.state|length %}light.turn_on
-        {% else %}script.noop
-        {% endif %}
+    service_template: light.turn_on
     data_template:
       brightness_pct: >
         {% if trigger.to_state.state == 'on-press' %}100

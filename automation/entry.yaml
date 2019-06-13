@@ -2,7 +2,9 @@
   trigger:
   - entity_id: sensor.entry_dimmer_action
     platform: state
-  condition: []
+  condition:
+    - condition: template
+      value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
   action:
     - entity_id: light.bulb_white_3
       service_template: >
@@ -10,7 +12,6 @@
         {% elif trigger.to_state.state == 'up-press' %}script.noop
         {% elif trigger.to_state.state == 'down-press' %}light.turn_off
         {% elif trigger.to_state.state == 'off-press' %}light.turn_off
-        {% else %}script.noop
         {% endif %}
       data:
         transition: 0
@@ -20,7 +21,6 @@
         {% elif trigger.to_state.state == 'up-press' %}light.turn_on
         {% elif trigger.to_state.state == 'down-press' %}script.noop
         {% elif trigger.to_state.state == 'off-press' %}light.turn_off
-        {% else %}script.noop
         {% endif %}
       data:
         transition: 0
@@ -30,7 +30,6 @@
         {% elif trigger.to_state.state == 'up-press' %}script.noop
         {% elif trigger.to_state.state == 'down-press' %}light.turn_on
         {% elif trigger.to_state.state == 'off-press' %}light.turn_on
-        {% else %}script.noop
         {% endif %}
       data_template:
         transition: 0
