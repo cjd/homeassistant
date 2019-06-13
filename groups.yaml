@@ -23,28 +23,12 @@ livingroom_lights:
     - light.livingroom_main_a_light
     - light.livingroom_main_b_light
     - light.livingroom_side
-office_lights:
-  name: Office
-  icon: mdi:desktop-classic
-  entities:
-    - light.office_light1
 bedroom_lights:
   name: Bedroom
   icon: mdi:bed-empty
   entities:
     - light.main_bedroom_a_light
     - light.main_bedroom_b_light
-craftroom_lights:
-  name: Craft Room
-  icon: mdi:content-cut
-  entities:
-    - light.craftroom_light
-craftarea_lights:
-  name: Craft Area
-  icon: mdi:content-cut
-  entities:
-    - light.craftroom_light
-    - light.craftarea_light
 kitchen_lights:
   name: Kitchen
   icon: mdi:fridge
@@ -52,16 +36,6 @@ kitchen_lights:
     - light.kitchen_back_light
     - light.kitchen_front_light
     - light.kitchen_counter_light
-xander_bedroom_lights:
-  name: Xander  Bedroom
-  icon: mdi:bed-empty
-  entities:
-    - light.xander_bedroom_light
-lucas_bedroom_lights:
-  name: Lucas Bedroom
-  icon: mdi:bed-empty
-  entities:
-    - light.lucas_bedroom_light
 hall_lights:
   name: Hall
   entities:
@@ -73,8 +47,3 @@ entry_lights:
   entities:
     - light.bulb_white_3
     - light.bulb_colour_3
-front_lights:
-  name: Front
-  icon: mdi:car
-  entities:
-    - light.sensor_light
