@@ -11,8 +11,11 @@
     value_template: "{% if not (is_state('person.chris', 'home') or is_state('person.mel', 'home')) %} true {% else %} false {% endif %}"
   action:
     - service: switch.toggle
-      entity_id: switch.camera3_away
+      entity_id: switch.backroom_ptz_away
     - service: notify.telegram_notify
+      data:
+        message: "Feeling lonely"
+    - service: notify.hangout_notify
       data:
         message: "Feeling lonely"
 - alias: 'Mel home'
@@ -23,8 +26,11 @@
   condition: []
   action:
     - service: switch.toggle
-      entity_id: switch.camera3_home
+      entity_id: switch.backroom_ptz_home
     - service: notify.telegram_notify
+      data:
+        message: "Yay - Mel's home"
+    - service: notify.hangout_notify
       data:
         message: "Yay - Mel's home"
 - alias: 'People home'
@@ -35,7 +41,10 @@
   condition: []
   action:
     - service: switch.toggle
-      entity_id: switch.camera3_home
+      entity_id: switch.backroom_ptz_home
     - service: notify.telegram_notify
+      data:
+        message: "Yay - you're home"
+    - service: notify.hangout_notify
       data:
         message: "Yay - you're home"

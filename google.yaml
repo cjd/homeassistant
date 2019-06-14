@@ -24,7 +24,15 @@ entity_config:
     expose: true
   scene.turn_off:
     expose: true
+  camera.minicam:
+    expose: true
+  camera.backyard:
+    expose: true
   camera.camera2:
+    expose: true
+  camera.carport:
+    expose: true
+  camera.backroom:
     expose: true
   light.sensor_light:
     expose: true

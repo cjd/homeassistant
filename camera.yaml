@@ -1,27 +1,26 @@
-- platform: mjpeg
+- platform: generic
   name: minicam
-  mjpeg_url: http://192.168.86.105/media?action=stream&user=admin&pwd=
-  still_image_url: http://192.168.86.105/snapshot.cgi?user=admin&pwd=
+  stream_source: http://192.168.86.105/videostream.asf?user=admin&pwd=
+  still_image_url: http://192.168.86.105/media?action=snapshot&user=admin&pwd=
 - platform: mjpeg
-  name: backroom
+  name: backyard
   mjpeg_url: http://192.168.86.41/media?action=stream&user=admin&pwd=
   still_image_url: http://192.168.86.41/snapshot.cgi?user=admin&pwd=
-  verify_ssl: false
 - platform: generic
   stream_source: rtsp://192.168.86.56:554/
   still_image_url: http://192.168.86.56:554/snapshot
   name: camera2
 - platform: mjpeg
-  name: livingcam
+  name: carport
   still_image_url: http://192.168.86.61/image.jpg
   mjpeg_url: http://192.168.86.61/MJPEG.CGI
 - platform: onvif
-  name: camera3
+  name: backroom_ptz
   host: 192.168.86.74
   username: admin
   password: admin
   port: 10080
 - platform: mjpeg
-  name: livingcam2
+  name: backroom
   still_image_url: http://admin:admin@192.168.86.74/snapshot.cgi
   mjpeg_url: http://192.168.86.74/videostream.cgi?loginuse=admin&loginpas=admin
