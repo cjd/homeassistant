@@ -43,10 +43,10 @@
   - entity_id: light.bedroom_light_group
     service: light.turn_on
     data_template:
-      transition: 2
+      transition: 1
       brightness_pct: >
         {% if trigger.to_state.state == 'on-press' %} 100
         {% elif trigger.to_state.state == 'up-press' %} 50
-        {% elif trigger.to_state.state == 'down-press' %} 10
+        {% elif trigger.to_state.state == 'down-press' %} 1
         {% elif trigger.to_state.state == 'off-press' %} 0
         {% endif %}
