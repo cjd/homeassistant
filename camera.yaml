@@ -1,6 +1,6 @@
 - platform: generic
   name: minicam
-  stream_source: http://192.168.86.105/videostream.asf?user=admin&pwd=
+  stream_source: http://192.168.86.105/videostream.asf?user=admin&pwd=&resolution=32
   still_image_url: http://192.168.86.105/media?action=snapshot&user=admin&pwd=
 - platform: mjpeg
   name: backyard
@@ -22,5 +22,5 @@
   port: 10080
 - platform: mjpeg
   name: backroom
-  still_image_url: http://admin:admin@192.168.86.74/snapshot.cgi
+  still_image_url: http://192.168.86.74/snapshot.cgi?loginuse=admin&loginpas=admin
   mjpeg_url: http://192.168.86.74/videostream.cgi?loginuse=admin&loginpas=admin
