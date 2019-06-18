@@ -40,3 +40,21 @@ entry_lights:
   entities:
     - light.bulb_white_3
     - light.bulb_colour_3
+all_lights:
+  name: All Lights
+  entities:
+    - group.backroom_lights
+    - group.bedroom_lights
+    - group.entry_lights
+    - group.hall_lights
+    - group.kitchen_lights
+    - group.livingroom_lights
+    - light.lucas_bedroom_light
+    - light.office_light
+    - light.xander_bedroom_light
+    - light.craftroom_light
+all_strips:
+  name: All Strips
+  entities:
+    - light.family_room_strip
+    - light.tv_backlight_2

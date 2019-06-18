@@ -12,9 +12,10 @@
   action:
     - service: switch.toggle
       entity_id: switch.backroom_ptz_away
-    - service: notify.telegram_notify
-      data:
-        message: "Feeling lonely"
+    - service: light.turn_off
+      entity_id: group.all_lights
+    - service: light.turn_off
+      entity_id: group.all_strips
     - service: notify.hangout_notify
       data:
         message: "Feeling lonely"
@@ -27,9 +28,8 @@
   action:
     - service: switch.toggle
       entity_id: switch.backroom_ptz_home
-    - service: notify.telegram_notify
-      data:
-        message: "Yay - Mel's home"
+    - service: light.turn_on
+      entity_id: group.all_strips
     - service: notify.hangout_notify
       data:
         message: "Yay - Mel's home"
@@ -42,9 +42,8 @@
   action:
     - service: switch.toggle
       entity_id: switch.backroom_ptz_home
-    - service: notify.telegram_notify
-      data:
-        message: "Yay - you're home"
+    - service: light.turn_on
+      entity_id: group.all_strips
     - service: notify.hangout_notify
       data:
         message: "Yay - you're home"
