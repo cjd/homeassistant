@@ -4,18 +4,28 @@
     platform: state
   condition:
     - condition: template
-      value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
+      value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'off-press'] }}"
   action:
   - entity_id: light.kitchen_light_group
     service: light.turn_on
     data_template:
+      transition: 1
       brightness_pct: >
         {% if trigger.to_state.state == 'on-press' %} 100
         {% elif trigger.to_state.state == 'up-press' %} 50
-        {% elif trigger.to_state.state == 'down-press' %} 50
         {% elif trigger.to_state.state == 'off-press' %} 0
         {% endif %}
-      color_name: >
-        {% if trigger.to_state.state == 'down-press' %} blue
-        {% else %} white
-        {% endif %}
+      color_temp: 333
+- alias: Dimmer - Kitchen blue
+  trigger:
+  - entity_id: sensor.kitchen_dimmer_action
+    platform: state
+    to: 'down-press'
+  condition: []
+  action:
+  - entity_id: light.kitchen_light_group
+    service: light.turn_on
+    data_template:
+      transition: 1
+      brightness_pct: 50
+      color_name: blue
