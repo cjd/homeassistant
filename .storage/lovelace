@@ -479,89 +479,6 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "media_player.livingroom_tv",
-                            "type": "custom:mini-media-player"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "switch.lg_amp"
-                                },
-                                {
-                                    "entity": "input_select.livingroom_amp_input"
-                                },
-                                {
-                                    "entity": "switch.lg_amp_volup"
-                                },
-                                {
-                                    "entity": "switch.lg_amp_voldown"
-                                },
-                                {
-                                    "entity": "switch.livingroomtv"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "media_player.whole_house",
-                                    "group": true,
-                                    "hide": {
-                                        "power": true,
-                                        "volume": true
-                                    },
-                                    "info": "short",
-                                    "source": "icon",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.family_room_speaker",
-                                    "group": true,
-                                    "hide": {
-                                        "controls": true
-                                    },
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.living_room_display",
-                                    "group": true,
-                                    "hide": {
-                                        "controls": true
-                                    },
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.living_room_mini",
-                                    "group": true,
-                                    "hide": {
-                                        "controls": true
-                                    },
-                                    "type": "custom:mini-media-player"
-                                }
-                            ],
-                            "type": "entities"
-                        },
-                        {
-                            "entity": "media_player.living_room_display",
-                            "type": "custom:mini-media-player"
-                        },
-                        {
-                            "entity": "media_player.bedroom_tv",
-                            "type": "custom:mini-media-player"
-                        },
-                        {
-                            "type": "custom:compact-custom-header"
-                        }
-                    ],
-                    "icon": "mdi:movie",
-                    "title": "Media"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
                             "hold_action": {
                                 "action": "none"
                             },
@@ -705,7 +622,6 @@
                         },
                         {
                             "camera_image": "camera.camera2",
-                            "camera_view": "live",
                             "entity": "camera.camera2",
                             "name": "Livingroom",
                             "type": "picture-entity"
@@ -744,34 +660,93 @@
                         {
                             "entity": "camera.minicam",
                             "type": "picture-entity"
-                        },
-                        {
-                            "camera_image": "camera.backyard",
-                            "camera_view": "live",
-                            "entities": [
-                                {
-                                    "entity": "switch.backyard_up",
-                                    "icon": "mdi:arrow-up-thick"
-                                },
-                                {
-                                    "entity": "switch.backyard_down",
-                                    "icon": "mdi:arrow-down-thick"
-                                },
-                                {
-                                    "entity": "switch.backyard_left",
-                                    "icon": "mdi:arrow-left-thick"
-                                },
-                                {
-                                    "entity": "switch.backyard_right",
-                                    "icon": "mdi:arrow-right-thick"
-                                }
-                            ],
-                            "title": "Backyard",
-                            "type": "picture-glance"
                         }
                     ],
                     "icon": "mdi:camera",
                     "title": "Cameras"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "media_player.livingroom_tv",
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.lg_amp"
+                                },
+                                {
+                                    "entity": "input_select.livingroom_amp_input"
+                                },
+                                {
+                                    "entity": "switch.lg_amp_volup"
+                                },
+                                {
+                                    "entity": "switch.lg_amp_voldown"
+                                },
+                                {
+                                    "entity": "switch.livingroomtv"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "media_player.whole_house",
+                                    "group": true,
+                                    "hide": {
+                                        "power": true,
+                                        "volume": true
+                                    },
+                                    "info": "short",
+                                    "source": "icon",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.family_room_speaker",
+                                    "group": true,
+                                    "hide": {
+                                        "controls": true
+                                    },
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.living_room_display",
+                                    "group": true,
+                                    "hide": {
+                                        "controls": true
+                                    },
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.living_room_mini",
+                                    "group": true,
+                                    "hide": {
+                                        "controls": true
+                                    },
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "media_player.living_room_display",
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "entity": "media_player.bedroom_tv",
+                            "type": "custom:mini-media-player"
+                        },
+                        {
+                            "type": "custom:compact-custom-header"
+                        }
+                    ],
+                    "icon": "mdi:movie",
+                    "title": "Media"
                 },
                 {
                     "badges": [],
@@ -828,6 +803,9 @@
                             "entities": [
                                 {
                                     "entity": "binary_sensor.hall_smoke"
+                                },
+                                {
+                                    "entity": "binary_sensor.frontdoor_contact"
                                 }
                             ],
                             "type": "glance"
