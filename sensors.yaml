@@ -11,7 +11,6 @@
   utc_offset: UTC_OFFSET
   monitored_variables:
     - type: instant_readings
-- platform: huesensor
 - platform: template
   sensors:
     tvpower:
