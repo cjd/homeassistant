@@ -29,7 +29,13 @@
     - service: switch.toggle
       entity_id: switch.backroom_ptz_home
     - service: light.turn_on
-      entity_id: group.all_strips
+      entity_id: light.family_room_strip
+      data:
+        effect: Rainbow
+    - service: light.turn_on
+      entity_id: light.tv_backlight_2
+      data:
+        effect: Random Twinkle
     - service: notify.hangout_notify
       data:
         message: "Yay - Mel's home"
@@ -43,7 +49,13 @@
     - service: switch.toggle
       entity_id: switch.backroom_ptz_home
     - service: light.turn_on
-      entity_id: group.all_strips
+      entity_id: light.family_room_strip
+      data:
+        effect: Rainbow
+    - service: light.turn_on
+      entity_id: light.tv_backlight_2
+      data:
+        effect: Random Twinkle
     - service: notify.hangout_notify
       data:
         message: "Yay - you're home"
