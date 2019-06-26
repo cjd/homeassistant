@@ -802,12 +802,23 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.hall_smoke"
+                                    "entity": "binary_sensor.hall_smoke",
+                                    "name": "Smoke Detector"
                                 },
                                 {
-                                    "entity": "binary_sensor.frontdoor_contact"
+                                    "entity": "binary_sensor.frontdoor_contact",
+                                    "name": "Front Door"
+                                },
+                                {
+                                    "entity": "binary_sensor.backdoor_sensor_contact",
+                                    "name": "Back Door"
+                                },
+                                {
+                                    "entity": "binary_sensor.ac_active_sensor_contact",
+                                    "name": "AC Power sensor"
                                 }
                             ],
+                            "show_icon": true,
                             "type": "glance"
                         },
                         {
