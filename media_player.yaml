@@ -23,8 +23,9 @@
         entity_id: switch.lg_amp_voldown
     select_source:
       service:  input_select.select_option
-      data:
+      data_template:
         entity_id: input_select.livingroom_amp_input
+        source: '{{ source }}'
   attributes:
+    source_list: input_select.livingroom_amp_input|options
     source: input_select.livingroom_amp_input
-    source_list: input_select.livingroom_amp_input

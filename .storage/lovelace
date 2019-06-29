@@ -649,7 +649,13 @@
                     "cards": [
                         {
                             "entity": "media_player.livingroom_tv",
-                            "type": "custom:mini-media-player"
+                            "hide": {
+                                "mute": true
+                            },
+                            "source": "full",
+                            "toggle_power": false,
+                            "type": "custom:mini-media-player",
+                            "volume_stateless": true
                         },
                         {
                             "entities": [
@@ -657,16 +663,10 @@
                                     "entity": "switch.lg_amp"
                                 },
                                 {
-                                    "entity": "input_select.livingroom_amp_input"
-                                },
-                                {
-                                    "entity": "switch.lg_amp_volup"
-                                },
-                                {
-                                    "entity": "switch.lg_amp_voldown"
-                                },
-                                {
                                     "entity": "switch.livingroomtv"
+                                },
+                                {
+                                    "entity": "input_select.livingroom_amp_input"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -792,6 +792,9 @@
                                 {
                                     "entity": "binary_sensor.ac_active_sensor_contact",
                                     "name": "AC Power sensor"
+                                },
+                                {
+                                    "entity": "binary_sensor.livingroom_window_sensor_contact"
                                 }
                             ],
                             "show_icon": true,
