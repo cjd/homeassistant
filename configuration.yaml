@@ -115,16 +115,25 @@ wemo:
   static:
     - 192.168.86.37
 
+hacs:
+  token: !secret github_access_token
+
+geo_location:
+  - platform: nsw_rural_fire_service_feed
+    categories:
+      - 'Emergency Warning'
+      - 'Watch and Act'
+      - 'Advice'
+
 input_select: !include input_select.yaml
 sensor: !include sensors.yaml
-custom_updater: !include custom_updater.yaml
 camera: !include camera.yaml
 google_assistant: !include google.yaml
 zone: !include zone.yaml
 automation: !include_dir_merge_list automation
 script: !include scripts.yaml
 switch: !include_dir_merge_list switches
-device_tracker: !include device_tracker.yaml
+life360: !include life.yaml
 scene: !include scene.yaml
 group: !include groups.yaml
 recorder: !include recorder.yaml

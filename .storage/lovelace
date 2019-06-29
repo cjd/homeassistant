@@ -1,58 +1,55 @@
 {
     "data": {
         "config": {
+            "cch": {
+                "options": "clock",
+                "swipe": true,
+                "voice": "hide"
+            },
             "resources": [
                 {
                     "type": "module",
-                    "url": "/local/mini-graph-card-bundle.js?v=0.3.2"
+                    "url": "/community_plugin/mini-graph-card/mini-graph-card.js"
                 },
                 {
                     "type": "module",
-                    "url": "/local/slider-entity-row.js"
+                    "url": "/community_plugin/lovelace-slider-entity-row/slider-entity-row.js"
                 },
                 {
                     "type": "module",
-                    "url": "/local/light-entity-row.js"
+                    "url": "/community_plugin/light-entity-row/light-entity-row.js"
                 },
                 {
                     "type": "module",
-                    "url": "/local/monster-card.js"
+                    "url": "/community_plugin/monster-card/monster-card.js"
                 },
                 {
                     "type": "module",
-                    "url": "/customcards/github/custom-cards/tracker-card.js?track=true"
+                    "url": "/community_plugin/simple-thermostat/simple-thermostat.js"
                 },
                 {
                     "type": "module",
-                    "url": "/customcards/github/nervetattoo/simple-thermostat.js?track=true"
+                    "url": "/community_plugin/simple-thermostat/simple-thermostat.js"
                 },
                 {
                     "type": "module",
-                    "url": "/customcards/github/custom-cards/button-card.js?track=true"
+                    "url": "/community_plugin/button-card/button-card.js"
                 },
                 {
                     "type": "module",
-                    "url": "/customcards/github/maykar/compact-custom-header.js?track=true"
+                    "url": "/community_plugin/compact-custom-header/compact-custom-header.js"
                 },
                 {
                     "type": "module",
-                    "url": "/local/mini-media-player-bundle.js?v=1.1.1"
+                    "url": "/community_plugin/mini-media-player/mini-media-player.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/surveillance-card/surveillance-card.js"
                 },
                 {
                     "type": "js",
-                    "url": "/customcards/github/thomasloven/card-tools.js?track=true"
-                },
-                {
-                    "type": "js",
-                    "url": "/local/fold-entity-row.js?v=1"
-                },
-                {
-                    "type": "js",
-                    "url": "/customcards/github/maykar/lovelace-swipe-navigation.js?track=true"
-                },
-                {
-                    "type": "module",
-                    "url": "/local/surveillance-card.js?v=0"
+                    "url": "/community_plugin/lovelace-fold-entity-row/fold-entity-row.js"
                 }
             ],
             "title": "Home",
@@ -333,15 +330,6 @@
                             ],
                             "step_size": 1,
                             "type": "custom:simple-thermostat"
-                        },
-                        {
-                            "chevrons": true,
-                            "clock_am_pm": false,
-                            "clock_format": "12",
-                            "main_config": true,
-                            "options": "clock",
-                            "type": "custom:compact-custom-header",
-                            "voice": "hide"
                         }
                     ],
                     "icon": "mdi:home",
@@ -352,9 +340,6 @@
                 {
                     "badges": [],
                     "cards": [
-                        {
-                            "type": "custom:compact-custom-header"
-                        },
                         {
                             "entities": [
                                 {
@@ -528,9 +513,6 @@
                             "type": "entities"
                         },
                         {
-                            "type": "custom:compact-custom-header"
-                        },
-                        {
                             "entities": [
                                 {
                                     "entity": "sensor.office_temperature_2"
@@ -612,9 +594,6 @@
                 {
                     "badges": [],
                     "cards": [
-                        {
-                            "type": "custom:compact-custom-header"
-                        },
                         {
                             "entity": "camera.carport",
                             "name": "Entry",
@@ -740,9 +719,6 @@
                         {
                             "entity": "media_player.bedroom_tv",
                             "type": "custom:mini-media-player"
-                        },
-                        {
-                            "type": "custom:compact-custom-header"
                         }
                     ],
                     "icon": "mdi:movie",
@@ -755,16 +731,16 @@
                             "default_zoom": 13,
                             "entities": [
                                 {
-                                    "entity": "person.mel"
+                                    "entity": "device_tracker.life360_mel"
                                 },
                                 {
-                                    "entity": "person.chris"
+                                    "entity": "device_tracker.life360_chris"
                                 }
                             ],
+                            "geo_location_sources": [
+                                "all"
+                            ],
                             "type": "map"
-                        },
-                        {
-                            "type": "custom:compact-custom-header"
                         }
                     ],
                     "icon": "mdi:map",
@@ -850,15 +826,6 @@
                                 ]
                             },
                             "type": "custom:monster-card"
-                        },
-                        {
-                            "type": "custom:tracker-card"
-                        },
-                        {
-                            "clock_am_pm": false,
-                            "clock_format": "12",
-                            "options": "clock",
-                            "type": "custom:compact-custom-header"
                         }
                     ],
                     "icon": "mdi:settings",
