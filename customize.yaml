@@ -16,3 +16,7 @@ sensor.netatmo_indoor_temperature:
   friendly_name: Indoor Temperature
 sensor.netatmo_outdoor_humidity:
   friendly_name: Outdoor Humidity
+binary_sensor.livingroom_window_sensor_contact:
+  device_class: window
+binary_sensor.ac_active_sensor_contact:
+  device_class: heat
