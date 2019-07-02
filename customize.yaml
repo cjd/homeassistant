@@ -19,4 +19,4 @@ sensor.netatmo_outdoor_humidity:
 binary_sensor.livingroom_window_sensor_contact:
   device_class: window
 binary_sensor.ac_active_sensor_contact:
-  device_class: heat
+  device_class: power
