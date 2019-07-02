@@ -47,20 +47,6 @@ telegram_bot:
     allowed_chat_ids:
       - !secret telegram_chatid
 
-notify:
-  - name: Home assistant
-    platform: html5
-    vapid_pub_key: !secret vapid_pub_key
-    vapid_prv_key: !secret vapid_prv_key
-    vapid_email: !secret email
-  - name: Hangout Notify
-    platform: hangouts
-    default_conversations:
-      - id: !secret hangout_id
-  - name: Telegram Notify
-    platform: telegram
-    chat_id: !secret telegram_chatid
-
 netatmo:
   api_key: !secret netatmo_api_key
   secret_key: !secret netatmo_secret_key
@@ -117,6 +103,9 @@ wemo:
 
 hacs:
   token: !secret github_access_token
+  appdaemon: true
+  python_script: true
+  theme: true
 
 geo_location:
   - platform: nsw_rural_fire_service_feed
@@ -142,3 +131,4 @@ shell_command: !include shell_command.yaml
 light: !include light.yaml
 panel_iframe: !include panel_iframe.yaml
 input_boolean: !include input_boolean.yaml
+notify: !include notify.yaml
