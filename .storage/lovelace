@@ -2,7 +2,6 @@
     "data": {
         "config": {
             "cch": {
-                "options": "clock",
                 "swipe": true,
                 "voice": "hide"
             },
@@ -596,7 +595,6 @@
                     "cards": [
                         {
                             "entity": "camera.carport",
-                            "name": "Entry",
                             "type": "picture-entity"
                         },
                         {
@@ -638,6 +636,10 @@
                         },
                         {
                             "entity": "camera.minicam",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entity": "camera.backyard",
                             "type": "picture-entity"
                         }
                     ],
@@ -702,7 +704,7 @@
                                     "type": "custom:mini-media-player"
                                 },
                                 {
-                                    "entity": "media_player.living_room_mini",
+                                    "entity": "media_player.googlehome2690",
                                     "group": true,
                                     "hide": {
                                         "controls": true
