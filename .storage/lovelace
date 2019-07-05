@@ -453,6 +453,19 @@
                             "show_header_toggle": false,
                             "title": "Light Strips",
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.power2"
+                                },
+                                {
+                                    "entity": "switch.office_speaker"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Switches",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:lightbulb",
@@ -636,10 +649,7 @@
                         },
                         {
                             "entity": "camera.minicam",
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.backyard",
+                            "name": "Backyard",
                             "type": "picture-entity"
                         }
                     ],
@@ -705,6 +715,14 @@
                                 },
                                 {
                                     "entity": "media_player.googlehome2690",
+                                    "group": true,
+                                    "hide": {
+                                        "controls": true
+                                    },
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.living_room_mini",
                                     "group": true,
                                     "hide": {
                                         "controls": true
@@ -831,6 +849,10 @@
                                 ]
                             },
                             "type": "custom:monster-card"
+                        },
+                        {
+                            "entity": "climate.office",
+                            "type": "thermostat"
                         }
                     ],
                     "icon": "mdi:settings",
