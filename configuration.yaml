@@ -53,10 +53,6 @@ netatmo:
   username: !secret email 
   password: !secret netatmo_password
 
-climate:
-  - platform: sensibo
-    api_key: !secret sensibo_api_key
-
 influxdb:
   host: a0d7b954-influxdb
   port: 8086
@@ -132,3 +128,4 @@ light: !include light.yaml
 panel_iframe: !include panel_iframe.yaml
 input_boolean: !include input_boolean.yaml
 notify: !include notify.yaml
+climate: !include climate.yaml
