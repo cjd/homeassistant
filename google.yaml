@@ -56,3 +56,5 @@ entity_config:
     expose: true
   light.entry_light_group:
     expose: true
+  switch.power2:
+    expose: true
