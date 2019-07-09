@@ -29,7 +29,7 @@
   alias: Hall nightlight
   trigger:
     platform: time
-    at: '18:00:00'
+    at: '17:30:00'
   condition: []
   action:
   - service: light.turn_off
