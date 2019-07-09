@@ -63,6 +63,34 @@
                     ],
                     "cards": [
                         {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.hall_smoke",
+                                    "name": "Smoke Detector"
+                                },
+                                {
+                                    "entity": "binary_sensor.frontdoor_contact",
+                                    "name": "Front Door"
+                                },
+                                {
+                                    "entity": "binary_sensor.backdoor_sensor_contact",
+                                    "name": "Back Door"
+                                },
+                                {
+                                    "entity": "binary_sensor.ac_active_sensor_contact",
+                                    "name": "Air Conditioner"
+                                },
+                                {
+                                    "entity": "binary_sensor.livingroom_window_sensor_contact"
+                                }
+                            ],
+                            "show_empty": false,
+                            "state_filter": [
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
                             "cards": [
                                 {
                                     "cards": [
