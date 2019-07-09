@@ -65,3 +65,31 @@
   action:
     - entity_id: climate.living_room
       service: climate.turn_off
+- alias: Living Room Preset manual off
+  trigger:
+    - entity_id: light.livingroom_light_group
+      platform: state
+      to: "off"
+      for: "00:00:05"
+  condition:
+    - condition: template
+      value_template: '{{ not is_state("input_select.livingroom_preset", "TurnOff") }}'
+  action:
+    - entity_id: input_select.livingroom_preset
+      service: input_select.select_option
+      data:
+        option: "TurnOff"
+- alias: Living Room Preset manual on
+  trigger:
+    - entity_id: light.livingroom_light_group
+      platform: state
+      to: "on"
+      for: "00:00:05"
+  condition:
+    - condition: template
+      value_template: '{{ is_state("input_select.livingroom_preset", "TurnOff") }}'
+  action:
+    - entity_id: input_select.livingroom_preset
+      service: input_select.select_option
+      data:
+        option: "Normal"
