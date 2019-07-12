@@ -49,6 +49,10 @@
                 {
                     "type": "js",
                     "url": "/community_plugin/lovelace-fold-entity-row/fold-entity-row.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/bom-weather-card/bom-weather-card.js"
                 }
             ],
             "title": "Home",
@@ -368,6 +372,219 @@
                     "badges": [],
                     "cards": [
                         {
+                            "apparent_right_margin": "1em",
+                            "apparent_right_pos": "1em",
+                            "apparent_top_margin": "45px",
+                            "current_data_top_margin": "7em",
+                            "current_text_font_size": "1.5em",
+                            "current_text_left_pos": "5em",
+                            "current_text_top_margin": "39px",
+                            "entity_apparent_temp": "sensor.bom_gosford_feels_like_c",
+                            "entity_current_conditions": "sensor.bom_gosford_icon_0",
+                            "entity_current_text": "sensor.bom_current_text",
+                            "entity_daily_summary": "sensor.bom_gosford_detailed_summary_0",
+                            "entity_daytime_high": "sensor.bom_today_max",
+                            "entity_daytime_low": "sensor.bom_today_min",
+                            "entity_forecast_high_temp_1": "sensor.bom_gosford_max_temp_c_1",
+                            "entity_forecast_high_temp_2": "sensor.bom_gosford_max_temp_c_2",
+                            "entity_forecast_high_temp_3": "sensor.bom_gosford_max_temp_c_3",
+                            "entity_forecast_high_temp_4": "sensor.bom_gosford_max_temp_c_4",
+                            "entity_forecast_high_temp_5": "sensor.bom_gosford_max_temp_c_5",
+                            "entity_forecast_icon_1": "sensor.bom_gosford_icon_1",
+                            "entity_forecast_icon_2": "sensor.bom_gosford_icon_2",
+                            "entity_forecast_icon_3": "sensor.bom_gosford_icon_3",
+                            "entity_forecast_icon_4": "sensor.bom_gosford_icon_4",
+                            "entity_forecast_icon_5": "sensor.bom_gosford_icon_5",
+                            "entity_forecast_low_temp_1": "sensor.bom_gosford_min_temp_c_1",
+                            "entity_forecast_low_temp_2": "sensor.bom_gosford_min_temp_c_2",
+                            "entity_forecast_low_temp_3": "sensor.bom_gosford_min_temp_c_3",
+                            "entity_forecast_low_temp_4": "sensor.bom_gosford_min_temp_c_4",
+                            "entity_forecast_low_temp_5": "sensor.bom_gosford_min_temp_c_5",
+                            "entity_humidity": "sensor.bom_gosford_relative_humidity",
+                            "entity_pop": "sensor.bom_gosford_chance_of_rain_0",
+                            "entity_pop_1": "sensor.bom_gosford_chance_of_rain_1",
+                            "entity_pop_2": "sensor.bom_gosford_chance_of_rain_2",
+                            "entity_pop_3": "sensor.bom_gosford_chance_of_rain_3",
+                            "entity_pop_4": "sensor.bom_gosford_chance_of_rain_4",
+                            "entity_pop_5": "sensor.bom_gosford_chance_of_rain_5",
+                            "entity_pop_intensity": "sensor.bom_gosford_rain_today",
+                            "entity_pos_1": "sensor.bom_gosford_possible_rainfall_1",
+                            "entity_pos_2": "sensor.bom_gosford_possible_rainfall_2",
+                            "entity_pos_3": "sensor.bom_gosford_possible_rainfall_3",
+                            "entity_pos_4": "sensor.bom_gosford_possible_rainfall_4",
+                            "entity_pos_5": "sensor.bom_gosford_possible_rainfall_5",
+                            "entity_possible_today": "sensor.bom_gosford_possible_rainfall_0",
+                            "entity_summary_1": "sensor.bom_gosford_summary_1",
+                            "entity_summary_2": "sensor.bom_gosford_summary_2",
+                            "entity_summary_3": "sensor.bom_gosford_summary_3",
+                            "entity_summary_4": "sensor.bom_gosford_summary_4",
+                            "entity_summary_5": "sensor.bom_gosford_summary_5",
+                            "entity_sun": "sun.sun",
+                            "entity_temperature": "sensor.entry_motion_temperature",
+                            "entity_wind_bearing": "sensor.bom_gosford_wind_direction",
+                            "entity_wind_speed": "sensor.bom_gosford_wind_speed_kmh",
+                            "large_icon_left_position": "0em",
+                            "large_icon_top_margin": "-3.5em",
+                            "locale": "en",
+                            "old_daily_format": false,
+                            "refresh_interval": 60,
+                            "separator_top_margin": "6em",
+                            "show_beaufort": false,
+                            "show_separator": false,
+                            "slot_l1": "daytime_high",
+                            "slot_l2": "daytime_low",
+                            "slot_l3": "wind",
+                            "slot_l4": "sun_next",
+                            "slot_r1": "pop",
+                            "slot_r2": "humidity",
+                            "slot_r3": "possible_today",
+                            "slot_r4": "sun_following",
+                            "static_icons": false,
+                            "sunset": true,
+                            "temp_font_size": "4em",
+                            "temp_font_weight": 300,
+                            "temp_right_pos": "0.85em",
+                            "temp_top_margin": "-0.3em",
+                            "temp_uom_right_margin": "7px",
+                            "temp_uom_top_margin": "-9px",
+                            "time_format": 12,
+                            "title": "BOM Weather",
+                            "tooltip_bg_color": "rgb( 75,155,239)",
+                            "tooltip_border_color": "rgb(255,161,0)",
+                            "tooltip_border_width": 1,
+                            "tooltip_caret_size": 5,
+                            "tooltip_fg_color": "#fff",
+                            "tooltip_left_offset": -12,
+                            "tooltip_width": 110,
+                            "tooltips": true,
+                            "type": "custom:bom-weather-card"
+                        },
+                        {
+                            "entity": "camera.bom_radar_loop_sydney",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_indoor_temperature",
+                                    "name": "Livingroom Temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_humidity",
+                                    "name": "Livingroom Humidity"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_pressure",
+                                    "name": "Livingroom Pressure"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_co2",
+                                    "name": "Livingroom CO2"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_temperature",
+                                    "name": "Backyard Temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_humidity",
+                                    "name": "Backyard Humidity"
+                                },
+                                {
+                                    "entity": "sensor.office_temperature_2",
+                                    "name": "Office Temperature"
+                                },
+                                {
+                                    "entity": "sensor.office_pressure",
+                                    "name": "Office Pressure"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Weather",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.office_temperature_2"
+                                },
+                                {
+                                    "entity": "sensor.sensibo_temperature",
+                                    "name": "Living room Temperature"
+                                },
+                                {
+                                    "entity": "sensor.bom_gosford_air_temp_c",
+                                    "name": "BOM Air Temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_temperature",
+                                    "name": "Backyard Temperature"
+                                },
+                                {
+                                    "entity": "sensor.entry_motion_temperature",
+                                    "name": "Carport Temperature"
+                                }
+                            ],
+                            "hours_to_show": 72,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_indoor_humidity",
+                                    "name": "Indoor Humidity"
+                                },
+                                {
+                                    "entity": "sensor.sensibo_humidity",
+                                    "name": "Indoor Humidity 2"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_humidity",
+                                    "name": "Outdoor Humidity"
+                                }
+                            ],
+                            "hours_to_show": 72,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                "sensor.house_power",
+                                "sensor.tvpower"
+                            ],
+                            "hours_to_show": 24,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_indoor_noise",
+                                    "name": "Noise level"
+                                }
+                            ],
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_indoor_pressure",
+                                    "name": "Living Room Pressure"
+                                },
+                                {
+                                    "entity": "sensor.office_pressure",
+                                    "name": "Office pressure"
+                                }
+                            ],
+                            "hours_to_show": 72,
+                            "type": "history-graph"
+                        }
+                    ],
+                    "icon": "mdi:cloud",
+                    "panel": false,
+                    "title": "Charts"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
                             "entities": [
                                 {
                                     "entity": "light.bedroom_light_group",
@@ -499,137 +716,6 @@
                     "icon": "mdi:lightbulb",
                     "panel": false,
                     "title": "Lights"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "hold_action": {
-                                "action": "none"
-                            },
-                            "image": "https://radblast.wunderground.com/cgi-bin/radar/WUNIDS_map?station=071&brand=wui&num=6&delay=15&type=A0Q&frame=0&scale=0.125&noclutter=0&showstorms=5&mapx=400&mapy=240&centerx=510&centery=250&transx=110&transy=10&showlabels=1&severe=0&rainsnow=1&lightning=1&smooth=1&rand=25926123&lat=0&lon=0&label=you",
-                            "tap_action": {
-                                "action": "none"
-                            },
-                            "type": "picture"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_indoor_temperature",
-                                    "name": "Livingroom Temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_indoor_humidity",
-                                    "name": "Livingroom Humidity"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_indoor_pressure",
-                                    "name": "Livingroom Pressure"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_indoor_co2",
-                                    "name": "Livingroom CO2"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_temperature",
-                                    "name": "Backyard Temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_humidity",
-                                    "name": "Backyard Humidity"
-                                },
-                                {
-                                    "entity": "sensor.office_temperature_2",
-                                    "name": "Office Temperature"
-                                },
-                                {
-                                    "entity": "sensor.office_pressure",
-                                    "name": "Office Pressure"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Weather",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.office_temperature_2"
-                                },
-                                {
-                                    "entity": "sensor.sensibo_temperature",
-                                    "name": "Living room Temperature"
-                                },
-                                {
-                                    "entity": "sensor.bom_gosford_air_temp_c",
-                                    "name": "BOM Air Temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_temperature",
-                                    "name": "Backyard Temperature"
-                                },
-                                {
-                                    "entity": "sensor.entry_motion_temperature",
-                                    "name": "Carport Temperature"
-                                }
-                            ],
-                            "hours_to_show": 72,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_indoor_humidity",
-                                    "name": "Indoor Humidity"
-                                },
-                                {
-                                    "entity": "sensor.sensibo_humidity",
-                                    "name": "Indoor Humidity 2"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_humidity",
-                                    "name": "Outdoor Humidity"
-                                }
-                            ],
-                            "hours_to_show": 72,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                "sensor.house_power",
-                                "sensor.tvpower"
-                            ],
-                            "hours_to_show": 24,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_indoor_noise",
-                                    "name": "Noise level"
-                                }
-                            ],
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_indoor_pressure",
-                                    "name": "Living Room Pressure"
-                                },
-                                {
-                                    "entity": "sensor.office_pressure",
-                                    "name": "Office pressure"
-                                }
-                            ],
-                            "hours_to_show": 72,
-                            "type": "history-graph"
-                        }
-                    ],
-                    "icon": "mdi:chart-line",
-                    "panel": false,
-                    "title": "Charts"
                 },
                 {
                     "badges": [],
