@@ -1,3 +1,6 @@
+- platform: bom
+  location: Sydney 
+  filename: /config/www/images/sydneyradar.gif
 - platform: generic
   name: minicam
   stream_source: http://192.168.86.105/videostream.asf?user=admin&pwd=&resolution=32
