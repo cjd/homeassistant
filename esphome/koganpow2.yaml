@@ -1,5 +1,5 @@
 esphome:
-  name: power1
+  name: koganpow2
   platform: ESP8266
   board: esp01_1m
 
@@ -21,13 +21,13 @@ binary_sensor:
       number: GPIO0
       mode: INPUT_PULLUP
       inverted: True
-    name: "Power1 Button"
+    name: "koganpow2 Button"
     on_press:
       - switch.toggle: relay
 
 switch:
   - platform: gpio
-    name: "Power1"
+    name: "koganpow2"
     pin: GPIO14
     id: relay
     inverted: no
@@ -43,10 +43,10 @@ sensor:
     cf_pin: GPIO4
     cf1_pin: GPIO5
     current:
-      name: "HLW8012 Current"
+      name: "koganpow2 Current"
     voltage:
-      name: "HLW8012 Voltage"
+      name: "koganpow2 Voltage"
     power:
-      name: "HLW8012 Power"
+      name: "koganpow2 Power"
     update_interval: 3s
 

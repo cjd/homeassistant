@@ -2,7 +2,6 @@
   api_key: !secret sensibo_api_key
 - platform: generic_thermostat
   name: Office
-  heater: switch.power2
+  heater: switch.koganpow1
   target_sensor: sensor.office_temperature_2
   initial_operation_mode: "off"
-
