@@ -470,32 +470,30 @@
                                     "name": "Livingroom Temperature"
                                 },
                                 {
-                                    "entity": "sensor.netatmo_indoor_humidity",
-                                    "name": "Livingroom Humidity"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_indoor_pressure",
-                                    "name": "Livingroom Pressure"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_indoor_co2",
-                                    "name": "Livingroom CO2"
-                                },
-                                {
                                     "entity": "sensor.netatmo_outdoor_temperature",
                                     "name": "Backyard Temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_humidity",
-                                    "name": "Backyard Humidity"
                                 },
                                 {
                                     "entity": "sensor.office_temperature_2",
                                     "name": "Office Temperature"
                                 },
                                 {
-                                    "entity": "sensor.office_pressure",
-                                    "name": "Office Pressure"
+                                    "entity": "sensor.bedroom_temperature"
+                                },
+                                {
+                                    "entity": "sensor.entry_motion_temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_humidity",
+                                    "name": "Livingroom Humidity"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_humidity",
+                                    "name": "Backyard Humidity"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_co2",
+                                    "name": "Livingroom CO2"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -522,6 +520,9 @@
                                 {
                                     "entity": "sensor.entry_motion_temperature",
                                     "name": "Carport Temperature"
+                                },
+                                {
+                                    "entity": "sensor.bedroom_temperature"
                                 }
                             ],
                             "hours_to_show": 72,
@@ -569,8 +570,10 @@
                                     "name": "Living Room Pressure"
                                 },
                                 {
-                                    "entity": "sensor.office_pressure",
-                                    "name": "Office pressure"
+                                    "entity": "sensor.office_pressure"
+                                },
+                                {
+                                    "entity": "sensor.bedroom_pressure"
                                 }
                             ],
                             "hours_to_show": 72,
