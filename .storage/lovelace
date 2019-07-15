@@ -525,7 +525,7 @@
                                     "entity": "sensor.bedroom_temperature"
                                 }
                             ],
-                            "hours_to_show": 72,
+                            "hours_to_show": 48,
                             "type": "history-graph"
                         },
                         {
@@ -543,7 +543,7 @@
                                     "name": "Outdoor Humidity"
                                 }
                             ],
-                            "hours_to_show": 72,
+                            "hours_to_show": 48,
                             "type": "history-graph"
                         },
                         {
@@ -577,6 +577,13 @@
                                 }
                             ],
                             "hours_to_show": 72,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                "sensor.entry_motion_illuminance"
+                            ],
+                            "hours": 48,
                             "type": "history-graph"
                         }
                     ],
@@ -704,9 +711,6 @@
                         },
                         {
                             "entities": [
-                                {
-                                    "entity": "switch.power2"
-                                },
                                 {
                                     "entity": "switch.office_speaker"
                                 }
