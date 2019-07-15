@@ -9,6 +9,8 @@ exclude:
     - persistent_notification
     - camera
     - switch
+    - zignee2mqtt_networkmap
+    - script
   entities:
     - sensor.date
     - sensor.time
@@ -129,3 +131,4 @@ exclude:
     - sensor.bom_today_max
     - sensor.bom_today_min
     - sensor.today_temp_bom_mean
+    - sensor.hacs
