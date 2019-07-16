@@ -44,10 +44,6 @@
                 },
                 {
                     "type": "module",
-                    "url": "/community_plugin/surveillance-card/surveillance-card.js"
-                },
-                {
-                    "type": "js",
                     "url": "/community_plugin/lovelace-fold-entity-row/fold-entity-row.js"
                 },
                 {
@@ -732,8 +728,8 @@
                             "type": "picture-entity"
                         },
                         {
-                            "camera_image": "camera.camera2",
-                            "entity": "camera.camera2",
+                            "camera_image": "camera.livingroom",
+                            "entity": "camera.livingroom",
                             "name": "Livingroom",
                             "type": "picture-entity"
                         },
@@ -969,6 +965,7 @@
                                     }
                                 ]
                             },
+                            "hours": 48,
                             "type": "custom:monster-card"
                         },
                         {
