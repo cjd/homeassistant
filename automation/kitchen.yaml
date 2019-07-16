@@ -2,6 +2,8 @@
   trigger:
   - entity_id: sensor.kitchen_dimmer_action
     platform: state
+  - entity_id: sensor.hueswitch_1_action
+    platform: state
   condition:
     - condition: template
       value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'off-press'] }}"
