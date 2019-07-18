@@ -544,23 +544,6 @@
                         },
                         {
                             "entities": [
-                                "sensor.house_power",
-                                "sensor.tvpower"
-                            ],
-                            "hours_to_show": 24,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_indoor_noise",
-                                    "name": "Noise level"
-                                }
-                            ],
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
                                 {
                                     "entity": "sensor.netatmo_indoor_pressure",
                                     "name": "Living Room Pressure"
@@ -573,13 +556,6 @@
                                 }
                             ],
                             "hours_to_show": 72,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                "sensor.entry_motion_illuminance"
-                            ],
-                            "hours": 48,
                             "type": "history-graph"
                         }
                     ],
@@ -971,6 +947,43 @@
                         {
                             "entity": "climate.office",
                             "type": "thermostat"
+                        },
+                        {
+                            "entities": [
+                                "sensor.house_power",
+                                "sensor.tvpower"
+                            ],
+                            "hours_to_show": 24,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_indoor_noise",
+                                    "name": "Noise level"
+                                }
+                            ],
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                "sensor.entry_motion_illuminance"
+                            ],
+                            "hours": 48,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                "sensor.load_1m",
+                                "sensor.processor_use",
+                                "sensor.load_5m",
+                                "sensor.load_15m",
+                                "sensor.memory_use_percent",
+                                "sensor.last_boot",
+                                "sensor.disk_free"
+                            ],
+                            "title": "System Stats",
+                            "type": "history-graph"
                         }
                     ],
                     "icon": "mdi:settings",

@@ -200,3 +200,13 @@
   name: Bridge state
   state_topic: "zigbee2mqtt/bridge/state"
   icon: mdi:router-wireless
+- platform: systemmonitor
+  resources:
+    - type: memory_use_percent
+    - type: load_1m
+    - type: load_5m
+    - type: load_15m
+    - type: processor_use
+    - type: last_boot
+    - type: disk_free
+      arg: /
