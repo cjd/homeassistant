@@ -4,4 +4,4 @@
   name: Office
   heater: switch.koganpow1
   target_sensor: sensor.office_temperature_2
-  initial_operation_mode: "off"
+  initial_hvac_mode: "off"
