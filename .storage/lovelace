@@ -82,6 +82,14 @@
                                 },
                                 {
                                     "entity": "binary_sensor.livingroom_window_sensor_contact"
+                                },
+                                {
+                                    "entity": "binary_sensor.pantry_contact",
+                                    "name": "Pantry door"
+                                },
+                                {
+                                    "entity": "binary_sensor.bedroom_window_contact",
+                                    "name": "Bedroom Window"
                                 }
                             ],
                             "show_empty": false,
@@ -908,6 +916,12 @@
                                 },
                                 {
                                     "entity": "binary_sensor.livingroom_window_sensor_contact"
+                                },
+                                {
+                                    "entity": "binary_sensor.pantry_contact"
+                                },
+                                {
+                                    "entity": "binary_sensor.bedroom_window_contact"
                                 }
                             ],
                             "show_icon": true,
