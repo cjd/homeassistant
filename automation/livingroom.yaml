@@ -56,15 +56,6 @@
           {% elif trigger.to_state.state == "down-press" %}Night
           {% elif trigger.to_state.state == "off-press" %}TurnOff
           {% endif %}
-- alias: AC State set
-  trigger:
-    - entity_id: binary_sensor.ac_active_sensor_contact
-      platform: state 
-      to: "off"
-  condition: []
-  action:
-    - entity_id: climate.living_room
-      service: climate.turn_off
 - alias: Living Room Preset manual off
   trigger:
     - entity_id: light.livingroom_light_group

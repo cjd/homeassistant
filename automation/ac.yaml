@@ -1,0 +1,53 @@
+- alias: AC State set
+  trigger:
+    - entity_id: binary_sensor.ac_active_sensor_contact
+      platform: state 
+      to: "off"
+  condition: []
+  action:
+    - entity_id: climate.living_room
+      service: climate.turn_off
+- alias: AC on but doors/windows left open
+  trigger:
+    - entity_id: binary_sensor.backdoor_sensor_contact
+      platform: state
+      to: 'on'
+      for: "00:00:30"
+    - entity_id: binary_sensor.frontdoor_contact
+      platform: state
+      to: 'on'
+      for: "00:00:30"
+    - entity_id: binary_sensor.livingroom_window_sensor_contact
+      platform: state
+      to: 'on'
+      for: "00:00:30"
+  condition:
+    - condition: state
+      entity_id: binary_sensor.ac_active_sensor_contact
+      state: 'on'
+  action:
+    - service: notify.hangout_notify
+      data:
+        message: "Door/window left open but AC is on"
+- alias: AC on but doors/windows already open
+  trigger:
+    - entity_id: binary_sensor.ac_active_sensor_contact
+      platform: state
+      to: 'on'
+      for: "00:00:30"
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.backdoor_sensor_contact
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.frontdoor_contact
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.livingroom_window_sensor_contact
+        state: 'on'
+  action:
+    - service: notify.hangout_notify
+      data:
+        message: "AC turned on but door/window open"
