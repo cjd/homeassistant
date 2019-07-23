@@ -59,7 +59,7 @@
                         "device_tracker.life360_chris",
                         "sensor.sensibo_temperature",
                         "sensor.entry_motion_temperature",
-                        "sensor.netatmo_outdoor_temperature"
+                        "sensor.bedroom_temperature"
                     ],
                     "cards": [
                         {
@@ -351,12 +351,9 @@
                         {
                             "entity": "climate.living_room",
                             "modes": {
-                                "dry": {
-                                    "include": false
-                                },
-                                "fan_only": {
-                                    "include": false
-                                }
+                                "dry": false,
+                                "fan_only": false,
+                                "heat_cool": false
                             },
                             "sensors": [
                                 {
@@ -922,6 +919,9 @@
                                 },
                                 {
                                     "entity": "binary_sensor.bedroom_window_contact"
+                                },
+                                {
+                                    "entity": "binary_sensor.back_screen_door_contact"
                                 }
                             ],
                             "show_icon": true,
