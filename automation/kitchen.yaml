@@ -23,6 +23,9 @@
   - entity_id: sensor.kitchen_dimmer_action
     platform: state
     to: 'down-press'
+  - entity_id: sensor.hueswitch_1_action
+    platform: state
+    to: 'down-press'
   condition: []
   action:
   - entity_id: light.kitchen_light_group
