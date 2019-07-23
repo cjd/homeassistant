@@ -132,3 +132,12 @@ exclude:
     - sensor.bom_today_min
     - sensor.today_temp_bom_mean
     - sensor.hacs
+    - sensor.koganpow1_current
+    - sensor.koganpow1_voltage
+    - sensor.koganpow2_current
+    - sensor.koganpow2_voltage
+    - sensor.onhub_packets_sent
+    - sensor.onhub_packets_received
+    - sensor.onhub_packets_sec_sent
+    - sensor.onhub_packets_sec_received
+    - sensor.load_5m
