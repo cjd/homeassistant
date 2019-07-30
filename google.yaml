@@ -14,6 +14,8 @@ entity_config:
     expose: true
   climate.living_room:
     expose: true
+  climate.office:
+    expose: true
   scene.all_off:
     expose: true
   scene.movies:
