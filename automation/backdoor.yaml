@@ -1,21 +1,21 @@
 - alias: Backdoors left open
   trigger:
     - platform: state
-      entity_id: sensor.backdoor_sensor_contact
+      entity_id: binary_sensor.backdoor_sensor_contact
       for: "0:00:30"
       to: 'on'
     - platform: state
-      entity_id: sensor.back_screen_door_contact
+      entity_id: binary_sensor.back_screen_door_contact
       for: "0:00:30"
       to: 'on'
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: sensor.backdoor_sensor_contact
+        entity_id: binary_sensor.backdoor_sensor_contact
         state: 'on'
       - condition: state
-        entity_id: sensor.back_screen_door_contact
+        entity_id: binary_sensor.back_screen_door_contact
         state: 'on'
   action:
     - service: service.hangout_notify
