@@ -84,10 +84,6 @@
                                     "entity": "binary_sensor.livingroom_window_sensor_contact"
                                 },
                                 {
-                                    "entity": "binary_sensor.pantry_contact",
-                                    "name": "Pantry door"
-                                },
-                                {
                                     "entity": "binary_sensor.bedroom_window_contact",
                                     "name": "Bedroom Window"
                                 }
@@ -467,49 +463,36 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "sensor.entry_motion_temperature"
+                                },
+                                {
                                     "entity": "sensor.netatmo_indoor_temperature",
                                     "name": "Livingroom Temperature"
+                                },
+                                {
+                                    "entity": "sensor.bedroom_temperature",
+                                    "name": "Main Bedroom Temperature"
+                                },
+                                {
+                                    "entity": "sensor.lucas_bedroom_sensor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.xander_bedroom_sensor_temperature"
                                 },
                                 {
                                     "entity": "sensor.netatmo_outdoor_temperature",
                                     "name": "Backyard Temperature"
                                 },
                                 {
-                                    "entity": "sensor.office_temperature_2",
-                                    "name": "Office Temperature"
-                                },
-                                {
-                                    "entity": "sensor.bedroom_temperature"
-                                },
-                                {
-                                    "entity": "sensor.entry_motion_temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_indoor_humidity",
-                                    "name": "Livingroom Humidity"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_humidity",
-                                    "name": "Backyard Humidity"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_indoor_co2",
-                                    "name": "Livingroom CO2"
+                                    "entity": "sensor.office_temperature_2"
                                 }
                             ],
                             "show_header_toggle": false,
-                            "title": "Weather",
+                            "title": "Temperatures",
                             "type": "entities"
                         },
                         {
                             "entities": [
-                                {
-                                    "entity": "sensor.office_temperature_2"
-                                },
-                                {
-                                    "entity": "sensor.sensibo_temperature",
-                                    "name": "Living room Temperature"
-                                },
                                 {
                                     "entity": "sensor.bom_gosford_air_temp_c",
                                     "name": "BOM Air Temperature"
@@ -524,6 +507,30 @@
                                 },
                                 {
                                     "entity": "sensor.bedroom_temperature"
+                                },
+                                {
+                                    "entity": "sensor.entry_motion_temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_temperature",
+                                    "name": "Livingroom Temperature"
+                                },
+                                {
+                                    "entity": "sensor.bedroom_temperature",
+                                    "name": "Main Bedroom Temperature"
+                                },
+                                {
+                                    "entity": "sensor.lucas_bedroom_sensor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.xander_bedroom_sensor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_temperature",
+                                    "name": "Backyard Temperature"
+                                },
+                                {
+                                    "entity": "sensor.office_temperature_2"
                                 }
                             ],
                             "hours_to_show": 48,
@@ -542,6 +549,12 @@
                                 {
                                     "entity": "sensor.netatmo_outdoor_humidity",
                                     "name": "Outdoor Humidity"
+                                },
+                                {
+                                    "entity": "sensor.lucas_bedroom_sensor_humidity"
+                                },
+                                {
+                                    "entity": "sensor.xander_bedroom_sensor_humidity"
                                 }
                             ],
                             "hours_to_show": 48,
@@ -977,13 +990,6 @@
                                     "name": "Noise level"
                                 }
                             ],
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                "sensor.entry_motion_illuminance"
-                            ],
-                            "hours": 48,
                             "type": "history-graph"
                         },
                         {
