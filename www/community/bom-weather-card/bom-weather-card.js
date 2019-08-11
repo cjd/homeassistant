@@ -19,7 +19,7 @@ class BOMWeatherCard extends LitElement {
 //    var icons = this.config.static_icons ? "static" : "animated";
     var currentText = this.config.entity_current_text ? html`<span class="currentText" id="current-text">${this._hass.states[this.config.entity_current_text].state}</span>` : ``;
     var apparentTemp = this.config.entity_apparent_temp ? html`<span class="apparent">${this.localeText.feelsLike} <span id="apparent-text">${this.current.apparent}</span> ${this.getUOM("temperature")}</span>` : ``;
-    var summary = this.config.entity_daily_summary ? html`<br><span class="summary" id="daily-summary-text">${this._hass.states[this.config.entity_daily_summary].state}</span>` : ``;
+    var summary = this.config.entity_daily_summary ? html`${this._hass.states[this.config.entity_daily_summary].state}` : ``;
     var separator = this.config.show_separator ? html`<hr class=line>` : ``;
     
     
@@ -64,9 +64,9 @@ class BOMWeatherCard extends LitElement {
                   <div class="fcasttooltiptext" id="fcast-summary-${daily.dayIndex}">${ this.config.tooltips ? this._hass.states[daily.summary].state : ""}</div>
                 </div>`)}
               </div>
-			<div class="summary text">
-			  ${summary}
-			  </div>
+            <div class="summary clear">
+              ${summary}
+              </div>
       </ha-card>
     `;
   }
@@ -487,11 +487,13 @@ style() {
   var currentTextTopMargin = this.config.current_text_top_margin || "39px";
   var currentTextLeftPos = this.config.current_text_left_pos || "5em";
   var currentTextFontSize = this.config.current_text_font_size || "1.5em";
+  var currentTextWidth = this.config.current_text_width || "100%";
+  var currentTextAlignment = this.config.current_text_alignment || "center";
   var largeIconTopMargin = this.config.large_icon_top_margin || "-3.5em";
   var largeIconLeftPos = this.config.large_icon_left_pos || "0em";
   var currentDataTopMargin = this.config.current_data_top_margin ? this.config.current_data_top_margin : this.config.show_separator ? "1em" : "7em";
   var separatorTopMargin = this.config.separator_top_margin || "6em";
-  var summaryTopMargin = this.config.summary_top_margin || "0.2em";
+  var summaryTopPadding = this.config.summary_top_padding || "1em";
   var summaryFontSize = this.config.summary_font_size || "0.8em";
   
   return html`
@@ -552,8 +554,12 @@ style() {
         font-size: ${currentTextFontSize};
         color: var(--secondary-text-color);
         position: absolute;
+        overflow: hidden;
+        white-space: nowrap;
         left: ${currentTextLeftPos};
         margin-top: ${currentTextTopMargin};
+        text-align: ${currentTextAlignment};
+        width: ${currentTextWidth};
       }
       
       .pop {
@@ -583,7 +589,7 @@ style() {
 
       .summary {
         font-size: ${summaryFontSize};
-		margin-top: ${summaryTopMargin};
+        padding-top: ${summaryTopPadding};
       }
 
       .forecast {
