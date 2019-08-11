@@ -5,3 +5,18 @@
   heater: switch.koganpow1
   target_sensor: sensor.office_temperature_2
   initial_hvac_mode: "off"
+- platform: generic_thermostat
+  name: Lucas Bedroom
+  heater: switch.lucas_heater
+  target_sensor: sensor.lucas_bedroom_sensor_temperature
+  initial_hvac_mode: "off"
+- platform: generic_thermostat
+  name: Xander Bedroom
+  heater: switch.xander_heater
+  target_sensor: sensor.xander_bedroom_sensor_temperature
+  initial_hvac_mode: "off"
+- platform: generic_thermostat
+  name: Main Bedroom
+  heater: switch.bedroom_heater
+  target_sensor: sensor.bedroom_temperature
+  initial_hvac_mode: "off"
