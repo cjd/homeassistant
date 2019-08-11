@@ -10,6 +10,10 @@ sickchill:
   title: 'SickChill'
   url: 'https://home.adebenham.com/int/sickchill/'
   icon: mdi:library-movie
+motion:
+  title: 'Motion'
+  url: 'https://home.adebenham.com/int/motion/'
+  icon: mdi:video
 pihole:
   title: 'Pihole'
   url: 'https://home.adebenham.com/int/pihole/'
