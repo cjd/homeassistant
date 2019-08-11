@@ -18,7 +18,7 @@ Entities in the [`hangouts`](https://www.home-assistant.io/components/hangouts) 
 Entities in the [`input_boolean`](https://www.home-assistant.io/components/input_boolean) domain | 1
 Entities in the [`input_select`](https://www.home-assistant.io/components/input_select) domain | 2
 Entities in the [`light`](https://www.home-assistant.io/components/light) domain | 29
-Entities in the [`media_player`](https://www.home-assistant.io/components/media_player) domain | 7
+Entities in the [`media_player`](https://www.home-assistant.io/components/media_player) domain | 6
 Entities in the [`person`](https://www.home-assistant.io/components/person) domain | 2
 Entities in the [`scene`](https://www.home-assistant.io/components/scene) domain | 5
 Entities in the [`script`](https://www.home-assistant.io/components/script) domain | 3
@@ -31,8 +31,6 @@ Entities in the [`zone`](https://www.home-assistant.io/components/zone) domain |
 
 ## Hardware and general setup
 
-For my setup I use an old Lenovo Yoga Pro 2, it has a touch screen so I have mounted it on the wall by the front door so I can easily access some controls in my Lovelace UI.
-
 OS | Ubuntu desktop 18.04
 -- | --
 SSD | 512GB
@@ -44,23 +42,12 @@ For the installation method of Home Assistant I went with [the generic Linux ins
 
 This method stores the files used by hassio/Home Assistant in `/usr/share/hassio`.
 
-I have mounted a share from my NAS to the `/usr/share/hassio` dir, that way I can handle backups and replication on my NAS.
-
-For my theme I use [slate](https://github.com/seangreen2/slate_theme) on all my devices for two reasons, it looks good and I can track it in HACS.
-
-To access my instance I'm using my [Nabu Casa ❤️](https://www.nabucasa.com/) link.
-
 ## Core integrations that I use
 
-- [AdGuard Home](https://www.home-assistant.io/components/adguard/)
-- [Belkin WeMo](https://www.home-assistant.io/components/wemo/)
 - [Default Config](https://www.home-assistant.io/components/default_config/)
-- [Entur public transport](https://www.home-assistant.io/components/entur_public_transport/)
 - [File](https://www.home-assistant.io/components/file/)
 - [Input Boolean](https://www.home-assistant.io/components/input_boolean/)
-- [Met.no](https://www.home-assistant.io/components/met/)
 - [Shell command](https://www.home-assistant.io/components/shell_command/)
-- [Spotify](https://www.home-assistant.io/components/spotify/)
 
 
 ## custom_components that I use
