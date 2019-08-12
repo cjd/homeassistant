@@ -11,6 +11,7 @@ exclude:
     - switch
     - zignee2mqtt_networkmap
     - script
+    - geo_location
   entities:
     - sensor.date
     - sensor.time
