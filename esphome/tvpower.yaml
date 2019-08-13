@@ -1,5 +1,5 @@
 esphome:
-  name: koganpow2
+  name: tvpower
   platform: ESP8266
   board: esp01_1m
 
@@ -21,13 +21,13 @@ binary_sensor:
       number: GPIO0
       mode: INPUT_PULLUP
       inverted: True
-    name: "koganpow2 Button"
+    name: "TV Power Button"
     on_press:
       - switch.toggle: relay
 
 switch:
   - platform: gpio
-    name: "koganpow2"
+    name: "TV Power"
     pin: GPIO14
     id: relay
     inverted: no
@@ -43,10 +43,10 @@ sensor:
     cf_pin: GPIO4
     cf1_pin: GPIO5
     current:
-      name: "koganpow2 Current"
+      name: "TV Power Current"
     voltage:
-      name: "koganpow2 Voltage"
+      name: "TV Power Voltage"
     power:
-      name: "koganpow2 Power"
+      name: "TV Power Watts"
     update_interval: 3s
 
