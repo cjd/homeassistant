@@ -36,10 +36,6 @@
     - type: instant_readings
 - platform: template
   sensors:
-    tvpower:
-      value_template: '{{ states.switch.entertainment_unit.attributes["current_power_w"] }}'
-      unit_of_measurement: 'W'
-      friendly_name: "TV Power Usage"
     sensibo_temperature:
       value_template: '{{ states.climate.living_room.attributes["current_temperature"] }}'
       unit_of_measurement: '°C'
@@ -179,7 +175,6 @@
   entity_id: sensor.bom_gosford_air_temp_c
   max_age:
     hours: 24
-
 - platform: filter
   name: "House Power"
   entity_id: sensor.energy_usage
