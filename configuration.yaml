@@ -35,8 +35,8 @@ http:
     - 192.168.86.2
     - 127.0.0.1
   use_x_forwarded_for: true
-#  ssl_certificate: /ssl/fullchain.pem
-#  ssl_key: /ssl/privkey.pem
+  cors_allowed_origins:
+    - https://cast.home-assistant.io
 
 updater:
   include_used_components: true
@@ -57,16 +57,6 @@ netatmo:
   secret_key: !secret netatmo_secret_key
   username: !secret email 
   password: !secret netatmo_password
-
-influxdb:
-  host: a0d7b954-influxdb
-  port: 8086
-  database: homeassistant
-  username: !secret influx_username
-  password: !secret influx_password
-  max_retries: 3
-  default_measurement: state
-
 
 mqtt:
   broker: 192.168.86.2
@@ -97,10 +87,6 @@ hangouts:
     - id: hangout_id
   error_suppressed_conversations:
     - id: hangout_id
-
-wemo:
-  static:
-    - 192.168.86.37
 
 hacs:
   token: !secret github_access_token
