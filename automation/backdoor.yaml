@@ -18,10 +18,9 @@
         entity_id: binary_sensor.back_screen_door_contact
         state: 'on'
   action:
-    - service: service.hangout_notify
+    - service: notify.hangout_notify
       data:
         message: "Back doors left open"
-    - service: tts.google_say
-      entity_id: media_player.whole_house
+    - service: notify.google_assistant
       data:
         message: "Heads up - Someone left the back doors open"

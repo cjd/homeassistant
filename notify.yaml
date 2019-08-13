@@ -10,3 +10,6 @@
 - name: Telegram Notify
   platform: telegram
   chat_id: !secret telegram_chatid
+- name: Google Assistant
+  platform: rest
+  resource: http://192.168.86.2:5000/broadcast_message
