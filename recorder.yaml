@@ -9,7 +9,7 @@ exclude:
     - persistent_notification
     - camera
     - switch
-    - zignee2mqtt_networkmap
+    - zigbee2mqtt_networkmap
     - script
     - geo_location
   entities:
