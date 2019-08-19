@@ -994,51 +994,45 @@
                             "entities": [
                                 {
                                     "hide_if_unavailable": false,
-                                    "name": "Cast 0",
+                                    "name": "Main",
                                     "type": "cast",
                                     "view": "0"
                                 },
                                 {
                                     "hide_if_unavailable": false,
-                                    "name": "Cast 1",
+                                    "name": "Weather",
                                     "type": "cast",
                                     "view": 1
                                 },
                                 {
                                     "hide_if_unavailable": false,
-                                    "name": "Cast 2",
+                                    "name": "Lights",
                                     "type": "cast",
                                     "view": 2
                                 },
                                 {
                                     "hide_if_unavailable": false,
-                                    "name": "Cast 3",
+                                    "name": "Cameras",
                                     "type": "cast",
                                     "view": 3
                                 },
                                 {
                                     "hide_if_unavailable": false,
-                                    "name": "Cast 4",
+                                    "name": "Media",
                                     "type": "cast",
                                     "view": 4
                                 },
                                 {
                                     "hide_if_unavailable": false,
-                                    "name": "Cast 5",
+                                    "name": "Map",
                                     "type": "cast",
                                     "view": 5
                                 },
                                 {
                                     "hide_if_unavailable": false,
-                                    "name": "Cast 6",
+                                    "name": "Advanced",
                                     "type": "cast",
                                     "view": 6
-                                },
-                                {
-                                    "hide_if_unavailable": false,
-                                    "name": "Cast 7",
-                                    "type": "cast",
-                                    "view": 7
                                 }
                             ],
                             "type": "entities"
