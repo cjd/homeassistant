@@ -2,11 +2,11 @@
   trigger:
     - platform: state
       entity_id: binary_sensor.backdoor_sensor_contact
-      for: "0:00:30"
+      for: "0:05:00"
       to: 'on'
     - platform: state
       entity_id: binary_sensor.back_screen_door_contact
-      for: "0:00:30"
+      for: "0:05:00"
       to: 'on'
   condition:
     condition: and
