@@ -31,3 +31,6 @@
   entities:
     - light.bulb_color_3
     - light.bulb_white_3
+- platform: switch
+  name: Backyard Light
+  entity_id: switch.backyard_light

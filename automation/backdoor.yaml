@@ -24,3 +24,28 @@
     - service: notify.google_assistant
       data:
         message: "Heads up - Someone left the back doors open"
+- alias: Backyard light - night on
+  trigger: 
+    - platform: state
+      entity_id: binary_sensor.backdoor_sensor_contact
+      to: 'Open'
+  condition:
+    condition: numeric_state
+    entity_id: sensor.entry_motion_illuminance
+    below: 11000
+  action:
+    service: light.turn_on
+    data:
+      entity_id: light.backyard_light
+- alias: Backyard light - night on
+  trigger:
+    - platform: state
+      entity_id:  binary_sensor.backdoor_sensor_contact
+      to: 'Closed'
+      for:
+        minutes: 5
+  condition: []
+  action:
+    service: light.turn_off
+    data:
+      entity_id:  light.sensor_light
