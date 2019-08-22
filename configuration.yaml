@@ -48,25 +48,6 @@ tts:
   - platform: google_translate
     service_name: google_say
 
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_api_key
-    allowed_chat_ids:
-      - !secret telegram_chatid
-
-netatmo:
-  api_key: !secret netatmo_api_key
-  secret_key: !secret netatmo_secret_key
-  username: !secret email 
-  password: !secret netatmo_password
-
-mqtt:
-  broker: 192.168.86.2
-  discovery: true
-  port: 1883
-  username: !secret mqtt_username
-  password: !secret mqtt_password
-
 timer:
   zigbee_permit_join:
     name: Time remaining
@@ -77,32 +58,12 @@ upnp:
   sensors: true
   local_ip: 192.168.86.2
 
-hangouts:
-  intents:
-    HangoutsHelp:
-      sentences:
-        - Help
-    LivingRoomTemperature:
-      sentences:
-        - What is the temperature in the living room
-  default_conversations:
-    - id: hangout_id
-  error_suppressed_conversations:
-    - id: hangout_id
-
-hacs:
-  token: !secret github_access_token
-  appdaemon: true
-  python_script: true
-  theme: true
-
-geo_location:
-  - platform: nsw_rural_fire_service_feed
-    categories:
-      - 'Emergency Warning'
-      - 'Watch and Act'
-      - 'Advice'
-
+telegram_bot: !include telegram_bot.yaml
+netatmo: !include netatmo.yaml
+mqtt: !include mqtt.yaml
+hangouts: !include hangouts.yaml
+hacs: !include hacs.yaml
+geo_location: !include geo_location.yaml
 input_select: !include input_select.yaml
 sensor: !include sensors.yaml
 camera: !include camera.yaml
