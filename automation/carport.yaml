@@ -14,9 +14,17 @@
       entity_id: person.chris
       to: 'home'
   condition:
-    condition: numeric_state
-    entity_id: sensor.entry_motion_illuminance
-    below: 11000
+    condition: and
+    conditions:
+      - condition: sun
+        after: sunset
+        after_offset: "-01:00:00"
+      - condition: sun
+        before: sunrise
+        before_offset: "-01:00:00"
+    #condition: numeric_state
+    #entity_id: sensor.entry_motion_illuminance
+    #below: 11000
   action:
     service: light.turn_on
     data:
