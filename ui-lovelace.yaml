@@ -13,8 +13,6 @@ resources:
 - type: module
   url: /community_plugin/simple-thermostat/simple-thermostat.js
 - type: module
-  url: /community_plugin/simple-thermostat/simple-thermostat.js
-- type: module
   url: /community_plugin/button-card/button-card.js
 - type: module
   url: /community_plugin/compact-custom-header/compact-custom-header.js
@@ -24,6 +22,8 @@ resources:
   url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
 - type: module
   url: /community_plugin/bom-weather-card/bom-weather-card.js
+- type: js
+  url: /community_plugin/synthwave-hass-extras/synthwave-hass-extras.js
 title: Home
 views:
 - badges:
@@ -143,7 +143,7 @@ views:
         hold_action:
           action: more-info
           entity: light.sensor_light
-        name: Front door
+        name: Car port
         type: custom:button-card
       type: horizontal-stack
     - color: rgb(44, 109, 214)
@@ -214,14 +214,7 @@ views:
       type: horizontal-stack
     type: vertical-stack
   - entity: climate.living_room
-    modes:
-      dry: false
-      fan_only: false
-      heat_cool: false
-    sensors:
-    - entity: sensor.netatmo_outdoor_temperature
-    step_size: 1
-    type: custom:simple-thermostat
+    type: thermostat
   icon: mdi:home
   panel: false
   path: default_view
@@ -400,6 +393,7 @@ views:
     - entity: light.hall_white
       type: custom:slider-entity-row
     - entity: light.sensor_light
+    - entity: light.backyard_light
     show_header_toggle: false
     title: Rooms
     type: entities
@@ -585,7 +579,7 @@ views:
     type: thermostat
   - entities:
     - sensor.house_power
-    - sensor.tvpower
+    - sensor.tv_power_watts
     hours_to_show: 24
     type: history-graph
   - entities:
@@ -602,5 +596,35 @@ views:
     - sensor.disk_free
     title: System Stats
     type: history-graph
+  - entities:
+    - hide_if_unavailable: false
+      name: Main
+      type: cast
+      view: '0'
+    - hide_if_unavailable: false
+      name: Weather
+      type: cast
+      view: 1
+    - hide_if_unavailable: false
+      name: Lights
+      type: cast
+      view: 2
+    - hide_if_unavailable: false
+      name: Cameras
+      type: cast
+      view: 3
+    - hide_if_unavailable: false
+      name: Media
+      type: cast
+      view: 4
+    - hide_if_unavailable: false
+      name: Map
+      type: cast
+      view: 5
+    - hide_if_unavailable: false
+      name: Advanced
+      type: cast
+      view: 6
+    type: entities
   icon: mdi:settings
   title: ''
