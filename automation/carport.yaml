@@ -2,6 +2,9 @@
   alias: Carport - Turn on sensor light on movement
   trigger:
     - platform: state
+      entity_id:  binary_sensor.motion_a_occupancy
+      to: 'on'
+    - platform: state
       entity_id:  binary_sensor.entry_motion_occupancy
       to: 'on'
     - platform: state
@@ -14,7 +17,7 @@
       entity_id: person.chris
       to: 'home'
   condition:
-    condition: and
+    condition: or
     conditions:
       - condition: sun
         after: sunset
@@ -33,6 +36,11 @@
 - id: door_motion_off
   alias: Carport - Turn off sensor light 5 minutes after last movement
   trigger:
+    - platform: state
+      entity_id:  binary_sensor.motion_a_occupancy
+      to: 'off'
+      for:
+        minutes: 5
     - platform: state
       entity_id:  binary_sensor.entry_motion_occupancy
       to: 'off'

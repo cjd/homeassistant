@@ -30,7 +30,7 @@
       entity_id: binary_sensor.backdoor_sensor_contact
       to: 'Open'
   condition:
-    condition: and
+    condition: or
     conditions:
       - condition: sun
         after: sunset
