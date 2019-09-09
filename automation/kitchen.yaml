@@ -1,7 +1,5 @@
 - alias: Dimmer - Kitchen
   trigger:
-  - entity_id: sensor.kitchen_dimmer_action
-    platform: state
   - entity_id: sensor.hueswitch_1_action
     platform: state
   condition:
@@ -20,9 +18,6 @@
       color_temp: 333
 - alias: Dimmer - Kitchen blue
   trigger:
-  - entity_id: sensor.kitchen_dimmer_action
-    platform: state
-    to: 'down-press'
   - entity_id: sensor.hueswitch_1_action
     platform: state
     to: 'down-press'

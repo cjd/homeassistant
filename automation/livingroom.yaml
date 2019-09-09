@@ -41,6 +41,8 @@
         {% endif %}
 - alias: Dimmer - Living room
   trigger:
+  - entity_id: sensor.kitchen_dimmer_action
+    platform: state
   - entity_id: sensor.livingroom_dimmer_action
     platform: state
   condition:
