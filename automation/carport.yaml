@@ -46,7 +46,15 @@
       to: 'off'
       for:
         minutes: 5
-  condition: []
+  condition: 
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.entry_motion_occupancy
+        state: 'off'
+      - condition: state
+        entity_id: binary_sensor.motion_a_occupancy
+        state: 'off'
   action:
     service: light.turn_off
     data:
