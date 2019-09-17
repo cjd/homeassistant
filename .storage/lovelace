@@ -223,6 +223,17 @@
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
+                                            "entity": "light.backyard_light",
+                                            "hold_action": {
+                                                "action": "more-info",
+                                                "entity": "light.sensor_light"
+                                            },
+                                            "name": "Backyard",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color": "rgb(5, 147, 255)",
+                                            "color-type": "card",
                                             "entity": "switch.front_lights",
                                             "hold_action": {
                                                 "action": "more-info",
