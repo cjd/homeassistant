@@ -41,8 +41,6 @@
         {% endif %}
 - alias: Dimmer - Living room
   trigger:
-  - entity_id: sensor.kitchen_dimmer_action
-    platform: state
   - entity_id: sensor.livingroom_dimmer_action
     platform: state
   condition:
@@ -86,3 +84,29 @@
       service: input_select.select_option
       data:
         option: "Normal"
+- alias: Living Room switched on
+  trigger:
+    - entity_id: switch.livingroom_light
+      platform: state
+      to: "on"
+  condition:
+    - condition: template
+      value_template: '{{ is_state("input_select.livingroom_preset", "TurnOff") }}'
+  action:
+    - entity_id: input_select.livingroom_preset
+      service: input_select.select_option
+      data:
+        option: "Normal"
+- alias: Living Room switched off
+  trigger:
+    - entity_id: switch.livingroom_light
+      platform: state
+      to: "off"
+  condition:
+    - condition: template
+      value_template: '{{ not is_state("input_select.livingroom_preset", "TurnOff") }}'
+  action:
+    - entity_id: input_select.livingroom_preset
+      service: input_select.select_option
+      data:
+        option: "TurnOff"
