@@ -13,6 +13,7 @@ livingroom_lights:
   name: Living Room
   icon: mdi:sofa
   entities:
+    - switch.livingroom_light
     - light.livingroom_main_a_light
     - light.livingroom_main_b_light
     - light.livingroom_side
