@@ -7,10 +7,7 @@
     light.kitchen_light_group:
       brightness_pct: 100
       color_temp: 333
-      state_template: <
-        {% if states('light.kitchen_light_group.color_name') == 'blue' %}false
-        {% else %}true
-        {% endif %}
+      state: true
     light.tv_backlight_2:
       state: true
       brightness_pct: 100
