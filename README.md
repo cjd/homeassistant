@@ -8,8 +8,8 @@ This repository exists mostly for my own amusement, but it may contain some thin
 
 Description | Value
 -- | --
-Entities in the [`automation`](https://www.home-assistant.io/components/automation) domain | 42
-Entities in the [`binary_sensor`](https://www.home-assistant.io/components/binary_sensor) domain | 15
+Entities in the [`automation`](https://www.home-assistant.io/components/automation) domain | 46
+Entities in the [`binary_sensor`](https://www.home-assistant.io/components/binary_sensor) domain | 16
 Entities in the [`camera`](https://www.home-assistant.io/components/camera) domain | 5
 Entities in the [`climate`](https://www.home-assistant.io/components/climate) domain | 5
 Entities in the [`device_tracker`](https://www.home-assistant.io/components/device_tracker) domain | 4
@@ -22,9 +22,9 @@ Entities in the [`media_player`](https://www.home-assistant.io/components/media_
 Entities in the [`person`](https://www.home-assistant.io/components/person) domain | 2
 Entities in the [`scene`](https://www.home-assistant.io/components/scene) domain | 5
 Entities in the [`script`](https://www.home-assistant.io/components/script) domain | 3
-Entities in the [`sensor`](https://www.home-assistant.io/components/sensor) domain | 204
+Entities in the [`sensor`](https://www.home-assistant.io/components/sensor) domain | 208
 Entities in the [`sun`](https://www.home-assistant.io/components/sun) domain | 1
-Entities in the [`switch`](https://www.home-assistant.io/components/switch) domain | 26
+Entities in the [`switch`](https://www.home-assistant.io/components/switch) domain | 28
 Entities in the [`timer`](https://www.home-assistant.io/components/timer) domain | 1
 Entities in the [`zigbee2mqtt_networkmap`](https://www.home-assistant.io/components/zigbee2mqtt_networkmap) domain | 1
 Entities in the [`zone`](https://www.home-assistant.io/components/zone) domain | 4
