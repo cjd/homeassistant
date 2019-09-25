@@ -1,7 +1,7 @@
 homeassistant:
   name: Home
-  latitude: -33.403710
-  longitude: 151.336280
+  latitude: !secret latitude
+  longitude: !secret longitude
   elevation: 0
   unit_system: metric
   time_zone: Australia/Sydney
