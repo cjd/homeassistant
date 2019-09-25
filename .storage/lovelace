@@ -226,7 +226,7 @@
                                             "entity": "light.backyard_light",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.sensor_light"
+                                                "entity": "light.backyard_light"
                                             },
                                             "name": "Backyard",
                                             "type": "custom:button-card"

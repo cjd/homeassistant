@@ -34,6 +34,7 @@
   utc_offset: UTC_OFFSET
   monitored_variables:
     - type: instant_readings
+    - type: current_values
 - platform: template
   sensors:
     sensibo_temperature:
