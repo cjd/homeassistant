@@ -1,18 +1,28 @@
-- alias: Dimmer - Lucas
+- alias: Lucas switch1
   trigger:
-  - entity_id: sensor.lucas_bedroom_dimmer_action
+  - entity_id: binary_sensor.zemi2_switch1_2
     platform: state
-  condition:
-    - condition: template
-      value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
+    to: "on"
+  condition: []
   action:
   - entity_id: light.lucas_bedroom_light
     service: light.turn_on
     data_template:
-      transition: 1
-      brightness_pct: >
-        {% if trigger.to_state.state == 'on-press' %} 100
-        {% elif trigger.to_state.state == 'up-press' %} 50
-        {% elif trigger.to_state.state == 'down-press' %} 1
-        {% elif trigger.to_state.state == 'off-press' %} 0
+      brightness: >
+        {% if state_attr('light.lucas_bedroom_light','brightness') | float > 100 %}0
+        {% else %}255
+        {% endif %}
+- alias: Lucas switch2
+  trigger:
+  - entity_id: binary_sensor.zemi2_switch2_2
+    platform: state
+    to: "on"
+  condition: []
+  action:
+  - entity_id: light.lucas_bedroom_light
+    service: light.turn_on
+    data_template:
+      brightness: >
+        {% if state_attr('light.lucas_bedroom_light','brightness') | float == 40 %}0
+        {% else %}40
         {% endif %}

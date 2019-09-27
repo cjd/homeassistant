@@ -12,7 +12,7 @@
       state: true
       brightness_pct: 100
       effect: Slow Random Effect
-    switch.livingroom_light:
+    switch.zemi1_relay_1:
       state: true
 - name: Movies
   entities:
@@ -27,7 +27,7 @@
     light.tv_backlight_2:
       state: true
       effect: Slow Random Effect
-    switch.livingroom_light:
+    switch.zemi1_relay_1:
       state: true
 - name: Night
   entities:
@@ -43,7 +43,7 @@
       state: true
       brightness_pct: 100
       effect: Random Twinkle
-    switch.livingroom_light:
+    switch.zemi1_relay_1:
       state: true
 - name: Turn off
   entities:
@@ -53,8 +53,6 @@
       state: true
       brightness_pct: 100
       effect: Random Twinkle
-    switch.livingroom_light:
-      state: false
 - name: All off
   entities:
     light.backroom_light_group: false

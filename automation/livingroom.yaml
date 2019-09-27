@@ -22,7 +22,6 @@
       entity_id: light.family_room_strip
     entity_id: light.family_room_strip
     service: light.turn_on
-
 - alias: Living Room Preset selected
   trigger:
     platform: state
@@ -39,23 +38,6 @@
         {% elif trigger.to_state.state == "Night" %}scene.night
         {% elif trigger.to_state.state == "TurnOff" %}scene.turn_off
         {% endif %}
-- alias: Dimmer - Living room
-  trigger:
-  - entity_id: sensor.livingroom_dimmer_action
-    platform: state
-  condition:
-    - condition: template
-      value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
-  action:
-    - entity_id: input_select.livingroom_preset
-      service: input_select.select_option
-      data_template:
-        option: >
-          {% if trigger.to_state.state == "on-press" %}Normal
-          {% elif trigger.to_state.state == "up-press" %}Movie
-          {% elif trigger.to_state.state == "down-press" %}Night
-          {% elif trigger.to_state.state == "off-press" %}TurnOff
-          {% endif %}
 - alias: Living Room Preset manual off
   trigger:
     - entity_id: light.livingroom_light_group
@@ -84,27 +66,34 @@
       service: input_select.select_option
       data:
         option: "Normal"
-- alias: Living Room switched on
+- alias: Living Room Zemi 1
   trigger:
-    - entity_id: switch.livingroom_light
+    - entity_id: binary_sensor.zemi1_switch1
       platform: state
       to: "on"
-  condition:
-    - condition: template
-      value_template: '{{ is_state("input_select.livingroom_preset", "TurnOff") }}'
+  condition: []
   action:
     - entity_id: input_select.livingroom_preset
       service: input_select.select_option
       data:
         option: "Normal"
-- alias: Living Room switched off
+- alias: Living Room Zemi 2
   trigger:
-    - entity_id: switch.livingroom_light
+    - entity_id: binary_sensor.zemi1_switch2
       platform: state
-      to: "off"
-  condition:
-    - condition: template
-      value_template: '{{ not is_state("input_select.livingroom_preset", "TurnOff") }}'
+      to: "on"
+  condition: []
+  action:
+    - entity_id: input_select.livingroom_preset
+      service: input_select.select_option
+      data:
+        option: "Night"
+- alias: Living Room Zemi 3
+  trigger:
+    - entity_id: binary_sensor.zemi1_switch3
+      platform: state
+      to: "on"
+  condition: []
   action:
     - entity_id: input_select.livingroom_preset
       service: input_select.select_option
