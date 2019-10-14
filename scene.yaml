@@ -66,6 +66,7 @@
     light.hall_light_group: false
     light.entry_light_group: false
     light.sensor_light: false
+    light.backyard_light: false
     light.tv_backlight_2:
       state: true
       brightness_pct: 100

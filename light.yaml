@@ -21,6 +21,7 @@
     - light.livingroom_main_a_light                                                                  
     - light.livingroom_main_b_light                                                                  
     - light.livingroom_side
+    - light.livingroom_a
 - platform: group
   name: Hall Light Group
   entities:
