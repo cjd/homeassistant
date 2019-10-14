@@ -1,5 +1,5 @@
 #!/bin/sh
-BASE="http://192.168.86.74/decoder_control.cgi?loginuse=admin&loginpas=admin&onestep=0&15632464760490.1568509176296169&_=1563246476049&command="
+BASE="http://192.168.86.190/decoder_control.cgi?loginuse=admin&loginpas=admin&onestep=0&15632464760490.1568509176296169&_=1563246476049&command="
 DELAY=.3
 if [ "$1" = "right" ]
   then curl "${BASE}6"
