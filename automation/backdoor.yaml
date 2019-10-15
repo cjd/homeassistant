@@ -63,22 +63,5 @@
   action:
     - service: light.turn_on
       data:
-        entity_id: light.backroom_light_group
+        entity_id: light.backyard_light
         brightness_pct: 100
-    - service: light.turn_on
-      data:
-        entity_id: light.craftroom_light
-        brightness_pct: 100
-- alias: Backdoor switch off
-  trigger:
-    - platform: state
-      entity_id: light.backyard_light
-      to: 'off'
-  condition: []
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.backroom_light_group
-    - service: light.turn_off
-      data:
-        entity_id: light.craftroom_light

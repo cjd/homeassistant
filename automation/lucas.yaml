@@ -1,6 +1,6 @@
 - alias: Lucas switch1
   trigger:
-  - entity_id: binary_sensor.zemi2_switch1_2
+  - entity_id: binary_sensor.lucas_switch1_2
     platform: state
     to: "on"
   condition: []
@@ -12,9 +12,11 @@
         {% if state_attr('light.lucas_bedroom_light','brightness') | float > 100 %}0
         {% else %}255
         {% endif %}
+  - entity_id: switch.lucas_relay_1
+    service: switch.turn_on
 - alias: Lucas switch2
   trigger:
-  - entity_id: binary_sensor.zemi2_switch2_2
+  - entity_id: binary_sensor.lucas_switch2_2
     platform: state
     to: "on"
   condition: []
