@@ -1,6 +1,6 @@
 - alias: Lucas switch1
   trigger:
-  - entity_id: binary_sensor.lucas_switch1_2
+  - entity_id: binary_sensor.lucas_switch1
     platform: state
     to: "on"
   condition: []
@@ -16,7 +16,7 @@
     service: switch.turn_on
 - alias: Lucas switch2
   trigger:
-  - entity_id: binary_sensor.lucas_switch2_2
+  - entity_id: binary_sensor.lucas_switch2
     platform: state
     to: "on"
   condition: []
