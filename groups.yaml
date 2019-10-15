@@ -42,6 +42,17 @@ entry_lights:
   entities:
     - light.bulb_white_3
     - light.bulb_colour_3
+all_light_relays:
+  name: Light Master Switch
+  icon: mdi:crown
+  entities:
+    - switch.kitchen_relay_1
+    - switch.kitchen_relay_2
+    - switch.livingroom_relay_1_2
+    - switch.entry_relay_1
+    - switch.entry_relay_2
+    - switch.bedroom_relay_1
+    - switch.lucas_relay_1
 all_lights:
   name: All Lights
   entities:
