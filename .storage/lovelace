@@ -1030,6 +1030,18 @@
                                 }
                             ],
                             "type": "entities"
+                        },
+                        {
+                            "entity": "group.all_light_relays",
+                            "hold_action": {
+                                "action": "more-info"
+                            },
+                            "show_icon": true,
+                            "show_name": true,
+                            "tap_action": {
+                                "action": "more-info"
+                            },
+                            "type": "entity-button"
                         }
                     ],
                     "icon": "mdi:settings",
