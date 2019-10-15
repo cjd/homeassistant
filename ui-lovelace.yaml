@@ -175,21 +175,6 @@ views:
             option: Normal
         type: custom:button-card
       - entity: input_select.livingroom_preset
-        icon: mdi:movie
-        name: Movie
-        state:
-        - color: rgb(5, 147, 255)
-          value: Movie
-        - color: var(--paper-item-icon-color)
-          operator: default
-        tap_action:
-          action: call-service
-          service: input_select.select_option
-          service_data:
-            entity_id: input_select.livingroom_preset
-            option: Movie
-        type: custom:button-card
-      - entity: input_select.livingroom_preset
         icon: mdi:weather-night
         name: Night
         state:
@@ -634,5 +619,13 @@ views:
       type: cast
       view: 6
     type: entities
+  - entity: group.all_light_relays
+    hold_action:
+      action: more-info
+    show_icon: true
+    show_name: true
+    tap_action:
+      action: more-info
+    type: entity-button
   icon: mdi:settings
   title: ''
