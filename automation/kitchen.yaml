@@ -1,33 +1,36 @@
-- alias: Dimmer - Kitchen
+- alias: Kitchen - Switch1
   trigger:
-  - entity_id: sensor.hueswitch_1_action
+  - entity_id: binary_sensor.kitchen_switch1
     platform: state
-  - entity_id: sensor.kitchen_dimmer_action
-    platform: state
-  condition:
-    - condition: template
-      value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'off-press'] }}"
+  condition: []
   action:
+  - entity_id: switch.kitchen_relay_1
+    service: switch.turn_on
   - entity_id: light.kitchen_light_group
     service: light.turn_on
-    data_template:
+    data:
       transition: 1
-      brightness_pct: >
-        {% if trigger.to_state.state == 'on-press' %} 100
-        {% elif trigger.to_state.state == 'up-press' %} 50
-        {% elif trigger.to_state.state == 'off-press' %} 0
-        {% endif %}
-      color_temp: 333
-- alias: Dimmer - Kitchen blue
+      brightness_pct: 100
+- alias: Kitchen - Switch2
   trigger:
-  - entity_id: sensor.kitchen_dimmer_action
+  - entity_id: binary_sensor.kitchen_switch2
     platform: state
-    to: 'down-press'
+  condition: []
+  action:
+  - entity_id: switch.kitchen_relay_1
+    service: switch.turn_on
+  - entity_id: light.kitchen_light_group
+    service: light.turn_on
+    data:
+      transition: 1
+      brightness_pct: 10
+- alias: Kitchen - Switch3
+  trigger:
+  - entity_id: binary_sensor.kitchen_switch3
+    platform: state
   condition: []
   action:
   - entity_id: light.kitchen_light_group
-    service: light.turn_on
-    data_template:
+    service: light.turn_off
+    data:
       transition: 1
-      brightness_pct: 50
-      color_name: blue

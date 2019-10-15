@@ -1,40 +1,34 @@
-- alias: Dimmer - Entry
+- alias: Entry - Switch1
   trigger:
-  - entity_id: sensor.entry_dimmer_action
+  - entity_id: binary_sensor.entry_switch1
     platform: state
-  condition:
-    - condition: template
-      value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
   action:
     - entity_id: light.bulb_white_3
-      service_template: >
-        {% if trigger.to_state.state == 'on-press' %}light.turn_on
-        {% elif trigger.to_state.state == 'up-press' %}script.noop
-        {% elif trigger.to_state.state == 'down-press' %}light.turn_off
-        {% elif trigger.to_state.state == 'off-press' %}light.turn_off
-        {% endif %}
+      service: light.turn_on
       data:
         transition: 0
-    - entity_id: light.sensor_light
-      service_template: >
-        {% if trigger.to_state.state == 'on-press' %}script.noop
-        {% elif trigger.to_state.state == 'up-press' %}light.turn_on
-        {% elif trigger.to_state.state == 'down-press' %}script.noop
-        {% elif trigger.to_state.state == 'off-press' %}light.turn_off
-        {% endif %}
-      data:
-        transition: 0
+        brightness_pct: 100
     - entity_id: light.bulb_colour_3
-      service_template: >
-        {% if trigger.to_state.state == 'on-press' %}light.turn_on
-        {% elif trigger.to_state.state == 'up-press' %}script.noop
-        {% elif trigger.to_state.state == 'down-press' %}light.turn_on
-        {% elif trigger.to_state.state == 'off-press' %}light.turn_on
-        {% endif %}
-      data_template:
+      service: light.turn_off
+- alias: Entry - Switch2
+  trigger:
+  - entity_id: binary_sensor.entry_switch2
+    platform: state
+  action:
+    - entity_id: light.sensor_light
+      service: light.turn_on
+      data:
         transition: 0
-        color_name: blue
-        brightness_pct: >
-          {% if trigger.to_state.state == 'down-press' %}100
-          {% else %}0
-          {% endif %}
+        brightness_pct: 100
+- alias: Entry - Switch3
+  trigger:
+  - entity_id: binary_sensor.entry_switch3
+    platform: state
+  action:
+    - entity_id: light.bulb_white_3
+      service: light.turn_off
+    - entity_id: light.bulb_colour_3
+      service: light.turn_off
+    - entity_id: light.sensor_light
+      service: light.turn_off
+    

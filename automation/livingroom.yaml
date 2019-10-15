@@ -34,7 +34,6 @@
     data_template:
       entity_id: >
         {% if trigger.to_state.state == "Normal" %}scene.normal
-        {% elif trigger.to_state.state == "Movie" %}scene.movies
         {% elif trigger.to_state.state == "Night" %}scene.night
         {% elif trigger.to_state.state == "TurnOff" %}scene.turn_off
         {% endif %}
@@ -66,9 +65,9 @@
       service: input_select.select_option
       data:
         option: "Normal"
-- alias: Living Room Zemi 1
+- alias: Living Room Switch 1
   trigger:
-    - entity_id: binary_sensor.zemi1_switch1
+    - entity_id: binary_sensor.livingroom_switch1_2
       platform: state
       to: "on"
   condition: []
@@ -77,9 +76,9 @@
       service: input_select.select_option
       data:
         option: "Normal"
-- alias: Living Room Zemi 2
+- alias: Living Room Switch 2
   trigger:
-    - entity_id: binary_sensor.zemi1_switch2
+    - entity_id: binary_sensor.livingroom_switch2_2
       platform: state
       to: "on"
   condition: []
@@ -88,9 +87,9 @@
       service: input_select.select_option
       data:
         option: "Night"
-- alias: Living Room Zemi 3
+- alias: Living Room Switch 3
   trigger:
-    - entity_id: binary_sensor.zemi1_switch3
+    - entity_id: binary_sensor.livingroom_switch3_2
       platform: state
       to: "on"
   condition: []

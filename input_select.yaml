@@ -1,7 +1,6 @@
 livingroom_preset:
   options:
     - Normal
-    - Movie
     - Night
     - TurnOff
 livingroom_amp_input:

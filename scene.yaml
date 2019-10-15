@@ -12,22 +12,9 @@
       state: true
       brightness_pct: 100
       effect: Slow Random Effect
-    switch.zemi1_relay_1:
+    switch.livingroom_relay_1_2:
       state: true
-- name: Movies
-  entities:
-    light.livingroom_light_group:
-      brightness_pct: 40
-      state: true
-      color_name: blue
-    light.kitchen_light_group:
-      brightness_pct: 40
-      state: true
-      color_name: blue
-    light.tv_backlight_2:
-      state: true
-      effect: Slow Random Effect
-    switch.zemi1_relay_1:
+    switch.kitchen_relay_2:
       state: true
 - name: Night
   entities:
@@ -43,7 +30,9 @@
       state: true
       brightness_pct: 100
       effect: Random Twinkle
-    switch.zemi1_relay_1:
+    switch.livingroom_relay_1_2:
+      state: true
+    switch.kitchen_relay_2:
       state: true
 - name: Turn off
   entities:
