@@ -22,7 +22,7 @@ bedroom_lights:
   name: Bedroom
   icon: mdi:bed-empty
   entities:
-    - light.main_bedroom_a_light
+    - light.bedrooma_2
     - light.main_bedroom_b_light
 kitchen_lights:
   name: Kitchen
@@ -53,6 +53,7 @@ all_light_relays:
     - switch.entry_relay_2
     - switch.bedroom_relay_1
     - switch.lucas_relay_1
+    - switch.hallway_relay_1
 all_lights:
   name: All Lights
   entities:
