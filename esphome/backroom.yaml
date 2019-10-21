@@ -46,7 +46,7 @@ binary_sensor:
       inverted: True
     name: "Backroom Switch2"
     on_click:
-      switch.turn_on: relay1
+      switch.toggle: relay1
   - platform: gpio
     pin:
       number: GPIO4

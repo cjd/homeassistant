@@ -48,10 +48,7 @@ binary_sensor:
       inverted: True
     name: "Bedroom Switch2"
     on_click:
-      min_length: 2000ms
-      max_length: 5000ms
-      then:
-        - switch.turn_off: relay1
+      switch.turn_on: relay1
   - platform: gpio
     pin:
       number: GPIO4

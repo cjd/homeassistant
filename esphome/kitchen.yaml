@@ -40,14 +40,16 @@ binary_sensor:
       inverted: True
     name: "Kitchen Switch1"
     on_click:
-      switch.turn_on: relay1
+      - switch.turn_on: relay1
+      - switch.turn_on: relay2
   - platform: gpio
     pin:
       number: GPIO5
       inverted: True
     name: "Kitchen Switch2"
     on_click:
-      switch.turn_on: relay1
+      - switch.turn_on: relay1
+      - switch.turn_on: relay2
   - platform: gpio
     pin:
       number: GPIO4
@@ -58,3 +60,4 @@ binary_sensor:
       max_length: 5000ms
       then:
         - switch.turn_off: relay1
+        - switch.turn_off: relay2

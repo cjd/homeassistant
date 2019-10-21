@@ -1,5 +1,5 @@
 esphome:
-  name: livingroom
+  name: hallway
   platform: ESP8266
   board: esp01_1m
 
@@ -17,19 +17,19 @@ ota:
 
 switch:
   - platform: gpio
-    name: "Livingroom relay 1"
+    name: "Hallway relay 1"
     pin: GPIO13
     id: relay1
   - platform: gpio
-    name: "Livingroom relay 2"
+    name: "Hallway relay 2"
     pin: GPIO12
     id: relay2
   - platform: gpio
-    name: "Livingroom relay 3"
+    name: "Hallway relay 3"
     pin: GPIO14
     id: relay3
   - platform: gpio
-    name: "Livingroom blue LED"
+    name: "Hallway blue LED"
     pin: GPIO2
     inverted: True
     id: blueLED
@@ -39,21 +39,21 @@ binary_sensor:
     pin:
       number: GPIO16
       inverted: True
-    name: "Livingroom Switch1"
+    name: "Hallway Switch1"
     on_click:
       switch.turn_on: relay1
   - platform: gpio
     pin:
       number: GPIO5
       inverted: True
-    name: "Livingroom Switch2"
+    name: "Hallway Switch2"
     on_click:
       switch.turn_on: relay1
   - platform: gpio
     pin:
       number: GPIO4
       inverted: True
-    name: "Livingroom Switch3"
+    name: "Hallway Switch3"
     on_click:
       min_length: 2000ms
       max_length: 5000ms
