@@ -1,35 +1,54 @@
-- alias: Dimmer - Hall
+- alias: Hall Switch1
   trigger:
-  - entity_id: sensor.hall_dimmer_action
+  - entity_id: binary_sensor.hallway_switch1
     platform: state
-  condition:
-    - condition: template
-      value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
+    to: 'on'
+  condition: []
   action:
+    - entity_id: switch.hallway_relay_1
+      service: switch.turn_on
     - entity_id: light.hall_white
       service: light.turn_on
-      data_template:
+      data:
         transition: 0
-        brightness_pct: >
-          {% if trigger.to_state.state == 'on-press' %}100
-          {% elif trigger.to_state.state == 'up-press' %}50
-          {% else %}0
-          {% endif %}
+        brightness_pct: 100
+    - entity_id: light.hall_colour
+      service: light.turn_off
+- alias: Hall Switch2
+  trigger:
+  - entity_id: binary_sensor.hallway_switch2
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+    - entity_id: switch.hallway_relay_1
+      service: switch.turn_on
+    - entity_id: light.hall_white
+      service: light.turn_off
     - entity_id: light.hall_colour
       service: light.turn_on
-      data_template:
+      data:
         transition: 0
         color_name: blue
-        brightness_pct: >
-          {% if trigger.to_state.state == 'down-press' %}50
-          {% else %}0
-          {% endif %}
+        brightness_pct: 50
+- alias: Hall Switch3
+  trigger:
+  - entity_id: binary_sensor.hallway_switch3
+    platform: state
+    to: 'on'
+  condition: []
+  action:
+    - entity_id: light.hall_white
+      service: light.turn_off
+    - entity_id: light.hall_colour
+      service: light.turn_off
 # Change the hall light colour based on time and if the kids lights are on
 - id: hall_nightlight
   alias: Hall nightlight
   trigger:
-    platform: time
-    at: '17:30:00'
+    platform: sun
+    event: sunset
+    offset: "-00:45:00"
   condition: []
   action:
   - service: light.turn_off
@@ -44,8 +63,8 @@
 - id: hall_morning
   alias: Hall morning
   trigger:
-    platform: time
-    at: '06:30:00'
+    platform: sun
+    event: sunrise
   condition: []
   action:
   - service: light.turn_off
