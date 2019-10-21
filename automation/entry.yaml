@@ -2,6 +2,7 @@
   trigger:
   - entity_id: binary_sensor.entry_switch1
     platform: state
+    to: 'on'
   action:
     - entity_id: light.bulb_white_3
       service: light.turn_on
@@ -14,6 +15,7 @@
   trigger:
   - entity_id: binary_sensor.entry_switch2
     platform: state
+    to: 'on'
   action:
     - entity_id: light.sensor_light
       service: light.turn_on
@@ -24,6 +26,7 @@
   trigger:
   - entity_id: binary_sensor.entry_switch3
     platform: state
+    to: 'on'
   action:
     - entity_id: light.bulb_white_3
       service: light.turn_off
