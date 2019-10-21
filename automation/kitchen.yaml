@@ -2,6 +2,7 @@
   trigger:
   - entity_id: binary_sensor.kitchen_switch1
     platform: state
+    to: 'on'
   condition: []
   action:
   - entity_id: switch.kitchen_relay_1
@@ -15,6 +16,7 @@
   trigger:
   - entity_id: binary_sensor.kitchen_switch2
     platform: state
+    to: 'on'
   condition: []
   action:
   - entity_id: switch.kitchen_relay_1
@@ -28,6 +30,7 @@
   trigger:
   - entity_id: binary_sensor.kitchen_switch3
     platform: state
+    to: 'on'
   condition: []
   action:
   - entity_id: light.kitchen_light_group
