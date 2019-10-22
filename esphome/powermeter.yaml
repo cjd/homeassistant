@@ -1,0 +1,35 @@
+esphome:
+  name: powermeter
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: virus
+  password: ithankthegoodness
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+uart:
+  rx_pin: GPIO5
+  tx_pin: GPIO4
+  baud_rate: 9600
+
+sensor:
+  - platform: pzemac
+    current:
+      name: "PZEM-004T V3 Current"
+    voltage:
+      name: "PZEM-004T V3 Voltage"
+    power:
+      name: "PZEM-004T V3 Power"
+    frequency:
+      name: "PZEM-004T V3 Frequency"
+    power_factor:
+      name: "PZEM-004T V3 Power Factor"
+    update_interval: 60s
