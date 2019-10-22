@@ -32,3 +32,7 @@
   entities:
     - light.bulb_color_3
     - light.bulb_white_3
+- platform: switch
+  name: Toilet
+  entity_id:
+    - switch.toilet_light
