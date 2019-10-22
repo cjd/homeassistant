@@ -24,7 +24,15 @@ binary_sensor:
     name: "TV Power Button"
     on_press:
       - switch.toggle: relay
-
+  - platform: template
+    name: "TV Active"
+    lambda: |-
+      if (id(power).state > 100 ) {
+        return true;
+      } else {
+        return false;
+      }
+      
 switch:
   - platform: gpio
     name: "TV Power"
@@ -48,5 +56,5 @@ sensor:
       name: "TV Power Voltage"
     power:
       name: "TV Power Watts"
-    update_interval: 3s
-
+      id: power
+    update_interval: 60s
