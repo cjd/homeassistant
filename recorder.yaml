@@ -143,3 +143,6 @@ exclude:
     - sensor.onhub_packets_sec_sent
     - sensor.onhub_packets_sec_received
     - sensor.load_5m
+    - sensor.tv_power_current
+    - sensor.tv_power_voltage
+    - sensor.backyard_light_linkquality
