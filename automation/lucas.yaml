@@ -7,11 +7,8 @@
   action:
   - entity_id: light.lucas_bedroom_light
     service: light.turn_on
-    data_template:
-      brightness: >
-        {% if state_attr('light.lucas_bedroom_light','brightness') | float > 100 %}0
-        {% else %}255
-        {% endif %}
+    data:
+      brightness_pct: 100
   - entity_id: switch.lucas_relay_1
     service: switch.turn_on
 - alias: Lucas switch2
@@ -21,10 +18,18 @@
     to: "on"
   condition: []
   action:
+  - entity_id: switch.lucas_relay_1
+    service: switch.turn_on
   - entity_id: light.lucas_bedroom_light
     service: light.turn_on
-    data_template:
-      brightness: >
-        {% if state_attr('light.lucas_bedroom_light','brightness') | float == 40 %}0
-        {% else %}40
-        {% endif %}
+    data:
+      brightness_pct: 20
+- alias: Lucas switch3
+  trigger:
+  - entity_id: binary_sensor.lucas_switch3
+    platform: state
+    to: "on"
+  condition: []
+  action:
+  - entity_id: light.lucas_bedroom_light
+    service: light.turn_off
