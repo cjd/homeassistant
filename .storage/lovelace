@@ -273,12 +273,11 @@
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "switch.kitchen_relay_3",
+                                            "entity": "fan.kitchen_fan",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "switch.kitchen_relay_3"
+                                                "entity": "fan.kitchen_fan"
                                             },
-                                            "icon": "mdi:fan",
                                             "name": "Kitchen Fan",
                                             "type": "custom:button-card"
                                         }

@@ -105,6 +105,16 @@ views:
         name: Backroom
         type: custom:button-card
       - color: rgb(5, 147, 255)
+        color-type: card
+        entity: switch.backroom_downlights
+        hold_action:
+          action: more-info
+          entity: switch.backroom_downlights
+        name: Dining
+        type: custom:button-card
+      type: horizontal-stack
+    - cards:
+      - color: rgb(5, 147, 255)
         entity: switch.craftroom_light
         hold_action:
           action: more-info
@@ -112,8 +122,6 @@ views:
         icon: mdi:content-cut
         name: Craft
         type: custom:button-card
-      type: horizontal-stack
-    - cards:
       - color: rgb(5, 147, 255)
         entity: switch.office_light
         hold_action:
@@ -137,6 +145,8 @@ views:
           entity: group.hall_lights
         name: Hall
         type: custom:button-card
+      type: horizontal-stack
+    - cards:
       - color: rgb(5, 147, 255)
         color-type: card
         entity: light.backyard_light
@@ -152,6 +162,23 @@ views:
           action: more-info
           entity: light.sensor_light
         name: Car port
+        type: custom:button-card
+      - color: rgb(5, 147, 255)
+        color-type: card
+        entity: switch.toilet_light
+        hold_action:
+          action: more-info
+          entity: switch.toilet_light
+        icon: mdi:toilet
+        name: Main Toilet
+        type: custom:button-card
+      - color: rgb(5, 147, 255)
+        color-type: card
+        entity: fan.kitchen_fan
+        hold_action:
+          action: more-info
+          entity: fan.kitchen_fan
+        name: Kitchen Fan
         type: custom:button-card
       type: horizontal-stack
     - color: rgb(44, 109, 214)
@@ -425,6 +452,8 @@ views:
     type: entities
   - entities:
     - entity: switch.office_speaker
+    - entity: switch.kitchen_relay_3
+    - entity: group.all_light_relays
     show_header_toggle: false
     title: Switches
     type: entities
@@ -619,13 +648,5 @@ views:
       type: cast
       view: 6
     type: entities
-  - entity: group.all_light_relays
-    hold_action:
-      action: more-info
-    show_icon: true
-    show_name: true
-    tap_action:
-      action: more-info
-    type: entity-button
   icon: mdi:settings
   title: ''
