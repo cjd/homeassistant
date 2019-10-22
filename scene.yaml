@@ -34,10 +34,16 @@
       state: true
     switch.kitchen_relay_2:
       state: true
+    light.backroom_middle:
+      state: true
+      brightness_pct: 50
+      color_name: blue
+      white_value: 1
 - name: Turn off
   entities:
     light.kitchen_light_group: false
     light.livingroom_light_group: false
+    light.backroom_middle: false
     light.tv_backlight_2:
       state: true
       brightness_pct: 100
