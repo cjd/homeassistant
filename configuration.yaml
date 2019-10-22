@@ -58,6 +58,7 @@ upnp:
   sensors: true
   local_ip: 192.168.86.2
 
+fan: !include fan.yaml
 telegram_bot: !include telegram_bot.yaml
 netatmo: !include netatmo.yaml
 mqtt: !include mqtt.yaml

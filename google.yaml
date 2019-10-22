@@ -24,8 +24,6 @@ entity_config:
     expose: true
   scene.all_off:
     expose: true
-  scene.movies:
-    expose: true
   scene.night:
     expose: true
   scene.normal:
@@ -65,4 +63,8 @@ entity_config:
   light.entry_light_group:
     expose: true
   switch.power2:
+    expose: true
+  fan.kitchen_fan:
+    expose: true
+  light.toilet:
     expose: true
