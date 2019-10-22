@@ -9,6 +9,8 @@
     data_template:
       transition: 1
       brightness_pct: 100
+      white_value: 255
+      color_temp: 370
 - alias: Backroom Switch2
   trigger:
   - entity_id: binary_sensor.backroom_switch2

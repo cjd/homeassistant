@@ -1,8 +1,8 @@
 - platform: group
   name: Backroom Light Group
   entities:
-    - light.backroom_middle_light                                                                    
-    - light.backroom_right_light                                                                     
+    - light.backroom_middle
+    - light.backroom_right_light
     - light.craftarea_light
 - platform: group
   name: Kitchen Light Group
@@ -14,12 +14,12 @@
   name: Bedroom Light Group
   entities:
     - light.bedrooma_2
-    - light.main_bedroom_b_light
+    - light.bedroomb
 - platform: group
   name: Livingroom Light Group
   entities:
-    - light.livingroom_main_a_light                                                                  
-    - light.livingroom_main_b_light                                                                  
+    - light.livingroom_main_a_light
+    - light.livingroom_main_b_light
     - light.livingroom_side
     - light.livingroom_a
 - platform: group
