@@ -25,6 +25,10 @@ switch:
     pin: GPIO12
     id: relay2
   - platform: gpio
+    name: "Lucas relay 3"
+    pin: GPIO14
+    id: relay3
+  - platform: gpio
     name: "Lucas blue LED"
     pin: GPIO2
     inverted: True
@@ -44,6 +48,16 @@ binary_sensor:
       number: GPIO5
       inverted: True
     name: "Lucas Switch2"
+    on_click:
+      min_length: 2000ms
+      max_length: 5000ms
+      then:
+        - switch.turn_off: relay1
+  - platform: gpio
+    pin:
+      number: GPIO4
+      inverted: True
+    name: "Lucas Switch3"
     on_click:
       min_length: 2000ms
       max_length: 5000ms
