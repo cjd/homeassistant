@@ -40,6 +40,7 @@
             entity_id: light.backroom_light_group
             brightness_pct: 100
             color_temp: 370
+            white_value: 255
             transition: 1
       turn_off:
         service: light.turn_off

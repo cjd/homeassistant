@@ -7,8 +7,8 @@ backroom_lights:
   icon: mdi:castle
   entities:
     - light.backroom_middle
-    - light.backroom_right_light
-    - light.craftarea_light
+    - light.backroom_right
+    - light.backroom_left
 livingroom_lights:
   name: Living Room
   icon: mdi:sofa

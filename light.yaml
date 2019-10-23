@@ -2,8 +2,8 @@
   name: Backroom Light Group
   entities:
     - light.backroom_middle
-    - light.backroom_right_light
-    - light.craftarea_light
+    - light.backroom_left
+    - light.backroom_right
 - platform: group
   name: Kitchen Light Group
   entities:
