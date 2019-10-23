@@ -22,8 +22,8 @@ bedroom_lights:
   name: Bedroom
   icon: mdi:bed-empty
   entities:
-    - light.bedrooma_2
-    - light.main_bedroom_b_light
+    - light.bedrooma
+    - light.bedroomb
 kitchen_lights:
   name: Kitchen
   icon: mdi:fridge

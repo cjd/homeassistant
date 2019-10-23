@@ -13,7 +13,7 @@
 - platform: group
   name: Bedroom Light Group
   entities:
-    - light.bedrooma_2
+    - light.bedrooma
     - light.bedroomb
 - platform: group
   name: Livingroom Light Group
