@@ -48,7 +48,7 @@ all_light_relays:
   entities:
     - switch.kitchen_relay_1
     - switch.kitchen_relay_2
-    - switch.livingroom_relay_1_2
+    - switch.livingroom_relay_1
     - switch.entry_relay_1
     - switch.entry_relay_2
     - switch.bedroom_relay_1
@@ -71,4 +71,4 @@ all_strips:
   name: All Strips
   entities:
     - light.family_room_strip
-    - light.tv_backlight_2
+    - light.tv_backlight

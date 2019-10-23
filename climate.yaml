@@ -3,7 +3,7 @@
 - platform: generic_thermostat
   name: Office
   heater: switch.koganpow1
-  target_sensor: sensor.office_temperature_2
+  target_sensor: sensor.office_temperature
   initial_hvac_mode: "off"
 - platform: generic_thermostat
   name: Lucas Bedroom

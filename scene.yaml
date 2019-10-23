@@ -8,11 +8,11 @@
       brightness_pct: 100
       color_temp: 333
       state: true
-    light.tv_backlight_2:
+    light.tv_backlight:
       state: true
       brightness_pct: 100
       effect: Slow Random Effect
-    switch.livingroom_relay_1_2:
+    switch.livingroom_relay_1:
       state: true
     switch.kitchen_relay_2:
       state: true
@@ -26,11 +26,11 @@
       state: true
       brightness_pct: 20
       color_name: blue
-    light.tv_backlight_2:
+    light.tv_backlight:
       state: true
       brightness_pct: 100
       effect: Random Twinkle
-    switch.livingroom_relay_1_2:
+    switch.livingroom_relay_1:
       state: true
     switch.kitchen_relay_2:
       state: true
@@ -44,7 +44,7 @@
     light.kitchen_light_group: false
     light.livingroom_light_group: false
     light.backroom_middle: false
-    light.tv_backlight_2:
+    light.tv_backlight:
       state: true
       brightness_pct: 100
       effect: Random Twinkle
@@ -62,7 +62,7 @@
     light.entry_light_group: false
     light.sensor_light: false
     light.backyard_light: false
-    light.tv_backlight_2:
+    light.tv_backlight:
       state: true
       brightness_pct: 100
       effect: Random Twinkle

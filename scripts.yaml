@@ -9,7 +9,7 @@ leaving_home:
         entity_id: group.all_lights
     - service: light.turn_on
       data:
-        entity_id: light.tv_backlight_2
+        entity_id: light.tv_backlight
         state: true
         brightness_pct:  100
         effect: Random Twinkle

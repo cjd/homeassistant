@@ -67,7 +67,7 @@
         option: "Normal"
 - alias: Living Room Switch 1
   trigger:
-    - entity_id: binary_sensor.livingroom_switch1_2
+    - entity_id: binary_sensor.livingroom_switch1
       platform: state
       to: "on"
   condition: []
@@ -78,7 +78,7 @@
         option: "Normal"
 - alias: Living Room Switch 2
   trigger:
-    - entity_id: binary_sensor.livingroom_switch2_2
+    - entity_id: binary_sensor.livingroom_switch2
       platform: state
       to: "on"
   condition: []
@@ -89,7 +89,7 @@
         option: "Night"
 - alias: Living Room Switch 3
   trigger:
-    - entity_id: binary_sensor.livingroom_switch3_2
+    - entity_id: binary_sensor.livingroom_switch3
       platform: state
       to: "on"
   condition: []
