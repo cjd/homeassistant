@@ -47,6 +47,10 @@
                     "url": "/community_plugin/bom-weather-card/bom-weather-card.js"
                 },
                 {
+                    "type": "module",
+                    "url": "/community_plugin/rgb-light-card/card.js"
+                },
+                {
                     "type": "js",
                     "url": "/community_plugin/synthwave-hass-extras/synthwave-hass-extras.js"
                 }
@@ -63,6 +67,9 @@
                     ],
                     "cards": [
                         {
+                            "card": {
+                                "type": "glance"
+                            },
                             "entities": [
                                 {
                                     "entity": "binary_sensor.hall_smoke",
@@ -116,7 +123,7 @@
                                             "entity": "switch.lucas_bedroom_light",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.lucas_bedroom_light"
+                                                "entity": "light.lucas_bedroom"
                                             },
                                             "icon": "mdi:bed-empty",
                                             "name": "Lucas",
@@ -499,7 +506,7 @@
                                     "name": "Backyard Temperature"
                                 },
                                 {
-                                    "entity": "sensor.office_temperature_2"
+                                    "entity": "sensor.office_temperature"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -545,10 +552,11 @@
                                     "name": "Backyard Temperature"
                                 },
                                 {
-                                    "entity": "sensor.office_temperature_2"
+                                    "entity": "sensor.office_temperature"
                                 }
                             ],
-                            "hours_to_show": 48,
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
                             "type": "history-graph"
                         },
                         {
@@ -627,6 +635,37 @@
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
+                                    "colors": [
+                                        {
+                                            "color_name": "red",
+                                            "icon_color": "red"
+                                        },
+                                        {
+                                            "color_name": "green",
+                                            "icon_color": "green"
+                                        },
+                                        {
+                                            "color_name": "blue",
+                                            "icon_color": "blue"
+                                        },
+                                        {
+                                            "color_name": "yellow",
+                                            "icon_color": "yellow"
+                                        },
+                                        {
+                                            "color_name": "purple",
+                                            "icon_color": "purple"
+                                        },
+                                        {
+                                            "color_name": "white",
+                                            "icon_color": "white"
+                                        }
+                                    ],
+                                    "entity": "light.livingroom_light_group",
+                                    "justify": "center",
+                                    "type": "custom:rgb-light-card"
+                                },
+                                {
                                     "entity": "light.office_light",
                                     "type": "custom:slider-entity-row"
                                 },
@@ -680,7 +719,7 @@
                                             }
                                         }
                                     ],
-                                    "entity": "light.tv_backlight_2",
+                                    "entity": "light.tv_backlight",
                                     "hideBrightness": true,
                                     "hideColorTemp": true,
                                     "showColorSliders": false,
@@ -795,7 +834,7 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "media_player.livingroom_tv",
+                            "entity": "media_player.living_room_tv_2",
                             "hide": {
                                 "mute": true
                             },
