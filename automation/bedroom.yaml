@@ -30,7 +30,7 @@
     service: light.turn_on
     data:
       entity_id: light.bedroom_light_group
-      brightness_pct: 1
+      brightness: 1
       white_value: 125
       transition: 300
       color_temp: 370
@@ -51,7 +51,7 @@
       white_value: >
         {% if trigger.to_state.state == 'on-press' %} 255
         {% elif trigger.to_state.state == 'up-press' %} 125
-        {% elif trigger.to_state.state == 'down-press' %} 10
+        {% elif trigger.to_state.state == 'down-press' %} 30
         {% elif trigger.to_state.state == 'off-press' %} 0
         {% endif %}
   - entity_id: switch.bedroom_relay_1
