@@ -33,4 +33,7 @@ binary_sensor:
       inverted: True
     name: "Toilet Switch"
     on_click:
-      switch.toggle: relay1
+      min_length: 50ms
+      max_length: 5000ms
+      then:
+        switch.toggle: relay1
