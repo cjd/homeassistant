@@ -98,19 +98,20 @@
             entity_id: light.bedroom_light_group
             transition: 1
     lucas_bedroom_light:
-      value_template: "{{ states('light.lucas_bedroom_light') }}"
+      value_template: "{{ states('light.lucas_bedroom') }}"
       icon_template: mdi:bed-empty
       friendly_name: "Lucas Bedroom"
       turn_on:
         service: light.turn_on
         data:
-            entity_id: light.lucas_bedroom_light
-            brightness_pct: 100
+            entity_id: light.lucas_bedroom
+            brightness_pct: 1
+            white_value: 255
             transition: 1
       turn_off:
         service: light.turn_off
         data:
-            entity_id: light.lucas_bedroom_light
+            entity_id: light.lucas_bedroom
             transition: 1
     xander_bedroom_light:
       value_template: "{{ states('light.xander_bedroom_light') }}"

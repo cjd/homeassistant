@@ -12,6 +12,8 @@ logger:
 api:
 
 ota:
+web_server:
+  port: 80
 
 output:
   - platform: esp8266_pwm
