@@ -4,13 +4,10 @@
     platform: state
     to: 'on'
   action:
-    - entity_id: light.bulb_white_3
+    - entity_id: light.entry
       service: light.toggle
       data:
-        transition: 0
         brightness_pct: 100
-    - entity_id: light.bulb_colour_3
-      service: light.turn_off
 - alias: Entry - Switch2
   trigger:
   - entity_id: binary_sensor.entry_switch2

@@ -6,9 +6,9 @@ backroom_lights:
   name: Back room
   icon: mdi:castle
   entities:
-    - light.backroom_middle2
-    - light.backroom_right_2
-    - light.backroom_left_2
+    - light.backroom_middle
+    - light.backroom_right
+    - light.backroom_left
 livingroom_lights:
   name: Living Room
   icon: mdi:sofa
@@ -39,8 +39,7 @@ entry_lights:
   name: Entry
   icon: mdi:door
   entities:
-    - light.bulb_white_3
-    - light.bulb_colour_3
+    - light.entry
 all_light_relays:
   name: Light Master Switch
   icon: mdi:crown

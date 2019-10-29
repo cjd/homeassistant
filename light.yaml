@@ -1,9 +1,9 @@
 - platform: group
   name: Backroom Light Group
   entities:
-    - light.backroom_middle2
-    - light.backroom_left_2
-    - light.backroom_right_2
+    - light.backroom_middle
+    - light.backroom_left
+    - light.backroom_right
 - platform: group
   name: Kitchen Light Group
   entities:

@@ -3,6 +3,7 @@
         "config": {
             "cch": {
                 "swipe": true,
+                "swipe_animate": "swipe",
                 "voice": "hide"
             },
             "resources": [
