@@ -20,8 +20,9 @@
   entities:
     light.kitchen_light_group:
       state: true
-      brightness_pct: 20
+      brightness_pct: 50
       color_name: blue
+      white_value: 1
     light.livingroom_light_group:
       state: true
       brightness_pct: 20

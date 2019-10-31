@@ -7,8 +7,8 @@
 - platform: group
   name: Kitchen Light Group
   entities:
-    - light.kitchen_front_light
-    - light.kitchen_back_light
+    - light.kitchen_front
+    - light.kitchen_back
     - light.kitchen_counter_light
 - platform: group
   name: Bedroom Light Group

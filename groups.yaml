@@ -27,8 +27,8 @@ kitchen_lights:
   name: Kitchen
   icon: mdi:fridge
   entities:
-    - light.kitchen_back_light
-    - light.kitchen_front_light
+    - light.kitchen_back
+    - light.kitchen_front
     - light.kitchen_counter_light
 hall_lights:
   name: Hall
