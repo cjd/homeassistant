@@ -5,6 +5,10 @@
     - platform: homeassistant
       event: start
   action:
-    service: frontend.set_theme
-    data:
-      name: "blue_night"
+    - service: frontend.set_theme
+      data:
+        name: "blue_night"
+    - service: mqtt.publish
+      data:
+        topic: "sonoffs/cmnd/state"
+        payload: ""
