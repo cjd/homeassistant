@@ -1,7 +1,7 @@
 esphome:
   name: powermeter
   platform: ESP8266
-  board: d1_mini
+  board: esp01_1m
 
 wifi:
   ssid: virus
@@ -9,6 +9,7 @@ wifi:
 
 # Enable logging
 logger:
+  baud_rate: 0
 
 # Enable Home Assistant API
 api:
@@ -16,8 +17,8 @@ api:
 ota:
 
 uart:
-  rx_pin: GPIO5
-  tx_pin: GPIO4
+  rx_pin: GPIO3
+  tx_pin: GPIO1
   baud_rate: 9600
 
 sensor:
