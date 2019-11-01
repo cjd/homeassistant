@@ -1,3 +1,7 @@
+tasmoadmin:
+  title: 'TasmoAdmin'
+  url: 'https://home.adebenham.com/int/tasmo/'
+  icon: mdi:settings-box
 portainer:
   title: 'Portainer'
   url: 'https://home.adebenham.com/int/portainer/'

@@ -1041,10 +1041,12 @@
                         },
                         {
                             "entities": [
-                                "sensor.house_power",
-                                "sensor.tv_power_watts"
+                                {
+                                    "entity": "sensor.tv_power_watts"
+                                }
                             ],
                             "hours_to_show": 24,
+                            "refresh_interval": 0,
                             "type": "history-graph"
                         },
                         {

@@ -7,13 +7,13 @@
   action:
     - entity_id: switch.hallway_relay_1
       service: switch.turn_on
-    - entity_id: light.hall_white
+    - entity_id: light.hallbulb
       service: light.turn_on
       data:
         transition: 0
         brightness_pct: 100
-    - entity_id: light.hall_colour
-      service: light.turn_off
+        color_name: white
+        white_value: 255
 - alias: Hall Switch2
   trigger:
   - entity_id: binary_sensor.hallway_switch2
@@ -23,14 +23,13 @@
   action:
     - entity_id: switch.hallway_relay_1
       service: switch.turn_on
-    - entity_id: light.hall_white
-      service: light.turn_off
-    - entity_id: light.hall_colour
+    - entity_id: light.hallbulb
       service: light.turn_on
       data:
         transition: 0
         color_name: blue
-        brightness_pct: 50
+        brightness: 80
+        white_value: 1
 - alias: Hall Switch3
   trigger:
   - entity_id: binary_sensor.hallway_switch3
@@ -38,9 +37,7 @@
     to: 'on'
   condition: []
   action:
-    - entity_id: light.hall_white
-      service: light.turn_off
-    - entity_id: light.hall_colour
+    - entity_id: light.hallbulb
       service: light.turn_off
 # Change the hall light colour based on time and if the kids lights are on
 - id: hall_nightlight
@@ -51,15 +48,13 @@
     offset: "-00:45:00"
   condition: []
   action:
-  - service: light.turn_off
-    data:
-      entity_id: light.hall_colour
-      transition: 0
   - service: light.turn_on
     data:
-      entity_id: light.hall_white
+      entity_id: light.hallbulb
       transition: 0
       brightness_pct: 50
+      white_value: 120
+      color_name: white
 - id: hall_morning
   alias: Hall morning
   trigger:
@@ -69,10 +64,7 @@
   action:
   - service: light.turn_off
     data:
-      entity_id: light.hall_colour
-  - service: light.turn_off
-    data:
-      entity_id: light.hall_white
+      entity_id: light.hallbulb
 - id: hall_kidslightson
   alias: Hall Kids lights on
   trigger:
@@ -88,15 +80,13 @@
         after: '19:00:00'
         before: '06:00:00'
   action:
-    - service: light.turn_off
-      data:
-        entity_id: light.hall_colour
-        transition: 0
     - service: light.turn_on
       data:
-        entity_id: light.hall_white
+        entity_id: light.hallbulb
         transition: 0
         brightness_pct: 50
+        white_value: 120
+        color_name: white
 - id: hall_kidslightsoff
   alias: Hall Kids lights off
   trigger:
@@ -114,11 +104,8 @@
   action:
     - service: light.turn_on
       data:
-        entity_id: light.hall_colour
+        entity_id: light.hallbulb
         transition: 0
         color_name: blue
         brightness_pct: 50
-    - service: light.turn_off
-      data:
-        entity_id: light.hall_white
-        transition: 0
+        white_value: 1

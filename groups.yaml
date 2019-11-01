@@ -33,8 +33,7 @@ kitchen_lights:
 hall_lights:
   name: Hall
   entities:
-    - light.hall_white
-    - light.hall_colour
+    - light.hallbulb
 entry_lights:
   name: Entry
   icon: mdi:door

@@ -8,6 +8,7 @@
       brightness_pct: 100
       color_temp: 333
       state: true
+      white_value: 255
     light.tv_backlight:
       state: true
       brightness_pct: 100
