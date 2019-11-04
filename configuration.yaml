@@ -6,6 +6,7 @@ homeassistant:
   unit_system: metric
   time_zone: Australia/Sydney
   customize: !include customize.yaml
+  packages: !include_dir_named packages
 
 frontend:
   themes: !include_dir_merge_named themes/

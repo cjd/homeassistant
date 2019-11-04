@@ -1,0 +1,48 @@
+automation:
+  - alias: Office light
+    id: office_light
+    trigger:
+    - entity_id: sensor.office_dimmer_action
+      platform: state
+    condition:
+      - condition: template
+        value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
+    action:
+    - entity_id: switch.office_speaker
+      service_template: >
+          {% if trigger.to_state.state == 'on-press' %}switch.turn_on
+          {% elif trigger.to_state.state == 'up-press' %}switch.turn_on
+          {% elif trigger.to_state.state == 'down-press' %}switch.turn_off
+          {% elif trigger.to_state.state == 'off-press' %}switch.turn_off
+          {% endif %}
+    - entity_id: light.office_light_light
+      service: light.turn_on
+      data_template:
+        transition: 1
+        brightness_pct: >
+          {% if trigger.to_state.state == 'on-press' %}100
+          {% elif trigger.to_state.state == 'up-press' %} 50
+          {% elif trigger.to_state.state == 'down-press' %}1
+          {% elif trigger.to_state.state == 'off-press' %}0
+          {% endif %}
+switch:
+  - platform: template
+    switches:
+      office_light:
+        value_template: "{{ states('light.office_light_light') }}"
+        icon_template: mdi:desktop-classic
+        friendly_name: "Office"
+        turn_on:
+          - service: light.turn_on
+            data:
+              entity_id: light.office_light_light
+              brightness_pct: 100
+              transition: 1
+          - service: light.turn_on
+            data:
+              entity_id: light.office_light_light
+        turn_off:
+          service: light.turn_off
+          data:
+              entity_id: light.office_light_light
+              transition: 1
