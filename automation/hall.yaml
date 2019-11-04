@@ -27,9 +27,9 @@
       service: light.turn_on
       data:
         transition: 0
-        color_name: blue
-        brightness: 80
-        white_value: 1
+        color_name: white
+        brightness: 40
+        white_value: 40
 - alias: Hall Switch3
   trigger:
   - entity_id: binary_sensor.hallway_switch3
@@ -69,12 +69,12 @@
   alias: Hall Kids lights on
   trigger:
     - platform: state
-      entity_id: light.xander_bedroom_light
+      entity_id: light.xander_bedroom_light_light
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: light.xander_bedroom_light
+        entity_id: light.xander_bedroom_light_light
         state: 'on'
       - condition: time
         after: '19:00:00'
@@ -91,12 +91,12 @@
   alias: Hall Kids lights off
   trigger:
     - platform: state
-      entity_id: light.xander_bedroom_light
+      entity_id: light.xander_bedroom_light_light
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: light.xander_bedroom_light
+        entity_id: light.xander_bedroom_light_light
         state: 'off'
       - condition: time
         after: '19:00:00'
@@ -108,4 +108,3 @@
         transition: 0
         color_name: blue
         brightness_pct: 50
-        white_value: 1

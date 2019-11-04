@@ -24,7 +24,7 @@
             entity_id: light.kitchen_light_group
             brightness_pct: 100
             transition: 1
-            color_temp: 333
+            color_temp: 370
       turn_off:
         service: light.turn_off
         data:
@@ -50,35 +50,18 @@
     craftroom_light:
       icon_template: mdi:content-cut
       friendly_name: "Craft"
-      value_template: "{{ states('light.craftroom_light') }}"
+      value_template: "{{ states('light.craft_room') }}"
       turn_on:
         service: light.turn_on
         data:
-            entity_id: light.craftroom_light
+            entity_id: light.craft_room
             brightness_pct: 100
+            color_temp: 370
             transition: 1
       turn_off:
         service: light.turn_off
         data:
-            entity_id: light.craftroom_light
-            transition: 1
-    office_light:
-      value_template: "{{ states('light.office_light') }}"
-      icon_template: mdi:desktop-classic
-      friendly_name: "Office"
-      turn_on:
-        - service: light.turn_on
-          data:
-            entity_id: light.office_light
-            brightness_pct: 100
-            transition: 1
-        - service: light.turn_on
-          data:
-            entity_id: light.office_light
-      turn_off:
-        service: light.turn_off
-        data:
-            entity_id: light.office_light
+            entity_id: light.craft_room
             transition: 1
     bedroom_light_group:
       value_template: "{{ states('light.bedroom_light_group') }}"
@@ -88,8 +71,7 @@
         service: light.turn_on
         data:
             entity_id: light.bedroom_light_group
-            brightness: 1
-            white_value: 255
+            brightness_pct: 100
             color_temp: 370
             transition: 1
       turn_off:
@@ -98,35 +80,35 @@
             entity_id: light.bedroom_light_group
             transition: 1
     lucas_bedroom_light:
-      value_template: "{{ states('light.lucas_bedroom') }}"
+      value_template: "{{ states('light.lucas') }}"
       icon_template: mdi:bed-empty
       friendly_name: "Lucas Bedroom"
       turn_on:
         service: light.turn_on
         data:
-            entity_id: light.lucas_bedroom
+            entity_id: light.lucas
             brightness_pct: 1
             white_value: 255
             transition: 1
       turn_off:
         service: light.turn_off
         data:
-            entity_id: light.lucas_bedroom
+            entity_id: light.lucas
             transition: 1
     xander_bedroom_light:
-      value_template: "{{ states('light.xander_bedroom_light') }}"
+      value_template: "{{ states('light.xander_bedroom_light_light') }}"
       icon_template: mdi:bed-empty
       friendly_name: "Xander Bedroom"
       turn_on:
         service: light.turn_on
         data:
-            entity_id: light.xander_bedroom_light
+            entity_id: light.xander_bedroom_light_light
             brightness_pct: 100
             transition: 1
       turn_off:
         service: light.turn_off
         data:
-            entity_id: light.xander_bedroom_light
+            entity_id: light.xander_bedroom_light_light
             transition: 1
     entry_lights:
       value_template: "{{ states('group.entry_lights') }}"

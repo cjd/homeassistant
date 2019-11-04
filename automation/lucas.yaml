@@ -5,7 +5,7 @@
     to: "on"
   condition: []
   action:
-  - entity_id: light.lucas_bedroom
+  - entity_id: light.lucas
     service: light.turn_on
     data:
       brightness_pct: 1
@@ -21,7 +21,7 @@
   action:
   - entity_id: switch.lucas_relay_1
     service: switch.turn_on
-  - entity_id: light.lucas_bedroom
+  - entity_id: light.lucas
     service: light.turn_on
     data:
       white_value: 120
@@ -33,5 +33,5 @@
     to: "on"
   condition: []
   action:
-  - entity_id: light.lucas_bedroom
+  - entity_id: light.lucas
     service: light.turn_off

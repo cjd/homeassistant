@@ -42,11 +42,11 @@ entity_config:
     expose: true
   light.sensor_light:
     expose: true
-  light.office_light:
+  light.office_light_light:
     expose: true
-  light.lucas_bedroom:
+  light.lucas:
     expose: true
-  light.craftroom_light:
+  light.craft_room:
     expose: true
   light.backroom_light_group:
     expose: true
@@ -56,7 +56,7 @@ entity_config:
     expose: true
   light.livingroom_light_group:
     expose: true
-  light.xander_bedroom_light:
+  light.xander_bedroom_light_light:
     expose: true
   light.hall_light_group:
     expose: true

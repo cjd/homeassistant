@@ -41,7 +41,7 @@
   action:
     service: light.turn_on
     data:
-      entity_id: light.backyard_light
+      entity_id: light.backyard_light_light
 - alias: Backyard light - night on
   trigger:
     - platform: state
@@ -57,11 +57,11 @@
 - alias: Backdoor switch on
   trigger:
     - platform: state
-      entity_id: light.backyard_light
+      entity_id: light.backyard_light_light
       to: 'on'
   condition: []
   action:
     - service: light.turn_on
       data:
-        entity_id: light.backyard_light
+        entity_id: light.backyard_light_light
         brightness_pct: 100

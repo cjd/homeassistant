@@ -13,6 +13,7 @@
       transition: 1
       brightness_pct: 100
       white_value: 255
+      color_temp: 370
 - alias: Kitchen - Switch2
   trigger:
   - entity_id: binary_sensor.kitchen_switch2
@@ -28,6 +29,7 @@
       transition: 1
       brightness_pct: 40
       white_value: 155
+      color_temp: 370
 - alias: Kitchen - Switch3
   trigger:
   - entity_id: binary_sensor.kitchen_switch3

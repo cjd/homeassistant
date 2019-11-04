@@ -6,7 +6,7 @@
     - condition: template
       value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
   action:
-  - entity_id: light.xander_bedroom_light
+  - entity_id: light.xander_bedroom_light_light
     service: light.turn_on
     data_template:
       transition: 1

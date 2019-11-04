@@ -11,6 +11,13 @@
       brightness_pct: 100
       white_value: 255
       color_temp: 370
+  - entity_id: light.craft_room
+    service: light.turn_on
+    data_template:
+      transition: 1
+      brightness_pct: 100
+      white_value: 255
+      color_temp: 370
 - alias: Backroom Switch2
   trigger:
   - entity_id: binary_sensor.backroom_switch2
@@ -26,6 +33,8 @@
     to: 'on'
   action:
   - entity_id: light.backroom_light_group
+    service: light.turn_off
+  - entity_id: light.craft_room
     service: light.turn_off
   - entity_id: switch.backroom_relay_1
     service: switch.turn_off

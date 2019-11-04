@@ -6,9 +6,10 @@
     - condition: template
       value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
   action:
-  - entity_id: light.craftroom_light
+  - entity_id: light.craft_room
     service: light.turn_on
     data_template:
+      color_temp: 370
       brightness_pct: >
         {% if trigger.to_state.state == 'on-press' %} 100
         {% elif trigger.to_state.state == 'up-press' %} 50

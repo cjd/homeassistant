@@ -61,9 +61,9 @@ all_lights:
     - group.kitchen_lights
     - group.livingroom_lights
     - light.lucas_bedroom_light
-    - light.office_light
-    - light.xander_bedroom_light
-    - light.craftroom_light
+    - light.office_light_light
+    - light.xander_bedroom_light_light
+    - light.craft_room
 all_strips:
   name: All Strips
   entities:

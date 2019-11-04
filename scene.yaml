@@ -54,12 +54,12 @@
   entities:
     light.backroom_light_group: false
     light.livingroom_light_group: false
-    light.office_light: false
+    light.office_light_light: false
     light.bedroom_light_group: false
-    light.craftroom_light: false
+    light.craft_room: false
     light.kitchen_light_group: false
-    light.xander_bedroom_light: false
-    light.lucas_bedroom_light: false
+    light.xander_bedroom_light_light: false
+    light.lucas_bedroom: false
     light.hall_light_group: false
     light.entry_light_group: false
     light.sensor_light: false
