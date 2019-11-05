@@ -1,7 +1,5 @@
 sensor.bom_gosford_cloud_oktas:
   hidden: true
-person.chris:
-  icon: mdi:person
 sensor.netatmo_indoor_co2:
   friendly_name: Indoor CO2
 sensor.netatmo_indoor_humidity:

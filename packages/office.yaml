@@ -1,3 +1,37 @@
+light:
+  - platform: group
+    name: Office Lights
+    entities:
+      - light.office_light_light
+
+switch:
+  - platform: template
+    switches:
+      office_lights:
+        value_template: "{{ states('light.office_lights') }}"
+        icon_template: mdi:desktop-classic
+        friendly_name: "Office"
+        turn_on:
+          - service: light.turn_on
+            data:
+              entity_id: light.office_lights
+              brightness_pct: 100
+              transition: 1
+          - service: light.turn_on
+            data:
+              entity_id: light.office_lights
+        turn_off:
+          service: light.turn_off
+          data:
+              entity_id: light.office_lights
+              transition: 1
+climate:
+  - platform: generic_thermostat
+    name: Office
+    heater: switch.koganpow1
+    target_sensor: sensor.office_temperature
+    initial_hvac_mode: "off"
+
 automation:
   - alias: Office light
     id: office_light
@@ -15,7 +49,7 @@ automation:
           {% elif trigger.to_state.state == 'down-press' %}switch.turn_off
           {% elif trigger.to_state.state == 'off-press' %}switch.turn_off
           {% endif %}
-    - entity_id: light.office_light_light
+    - entity_id: light.office_lights
       service: light.turn_on
       data_template:
         transition: 1
@@ -25,24 +59,3 @@ automation:
           {% elif trigger.to_state.state == 'down-press' %}1
           {% elif trigger.to_state.state == 'off-press' %}0
           {% endif %}
-switch:
-  - platform: template
-    switches:
-      office_light:
-        value_template: "{{ states('light.office_light_light') }}"
-        icon_template: mdi:desktop-classic
-        friendly_name: "Office"
-        turn_on:
-          - service: light.turn_on
-            data:
-              entity_id: light.office_light_light
-              brightness_pct: 100
-              transition: 1
-          - service: light.turn_on
-            data:
-              entity_id: light.office_light_light
-        turn_off:
-          service: light.turn_off
-          data:
-              entity_id: light.office_light_light
-              transition: 1

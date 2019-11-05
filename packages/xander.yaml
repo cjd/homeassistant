@@ -1,0 +1,52 @@
+light:
+  - platform: group
+    name: Xander Lights
+    entities:
+      - light.xander_bedroom_light_light
+
+switch:
+  - platform: template
+    switches:
+      xander_lights:
+        value_template: "{{ states('light.xander_lights') }}"
+        icon_template: mdi:bed-empty
+        friendly_name: "Xander Bedroom"
+        turn_on:
+          service: light.turn_on
+          data:
+              entity_id: light.xander_lights
+              brightness_pct: 100
+              transition: 1
+        turn_off:
+          service: light.turn_off
+          data:
+              entity_id: light.xander_lights
+              transition: 1
+    
+
+climate:
+  - platform: generic_thermostat
+    name: Xander Bedroom
+    heater: switch.xander_heater
+    target_sensor: sensor.xander_bedroom_sensor_temperature
+    initial_hvac_mode: "off"
+
+automation:
+  - alias: Dimmer - Xander Bedroom
+    trigger:
+    - entity_id: sensor.xander_dimmer_action
+      platform: state
+    condition:
+      - condition: template
+        value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
+    action:
+    - entity_id: light.xander_lights
+      service: light.turn_on
+      data_template:
+        transition: 1
+        brightness_pct: >
+          {% if trigger.to_state.state == 'on-press' %} 100
+          {% elif trigger.to_state.state == 'up-press' %} 50
+          {% elif trigger.to_state.state == 'down-press' %} 1
+          {% elif trigger.to_state.state == 'off-press' %} 0
+          {% endif %}

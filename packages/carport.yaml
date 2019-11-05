@@ -1,0 +1,86 @@
+light:
+  - platform: group
+    name: Carport Lights
+    entities:
+      - light.sensor_light
+
+switch:
+  - platform: template
+    switches:
+      front_lights:
+        value_template: "{{ states('light.carport_lights') }}"
+        icon_template: mdi:car
+        friendly_name: "Front"
+        turn_on:
+          service: light.turn_on
+          data:
+              entity_id: light.carport_lights
+              brightness_pct: 100
+        turn_off:
+          service: light.turn_off
+          data:
+              entity_id: light.carport_lights
+
+automation:
+  - id: door_motion_on
+    alias: Carport - Turn on sensor light on movement
+    trigger:
+      - platform: state
+        entity_id:  binary_sensor.motion_a_occupancy
+        to: 'on'
+      - platform: state
+        entity_id:  binary_sensor.entry_motion_occupancy
+        to: 'on'
+      - platform: state
+        entity_id: binary_sensor.frontdoor_contact
+        to:  'Open'
+      - platform: state
+        entity_id: person.mel
+        to: 'home'
+      - platform: state
+        entity_id: person.chris
+        to: 'home'
+    condition:
+      condition: or
+      conditions:
+        - condition: sun
+          after: sunset
+          after_offset: "-01:00:00"
+        - condition: sun
+          before: sunrise
+          before_offset: "-01:00:00"
+      #condition: numeric_state
+      #entity_id: sensor.entry_motion_illuminance
+      #below: 11000
+    action:
+      service: light.turn_on
+      data:
+        entity_id:  light.carport_lights
+        transition: 0
+  - id: door_motion_off
+    alias: Carport - Turn off sensor light 5 minutes after last movement
+    trigger:
+      - platform: state
+        entity_id:  binary_sensor.motion_a_occupancy
+        to: 'off'
+        for:
+          minutes: 5
+      - platform: state
+        entity_id:  binary_sensor.entry_motion_occupancy
+        to: 'off'
+        for:
+          minutes: 5
+    condition: 
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.entry_motion_occupancy
+          state: 'off'
+        - condition: state
+          entity_id: binary_sensor.motion_a_occupancy
+          state: 'off'
+    action:
+      service: light.turn_off
+      data:
+        entity_id:  light.carport_lights
+        transition: 0

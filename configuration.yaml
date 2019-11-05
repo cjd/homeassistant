@@ -80,8 +80,6 @@ group: !include groups.yaml
 recorder: !include recorder.yaml
 media_player: !include media_player.yaml
 shell_command: !include shell_command.yaml
-light: !include light.yaml
 panel_iframe: !include panel_iframe.yaml
 input_boolean: !include input_boolean.yaml
 notify: !include notify.yaml
-climate: !include climate.yaml

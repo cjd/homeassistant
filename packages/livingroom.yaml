@@ -1,0 +1,184 @@
+light:
+  - platform: group
+    name: Livingroom Lights
+    entities:
+      - light.livingroom_side
+      - light.livingroom_a
+      - light.livingroom_b
+
+switch:
+  - platform: template
+    switches:
+      livingroom_lights:
+        icon_template: mdi:sofa
+        friendly_name: "Livingroom"
+        value_template: "{{ not is_state('input_select.livingroom_preset', 'TurnOff') }}"
+        turn_on:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.livingroom_preset
+            option: "Normal"
+        turn_off:
+          service: input_select.select_option
+          data:
+            entity_id: input_select.livingroom_preset
+            option: "TurnOff"
+
+climate:
+  - platform: sensibo
+    api_key: !secret sensibo_api_key
+
+automation:
+  - id: day
+    alias: Time - Day
+    trigger:
+    - event: sunrise
+      platform: sun
+    condition: []
+    action:
+    - data:
+        effect: Slow Random Effect
+        entity_id: light.family_room_strip
+      entity_id: light.family_room_strip
+      service: light.turn_on
+  - id: night
+    alias: Time - Night
+    trigger:
+    - event: sunset
+      platform: sun
+    condition: []
+    action:
+    - data:
+        effect: Rainbow
+        entity_id: light.family_room_strip
+      entity_id: light.family_room_strip
+      service: light.turn_on
+  - alias: Living Room Preset selected
+    trigger:
+      platform: state
+      entity_id: input_select.livingroom_preset
+    action:
+      service_template: >
+        {% if trigger.to_state.state|length %}scene.turn_on
+        {% else %}script.noop
+        {% endif %}
+      data_template:
+        entity_id: >
+          {% if trigger.to_state.state == "Normal" %}scene.normal
+          {% elif trigger.to_state.state == "Night" %}scene.night
+          {% elif trigger.to_state.state == "TurnOff" %}scene.turn_off
+          {% endif %}
+  - alias: Living Room Preset manual off
+    trigger:
+      - entity_id: light.livingroom_lights
+        platform: state
+        to: "off"
+        for: "00:00:05"
+    condition:
+      - condition: template
+        value_template: '{{ not is_state("input_select.livingroom_preset", "TurnOff") }}'
+    action:
+      - entity_id: input_select.livingroom_preset
+        service: input_select.select_option
+        data:
+          option: "TurnOff"
+  - alias: Living Room Preset manual on
+    trigger:
+      - entity_id: light.livingroom_lights
+        platform: state
+        to: "on"
+        for: "00:00:05"
+    condition:
+      - condition: template
+        value_template: '{{ is_state("input_select.livingroom_preset", "TurnOff") }}'
+    action:
+      - entity_id: input_select.livingroom_preset
+        service: input_select.select_option
+        data:
+          option: "Normal"
+  - alias: Living Room Switch 1
+    trigger:
+      - entity_id: binary_sensor.livingroom_switch1
+        platform: state
+        to: "on"
+    condition: []
+    action:
+      - entity_id: input_select.livingroom_preset
+        service: input_select.select_option
+        data:
+          option: "Normal"
+  - alias: Living Room Switch 2
+    trigger:
+      - entity_id: binary_sensor.livingroom_switch2
+        platform: state
+        to: "on"
+    condition: []
+    action:
+      - entity_id: input_select.livingroom_preset
+        service: input_select.select_option
+        data:
+          option: "Night"
+  - alias: Living Room Switch 3
+    trigger:
+      - entity_id: binary_sensor.livingroom_switch3
+        platform: state
+        to: "on"
+    condition: []
+    action:
+      - entity_id: input_select.livingroom_preset
+        service: input_select.select_option
+        data:
+          option: "TurnOff"
+  - alias: AC State set
+    trigger:
+      - entity_id: binary_sensor.ac_active_sensor_contact
+        platform: state 
+        to: "off"
+    condition: []
+    action:
+      - entity_id: climate.living_room
+        service: climate.turn_off
+  - alias: AC on but doors/windows left open
+    trigger:
+      - entity_id: binary_sensor.backdoor_sensor_contact
+        platform: state
+        to: 'on'
+        for: "00:00:30"
+      - entity_id: binary_sensor.frontdoor_contact
+        platform: state
+        to: 'on'
+        for: "00:00:30"
+      - entity_id: binary_sensor.livingroom_window_sensor_contact
+        platform: state
+        to: 'on'
+        for: "00:00:30"
+    condition:
+      - condition: state
+        entity_id: binary_sensor.ac_active_sensor_contact
+        state: 'on'
+    action:
+      - service: notify.hangout_notify
+        data:
+          message: "Door/window left open but AC is on"
+  - alias: AC on but doors/windows already open
+    trigger:
+      - entity_id: binary_sensor.ac_active_sensor_contact
+        platform: state
+        to: 'on'
+        for: "00:00:30"
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.backdoor_sensor_contact
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.frontdoor_contact
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.livingroom_window_sensor_contact
+          state: 'on'
+    action:
+      - service: notify.hangout_notify
+        data:
+          message: "AC turned on but door/window open"

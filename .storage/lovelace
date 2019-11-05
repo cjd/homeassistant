@@ -50,21 +50,27 @@
                 {
                     "type": "module",
                     "url": "/community_plugin/rgb-light-card/card.js"
-                },
-                {
-                    "type": "js",
-                    "url": "/community_plugin/synthwave-hass-extras/synthwave-hass-extras.js"
                 }
             ],
             "title": "Home",
             "views": [
                 {
                     "badges": [
-                        "device_tracker.life360_mel",
-                        "device_tracker.life360_chris",
-                        "sensor.sensibo_temperature",
-                        "sensor.entry_motion_temperature",
-                        "sensor.bedroom_temperature"
+                        {
+                            "entity": "device_tracker.life360_mel"
+                        },
+                        {
+                            "entity": "device_tracker.life360_chris"
+                        },
+                        {
+                            "entity": "sensor.sensibo_temperature"
+                        },
+                        {
+                            "entity": "sensor.entry_motion_sensor_temperature"
+                        },
+                        {
+                            "entity": "sensor.bedroom_temperature"
+                        }
                     ],
                     "cards": [
                         {
@@ -109,10 +115,10 @@
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "switch.bedroom_light_group",
+                                            "entity": "switch.bedroom_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.bedroom_light_group"
+                                                "entity": "light.bedroom_lights"
                                             },
                                             "icon": "mdi:bed-empty",
                                             "name": "Main",
@@ -121,10 +127,10 @@
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "switch.lucas_bedroom_light",
+                                            "entity": "switch.lucas_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.lucas_bedroom"
+                                                "entity": "light.lucas_lights"
                                             },
                                             "icon": "mdi:bed-empty",
                                             "name": "Lucas",
@@ -133,10 +139,10 @@
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "switch.xander_bedroom_light",
+                                            "entity": "switch.xander_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.xander_bedroom_light"
+                                                "entity": "light.xander_lights"
                                             },
                                             "icon": "mdi:bed-empty",
                                             "name": "Xander",
@@ -149,10 +155,10 @@
                                     "cards": [
                                         {
                                             "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.livingroom_light_group",
+                                            "entity": "switch.livingroom_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.livingroom_light_group"
+                                                "entity": "light.livingroom_lights"
                                             },
                                             "icon": "mdi:sofa",
                                             "name": "Livingroom",
@@ -160,10 +166,10 @@
                                         },
                                         {
                                             "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.kitchen_light_group",
+                                            "entity": "switch.kitchen_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.kitchen_light_group"
+                                                "entity": "light.kitchen_lights"
                                             },
                                             "icon": "mdi:fridge",
                                             "name": "Kitchen",
@@ -171,10 +177,10 @@
                                         },
                                         {
                                             "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.backroom_light_group",
+                                            "entity": "switch.backroom_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.backroom_light_group"
+                                                "entity": "light.backroom_lights"
                                             },
                                             "icon": "mdi:castle",
                                             "name": "Backroom",
@@ -198,10 +204,10 @@
                                     "cards": [
                                         {
                                             "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.craftroom_light",
+                                            "entity": "switch.craftroom_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.craftroom_light"
+                                                "entity": "light.craftroom_lights"
                                             },
                                             "icon": "mdi:content-cut",
                                             "name": "Craft",
@@ -209,10 +215,10 @@
                                         },
                                         {
                                             "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.office_light",
+                                            "entity": "switch.office_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.office_light"
+                                                "entity": "light.office_lights"
                                             },
                                             "name": "Office",
                                             "type": "custom:button-card"
@@ -247,10 +253,10 @@
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "light.backyard_light",
+                                            "entity": "light.backyard_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.backyard_light"
+                                                "entity": "light.backyard_lights"
                                             },
                                             "name": "Backyard",
                                             "type": "custom:button-card"
@@ -261,7 +267,7 @@
                                             "entity": "switch.front_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.sensor_light"
+                                                "entity": "light.carport_light"
                                             },
                                             "name": "Car port",
                                             "type": "custom:button-card"
@@ -486,7 +492,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.entry_motion_temperature"
+                                    "entity": "sensor.entry_motion_sensor_temperature"
                                 },
                                 {
                                     "entity": "sensor.netatmo_indoor_temperature",
@@ -671,26 +677,22 @@
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.lucas_bedroom_light",
+                                    "entity": "light.lucas",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.xander_bedroom_light",
+                                    "entity": "light.xander_bedroom_light_light",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.bulb_white_3",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.hall_white",
+                                    "entity": "light.hallbulb",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
                                     "entity": "light.sensor_light"
                                 },
                                 {
-                                    "entity": "light.backyard_light"
+                                    "entity": "light.backyard_light_light"
                                 }
                             ],
                             "show_header_toggle": false,

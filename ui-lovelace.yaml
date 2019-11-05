@@ -126,7 +126,7 @@ views:
         entity: switch.office_light
         hold_action:
           action: more-info
-          entity: light.office_light
+          entity: light.office_all
         name: Office
         type: custom:button-card
       - color: rgb(5, 147, 255)
@@ -402,7 +402,7 @@ views:
     - entity: light.livingroom_light_group
       name: Livingroom
       type: custom:slider-entity-row
-    - entity: light.office_light
+    - entity: light.office_all
       type: custom:slider-entity-row
     - entity: light.lucas_bedroom_light
       type: custom:slider-entity-row

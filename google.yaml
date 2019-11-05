@@ -40,27 +40,29 @@ entity_config:
     expose: true
   camera.backroom:
     expose: true
-  light.sensor_light:
+  light.office_lights:
     expose: true
-  light.office_light_light:
+  light.lucas_lights:
     expose: true
-  light.lucas:
+  light.backroom_lights:
     expose: true
-  light.craft_room:
+  light.backyard_lights:
     expose: true
-  light.backroom_light_group:
+  light.bedroom_lights:
     expose: true
-  light.bedroom_light_group:
+  light.carport_lights:
     expose: true
-  light.kitchen_light_group:
+  light.craftroom_lights:
     expose: true
-  light.livingroom_light_group:
+  light.entry_lights:
     expose: true
-  light.xander_bedroom_light_light:
+  light.hall_lights:
     expose: true
-  light.hall_light_group:
+  light.kitchen_lights:
     expose: true
-  light.entry_light_group:
+  light.livingroom_lights:
+    expose: true
+  light.xander_lights:
     expose: true
   switch.power2:
     expose: true

@@ -1,0 +1,71 @@
+light:
+  - platform: group
+    name: Backroom Lights
+    #icon: mdi:castle
+    entities:
+      - light.backroom_middle
+      - light.backroom_right
+      - light.backroom_left
+
+switch:
+  - platform: template
+    switches:
+      backroom_lights:
+        icon_template: mdi:castle
+        friendly_name: "Backroom"
+        value_template: "{{ states('light.backroom_lights') }}"
+        turn_on:
+          service: light.turn_on
+          data:
+            entity_id: light.backroom_lights
+            brightness_pct: 100
+            color_temp: 370
+            white_value: 255
+            transition: 1
+        turn_off:
+          service: light.turn_off
+          data:
+            entity_id: light.backroom_lights
+            transition: 1
+
+automation:
+  - alias: Backroom Switch1
+    trigger:
+    - entity_id: binary_sensor.backroom_switch1
+      platform: state
+      to: 'on'
+    action:
+    - entity_id: light.backroom_lights
+      service: light.turn_on
+      data_template:
+        transition: 1
+        brightness_pct: 100
+        white_value: 255
+        color_temp: 370
+    - entity_id: light.craft_room
+      service: light.turn_on
+      data_template:
+        transition: 1
+        brightness_pct: 100
+        white_value: 255
+        color_temp: 370
+  - alias: Backroom Switch2
+    trigger:
+    - entity_id: binary_sensor.backroom_switch2
+      platform: state
+      to: 'on'
+    action:
+    - entity_id: switch.backroom_relay_1
+      service: switch.turn_on
+  - alias: Backroom Switch3
+    trigger:
+    - entity_id: binary_sensor.backroom_switch3
+      platform: state
+      to: 'on'
+    action:
+    - entity_id: light.backroom_lights
+      service: light.turn_off
+    - entity_id: light.craft_room
+      service: light.turn_off
+    - entity_id: switch.backroom_relay_1
+      service: switch.turn_off

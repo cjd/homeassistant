@@ -2,43 +2,6 @@ family:
   entities:
     - group.chris
     - group.mel
-backroom_lights:
-  name: Back room
-  icon: mdi:castle
-  entities:
-    - light.backroom_middle
-    - light.backroom_right
-    - light.backroom_left
-livingroom_lights:
-  name: Living Room
-  icon: mdi:sofa
-  entities:
-    - switch.livingroom_light
-    - light.livingroom_side
-    - light.livingroom_a
-    - light.livingroom_b
-bedroom_lights:
-  name: Bedroom
-  icon: mdi:bed-empty
-  entities:
-    - light.bedrooma
-    - light.bedroomb
-kitchen_lights:
-  name: Kitchen
-  icon: mdi:fridge
-  entities:
-    - light.kitchen_back
-    - light.kitchen_front
-    - light.kitchen_counter_light
-hall_lights:
-  name: Hall
-  entities:
-    - light.hallbulb
-entry_lights:
-  name: Entry
-  icon: mdi:door
-  entities:
-    - light.entry
 all_light_relays:
   name: Light Master Switch
   icon: mdi:crown
@@ -54,16 +17,16 @@ all_light_relays:
 all_lights:
   name: All Lights
   entities:
-    - group.backroom_lights
-    - group.bedroom_lights
-    - group.entry_lights
-    - group.hall_lights
-    - group.kitchen_lights
-    - group.livingroom_lights
-    - light.lucas_bedroom_light
-    - light.office_light_light
-    - light.xander_bedroom_light_light
-    - light.craft_room
+    - light.backroom_lights
+    - light.bedroom_lights
+    - light.entry_lights
+    - light.hall_lights
+    - light.kitchen_lights
+    - light.livingroom_lights
+    - light.lucas_lights
+    - light.office_lights
+    - light.xander_lights
+    - light.craftroom_lights
 all_strips:
   name: All Strips
   entities:
