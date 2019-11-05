@@ -18,3 +18,21 @@ binary_sensor.livingroom_window_sensor_contact:
   device_class: window
 binary_sensor.ac_active_sensor_contact:
   device_class: power
+sensor.entry_motion_sensor_temperature:
+  friendly_name: Carport Temperature
+sensor.lucas_bedroom_sensor_temperature:
+  friendly_name: Lucas Bedroom Temperature
+sensor.xander_bedroom_sensor_temperature:
+  friendly_name: Xander Bedroom Temperature
+light.backyard_lights:
+  friendly_name: Backyard
+light.office_lights:
+  friendly_name: Office
+light.xander_lights:
+  friendly_name: Xander Bedroom
+light.lucas_lights:
+  friendly_name: Lucas Bedroom
+light.hall_lights:
+  friendly_name: Hall
+light.carport_lights:
+  friendly_name: Carport
