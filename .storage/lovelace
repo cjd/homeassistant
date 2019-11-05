@@ -617,27 +617,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "light.bedroom_light_group",
-                                    "name": "Main Bedroom",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.backroom_light_group",
-                                    "name": "Backroom",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.craftroom_light",
-                                    "name": "Craftroom",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.kitchen_light_group",
-                                    "name": "Kitchen",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.livingroom_light_group",
+                                    "entity": "light.livingroom_lights",
                                     "name": "Livingroom",
                                     "type": "custom:slider-entity-row"
                                 },
@@ -668,31 +648,51 @@
                                             "icon_color": "white"
                                         }
                                     ],
-                                    "entity": "light.livingroom_light_group",
+                                    "entity": "light.livingroom_lights",
                                     "justify": "center",
                                     "type": "custom:rgb-light-card"
                                 },
                                 {
-                                    "entity": "light.office_light",
+                                    "entity": "light.bedroom_lights",
+                                    "name": "Main Bedroom",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.lucas",
+                                    "entity": "light.lucas_lights",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.xander_bedroom_light_light",
+                                    "entity": "light.xander_lights",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.hallbulb",
+                                    "entity": "light.backroom_lights",
+                                    "name": "Backroom",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.sensor_light"
+                                    "entity": "light.craftroom_lights",
+                                    "name": "Craftroom",
+                                    "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.backyard_light_light"
+                                    "entity": "light.kitchen_lights",
+                                    "name": "Kitchen",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.office_lights",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.hall_lights",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.carport_lights"
+                                },
+                                {
+                                    "entity": "light.backyard_lights"
                                 }
                             ],
                             "show_header_toggle": false,

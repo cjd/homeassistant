@@ -7,7 +7,7 @@
   action:
     - service: frontend.set_theme
       data:
-        name: "blue_night"
+        name: "midnight"
     - service: mqtt.publish
       data:
         topic: "sonoffs/cmnd/state"
