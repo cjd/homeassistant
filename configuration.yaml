@@ -59,7 +59,6 @@ upnp:
   sensors: true
   local_ip: 192.168.86.2
 
-fan: !include fan.yaml
 telegram_bot: !include telegram_bot.yaml
 netatmo: !include netatmo.yaml
 mqtt: !include mqtt.yaml
@@ -79,7 +78,6 @@ scene: !include scene.yaml
 group: !include groups.yaml
 recorder: !include recorder.yaml
 media_player: !include media_player.yaml
-shell_command: !include shell_command.yaml
 panel_iframe: !include panel_iframe.yaml
 input_boolean: !include input_boolean.yaml
 notify: !include notify.yaml
