@@ -1,5 +1,3 @@
-- platform: bom
-  location: Sydney 
 - platform: generic
   name: minicam
   stream_source: http://192.168.86.105/videostream.asf?user=admin&pwd=&resolution=32
@@ -12,7 +10,3 @@
   name: carport
   still_image_url: http://192.168.86.61/image.jpg
   mjpeg_url: http://192.168.86.61/MJPEG.CGI
-- platform: mjpeg
-  name: backroom
-  still_image_url: http://192.168.86.190/snapshot.cgi?loginuse=admin&loginpas=admin
-  mjpeg_url: http://192.168.86.190/videostream.cgi?loginuse=admin&loginpas=admin

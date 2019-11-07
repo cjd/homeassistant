@@ -1,20 +1,24 @@
 #!/bin/sh
-BASE="http://192.168.86.190/decoder_control.cgi?loginuse=admin&loginpas=admin&onestep=0&15632464760490.1568509176296169&_=1563246476049&command="
+BASE="http://${1}/decoder_control.cgi?loginuse=admin&loginpas=admin&onestep=0&15632464760490.1568509176296169&_=1563246476049&command="
 DELAY=.3
-if [ "$1" = "right" ]
-  then curl "${BASE}6"
+if [ "$2" = "right" ]
+  then curl -s "${BASE}6" >/dev/null
   sleep $DELAY
-  curl "${BASE}7"
-elif [ "$1" = "left" ]
-  then curl "${BASE}4"
+  curl -s "${BASE}7" >/dev/null
+elif [ "$2" = "left" ]
+  then curl -s "${BASE}4" >/dev/null
   sleep $DELAY
-  curl "${BASE}5"
-elif [ "$1" = "down" ]
-  then curl "${BASE}2"
+  curl -s "${BASE}5" >/dev/null
+elif [ "$2" = "down" ]
+  then curl -s "${BASE}2" >/dev/null
   sleep $DELAY
-  curl "${BASE}3"
-elif [ "$1" = "up" ]
-  then curl "${BASE}0"
+  curl -s "${BASE}3" >/dev/null
+elif [ "$2" = "up" ]
+  then curl -s "${BASE}0" >/dev/null
   sleep $DELAY
-  curl "${BASE}1"
+  curl -s "${BASE}1">/dev/null
+elif [ "$2" = "away" ]
+  then curl -s "${BASE}31" >/dev/null
+elif [ "$2" = "home" ]
+  then curl -s "${BASE}33" >/dev/null
 fi

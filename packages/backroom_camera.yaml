@@ -1,0 +1,32 @@
+camera:
+  - platform: mjpeg
+    name: backroom
+    still_image_url: http://192.168.86.190/snapshot.cgi?loginuse=admin&loginpas=admin
+    mjpeg_url: http://192.168.86.190/videostream.cgi?loginuse=admin&loginpas=admin
+switch:
+  - platform: command_line
+    switches:
+      backroom_ptz_away:
+        value_template: "{{ True }}"
+        command_on: '/config/ptz_script.sh 192.168.86.190 away'
+        command_off: '/config/ptz_script.sh 192.168.86.190 away'
+      backroom_ptz_home:
+        value_template: "{{ True }}"
+        command_on: '/config/ptz_script.sh 192.168.86.190 home'
+        command_off: '/config/ptz_script.sh 192.168.86.190 home'
+      backroom_ptz_left:
+        value_template: "{{ True }}"
+        command_on: '/config/ptz_script.sh 192.168.86.190 left'
+        command_off: '/config/ptz_script.sh 192.168.86.190 left'
+      backroom_ptz_right:
+        value_template: "{{ True }}"
+        command_on: '/config/ptz_script.sh 192.168.86.190 right'
+        command_off: '/config/ptz_script.sh 192.168.86.190 right'
+      backroom_ptz_up:
+        value_template: "{{ True }}"
+        command_on: '/config/ptz_script.sh 192.168.86.190 up'
+        command_off: '/config/ptz_script.sh 192.168.86.190 up'
+      backroom_ptz_down:
+        value_template: "{{ True }}"
+        command_on: '/config/ptz_script.sh 192.168.86.190 down'
+        command_off: '/config/ptz_script.sh 192.168.86.190 down'
