@@ -27,6 +27,7 @@ all_lights:
     - light.office_lights
     - light.xander_lights
     - light.craftroom_lights
+    - light.toilet
 all_strips:
   name: All Strips
   entities:

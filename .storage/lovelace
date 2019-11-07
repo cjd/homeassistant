@@ -229,7 +229,7 @@
                                             "entity": "switch.entry_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "group.entry_lights"
+                                                "entity": "light.entry_lights"
                                             },
                                             "name": "Entry",
                                             "type": "custom:button-card"
@@ -240,7 +240,7 @@
                                             "entity": "switch.hall_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "group.hall_lights"
+                                                "entity": "light.hall_lights"
                                             },
                                             "name": "Hall",
                                             "type": "custom:button-card"
@@ -275,10 +275,10 @@
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "switch.toilet_light",
+                                            "entity": "light.toilet_light",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "switch.toilet_light"
+                                                "entity": "light.toilet_light"
                                             },
                                             "icon": "mdi:toilet",
                                             "name": "Main Toilet",
@@ -925,6 +925,7 @@
                     "badges": [],
                     "cards": [
                         {
+                            "dark_mode": false,
                             "default_zoom": 13,
                             "entities": [
                                 {
@@ -932,6 +933,18 @@
                                 },
                                 {
                                     "entity": "device_tracker.life360_chris"
+                                },
+                                {
+                                    "entity": "zone.home"
+                                },
+                                {
+                                    "entity": "zone.work"
+                                },
+                                {
+                                    "entity": "zone.school"
+                                },
+                                {
+                                    "entity": "zone.church"
                                 }
                             ],
                             "geo_location_sources": [
@@ -975,11 +988,11 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.hall_smoke",
+                                    "entity": "binary_sensor.smoke_detector_smoke",
                                     "name": "Smoke Detector"
                                 },
                                 {
-                                    "entity": "binary_sensor.frontdoor_contact",
+                                    "entity": "binary_sensor.frontdoor_sensor_contact",
                                     "name": "Front Door"
                                 },
                                 {
@@ -991,16 +1004,13 @@
                                     "name": "AC Power sensor"
                                 },
                                 {
-                                    "entity": "binary_sensor.livingroom_window_sensor_contact"
+                                    "entity": "binary_sensor.pantry_sensor_contact"
                                 },
                                 {
-                                    "entity": "binary_sensor.pantry_contact"
+                                    "entity": "binary_sensor.bedroom_window_sensor_contact"
                                 },
                                 {
-                                    "entity": "binary_sensor.bedroom_window_contact"
-                                },
-                                {
-                                    "entity": "binary_sensor.back_screen_door_contact"
+                                    "entity": "binary_sensor.back_screen_door_sensor_contact"
                                 }
                             ],
                             "show_icon": true,

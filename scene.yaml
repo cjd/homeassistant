@@ -6,7 +6,7 @@
       color_temp: 333
     light.kitchen_lights:
       brightness_pct: 100
-      color_temp: 333
+      color_temp: 420
       state: true
     light.tv_backlight:
       state: true
@@ -20,12 +20,12 @@
   entities:
     light.kitchen_lights:
       state: true
-      rgb_color: [0,0,255]
+      rgb_color: [0,0,155]
     light.livingroom_lights:
       state: true
-      rgb_color: [0,0,255]
+      rgb_color: [0,0,155]
     light.backroom_middle:
-      rgb_color: [0,0,255]
+      rgb_color: [0,0,155]
       state: true
     light.tv_backlight:
       state: true
