@@ -59,6 +59,15 @@ upnp:
   sensors: true
   local_ip: 192.168.86.2
 
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistant
+  username: homeassistant
+  password: homeassistant
+  max_retries: 3
+  default_measurement: state
+
 telegram_bot: !include telegram_bot.yaml
 netatmo: !include netatmo.yaml
 mqtt: !include mqtt.yaml
@@ -67,7 +76,6 @@ hacs: !include hacs.yaml
 geo_location: !include geo_location.yaml
 input_select: !include input_select.yaml
 sensor: !include sensors.yaml
-camera: !include camera.yaml
 google_assistant: !include google.yaml
 zone: !include zone.yaml
 automation: !include_dir_merge_list automation
