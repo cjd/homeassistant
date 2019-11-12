@@ -1,4 +1,4 @@
 light:
   - platform: switch
     name: Toilet
-    entity_id: switch.toilet
+    entity_id: switch.toilet_light

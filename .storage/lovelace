@@ -50,6 +50,10 @@
                 {
                     "type": "module",
                     "url": "/community_plugin/rgb-light-card/card.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js"
                 }
             ],
             "title": "Home",
@@ -275,10 +279,10 @@
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "light.toilet_light",
+                                            "entity": "switch.toilet_light",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.toilet_light"
+                                                "entity": "light.toilet"
                                             },
                                             "icon": "mdi:toilet",
                                             "name": "Main Toilet",
@@ -769,6 +773,18 @@
                                 },
                                 {
                                     "entity": "group.all_light_relays"
+                                },
+                                {
+                                    "entity": "switch.powerboard_outlet_1"
+                                },
+                                {
+                                    "entity": "switch.powerboard_outlet_2"
+                                },
+                                {
+                                    "entity": "switch.powerboard_outlet_3"
+                                },
+                                {
+                                    "entity": "switch.powerboard_outlet_4"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -825,7 +841,7 @@
                             "type": "picture-glance"
                         },
                         {
-                            "entity": "camera.minicam",
+                            "entity": "camera.backyard",
                             "name": "Backyard",
                             "type": "picture-entity"
                         }

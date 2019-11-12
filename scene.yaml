@@ -20,10 +20,16 @@
   entities:
     light.kitchen_lights:
       state: true
-      rgb_color: [0,0,155]
-    light.livingroom_lights:
+      rgb_color: [0,0,60]
+      brightness_pct: 50
+    light.livingroom_a:
       state: true
-      rgb_color: [0,0,155]
+      rgb_color: [0,0,60]
+      brightness_pct: 50
+    light.livingroom_side:
+      state: true
+      rgb_color: [0,0,60]
+      brightness_pct: 50
     light.backroom_middle:
       rgb_color: [0,0,155]
       state: true

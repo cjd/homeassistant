@@ -72,21 +72,14 @@ automation:
     trigger:
     - entity_id: sensor.bedroom_dimmer_action
       platform: state
-    condition:
-      - condition: template
-        value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
+      to: 'down-press'
     action:
     - entity_id: light.bedroom_lights
       service: light.turn_on
       data_template:
         transition: 1
-        color_temp: 450
-        brightness: >
-          {% if trigger.to_state.state == 'on-press' %} 255
-          {% elif trigger.to_state.state == 'up-press' %} 125
-          {% elif trigger.to_state.state == 'down-press' %} 30
-          {% elif trigger.to_state.state == 'off-press' %} 0
-          {% endif %}
+        color_name: blue
+        brightness: 80
     - entity_id: switch.bedroom_relay_1
       service: switch.turn_on
   - alias: Main Bedroom - Switch1
@@ -94,6 +87,9 @@ automation:
     - entity_id: binary_sensor.bedroom_switch1
       platform: state
       to: 'on'
+    - entity_id: sensor.bedroom_dimmer_action
+      platform: state
+      to: 'on-press'
     action:
     - entity_id: light.bedroom_lights
       service: light.turn_on
@@ -108,6 +104,9 @@ automation:
     - entity_id: binary_sensor.bedroom_switch2
       platform: state
       to: 'on'
+    - entity_id: sensor.bedroom_dimmer_action
+      platform: state
+      to: 'up-press'
     action:
     - entity_id: light.bedroom_lights
       service: light.turn_on
@@ -122,6 +121,9 @@ automation:
     - entity_id: binary_sensor.bedroom_switch3
       platform: state
       to: 'on'
+    - entity_id: sensor.bedroom_dimmer_action
+      platform: state
+      to: 'off-press'
     action:
     - entity_id: light.bedroom_lights
       service: light.turn_off
