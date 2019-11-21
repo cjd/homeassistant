@@ -18,12 +18,3 @@ motion:
   title: 'Motion'
   url: 'https://home.adebenham.com/int/motion/'
   icon: mdi:video
-pihole:
-  title: 'Pihole'
-  url: 'https://home.adebenham.com/int/pihole/'
-  icon: mdi:dns
-networkmap:
-  title: 'Zigbee Map'
-  url: '/local/community/zigbee2mqtt_networkmap/map.html'
-  icon: mdi:graphql
-
