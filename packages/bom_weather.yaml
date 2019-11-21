@@ -175,6 +175,20 @@ sensor:
           {% else %}
             {{ states('sensor.bom_gosford_min_temp_c_0') }}
           {% endif %}
+      bom_uv_alert:
+        value_template: >
+          {%- if states('sensor.bom_gosford_uv_alert_0') != 'n/a' -%} 
+            UV: {{ states('sensor.bom_gosford_uv_alert_0') }}
+            {%- else -%}
+            UV: {{ states('sensor.bom_gosford_uv_alert_1') }}
+            {%- endif -%}
+      bom_fire_danger:
+        value_template: >
+            {%- if states('sensor.bom_gosford_fire_danger_0') != 'n/a' -%} 
+            Fire Danger: {{ states('sensor.bom_gosford_fire_danger_0') }}
+            {%- else -%}
+            Fire Danger: {{ states('sensor.bom_gosford_fire_danger_1') }}
+            {%- endif -%}
   - platform: statistics
     name: today_temp_bom
     sampling_size: 150
