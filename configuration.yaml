@@ -26,7 +26,6 @@ ffmpeg:
 ssdp:
 zeroconf:
 webhook:
-zigbee2mqtt_networkmap:
 
 logger:
   default: info
@@ -41,6 +40,9 @@ http:
   cors_allowed_origins:
     - https://cast.home-assistant.io
 
+webehome:
+  username: !secret webehome_username
+  password: !secret webehome_password
 
 entity_controller:
   entry_motion_light:
