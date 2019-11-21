@@ -1,5 +1,6 @@
 cch:
   swipe: true
+  swipe_animate: swipe
   voice: hide
 resources:
 - type: module
@@ -9,7 +10,7 @@ resources:
 - type: module
   url: /community_plugin/light-entity-row/light-entity-row.js
 - type: module
-  url: /community_plugin/monster-card/monster-card.js
+  url: /community_plugin/lovelace-auto-entities/auto-entities.js
 - type: module
   url: /community_plugin/simple-thermostat/simple-thermostat.js
 - type: module
@@ -22,18 +23,20 @@ resources:
   url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
 - type: module
   url: /community_plugin/bom-weather-card/bom-weather-card.js
-- type: js
-  url: /community_plugin/synthwave-hass-extras/synthwave-hass-extras.js
+- type: module
+  url: /community_plugin/rgb-light-card/card.js
 title: Home
 views:
 - badges:
-  - device_tracker.life360_mel
-  - device_tracker.life360_chris
-  - sensor.sensibo_temperature
-  - sensor.entry_motion_temperature
-  - sensor.bedroom_temperature
+  - entity: device_tracker.life360_mel
+  - entity: device_tracker.life360_chris
+  - entity: sensor.sensibo_temperature
+  - entity: sensor.entry_motion_sensor_temperature
+  - entity: sensor.bedroom_temperature
   cards:
-  - entities:
+  - card:
+      type: glance
+    entities:
     - entity: binary_sensor.hall_smoke
       name: Smoke Detector
     - entity: binary_sensor.frontdoor_contact
@@ -53,54 +56,54 @@ views:
     - cards:
       - color: rgb(5, 147, 255)
         color-type: card
-        entity: switch.bedroom_light_group
+        entity: switch.bedroom_lights
         hold_action:
           action: more-info
-          entity: light.bedroom_light_group
+          entity: light.bedroom_lights
         icon: mdi:bed-empty
         name: Main
         type: custom:button-card
       - color: rgb(5, 147, 255)
         color-type: card
-        entity: switch.lucas_bedroom_light
+        entity: switch.lucas_lights
         hold_action:
           action: more-info
-          entity: light.lucas_bedroom_light
+          entity: light.lucas_lights
         icon: mdi:bed-empty
         name: Lucas
         type: custom:button-card
       - color: rgb(5, 147, 255)
         color-type: card
-        entity: switch.xander_bedroom_light
+        entity: switch.xander_lights
         hold_action:
           action: more-info
-          entity: light.xander_bedroom_light
+          entity: light.xander_lights
         icon: mdi:bed-empty
         name: Xander
         type: custom:button-card
       type: horizontal-stack
     - cards:
       - color: rgb(5, 147, 255)
-        entity: switch.livingroom_light_group
+        entity: switch.livingroom_lights
         hold_action:
           action: more-info
-          entity: light.livingroom_light_group
+          entity: light.livingroom_lights
         icon: mdi:sofa
         name: Livingroom
         type: custom:button-card
       - color: rgb(5, 147, 255)
-        entity: switch.kitchen_light_group
+        entity: switch.kitchen_lights
         hold_action:
           action: more-info
-          entity: light.kitchen_light_group
+          entity: light.kitchen_lights
         icon: mdi:fridge
         name: Kitchen
         type: custom:button-card
       - color: rgb(5, 147, 255)
-        entity: switch.backroom_light_group
+        entity: switch.backroom_lights
         hold_action:
           action: more-info
-          entity: light.backroom_light_group
+          entity: light.backroom_lights
         icon: mdi:castle
         name: Backroom
         type: custom:button-card
@@ -115,18 +118,18 @@ views:
       type: horizontal-stack
     - cards:
       - color: rgb(5, 147, 255)
-        entity: switch.craftroom_light
+        entity: switch.craftroom_lights
         hold_action:
           action: more-info
-          entity: light.craftroom_light
+          entity: light.craftroom_lights
         icon: mdi:content-cut
         name: Craft
         type: custom:button-card
       - color: rgb(5, 147, 255)
-        entity: switch.office_light
+        entity: switch.office_lights
         hold_action:
           action: more-info
-          entity: light.office_all
+          entity: light.office_lights
         name: Office
         type: custom:button-card
       - color: rgb(5, 147, 255)
@@ -134,7 +137,7 @@ views:
         entity: switch.entry_lights
         hold_action:
           action: more-info
-          entity: group.entry_lights
+          entity: light.entry_lights
         name: Entry
         type: custom:button-card
       - color: rgb(5, 147, 255)
@@ -142,17 +145,17 @@ views:
         entity: switch.hall_lights
         hold_action:
           action: more-info
-          entity: group.hall_lights
+          entity: light.hall_lights
         name: Hall
         type: custom:button-card
       type: horizontal-stack
     - cards:
       - color: rgb(5, 147, 255)
         color-type: card
-        entity: light.backyard_light
+        entity: light.backyard_lights
         hold_action:
           action: more-info
-          entity: light.backyard_light
+          entity: light.backyard_lights
         name: Backyard
         type: custom:button-card
       - color: rgb(5, 147, 255)
@@ -160,7 +163,7 @@ views:
         entity: switch.front_lights
         hold_action:
           action: more-info
-          entity: light.sensor_light
+          entity: light.carport_light
         name: Car port
         type: custom:button-card
       - color: rgb(5, 147, 255)
@@ -168,7 +171,7 @@ views:
         entity: switch.toilet_light
         hold_action:
           action: more-info
-          entity: switch.toilet_light
+          entity: light.toilet
         icon: mdi:toilet
         name: Main Toilet
         type: custom:button-card
@@ -241,19 +244,13 @@ views:
   title: Home
 - badges: []
   cards:
-  - apparent_right_margin: 1em
-    apparent_right_pos: 1em
-    apparent_top_margin: 45px
-    current_data_top_margin: 7em
-    current_text_font_size: 1.5em
-    current_text_left_pos: 5em
-    current_text_top_margin: 39px
-    entity_apparent_temp: sensor.bom_gosford_feels_like_c
+  - entity_apparent_temp: sensor.bom_gosford_feels_like_c
     entity_current_conditions: sensor.bom_gosford_icon_0
     entity_current_text: sensor.bom_current_text
     entity_daily_summary: sensor.bom_gosford_detailed_summary_0
     entity_daytime_high: sensor.bom_today_max
     entity_daytime_low: sensor.bom_today_min
+    entity_fire_danger: sensor.bom_fire_danger
     entity_forecast_high_temp_1: sensor.bom_gosford_max_temp_c_1
     entity_forecast_high_temp_2: sensor.bom_gosford_max_temp_c_2
     entity_forecast_high_temp_3: sensor.bom_gosford_max_temp_c_3
@@ -289,17 +286,13 @@ views:
     entity_summary_4: sensor.bom_gosford_summary_4
     entity_summary_5: sensor.bom_gosford_summary_5
     entity_sun: sun.sun
-    entity_temperature: sensor.entry_motion_temperature
+    entity_temperature: sensor.entry_motion_sensor_temperature
+    entity_uv_alert: sensor.bom_uv_alert
     entity_wind_bearing: sensor.bom_gosford_wind_direction
     entity_wind_speed: sensor.bom_gosford_wind_speed_kmh
-    large_icon_left_position: 0em
-    large_icon_top_margin: -3.5em
     locale: en
     old_daily_format: false
     refresh_interval: 60
-    separator_top_margin: 6em
-    show_beaufort: false
-    show_separator: false
     slot_l1: daytime_high
     slot_l2: daytime_low
     slot_l3: wind
@@ -310,27 +303,13 @@ views:
     slot_r4: sun_following
     static_icons: false
     sunset: true
-    temp_font_size: 4em
-    temp_font_weight: 300
-    temp_right_pos: 0.85em
-    temp_top_margin: -0.3em
-    temp_uom_right_margin: 7px
-    temp_uom_top_margin: -9px
-    time_format: 12
     title: BOM Weather
-    tooltip_bg_color: rgb( 75,155,239)
-    tooltip_border_color: rgb(255,161,0)
-    tooltip_border_width: 1
-    tooltip_caret_size: 5
-    tooltip_fg_color: '#fff'
-    tooltip_left_offset: -12
-    tooltip_width: 110
     tooltips: true
     type: custom:bom-weather-card
   - entity: camera.bom_radar_loop_sydney
     type: picture-entity
   - entities:
-    - entity: sensor.entry_motion_temperature
+    - entity: sensor.entry_motion_sensor_temperature
     - entity: sensor.netatmo_indoor_temperature
       name: Livingroom Temperature
     - entity: sensor.bedroom_temperature
@@ -339,7 +318,7 @@ views:
     - entity: sensor.xander_bedroom_sensor_temperature
     - entity: sensor.netatmo_outdoor_temperature
       name: Backyard Temperature
-    - entity: sensor.office_temperature_2
+    - entity: sensor.office_temperature
     show_header_toggle: false
     title: Temperatures
     type: entities
@@ -360,8 +339,9 @@ views:
     - entity: sensor.xander_bedroom_sensor_temperature
     - entity: sensor.netatmo_outdoor_temperature
       name: Backyard Temperature
-    - entity: sensor.office_temperature_2
-    hours_to_show: 48
+    - entity: sensor.office_temperature
+    hours_to_show: 24
+    refresh_interval: 0
     type: history-graph
   - entities:
     - entity: sensor.netatmo_indoor_humidity
@@ -387,33 +367,47 @@ views:
 - badges: []
   cards:
   - entities:
-    - entity: light.bedroom_light_group
-      name: Main Bedroom
-      type: custom:slider-entity-row
-    - entity: light.backroom_light_group
-      name: Backroom
-      type: custom:slider-entity-row
-    - entity: light.craftroom_light
-      name: Craftroom
-      type: custom:slider-entity-row
-    - entity: light.kitchen_light_group
-      name: Kitchen
-      type: custom:slider-entity-row
-    - entity: light.livingroom_light_group
+    - entity: light.livingroom_lights
       name: Livingroom
       type: custom:slider-entity-row
-    - entity: light.office_all
+    - colors:
+      - color_name: red
+        icon_color: red
+      - color_name: green
+        icon_color: green
+      - color_name: blue
+        icon_color: blue
+      - color_name: yellow
+        icon_color: yellow
+      - color_name: purple
+        icon_color: purple
+      - color_name: white
+        icon_color: white
+      entity: light.livingroom_lights
+      justify: center
+      type: custom:rgb-light-card
+    - entity: light.bedroom_lights
+      name: Main Bedroom
       type: custom:slider-entity-row
-    - entity: light.lucas_bedroom_light
+    - entity: light.lucas_lights
       type: custom:slider-entity-row
-    - entity: light.xander_bedroom_light
+    - entity: light.xander_lights
       type: custom:slider-entity-row
-    - entity: light.bulb_white_3
+    - entity: light.backroom_lights
+      name: Backroom
       type: custom:slider-entity-row
-    - entity: light.hall_white
+    - entity: light.craftroom_lights
+      name: Craftroom
       type: custom:slider-entity-row
-    - entity: light.sensor_light
-    - entity: light.backyard_light
+    - entity: light.kitchen_lights
+      name: Kitchen
+      type: custom:slider-entity-row
+    - entity: light.office_lights
+      type: custom:slider-entity-row
+    - entity: light.hall_lights
+      type: custom:slider-entity-row
+    - entity: light.carport_lights
+    - entity: light.backyard_lights
     show_header_toggle: false
     title: Rooms
     type: entities
@@ -428,7 +422,7 @@ views:
       - name: Rainbow
         service_data:
           effect: Rainbow
-      entity: light.tv_backlight_2
+      entity: light.tv_backlight
       hideBrightness: true
       hideColorTemp: true
       showColorSliders: false
@@ -454,6 +448,10 @@ views:
     - entity: switch.office_speaker
     - entity: switch.kitchen_relay_3
     - entity: group.all_light_relays
+    - entity: switch.powerboard_outlet_1
+    - entity: switch.powerboard_outlet_2
+    - entity: switch.powerboard_outlet_3
+    - entity: switch.powerboard_outlet_4
     show_header_toggle: false
     title: Switches
     type: entities
@@ -484,14 +482,14 @@ views:
     - entity: switch.backroom_ptz_right
       icon: mdi:arrow-right-thick
     type: picture-glance
-  - entity: camera.minicam
+  - entity: camera.backyard
     name: Backyard
     type: picture-entity
   icon: mdi:camera
   title: Cameras
 - badges: []
   cards:
-  - entity: media_player.livingroom_tv
+  - entity: media_player.living_room_tv_2
     hide:
       mute: true
     source: full
@@ -542,10 +540,15 @@ views:
   title: Media
 - badges: []
   cards:
-  - default_zoom: 13
+  - dark_mode: false
+    default_zoom: 13
     entities:
     - entity: device_tracker.life360_mel
     - entity: device_tracker.life360_chris
+    - entity: zone.home
+    - entity: zone.work
+    - entity: zone.school
+    - entity: zone.church
     geo_location_sources:
     - all
     type: map
@@ -558,28 +561,27 @@ views:
       title: Notices
       type: glance
     filter:
+      exclude:
+      - domain: device_tracker
       include:
       - attributes:
           linkquality: < 20
         entity_id: sensor.*linkquality
       - attributes:
           battery: < 50
-        domain:
-        - ()
-    type: custom:monster-card
+    type: custom:auto-entities
   - entities:
-    - entity: binary_sensor.hall_smoke
+    - entity: binary_sensor.smoke_detector_smoke
       name: Smoke Detector
-    - entity: binary_sensor.frontdoor_contact
+    - entity: binary_sensor.frontdoor_sensor_contact
       name: Front Door
     - entity: binary_sensor.backdoor_sensor_contact
       name: Back Door
     - entity: binary_sensor.ac_active_sensor_contact
       name: AC Power sensor
-    - entity: binary_sensor.livingroom_window_sensor_contact
-    - entity: binary_sensor.pantry_contact
-    - entity: binary_sensor.bedroom_window_contact
-    - entity: binary_sensor.back_screen_door_contact
+    - entity: binary_sensor.pantry_sensor_contact
+    - entity: binary_sensor.bedroom_window_sensor_contact
+    - entity: binary_sensor.back_screen_door_sensor_contact
     show_icon: true
     type: glance
   - entities:
@@ -596,13 +598,13 @@ views:
       include:
       - entity_id: sensor.*battery
     hours: 48
-    type: custom:monster-card
+    type: custom:auto-entities
   - entity: climate.office
     type: thermostat
   - entities:
-    - sensor.house_power
-    - sensor.tv_power_watts
+    - entity: sensor.tv_power_watts
     hours_to_show: 24
+    refresh_interval: 0
     type: history-graph
   - entities:
     - entity: sensor.netatmo_indoor_noise

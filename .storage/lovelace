@@ -21,7 +21,7 @@
                 },
                 {
                     "type": "module",
-                    "url": "/community_plugin/monster-card/monster-card.js"
+                    "url": "/community_plugin/lovelace-auto-entities/auto-entities.js"
                 },
                 {
                     "type": "module",
@@ -37,10 +37,6 @@
                 },
                 {
                     "type": "module",
-                    "url": "/community_plugin/mini-media-player/mini-media-player.js"
-                },
-                {
-                    "type": "module",
                     "url": "/community_plugin/lovelace-fold-entity-row/fold-entity-row.js"
                 },
                 {
@@ -52,8 +48,20 @@
                     "url": "/community_plugin/rgb-light-card/card.js"
                 },
                 {
+                    "type": "js",
+                    "url": "/community_plugin/favicon-counter/favicon-counter.js"
+                },
+                {
                     "type": "module",
-                    "url": "/community_plugin/zigbee2mqtt-networkmap/zigbee2mqtt-networkmap.js"
+                    "url": "/community_plugin/mini-graph-card/mini-graph-card-bundle.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/mini-media-player/mini-media-player-bundle.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/lovelace-more-info-card/more-info-card.js"
                 }
             ],
             "title": "Home",
@@ -402,19 +410,13 @@
                     "badges": [],
                     "cards": [
                         {
-                            "apparent_right_margin": "1em",
-                            "apparent_right_pos": "1em",
-                            "apparent_top_margin": "45px",
-                            "current_data_top_margin": "7em",
-                            "current_text_font_size": "1.5em",
-                            "current_text_left_pos": "5em",
-                            "current_text_top_margin": "39px",
                             "entity_apparent_temp": "sensor.bom_gosford_feels_like_c",
                             "entity_current_conditions": "sensor.bom_gosford_icon_0",
                             "entity_current_text": "sensor.bom_current_text",
                             "entity_daily_summary": "sensor.bom_gosford_detailed_summary_0",
                             "entity_daytime_high": "sensor.bom_today_max",
                             "entity_daytime_low": "sensor.bom_today_min",
+                            "entity_fire_danger": "sensor.bom_fire_danger",
                             "entity_forecast_high_temp_1": "sensor.bom_gosford_max_temp_c_1",
                             "entity_forecast_high_temp_2": "sensor.bom_gosford_max_temp_c_2",
                             "entity_forecast_high_temp_3": "sensor.bom_gosford_max_temp_c_3",
@@ -450,17 +452,13 @@
                             "entity_summary_4": "sensor.bom_gosford_summary_4",
                             "entity_summary_5": "sensor.bom_gosford_summary_5",
                             "entity_sun": "sun.sun",
-                            "entity_temperature": "sensor.entry_motion_temperature",
+                            "entity_temperature": "sensor.entry_motion_sensor_temperature",
+                            "entity_uv_alert": "sensor.bom_uv_alert",
                             "entity_wind_bearing": "sensor.bom_gosford_wind_direction",
                             "entity_wind_speed": "sensor.bom_gosford_wind_speed_kmh",
-                            "large_icon_left_position": "0em",
-                            "large_icon_top_margin": "-3.5em",
                             "locale": "en",
                             "old_daily_format": false,
                             "refresh_interval": 60,
-                            "separator_top_margin": "6em",
-                            "show_beaufort": false,
-                            "show_separator": false,
                             "slot_l1": "daytime_high",
                             "slot_l2": "daytime_low",
                             "slot_l3": "wind",
@@ -471,21 +469,7 @@
                             "slot_r4": "sun_following",
                             "static_icons": false,
                             "sunset": true,
-                            "temp_font_size": "4em",
-                            "temp_font_weight": 300,
-                            "temp_right_pos": "0.85em",
-                            "temp_top_margin": "-0.3em",
-                            "temp_uom_right_margin": "7px",
-                            "temp_uom_top_margin": "-9px",
-                            "time_format": 12,
                             "title": "BOM Weather",
-                            "tooltip_bg_color": "rgb( 75,155,239)",
-                            "tooltip_border_color": "rgb(255,161,0)",
-                            "tooltip_border_width": 1,
-                            "tooltip_caret_size": 5,
-                            "tooltip_fg_color": "#fff",
-                            "tooltip_left_offset": -12,
-                            "tooltip_width": 110,
                             "tooltips": true,
                             "type": "custom:bom-weather-card"
                         },
@@ -982,6 +966,11 @@
                                 "type": "glance"
                             },
                             "filter": {
+                                "exclude": [
+                                    {
+                                        "domain": "device_tracker"
+                                    }
+                                ],
                                 "include": [
                                     {
                                         "attributes": {
@@ -992,14 +981,11 @@
                                     {
                                         "attributes": {
                                             "battery": "< 50"
-                                        },
-                                        "domain": [
-                                            "()"
-                                        ]
+                                        }
                                     }
                                 ]
                             },
-                            "type": "custom:monster-card"
+                            "type": "custom:auto-entities"
                         },
                         {
                             "entities": [
@@ -1061,7 +1047,7 @@
                                 ]
                             },
                             "hours": 48,
-                            "type": "custom:monster-card"
+                            "type": "custom:auto-entities"
                         },
                         {
                             "entity": "climate.office",
