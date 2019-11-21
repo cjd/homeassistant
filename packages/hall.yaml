@@ -133,4 +133,4 @@ automation:
           entity_id: light.hall_lights
           transition: 0
           color_name: blue
-          brightness_pct: 50
+          brightness_pct: 30
