@@ -1,5 +1,5 @@
 esphome:
-  name: officespeaker
+  name: christmastree
   platform: ESP8266
   board: esp01_1m
   
@@ -13,23 +13,19 @@ logger:
 
 ota:
 
-web_server:
-  css_url: https://home.adebenham.com:8123/local/esphome/webserver-v1.min.css
-  js_url: https://home.adebenham.com:8123/local/esphome/webserver-v1.min.css
-
 binary_sensor:
   - platform: gpio
     pin:
       number: GPIO0
       mode: INPUT_PULLUP
       inverted: True
-    name: "Office Speaker Button"
+    name: "Christmas Tree Button"
     on_press:
       - switch.toggle: relay
 
 switch:
   - platform: gpio
-    name: "Office Speaker"
+    name: "Christmas Tree"
     pin: GPIO12
     id: relay
     inverted: no
