@@ -1,0 +1,37 @@
+automation:
+  - alias: Christmas Lights on
+    id: christmas_lights_on
+    trigger:
+      platform: time
+      at: '18:00:00'
+    action:
+      - entity_id: switch.powerboard_outlet_4
+        service: homeassistant.turn_on
+      - entity_id: switch.koganpow1
+        service: homeassistant.turn_on
+  - alias: Christmas Lights off
+    id: christmas_lights_off
+    trigger:
+      platform: time
+      at: '23:00:00'
+    action:
+      - entity_id: switch.powerboard_outlet_4
+        service: homeassistant.turn_off
+      - entity_id: switch.koganpow1
+        service: homeassistant.turn_off
+  - alias: Christmas Tree on
+    id: christmas_tree_on
+    trigger:
+      platform: time
+      at: '06:00:00'
+    action:
+      - entity_id: switch.christmas_tree
+        service: homeassistant.turn_on
+  - alias: Christmas Tree off
+    id: christmas_tree_off
+    trigger:
+      platform: time
+      at: '23:00:00'
+    action:
+      - entity_id: switch.christmas_tree
+        service: homeassistant.turn_off
