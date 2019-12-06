@@ -70,3 +70,13 @@ entity_config:
     expose: true
   light.toilet:
     expose: true
+  switch.christmas_tree:
+    expose: true
+  switch.powerboard_outlet_1:
+    expose: true
+  switch.powerboard_outlet_2:
+    expose: true
+  switch.powerboard_outlet_3:
+    expose: true  
+  switch.powerboard_outlet_4:
+    expose: true
