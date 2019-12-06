@@ -36,3 +36,9 @@ light.hall_lights:
   friendly_name: Hall
 light.carport_lights:
   friendly_name: Carport
+switch.christmas_tree:
+  icon: mdi:pine-tree
+switch.powerboard_outlet_4:
+  icon: mdi:radio
+switch.christmas_lights_bright:
+  friendly_name: Christmas Lights Bright
