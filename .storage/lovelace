@@ -2,6 +2,20 @@
     "data": {
         "config": {
             "cch": {
+                "exceptions": [
+                    {
+                        "conditions": {
+                            "user": "Mel"
+                        },
+                        "config": {
+                            "disable_sidebar": true,
+                            "menu": "show",
+                            "notifications": "show",
+                            "options": "show",
+                            "voice": "hide"
+                        }
+                    }
+                ],
                 "swipe": true,
                 "swipe_animate": "swipe",
                 "voice": "hide"
