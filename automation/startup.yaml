@@ -10,5 +10,5 @@
         name: "midnight"
     - service: mqtt.publish
       data:
-        topic: "sonoffs/cmnd/state"
+        topic: "tasmotas/cmnd/state"
         payload: ""
