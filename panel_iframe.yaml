@@ -2,19 +2,24 @@ tasmoadmin:
   title: 'TasmoAdmin'
   url: 'https://home.adebenham.com/int/tasmo/'
   icon: mdi:settings-box
+  require_admin: true
 portainer:
   title: 'Portainer'
   url: 'https://home.adebenham.com/int/portainer/'
   icon: mdi:ferry
+  require_admin: true
 deluge:
   title: 'Deluge'
   url: 'https://home.adebenham.com/int/deluge/'
   icon: mdi:cloud-download
-sickchill:
-  title: 'SickChill'
-  url: 'https://home.adebenham.com/int/sickchill/'
+  require_admin: true
+medusa:
+  title: 'Medusa'
+  url: 'https://home.adebenham.com/int/medusa/'
   icon: mdi:library-movie
+  require_admin: true
 motion:
   title: 'Motion'
   url: 'https://home.adebenham.com/int/motion/'
   icon: mdi:video
+  require_admin: true
