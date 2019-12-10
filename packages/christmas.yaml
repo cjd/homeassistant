@@ -7,7 +7,11 @@ automation:
     action:
       - entity_id: switch.powerboard_outlet_4
         service: homeassistant.turn_on
-      - entity_id: switch.koganpow1
+      - entity_id: switch.powerboard2_outlet_1
+        service: homeassistant.turn_on
+      - entity_id: switch.powerboard2_outlet_2
+        service: homeassistant.turn_on
+      - entity_id: switch.powerboard2_outlet_3
         service: homeassistant.turn_on
       - service: homeassistant.turn_on
         entity_id: switch.christmas_lights_bright
@@ -27,8 +31,12 @@ automation:
     action:
       - entity_id: switch.powerboard_outlet_4
         service: homeassistant.turn_off
-      - entity_id: switch.koganpow1
+      - entity_id: switch.powerboard2_outlet_1
         service: homeassistant.turn_off
+      - entity_id: switch.powerboard2_outlet_3
+        service: homeassistant.turn_off
+      - entity_id: script.shutdown_panel
+        service: script.turn_on
   - alias: Christmas Tree on
     id: christmas_tree_on
     trigger:
@@ -45,6 +53,20 @@ automation:
     action:
       - entity_id: switch.christmas_tree
         service: homeassistant.turn_off
+
+shell_command:
+  shutdown_panel: 'curl http://192.168.86.6/runEventScript.php\?scriptName\=Shutdown.sh'
+
+script:
+  shutdown_panel:
+    alias: 'Shutdown LED Panel'
+    sequence:
+      - service: shell_command.shutdown_panel
+      - delay:
+          seconds: 30
+      - service: homeassistant.turn_off
+        data:
+          entity_id: switch.powerboard2_outlet_2
 
 sensor:
   - platform: mqtt
