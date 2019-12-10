@@ -1165,13 +1165,22 @@
                                     "entity": "switch.powerboard_outlet_4"
                                 },
                                 {
-                                    "entity": "switch.koganpow1"
+                                    "entity": "switch.powerboard2_outlet_1"
+                                },
+                                {
+                                    "entity": "switch.powerboard2_outlet_2"
+                                },
+                                {
+                                    "entity": "switch.powerboard2_outlet_3"
                                 },
                                 {
                                     "entity": "light.christmas_lights"
                                 },
                                 {
                                     "entity": "switch.christmas_lights_bright"
+                                },
+                                {
+                                    "entity": "script.shutdown_panel"
                                 }
                             ],
                             "type": "entities"
