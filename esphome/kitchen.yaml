@@ -12,6 +12,11 @@ logger:
 # Enable Home Assistant API
 api:
 
+mqtt:
+  broker: 192.168.86.2
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
 ota:
 
 switch:
@@ -39,22 +44,65 @@ binary_sensor:
       number: GPIO16
       inverted: True
     name: "Kitchen Switch1"
-    on_click:
-      - switch.turn_on: relay1
-      - switch.turn_on: relay2
+    on_press:
+      then:
+        - switch.turn_on: relay1
+        - switch.turn_on: relay2
+        - mqtt.publish:
+            topic: Kitchen_Back/cmnd/Dimmer
+            payload: "100"
+        - mqtt.publish:
+            topic: Kitchen_Front/cmnd/Dimmer
+            payload: "100"
+        - mqtt.publish:
+            topic: Kitchen_Back/cmnd/POWER
+            payload: "ON"
+        - mqtt.publish:
+            topic: Kitchen_Front/cmnd/POWER
+            payload: "ON"
+        - mqtt.publish:
+            topic: "zigbee2mqtt/Kitchen Counter/set"
+            payload: '{"state": "on", "brightness": "255"}'
   - platform: gpio
     pin:
       number: GPIO5
       inverted: True
     name: "Kitchen Switch2"
-    on_click:
-      - switch.turn_on: relay1
-      - switch.turn_on: relay2
+    on_press:
+      then:
+        - switch.turn_on: relay1
+        - switch.turn_on: relay2
+        - mqtt.publish:
+            topic: Kitchen_Back/cmnd/Dimmer
+            payload: "40"
+        - mqtt.publish:
+            topic: Kitchen_Front/cmnd/Dimmer
+            payload: "40"
+        - mqtt.publish:
+            topic: Kitchen_Back/cmnd/POWER
+            payload: "ON"
+        - mqtt.publish:
+            topic: Kitchen_Front/cmnd/POWER
+            payload: "ON"
+        - mqtt.publish:
+            topic: "zigbee2mqtt/Kitchen Counter/set"
+            payload: '{"state": "on", "brightness": "90"}'
   - platform: gpio
     pin:
       number: GPIO4
       inverted: True
     name: "Kitchen Switch3"
+    on_press:
+      then:
+        - mqtt.publish:
+            topic: Kitchen_Back/cmnd/POWER
+            payload: "OFF"
+        - mqtt.publish:
+            topic: Kitchen_Front/cmnd/POWER
+            payload: "OFF"
+        - mqtt.publish:
+            topic: "zigbee2mqtt/Kitchen Counter/set"
+            payload: '{"state": "off"}'
     on_click:
       min_length: 2000ms
       max_length: 5000ms

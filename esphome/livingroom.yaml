@@ -40,14 +40,14 @@ binary_sensor:
       number: GPIO16
       inverted: True
     name: "Livingroom Switch1"
-    on_click:
+    on_press:
       switch.turn_on: relay1
   - platform: gpio
     pin:
       number: GPIO5
       inverted: True
     name: "Livingroom Switch2"
-    on_click:
+    on_press:
       switch.turn_on: relay1
   - platform: gpio
     pin:

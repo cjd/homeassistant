@@ -13,6 +13,12 @@ logger:
 # Enable Home Assistant API
 api:
 
+mqtt:
+  broker: 192.168.86.2
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+
 ota:
 
 switch:
@@ -40,20 +46,54 @@ binary_sensor:
       number: GPIO16
       inverted: True
     name: "Bedroom Switch1"
-    on_click:
-      switch.turn_on: relay1
+    on_press:
+      then:
+        - switch.turn_on: relay1
+        - mqtt.publish:
+            topic: BedroomA/cmnd/Dimmer
+            payload: "100"
+        - mqtt.publish:
+            topic: BedroomB/cmnd/Dimmer
+            payload: "100"
+        - mqtt.publish:
+            topic: BedroomA/cmnd/POWER
+            payload: "ON"
+        - mqtt.publish:
+            topic: BedroomB/cmnd/POWER
+            payload: "ON"
   - platform: gpio
     pin:
       number: GPIO5
       inverted: True
     name: "Bedroom Switch2"
-    on_click:
-      switch.turn_on: relay1
+    on_press:
+      then:
+        - switch.turn_on: relay1
+        - mqtt.publish:
+            topic: BedroomA/cmnd/Dimmer
+            payload: "50"
+        - mqtt.publish:
+            topic: BedroomB/cmnd/Dimmer
+            payload: "50"
+        - mqtt.publish:
+            topic: BedroomA/cmnd/POWER
+            payload: "ON"
+        - mqtt.publish:
+            topic: BedroomB/cmnd/POWER
+            payload: "ON"
   - platform: gpio
     pin:
       number: GPIO4
       inverted: True
     name: "Bedroom Switch3"
+    on_press:
+      then:
+        - mqtt.publish:
+            topic: BedroomA/cmnd/POWER
+            payload: "OFF"
+        - mqtt.publish:
+            topic: BedroomB/cmnd/POWER
+            payload: "OFF"
     on_click:
       min_length: 2000ms
       max_length: 5000ms
