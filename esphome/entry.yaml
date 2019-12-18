@@ -43,7 +43,6 @@ binary_sensor:
     name: "Entry Switch1"
     on_press:
       then:
-        - switch.turn_on: relay1
         - switch.turn_on: relay2
         - mqtt.publish:
             topic: "zigbee2mqtt/Entry Light/set"
@@ -54,6 +53,4 @@ binary_sensor:
       inverted: True
     name: "Entry Switch2"
     on_press:
-      then:
-        - switch.turn_on: relay1
-        - switch.turn_on: relay2
+      switch.toggle: relay1
