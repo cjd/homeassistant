@@ -1,8 +1,8 @@
 light:
-  - platform: group
+  - platform: switch
     name: Carport Lights
-    entities:
-      - light.sensor_light
+    entity_id:
+      - switch.carport
 
 camera:
   - platform: mjpeg
