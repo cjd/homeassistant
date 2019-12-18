@@ -20,6 +20,21 @@
                 "swipe_animate": "swipe",
                 "voice": "hide"
             },
+            "custom_header": {
+                "chevrons": false,
+                "compact_mode": true,
+                "exceptions": [
+                    {
+                        "conditions": {
+                            "user": "Mel"
+                        },
+                        "config": {
+                            "disable_sidebar": true
+                        }
+                    }
+                ],
+                "voice_hide": true
+            },
             "resources": [
                 {
                     "type": "module",
@@ -44,10 +59,6 @@
                 {
                     "type": "module",
                     "url": "/community_plugin/button-card/button-card.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/compact-custom-header/compact-custom-header.js"
                 },
                 {
                     "type": "module",
@@ -76,6 +87,10 @@
                 {
                     "type": "module",
                     "url": "/community_plugin/lovelace-more-info-card/more-info-card.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/custom-header/custom-header.js"
                 }
             ],
             "title": "Home",
