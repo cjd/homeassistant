@@ -107,7 +107,7 @@
                             "entity": "sensor.sensibo_temperature"
                         },
                         {
-                            "entity": "sensor.entry_motion_sensor_temperature"
+                            "entity": "sensor.netatmo_outdoor_temperature"
                         },
                         {
                             "entity": "sensor.bedroom_temperature"
@@ -305,10 +305,10 @@
                                         {
                                             "color": "rgb(5, 147, 255)",
                                             "color-type": "card",
-                                            "entity": "switch.front_lights",
+                                            "entity": "light.carport_lights",
                                             "hold_action": {
                                                 "action": "more-info",
-                                                "entity": "light.carport_light"
+                                                "entity": "light.carport_lights"
                                             },
                                             "name": "Car port",
                                             "type": "custom:button-card"
@@ -785,9 +785,6 @@
                                     "entity": "switch.kitchen_relay_3"
                                 },
                                 {
-                                    "entity": "group.all_light_relays"
-                                },
-                                {
                                     "entity": "switch.powerboard_outlet_1"
                                 },
                                 {
@@ -1160,6 +1157,14 @@
                                     "name": "Advanced",
                                     "type": "cast",
                                     "view": 6
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "group.all_light_relays"
                                 }
                             ],
                             "type": "entities"
