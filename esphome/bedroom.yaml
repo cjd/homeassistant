@@ -50,17 +50,11 @@ binary_sensor:
       then:
         - switch.turn_on: relay1
         - mqtt.publish:
-            topic: BedroomA/cmnd/Dimmer
-            payload: "100"
+            topic: BedroomA/cmnd/Backlog
+            payload: "CT 370; Dimmer 100; POWER ON"
         - mqtt.publish:
-            topic: BedroomB/cmnd/Dimmer
-            payload: "100"
-        - mqtt.publish:
-            topic: BedroomA/cmnd/POWER
-            payload: "ON"
-        - mqtt.publish:
-            topic: BedroomB/cmnd/POWER
-            payload: "ON"
+            topic: BedroomB/cmnd/Backlog
+            payload: "CT 370; Dimmer 100; POWER ON"
   - platform: gpio
     pin:
       number: GPIO5
@@ -70,17 +64,11 @@ binary_sensor:
       then:
         - switch.turn_on: relay1
         - mqtt.publish:
-            topic: BedroomA/cmnd/Dimmer
-            payload: "50"
+            topic: BedroomA/cmnd/Backlog
+            payload: "CT 370; Dimmer 50; POWER ON"
         - mqtt.publish:
-            topic: BedroomB/cmnd/Dimmer
-            payload: "50"
-        - mqtt.publish:
-            topic: BedroomA/cmnd/POWER
-            payload: "ON"
-        - mqtt.publish:
-            topic: BedroomB/cmnd/POWER
-            payload: "ON"
+            topic: BedroomB/cmnd/Backlog
+            payload: "CT 370; Dimmer 50; POWER ON"
   - platform: gpio
     pin:
       number: GPIO4

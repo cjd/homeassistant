@@ -49,11 +49,8 @@ binary_sensor:
       then:
         - switch.turn_on: relay1
         - mqtt.publish:
-            topic: Hallbulb/cmnd/Dimmer
-            payload: "100"
-        - mqtt.publish:
-            topic: Hallbulb/cmnd/POWER
-            payload: "ON"
+            topic: Hallbulb/cmnd/Backlog
+            payload: "White 100; Dimmer 100; POWER ON"
   - platform: gpio
     pin:
       number: GPIO5
@@ -63,11 +60,8 @@ binary_sensor:
       then:
         - switch.turn_on: relay1
         - mqtt.publish:
-            topic: Hallbulb/cmnd/Dimmer
-            payload: "30"
-        - mqtt.publish:
-            topic: Hallbulb/cmnd/POWER
-            payload: "ON"
+            topic: Hallbulb/cmnd/Backlog
+            payload: "White 30; Dimmer 30; POWER ON"
   - platform: gpio
     pin:
       number: GPIO4

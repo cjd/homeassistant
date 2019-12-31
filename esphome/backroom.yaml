@@ -48,14 +48,14 @@ binary_sensor:
     on_press:
       then:
         - mqtt.publish:
-            topic: Backroom_Left/cmnd/POWER
-            payload: "ON"
+            topic: Backroom_Middle/cmnd/Backlog
+            payload: "CT 370; Dimmer 100; POWER ON"
         - mqtt.publish:
-            topic: Backroom_Middle/cmnd/POWER
-            payload: "ON"
+            topic: Backroom_Right/cmnd/Backlog
+            payload: "CT 370; Dimmer 100; POWER ON"
         - mqtt.publish:
-            topic: Backroom_Right/cmnd/POWER
-            payload: "ON"
+            topic: Backroom_Left/cmnd/Backlog
+            payload: "CT 370; Dimmer 100; POWER ON"
   - platform: gpio
     pin:
       number: GPIO5
