@@ -24,63 +24,63 @@ switch:
               transition: 1
 
 automation:
-  - alias: Hall Switch1
-    trigger:
-    - entity_id: binary_sensor.hallway_switch1
-      platform: state
-      to: 'on'
-    condition: []
-    action:
-      - entity_id: switch.hallway_relay_1
-        service: switch.turn_on
-      - entity_id: light.hall_lights
-        service: light.turn_on
-        data:
-          transition: 0
-          brightness_pct: 100
-          color_name: white
-          white_value: 255
-  - alias: Hall Switch2
-    trigger:
-    - entity_id: binary_sensor.hallway_switch2
-      platform: state
-      to: 'on'
-    condition: []
-    action:
-      - entity_id: switch.hallway_relay_1
-        service: switch.turn_on
-      - entity_id: light.hall_lights
-        service: light.turn_on
-        data:
-          transition: 0
-          color_name: white
-          brightness: 40
-          white_value: 40
-  - alias: Hall Switch3
-    trigger:
-    - entity_id: binary_sensor.hallway_switch3
-      platform: state
-      to: 'on'
-    condition: []
-    action:
-      - entity_id: light.hall_lights
-        service: light.turn_off
-  # Change the hall light colour based on time and if the kids lights are on
-  - id: hall_nightlight
-    alias: Hall nightlight
-    trigger:
-      platform: sun
-      event: sunset
-      offset: "-00:45:00"
-    condition: []
-    action:
-    - service: light.turn_on
-      data:
-        entity_id: light.hall_lights
-        transition: 0
-        brightness_pct: 50
-        white_value: 120
-        color_name: white
+  # - alias: Hall Switch1
+  #   trigger:
+  #   - entity_id: binary_sensor.hallway_switch1
+  #     platform: state
+  #     to: 'on'
+  #   condition: []
+  #   action:
+  #     - entity_id: switch.hallway_relay_1
+  #       service: switch.turn_on
+  #     - entity_id: light.hall_lights
+  #       service: light.turn_on
+  #       data:
+  #         transition: 0
+  #         brightness_pct: 100
+  #         color_name: white
+  #         white_value: 255
+  # - alias: Hall Switch2
+  #   trigger:
+  #   - entity_id: binary_sensor.hallway_switch2
+  #     platform: state
+  #     to: 'on'
+  #   condition: []
+  #   action:
+  #     - entity_id: switch.hallway_relay_1
+  #       service: switch.turn_on
+  #     - entity_id: light.hall_lights
+  #       service: light.turn_on
+  #       data:
+  #         transition: 0
+  #         color_name: white
+  #         brightness: 40
+  #         white_value: 40
+  # - alias: Hall Switch3
+  #   trigger:
+  #   - entity_id: binary_sensor.hallway_switch3
+  #     platform: state
+  #     to: 'on'
+  #   condition: []
+  #   action:
+  #     - entity_id: light.hall_lights
+  #       service: light.turn_off
+  # # Change the hall light colour based on time and if the kids lights are on
+  # - id: hall_nightlight
+  #   alias: Hall nightlight
+  #   trigger:
+  #     platform: sun
+  #     event: sunset
+  #     offset: "-00:45:00"
+  #   condition: []
+  #   action:
+  #   - service: light.turn_on
+  #     data:
+  #       entity_id: light.hall_lights
+  #       transition: 0
+  #       brightness_pct: 50
+  #       white_value: 120
+  #       color_name: white
   - id: hall_morning
     alias: Hall morning
     trigger:
