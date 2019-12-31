@@ -1,6 +1,8 @@
 db_url: !secret db_url
 purge_keep_days: 30
 exclude:
+  event_types:
+    - themes_updated
   domains:
     - group
     - history_graph
