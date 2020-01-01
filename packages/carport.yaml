@@ -5,10 +5,15 @@ light:
       - switch.carport
 
 camera:
-  - platform: mjpeg
+  - platform: ffmpeg
     name: carport
-    still_image_url: http://192.168.86.61/image.jpg
-    mjpeg_url: http://192.168.86.61/MJPEG.CGI
+    input: -rtsp_transport tcp -i rtsp://admin:542285@192.168.86.42/live/profile.0
+
+binary_sensor:
+  - platform: mqtt
+    state_topic: "home/carport/camera/motion"
+    name: Carport Camera Motion
+    device_class: motion
 
 switch:
   - platform: template
@@ -26,3 +31,15 @@ switch:
           service: light.turn_off
           data:
               entity_id: light.carport_lights
+
+automation:
+  - alias: 'Carport motion'
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.carport_camera_motion
+        to: 'on'
+    condition: []
+    action:
+      - service: notify.hangout_notify
+        data:
+          message: "Carport motion"

@@ -39,7 +39,7 @@
     - service: notify.hangout_notify
       data:
         message: "Yay - Mel's home"
-- alias: 'People home'
+- alias: 'Chris home'
   trigger:
     - platform: state
       entity_id: person.chris

@@ -7,9 +7,13 @@ light:
 camera:
   - platform: generic
     name: backyard
-    stream_source: http://192.168.86.105/videostream.asf?user=admin&pwd=&resolution=32
-    still_image_url: http://192.168.86.105/media?action=snapshot&user=admin&pwd=
-
+    still_image_url: http://dafang.lan/cgi-bin/currentpic.cgi
+    stream_source: rtsp://dafang.lan:8554/unicast
+    verify_ssl: false
+  #- platform: generic
+  #  name: backyard
+  #  stream_source: http://192.168.86.105/videostream.asf?user=admin&pwd=&resolution=32
+  #  still_image_url: http://192.168.86.105/media?action=snapshot&user=admin&pwd=
 
 automation:
   - alias: Backdoors left open
