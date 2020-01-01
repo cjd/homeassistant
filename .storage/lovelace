@@ -29,7 +29,9 @@
                             "user": "Mel"
                         },
                         "config": {
-                            "disable_sidebar": true
+                            "disable_sidebar": true,
+                            "hide_tabs": "6,7",
+                            "options_hide": true
                         }
                     }
                 ],
@@ -854,6 +856,7 @@
                             "type": "picture-glance"
                         },
                         {
+                            "aspect_ratio": "50%",
                             "entity": "camera.backyard",
                             "name": "Backyard",
                             "type": "picture-entity"
@@ -1046,22 +1049,6 @@
                             ],
                             "show_icon": true,
                             "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.zigbee_permit_join"
-                                },
-                                {
-                                    "entity": "timer.zigbee_permit_join"
-                                },
-                                {
-                                    "entity": "sensor.bridge_state"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Zigbee",
-                            "type": "entities"
                         },
                         {
                             "card": {
