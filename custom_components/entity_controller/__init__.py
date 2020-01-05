@@ -1,7 +1,7 @@
 """
 Entity controller component for Home Assistant.
 Maintainer:       Daniel Mason
-Version:          v4.2.0
+Version:          v4.1.0
 Documentation:    https://github.com/danobot/entity-controller
 Issues Tracker:   Report issues on Github. Ensure you have the latest version. Include:
                     * YAML configuration (for the misbehaving entity)
@@ -11,7 +11,6 @@ import logging
 import voluptuous as vol
 import homeassistant.helpers.config_validation as cv
 
-from homeassistant.core import callback
 from homeassistant.helpers import entity, service, event
 from homeassistant.const import (
     SUN_EVENT_SUNSET, SUN_EVENT_SUNRISE, CONF_NAME)
@@ -32,7 +31,7 @@ DOMAIN = 'entity_controller'
 CONSTRAIN_START = 1
 CONSTRAIN_END = 2
 
-VERSION = '4.2.0'
+VERSION = '4.1.0'
 SENSOR_TYPE_DURATION = 'duration'
 SENSOR_TYPE_EVENT = 'event'
 MODE_DAY = 'day'
@@ -60,15 +59,11 @@ CONF_SENSOR_RESETS_TIMER = 'sensor_resets_timer'
 CONF_START_TIME = 'start_time'
 CONF_END_TIME = 'end_time'
 CONF_NIGHT_MODE = 'night_mode'
-CONF_STATE_ATTRIBUTES_IGNORE = 'state_attributes_ignore'
 STATES = ['idle', 'overridden', 'constrained', 'blocked',
           {'name': 'active', 'children': ['timer', 'stay_on'],
            'initial': False}]
 
-FORMAT = "[%(filename)s:%(lineno)s - %(funcName)20s() ] %(message)s"
-logging.basicConfig(format=FORMAT)
 _LOGGER = logging.getLogger(__name__)
-
 devices = []
 MODE_SCHEMA = vol.Schema({
     vol.Optional(CONF_SERVICE_DATA, default=None): vol.Coerce(dict), # Default must be none because we differentiate between set and unset
@@ -96,7 +91,6 @@ ENTITY_SCHEMA = vol.Schema(cv.has_at_least_one_key(CONF_CONTROL_ENTITIES,
     vol.Optional(CONF_STATE_ENTITIES, default=[]):  cv.entity_ids,
     vol.Optional(CONF_BLOCK_TIMEOUT, default=None): cv.positive_int,
     vol.Optional(CONF_NIGHT_MODE, default=None): MODE_SCHEMA,
-    vol.Optional(CONF_STATE_ATTRIBUTES_IGNORE, default=[]): cv.ensure_list,
     vol.Optional(CONF_SERVICE_DATA, default=None): vol.Coerce(dict), # Default must be none because we differentiate between set and unset
     vol.Optional(CONF_SERVICE_DATA_OFF, default=None): vol.Coerce(dict)
 
@@ -160,9 +154,6 @@ async def async_setup(hass, config):
     machine.add_transition(trigger='sensor_off_duration',
                            source='active_timer', dest='idle',
                            conditions=['is_timer_expired'])
-
-    # The following two transitions must be kept seperate because they have 
-    # special conditional logic that cannot be combined.
     machine.add_transition(trigger='timer_expires', source='active_timer',
                            dest='idle', conditions=['is_event_sensor'])
     machine.add_transition(trigger='timer_expires', source='active_timer',
@@ -172,8 +163,6 @@ async def async_setup(hass, config):
                            dest='idle')
     machine.add_transition(trigger='control', source='active_timer',
                            dest='idle', conditions=['is_state_entities_off'])
-    # machine.add_transition(trigger='control', source='active_timer',
-    #                        dest='blocked', conditions=['is_state_entities_on'])
 
     # machine.add_transition(trigger='sensor_off',           source='active_stay_on',    dest=None)
     machine.add_transition(trigger='timer_expires', source='active_stay_on',
@@ -182,8 +171,6 @@ async def async_setup(hass, config):
     # Constrained
     machine.add_transition(trigger='enable', source='constrained', dest='idle', conditions=['is_override_state_off'])
     machine.add_transition(trigger='enable', source='constrained', dest='overridden', conditions=['is_override_state_on'])
-    # Enter blocked state when component is enabled and entity is on
-    machine.add_transition(trigger='blocked', source='constrained', dest='blocked')
 
     for key, config in myconfig.items():
         if not config:
@@ -277,7 +264,6 @@ class EntityController(entity.Entity):
         self.attributes = att
         self.do_update()
 
-    @callback
     def do_update(self, wait=False, **kwargs):
         """ Schedules an entity state update with HASS """
         # _LOGGER.debug("Scheduled update with HASS")
@@ -312,7 +298,6 @@ class Model():
         self.block_timer_handle = None
         self.sensor_type = None
         self.night_mode = None
-        self.state_attributes_ignore = []
         self.backoff = False
         self.backoff_count = 0
         self.light_params_day = {}
@@ -323,9 +308,8 @@ class Model():
         self.start = None
         self.end = None
         self.reset_count = None
-        # logging.setFormatter(logging.Formatter(FORMAT))
         self.log = logging.getLogger(__name__ + '.' + config.get(CONF_NAME))
-        
+        self.log.setLevel(logging.DEBUG)
         self.log.debug(
             "Initialising EntityController entity with this configuration: " + str(
                 config))
@@ -345,7 +329,6 @@ class Model():
         self.config_normal_mode(config)
         self.config_night_mode(
             config)  # must come after normal_mode (uses normal mode parameters if not set)
-        self.config_state_attributes_ignore(config)
         self.config_times(config)
         self.config_other(config)
         self.prepare_service_data()
@@ -374,7 +357,6 @@ class Model():
     # S T A T E   C H A N G E   C A L L B A C K S
     # =====================================================
 
-    @callback
     def sensor_state_change(self, entity, old, new):
         """ State change callback for sensor entities """
         self.log.debug("Sensor state change: " + new.state)
@@ -401,7 +383,6 @@ class Model():
                 self.log.debug("CONF_SENSOR_RESETS_TIMER - normal")
 
 
-    @callback
     def override_state_change(self, entity, old, new):
         """ State change callback for override entities """
         self.log.debug("Override state change")
@@ -414,24 +395,8 @@ class Model():
                         self.OVERRIDE_OFF_STATE) and self.is_override_state_off() and self.is_overridden():
             self.enable()
 
-    @callback
     def state_entity_state_change(self, entity, old, new):
         """ State change callback for state entities """
-
-        # This can be called with either a state change or an attribute change. If the state changed, we definitely want to handle the transition. If only attributes changed, we'll check if the new attributes are significant (i.e., not being ignored).
-        try:
-            if old.state == new.state:  # Only attributes changed
-                # Build two dictionaries of attributes, excluding the ones we don't want to monitor
-                old_temp = {key: old.attributes[key] for key in old.attributes if key not in self.state_attributes_ignore}
-                new_temp = {key: new.attributes[key] for key in new.attributes if key not in self.state_attributes_ignore}
-                if old_temp == new_temp:
-                    self.log.debug("insignificant attribute only change")
-                    return
-                self.log.debug("significant attribute only change")
-        except AttributeError:
-            # Most likely one of the states, either new or old, is 'off', so there's no attributes dict attached to the state object.
-            pass
-
         if self.is_active_timer():
             self.control()
 
@@ -483,7 +448,7 @@ class Model():
         return True
 
     def timer_expire(self):
-        self.log.debug("Timer expired")
+        # self.log.debug("Timer expired")
         if self.is_duration_sensor() and self.is_sensor_on():  # Ignore timer expiry because duration sensor overwrites timer
             self.update(expires_at="pending sensor")
         else:
@@ -739,10 +704,6 @@ class Model():
             if not "end_time" in night_mode:
                 self.log.error("Night mode requires a end_time parameter !")
 
-    def config_state_attributes_ignore(self, config):
-        self.add(self.state_attributes_ignore, config, CONF_STATE_ATTRIBUTES_IGNORE)
-        self.log.debug("Ignoring state changes that on the following attributes: %s", self.state_attributes_ignore)
-
     def config_normal_mode(self, config):
         self.log.info("Service data set up")
         params = {}
@@ -857,14 +818,12 @@ class Model():
     #    E V E N T   C A L L B A C K S
     # =====================================================
 
-    @callback
     def constrain_entity(self, evt):
         """
             Event callback used on component setup if current time requires entity to start in constrained state.
         """
         self.constrain()
 
-    @callback
     def end_time_callback(self, evt):
         """
             Called when `end_time` is reached, will change state to `constrained` and schedule `start_time` callback.
@@ -888,7 +847,6 @@ class Model():
         # must be down here to make sure new callback is set regardless of exceptions
         self.constrain()
 
-    @callback
     def start_time_callback(self, evt):
         """
 
@@ -1186,16 +1144,14 @@ class Model():
 
     def call_service(self, entity, service, **kwargs):
         """ Helper for calling HA services with the correct parameters """
-        self.log.debug("Calling service " + entity + " " + service)
         domain, e = entity.split('.')
         params = {}
         if kwargs is not None:
             params = kwargs
 
         params['entity_id'] = entity
-        self.hass.async_create_task(
-            self.hass.services.async_call(domain, service, kwargs)
-        )
+
+        self.hass.services.call(domain, service, kwargs)
         self.update(service_data=kwargs)
 
     def matches(self, value, list):
@@ -1327,7 +1283,6 @@ class Model():
         self.log.debug("State Entities:         %s", str(self.stateEntities))
         self.log.debug("Activate Trigger E.:    %s", str(self.triggerOnActivate))
         self.log.debug("Deactivate Trigger E.:  %s", str(self.triggerOnDeactivate))
-        self.log.debug("Ignored state attrs:    %s", str(self.state_attributes_ignore))
         self.log.debug("Light params:           %s", str(self.lightParams))
         self.log.debug("        -------        Time        -------        ")
         self.log.debug("Start time:             %s", self._start_time_private)
