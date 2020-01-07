@@ -5,6 +5,8 @@ homeassistant:
   elevation: 0
   unit_system: metric
   time_zone: Australia/Sydney
+  whitelist_external_dirs:
+    - /tmp
   packages: !include_dir_named packages
   customize: !include customize.yaml
 
@@ -40,9 +42,9 @@ http:
   cors_allowed_origins:
     - https://cast.home-assistant.io
 
-webehome:
-  username: !secret webehome_username
-  password: !secret webehome_password
+#webehome:
+#  username: !secret webehome_username
+#  password: !secret webehome_password
 
 entity_controller:
   entry_motion_light:
