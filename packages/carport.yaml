@@ -5,9 +5,10 @@ light:
       - switch.carport
 
 camera:
-  - platform: ffmpeg
+  - platform: generic
     name: carport
-    input: -rtsp_transport tcp -i rtsp://admin:542285@192.168.86.42/live/profile.0
+    still_image_url: https://home.adebenham.com/int/motion/picture/1/current/
+    stream_source: rtsp://admin:542285@192.168.86.42/live/profile.0
 
 binary_sensor:
   - platform: mqtt
@@ -40,6 +41,12 @@ automation:
         to: 'on'
     condition: []
     action:
+      - service: camera.snapshot
+        data:
+          entity_id: camera.carport
+          filename: /tmp/snapshot1.jpg
       - service: notify.hangout_notify
         data:
           message: "Carport motion"
+          data:
+            image_file: "/tmp/snapshot1.jpg"

@@ -29,10 +29,14 @@ climate:
     api_key: !secret sensibo_api_key
 
 camera:
+  # - platform: ffmpeg
+  #   name: livingroom
+  #   input: -rtsp_transport tcp -i rtsp://192.168.86.56:554/
   - platform: generic
-    stream_source: rtsp://192.168.86.56:554/
-    still_image_url: http://192.168.86.56:554/snapshot
     name: livingroom
+    stream_source: rtsp://192.168.86.56:554/
+    still_image_url: https://home.adebenham.com/int/motion/picture/4/current/
+
 
 automation:
   - id: day

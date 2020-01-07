@@ -1,8 +1,9 @@
 camera:
   - platform: mjpeg
     name: backroom
-    still_image_url: http://192.168.86.190/snapshot.cgi?loginuse=admin&loginpas=admin
+    still_image_url: https://home.adebenham.com/int/motion/picture/3/current/
     mjpeg_url: http://192.168.86.190/videostream.cgi?loginuse=admin&loginpas=admin
+
 switch:
   - platform: command_line
     switches:

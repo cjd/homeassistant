@@ -287,6 +287,17 @@
                                             },
                                             "name": "Hall",
                                             "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color": "rgb(5, 147, 255)",
+                                            "color-type": "card",
+                                            "entity": "light.carport_lights",
+                                            "hold_action": {
+                                                "action": "more-info",
+                                                "entity": "light.carport_lights"
+                                            },
+                                            "name": "Car port",
+                                            "type": "custom:button-card"
                                         }
                                     ],
                                     "type": "horizontal-stack"
@@ -302,17 +313,6 @@
                                                 "entity": "light.backyard_lights"
                                             },
                                             "name": "Backyard",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "color-type": "card",
-                                            "entity": "light.carport_lights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.carport_lights"
-                                            },
-                                            "name": "Car port",
                                             "type": "custom:button-card"
                                         },
                                         {
@@ -336,6 +336,30 @@
                                                 "entity": "fan.kitchen_fan"
                                             },
                                             "name": "Kitchen Fan",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color": "rgb(5, 147, 255)",
+                                            "color-type": "card",
+                                            "entity": "light.laundry_toilet",
+                                            "hold_action": {
+                                                "action": "more-info",
+                                                "entity": "light.laundry_toilet"
+                                            },
+                                            "icon": "mdi:toilet",
+                                            "name": "Laundry Toilet",
+                                            "type": "custom:button-card"
+                                        },
+                                        {
+                                            "color": "rgb(5, 147, 255)",
+                                            "color-type": "card",
+                                            "entity": "light.laundry",
+                                            "hold_action": {
+                                                "action": "more-info",
+                                                "entity": "light.laundry"
+                                            },
+                                            "icon": "mdi:washing-machine",
+                                            "name": "Laundry",
                                             "type": "custom:button-card"
                                         }
                                     ],
@@ -510,9 +534,6 @@
                         },
                         {
                             "entities": [
-                                {
-                                    "entity": "sensor.entry_motion_sensor_temperature"
-                                },
                                 {
                                     "entity": "sensor.netatmo_indoor_temperature",
                                     "name": "Livingroom Temperature"
@@ -711,6 +732,15 @@
                                     "entity": "light.carport_lights"
                                 },
                                 {
+                                    "entity": "light.laundry"
+                                },
+                                {
+                                    "entity": "light.laundry_toilet"
+                                },
+                                {
+                                    "entity": "light.toilet"
+                                },
+                                {
                                     "entity": "light.backyard_lights"
                                 }
                             ],
@@ -781,9 +811,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.christmas_tree"
-                                },
-                                {
                                     "entity": "switch.kitchen_relay_3"
                                 },
                                 {
@@ -797,9 +824,6 @@
                                 },
                                 {
                                     "entity": "switch.powerboard_outlet_4"
-                                },
-                                {
-                                    "entity": "switch.koganpow1"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -825,8 +849,8 @@
                             "type": "picture-entity"
                         },
                         {
+                            "aspect_ratio": "0%",
                             "camera_image": "camera.backroom",
-                            "camera_view": "live",
                             "entities": [
                                 {
                                     "entity": "switch.backroom_ptz_home",
@@ -1159,43 +1183,6 @@
                     ],
                     "icon": "mdi:settings",
                     "title": ""
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "switch.christmas_tree"
-                                },
-                                {
-                                    "entity": "switch.powerboard_outlet_4"
-                                },
-                                {
-                                    "entity": "switch.powerboard2_outlet_1"
-                                },
-                                {
-                                    "entity": "switch.powerboard2_outlet_2"
-                                },
-                                {
-                                    "entity": "switch.powerboard2_outlet_3"
-                                },
-                                {
-                                    "entity": "light.christmas_lights"
-                                },
-                                {
-                                    "entity": "switch.christmas_lights_bright"
-                                },
-                                {
-                                    "entity": "script.shutdown_panel"
-                                }
-                            ],
-                            "type": "entities"
-                        }
-                    ],
-                    "icon": "mdi:pine-tree",
-                    "path": "fpp",
-                    "title": "FPP"
                 }
             ]
         }

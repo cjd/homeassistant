@@ -5,11 +5,15 @@ light:
       - light.backyard_light_light
 
 camera:
+  # - platform: generic
+  #   name: backyard
+  #   still_image_url: http://dafang.lan/cgi-bin/currentpic.cgi
+  #   stream_source: rtsp://dafang.lan:8554/unicast
+  #   verify_ssl: false
   - platform: generic
     name: backyard
-    still_image_url: http://dafang.lan/cgi-bin/currentpic.cgi
+    still_image_url: https://home.adebenham.com/int/motion/picture/5/current/
     stream_source: rtsp://dafang.lan:8554/unicast
-    verify_ssl: false
   #- platform: generic
   #  name: backyard
   #  stream_source: http://192.168.86.105/videostream.asf?user=admin&pwd=&resolution=32

@@ -1,7 +1,27 @@
 cch:
+  exceptions:
+  - conditions:
+      user: Mel
+    config:
+      disable_sidebar: true
+      menu: show
+      notifications: show
+      options: show
+      voice: hide
   swipe: true
   swipe_animate: swipe
   voice: hide
+custom_header:
+  chevrons: false
+  compact_mode: true
+  exceptions:
+  - conditions:
+      user: Mel
+    config:
+      disable_sidebar: true
+      hide_tabs: 6,7
+      options_hide: true
+  voice_hide: true
 resources:
 - type: module
   url: /community_plugin/mini-graph-card/mini-graph-card.js
@@ -16,22 +36,28 @@ resources:
 - type: module
   url: /community_plugin/button-card/button-card.js
 - type: module
-  url: /community_plugin/compact-custom-header/compact-custom-header.js
-- type: module
-  url: /community_plugin/mini-media-player/mini-media-player.js
-- type: module
   url: /community_plugin/lovelace-fold-entity-row/fold-entity-row.js
 - type: module
   url: /community_plugin/bom-weather-card/bom-weather-card.js
 - type: module
   url: /community_plugin/rgb-light-card/card.js
+- type: js
+  url: /community_plugin/favicon-counter/favicon-counter.js
+- type: module
+  url: /community_plugin/mini-graph-card/mini-graph-card-bundle.js
+- type: module
+  url: /community_plugin/mini-media-player/mini-media-player-bundle.js
+- type: module
+  url: /community_plugin/lovelace-more-info-card/more-info-card.js
+- type: module
+  url: /community_plugin/custom-header/custom-header.js
 title: Home
 views:
 - badges:
   - entity: device_tracker.life360_mel
   - entity: device_tracker.life360_chris
   - entity: sensor.sensibo_temperature
-  - entity: sensor.entry_motion_sensor_temperature
+  - entity: sensor.netatmo_outdoor_temperature
   - entity: sensor.bedroom_temperature
   cards:
   - card:
@@ -148,6 +174,14 @@ views:
           entity: light.hall_lights
         name: Hall
         type: custom:button-card
+      - color: rgb(5, 147, 255)
+        color-type: card
+        entity: light.carport_lights
+        hold_action:
+          action: more-info
+          entity: light.carport_lights
+        name: Car port
+        type: custom:button-card
       type: horizontal-stack
     - cards:
       - color: rgb(5, 147, 255)
@@ -157,14 +191,6 @@ views:
           action: more-info
           entity: light.backyard_lights
         name: Backyard
-        type: custom:button-card
-      - color: rgb(5, 147, 255)
-        color-type: card
-        entity: switch.front_lights
-        hold_action:
-          action: more-info
-          entity: light.carport_light
-        name: Car port
         type: custom:button-card
       - color: rgb(5, 147, 255)
         color-type: card
@@ -182,6 +208,24 @@ views:
           action: more-info
           entity: fan.kitchen_fan
         name: Kitchen Fan
+        type: custom:button-card
+      - color: rgb(5, 147, 255)
+        color-type: card
+        entity: light.laundry_toilet
+        hold_action:
+          action: more-info
+          entity: light.laundry_toilet
+        icon: mdi:toilet
+        name: Laundry Toilet
+        type: custom:button-card
+      - color: rgb(5, 147, 255)
+        color-type: card
+        entity: light.laundry
+        hold_action:
+          action: more-info
+          entity: light.laundry
+        icon: mdi:washing-machine
+        name: Laundry
         type: custom:button-card
       type: horizontal-stack
     - color: rgb(44, 109, 214)
@@ -309,7 +353,6 @@ views:
   - entity: camera.bom_radar_loop_sydney
     type: picture-entity
   - entities:
-    - entity: sensor.entry_motion_sensor_temperature
     - entity: sensor.netatmo_indoor_temperature
       name: Livingroom Temperature
     - entity: sensor.bedroom_temperature
@@ -407,6 +450,9 @@ views:
     - entity: light.hall_lights
       type: custom:slider-entity-row
     - entity: light.carport_lights
+    - entity: light.laundry
+    - entity: light.laundry_toilet
+    - entity: light.toilet
     - entity: light.backyard_lights
     show_header_toggle: false
     title: Rooms
@@ -445,9 +491,7 @@ views:
     title: Light Strips
     type: entities
   - entities:
-    - entity: switch.office_speaker
     - entity: switch.kitchen_relay_3
-    - entity: group.all_light_relays
     - entity: switch.powerboard_outlet_1
     - entity: switch.powerboard_outlet_2
     - entity: switch.powerboard_outlet_3
@@ -466,8 +510,8 @@ views:
     entity: camera.livingroom
     name: Livingroom
     type: picture-entity
-  - camera_image: camera.backroom
-    camera_view: live
+  - aspect_ratio: 0%
+    camera_image: camera.backroom
     entities:
     - entity: switch.backroom_ptz_home
       icon: mdi:do-not-disturb
@@ -482,7 +526,8 @@ views:
     - entity: switch.backroom_ptz_right
       icon: mdi:arrow-right-thick
     type: picture-glance
-  - entity: camera.backyard
+  - aspect_ratio: 50%
+    entity: camera.backyard
     name: Backyard
     type: picture-entity
   icon: mdi:camera
@@ -584,13 +629,6 @@ views:
     - entity: binary_sensor.back_screen_door_sensor_contact
     show_icon: true
     type: glance
-  - entities:
-    - entity: input_boolean.zigbee_permit_join
-    - entity: timer.zigbee_permit_join
-    - entity: sensor.bridge_state
-    show_header_toggle: false
-    title: Zigbee
-    type: entities
   - card:
       title: Battery level
       type: history-graph
@@ -649,6 +687,9 @@ views:
       name: Advanced
       type: cast
       view: 6
+    type: entities
+  - entities:
+    - entity: group.all_light_relays
     type: entities
   icon: mdi:settings
   title: ''
