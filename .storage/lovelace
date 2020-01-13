@@ -839,51 +839,31 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "camera.carport",
-                            "type": "picture-entity"
-                        },
-                        {
-                            "camera_image": "camera.livingroom",
-                            "entity": "camera.livingroom",
-                            "name": "Livingroom",
-                            "type": "picture-entity"
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.carport",
+                            "entities": [],
+                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
+                            "type": "picture-glance"
                         },
                         {
                             "aspect_ratio": "0%",
                             "camera_image": "camera.backroom",
-                            "entities": [
-                                {
-                                    "entity": "switch.backroom_ptz_home",
-                                    "icon": "mdi:do-not-disturb"
-                                },
-                                {
-                                    "entity": "switch.backroom_ptz_away",
-                                    "icon": "mdi:home"
-                                },
-                                {
-                                    "entity": "switch.backroom_ptz_up",
-                                    "icon": "mdi:arrow-up-thick"
-                                },
-                                {
-                                    "entity": "switch.backroom_ptz_down",
-                                    "icon": "mdi:arrow-down-thick"
-                                },
-                                {
-                                    "entity": "switch.backroom_ptz_left",
-                                    "icon": "mdi:arrow-left-thick"
-                                },
-                                {
-                                    "entity": "switch.backroom_ptz_right",
-                                    "icon": "mdi:arrow-right-thick"
-                                }
-                            ],
+                            "entities": [],
                             "type": "picture-glance"
                         },
                         {
-                            "aspect_ratio": "50%",
-                            "entity": "camera.backyard",
-                            "name": "Backyard",
-                            "type": "picture-entity"
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.livingroom",
+                            "entities": [],
+                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
+                            "type": "picture-glance"
+                        },
+                        {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.backyard",
+                            "entities": [],
+                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
+                            "type": "picture-glance"
                         }
                     ],
                     "icon": "mdi:camera",
