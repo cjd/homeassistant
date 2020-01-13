@@ -28,6 +28,8 @@ all_lights:
     - light.xander_lights
     - light.craftroom_lights
     - light.toilet
+    - light.laundry
+    - light.laundry_toilet
 all_strips:
   name: All Strips
   entities:
