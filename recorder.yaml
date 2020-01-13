@@ -148,3 +148,4 @@ exclude:
     - sensor.tv_power_current
     - sensor.tv_power_voltage
     - sensor.backyard_light_linkquality
+    - sensor.zigbee2mqtt_networkmap
