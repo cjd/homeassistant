@@ -228,7 +228,7 @@ scene:
         state: true
         rgb_color: [0,0,60]
         brightness_pct: 50
-      light.backroom_middle:
+      light.backroom_lights:
         rgb_color: [0,0,155]
         state: true
       light.tv_backlight:

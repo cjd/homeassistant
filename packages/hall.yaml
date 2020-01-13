@@ -65,22 +65,22 @@ automation:
   #   action:
   #     - entity_id: light.hall_lights
   #       service: light.turn_off
-  # # Change the hall light colour based on time and if the kids lights are on
-  # - id: hall_nightlight
-  #   alias: Hall nightlight
-  #   trigger:
-  #     platform: sun
-  #     event: sunset
-  #     offset: "-00:45:00"
-  #   condition: []
-  #   action:
-  #   - service: light.turn_on
-  #     data:
-  #       entity_id: light.hall_lights
-  #       transition: 0
-  #       brightness_pct: 50
-  #       white_value: 120
-  #       color_name: white
+  # Change the hall light colour based on time and if the kids lights are on
+  - id: hall_nightlight
+    alias: Hall nightlight
+    trigger:
+      platform: sun
+      event: sunset
+      offset: "-00:45:00"
+    condition: []
+    action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_lights
+        transition: 0
+        brightness_pct: 50
+        white_value: 120
+        color_name: white
   - id: hall_morning
     alias: Hall morning
     trigger:
@@ -95,13 +95,12 @@ automation:
     alias: Hall Kids lights on
     trigger:
       - platform: state
-        entity_id: light.xander_bedroom_light_light
+        entity_id: light.xander_lights
+        to: 'on'
+        for: 0:00:03
     condition:
       condition: and
       conditions:
-        - condition: state
-          entity_id: light.xander_bedroom_light_light
-          state: 'on'
         - condition: time
           after: '19:00:00'
           before: '06:00:00'
@@ -117,13 +116,12 @@ automation:
     alias: Hall Kids lights off
     trigger:
       - platform: state
-        entity_id: light.xander_bedroom_light_light
+        entity_id: light.xander_lights
+        to: 'off'
+        for: 0:00:03
     condition:
       condition: and
       conditions:
-        - condition: state
-          entity_id: light.xander_bedroom_light_light
-          state: 'off'
         - condition: time
           after: '19:00:00'
           before: '06:00:00'
