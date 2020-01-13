@@ -50,18 +50,33 @@ binary_sensor:
         - switch.turn_on: relay1
         - mqtt.publish:
             topic: Lucas/cmnd/Backlog
-            payload: "CT 370; Dimmer 100; POWER ON"
+            payload: "Scheme 0; CT 370; Dimmer 100; POWER ON"
   - platform: gpio
     pin:
       number: GPIO5
       inverted: True
     name: "Lucas Switch2"
-    on_press:
-      then:
-        - switch.turn_on: relay1
-        - mqtt.publish:
-            topic: Lucas/cmnd/Backlog
-            payload: "CT 370; Dimmer 50; POWER ON"
+    on_multi_click:
+      - timing:
+          - ON for at most 1s
+          - OFF for at most 0.3s
+          - ON for at most 1s
+          - OFF for at least 0.2s
+        then:
+          - logger.log: "Double-Clicked"
+          - switch.turn_on: relay1
+          - mqtt.publish:
+              topic: Lucas/cmnd/Backlog
+              payload: "Color1 2;Scheme 2; Dimmer 100; POWER ON"
+      - timing:
+          - ON for at most 1s
+          - OFF for at least 0.5s
+        then:
+          - logger.log: "Single-Clicked"
+          - switch.turn_on: relay1
+          - mqtt.publish:
+              topic: Lucas/cmnd/Backlog
+              payload: "Scheme 0; White 100; CT 370; Dimmer 50; POWER ON"
   - platform: gpio
     pin:
       number: GPIO4
