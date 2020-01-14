@@ -2,6 +2,17 @@ camera:
   - platform: bom
     location: Sydney 
 
+automation:
+  - alias: 'Update BOM Icons'
+    trigger:
+      - event: start
+        platform: homeassistant
+      - platform: time
+        at: '18:01:00'
+    action:
+      - service: homeassistant.update_entity
+        entity_id: sensor.bom_forecast_0
+        
 sensor:
   - platform: bom
     station: IDN60901.94782
