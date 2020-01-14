@@ -25,6 +25,7 @@ switch:
           data:
               entity_id: light.office_lights
               transition: 1
+
 climate:
   - platform: generic_thermostat
     name: Office
@@ -33,7 +34,7 @@ climate:
     initial_hvac_mode: "off"
 
 automation:
-  - alias: Office light
+  - alias: Office - Dimmer
     id: office_light
     trigger:
     - entity_id: sensor.office_dimmer_action

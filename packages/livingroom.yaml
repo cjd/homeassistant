@@ -40,7 +40,7 @@ camera:
 
 automation:
   - id: day
-    alias: Time - Day
+    alias: Livingroom - Time - Day
     trigger:
     - event: sunrise
       platform: sun
@@ -52,7 +52,7 @@ automation:
       entity_id: light.family_room_strip
       service: light.turn_on
   - id: night
-    alias: Time - Night
+    alias: Livingroom - Time - Night
     trigger:
     - event: sunset
       platform: sun
@@ -63,7 +63,7 @@ automation:
         entity_id: light.family_room_strip
       entity_id: light.family_room_strip
       service: light.turn_on
-  - alias: Living Room Preset selected
+  - alias: Livingroom - Preset selected
     trigger:
       platform: state
       entity_id: input_select.livingroom_preset
@@ -78,7 +78,7 @@ automation:
           {% elif trigger.to_state.state == "Night" %}scene.night
           {% elif trigger.to_state.state == "TurnOff" %}scene.turn_off
           {% endif %}
-  - alias: Living Room Preset manual off
+  - alias: Livingroom - Preset manual off
     trigger:
       - entity_id: light.livingroom_lights
         platform: state
@@ -92,7 +92,7 @@ automation:
         service: input_select.select_option
         data:
           option: "TurnOff"
-  - alias: Living Room Preset manual on
+  - alias: Livingroom - Preset manual on
     trigger:
       - entity_id: light.livingroom_lights
         platform: state
@@ -106,7 +106,7 @@ automation:
         service: input_select.select_option
         data:
           option: "Normal"
-  - alias: Living Room Switch 1
+  - alias: Livingroom - Switch 1
     trigger:
       - entity_id: binary_sensor.livingroom_switch1
         platform: state
@@ -117,7 +117,7 @@ automation:
         service: input_select.select_option
         data:
           option: "Normal"
-  - alias: Living Room Switch 2
+  - alias: Livingroom - Switch 2
     trigger:
       - entity_id: binary_sensor.livingroom_switch2
         platform: state
@@ -128,7 +128,7 @@ automation:
         service: input_select.select_option
         data:
           option: "Night"
-  - alias: Living Room Switch 3
+  - alias: Livingroom - Switch 3
     trigger:
       - entity_id: binary_sensor.livingroom_switch3
         platform: state
@@ -139,7 +139,7 @@ automation:
         service: input_select.select_option
         data:
           option: "TurnOff"
-  - alias: AC State set
+  - alias: Livingroom - AC State set
     trigger:
       - entity_id: binary_sensor.ac_active_sensor_contact
         platform: state 
@@ -148,7 +148,7 @@ automation:
     action:
       - entity_id: climate.living_room
         service: climate.turn_off
-  - alias: AC on but doors/windows left open
+  - alias: Livingroom - AC on but doors/windows left open
     trigger:
       - entity_id: binary_sensor.backdoor_sensor_contact
         platform: state
@@ -170,7 +170,7 @@ automation:
       - service: notify.hangout_notify
         data:
           message: "Door/window left open but AC is on"
-  - alias: AC on but doors/windows already open
+  - alias: Livingroom - AC on but doors/windows already open
     trigger:
       - entity_id: binary_sensor.ac_active_sensor_contact
         platform: state

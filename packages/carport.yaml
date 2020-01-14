@@ -34,7 +34,7 @@ switch:
               entity_id: light.carport_lights
 
 automation:
-  - alias: 'Carport motion'
+  - alias: Carport - motion
     trigger:
       - platform: state
         entity_id: binary_sensor.carport_camera_motion

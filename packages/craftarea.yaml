@@ -6,7 +6,7 @@ light:
       - light.craftroom_lights
 
 automation:
-  - alias: Dimmer - Craftarea
+  - alias: Craftarea - Dimmer
     trigger:
     - entity_id: sensor.craftarea_dimmer_action
       platform: state

@@ -24,50 +24,9 @@ switch:
               transition: 1
 
 automation:
-  # - alias: Hall Switch1
-  #   trigger:
-  #   - entity_id: binary_sensor.hallway_switch1
-  #     platform: state
-  #     to: 'on'
-  #   condition: []
-  #   action:
-  #     - entity_id: switch.hallway_relay_1
-  #       service: switch.turn_on
-  #     - entity_id: light.hall_lights
-  #       service: light.turn_on
-  #       data:
-  #         transition: 0
-  #         brightness_pct: 100
-  #         color_name: white
-  #         white_value: 255
-  # - alias: Hall Switch2
-  #   trigger:
-  #   - entity_id: binary_sensor.hallway_switch2
-  #     platform: state
-  #     to: 'on'
-  #   condition: []
-  #   action:
-  #     - entity_id: switch.hallway_relay_1
-  #       service: switch.turn_on
-  #     - entity_id: light.hall_lights
-  #       service: light.turn_on
-  #       data:
-  #         transition: 0
-  #         color_name: white
-  #         brightness: 40
-  #         white_value: 40
-  # - alias: Hall Switch3
-  #   trigger:
-  #   - entity_id: binary_sensor.hallway_switch3
-  #     platform: state
-  #     to: 'on'
-  #   condition: []
-  #   action:
-  #     - entity_id: light.hall_lights
-  #       service: light.turn_off
   # Change the hall light colour based on time and if the kids lights are on
   - id: hall_nightlight
-    alias: Hall nightlight
+    alias: Hall - nightlight
     trigger:
       platform: sun
       event: sunset
@@ -82,7 +41,7 @@ automation:
         white_value: 120
         color_name: white
   - id: hall_morning
-    alias: Hall morning
+    alias: Hall - morning
     trigger:
       platform: sun
       event: sunrise
@@ -92,7 +51,7 @@ automation:
       data:
         entity_id: light.hall_lights
   - id: hall_kidslightson
-    alias: Hall Kids lights on
+    alias: Hall - Kids lights on
     trigger:
       - platform: state
         entity_id: light.xander_lights
@@ -113,7 +72,7 @@ automation:
           white_value: 120
           color_name: white
   - id: hall_kidslightsoff
-    alias: Hall Kids lights off
+    alias: Hall - Kids lights off
     trigger:
       - platform: state
         entity_id: light.xander_lights

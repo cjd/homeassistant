@@ -53,7 +53,7 @@ automation:
           {% else %} white
           {% endif %}
   - id: main_bedroom_night_mode
-    alias: Main bedroom night mode
+    alias: Main bedroom - night mode
     trigger:
       platform: time
       at: '20:30:00'
@@ -68,7 +68,7 @@ automation:
         brightness: 125
         transition: 300
         color_temp: 450
-  - alias: Dimmer - Main Bedroom
+  - alias: Main Bedroom - Dimmer
     trigger:
     - entity_id: sensor.bedroom_dimmer_action
       platform: state
@@ -82,50 +82,3 @@ automation:
         brightness: 80
     - entity_id: switch.bedroom_relay_1
       service: switch.turn_on
-  # - alias: Main Bedroom - Switch1
-  #   trigger:
-  #   - entity_id: binary_sensor.bedroom_switch1
-  #     platform: state
-  #     to: 'on'
-  #   - entity_id: sensor.bedroom_dimmer_action
-  #     platform: state
-  #     to: 'on-press'
-  #   action:
-  #   - entity_id: light.bedroom_lights
-  #     service: light.turn_on
-  #     data:
-  #       transition: 1
-  #       brightness: 255
-  #       color_temp: 450
-  #   - entity_id: switch.bedroom_relay_1
-  #     service: switch.turn_on
-  # - alias: Main Bedroom - Switch2
-  #   trigger:
-  #   - entity_id: binary_sensor.bedroom_switch2
-  #     platform: state
-  #     to: 'on'
-  #   - entity_id: sensor.bedroom_dimmer_action
-  #     platform: state
-  #     to: 'up-press'
-  #   action:
-  #   - entity_id: light.bedroom_lights
-  #     service: light.turn_on
-  #     data:
-  #       transition: 1
-  #       brightness: 125
-  #       color_temp: 450
-  #   - entity_id: switch.bedroom_relay_1
-  #     service: switch.turn_on
-  # - alias: Main Bedroom - Switch3
-  #   trigger:
-  #   - entity_id: binary_sensor.bedroom_switch3
-  #     platform: state
-  #     to: 'on'
-  #   - entity_id: sensor.bedroom_dimmer_action
-  #     platform: state
-  #     to: 'off-press'
-  #   action:
-  #   - entity_id: light.bedroom_lights
-  #     service: light.turn_off
-  #     data:
-  #       transition: 1

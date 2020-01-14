@@ -5,22 +5,13 @@ light:
       - light.backyard_light_light
 
 camera:
-  # - platform: generic
-  #   name: backyard
-  #   still_image_url: http://dafang.lan/cgi-bin/currentpic.cgi
-  #   stream_source: rtsp://dafang.lan:8554/unicast
-  #   verify_ssl: false
   - platform: generic
     name: backyard
     still_image_url: https://home.adebenham.com/int/motion/picture/5/current/
     stream_source: rtsp://dafang.lan:8554/unicast
-  #- platform: generic
-  #  name: backyard
-  #  stream_source: http://192.168.86.105/videostream.asf?user=admin&pwd=&resolution=32
-  #  still_image_url: http://192.168.86.105/media?action=snapshot&user=admin&pwd=
 
 automation:
-  - alias: Backdoors left open
+  - alias: Backyard - Backdoors left open
     trigger:
       - platform: state
         entity_id: binary_sensor.backdoor_sensor_contact
@@ -46,7 +37,7 @@ automation:
       - service: notify.google_assistant
         data:
           message: "Heads up - Someone left the back doors open"
-  - alias: Backyard light - night on
+  - alias: Backyard - Backyard light - night on
     trigger: 
       - platform: state
         entity_id: binary_sensor.backdoor_sensor_contact
@@ -64,7 +55,7 @@ automation:
       service: light.turn_on
       data:
         entity_id: light.backyard_lights
-  - alias: Backyard light - night on
+  - alias: Backyard - Backyard light - night on
     trigger:
       - platform: state
         entity_id:  binary_sensor.backdoor_sensor_contact
@@ -76,7 +67,7 @@ automation:
       service: light.turn_off
       data:
         entity_id:  light.sensor_light
-  - alias: Backdoor switch on
+  - alias: Backyard - Backdoor switch on
     trigger:
       - platform: state
         entity_id: light.backyard_lights

@@ -23,26 +23,3 @@ switch:
           data:
               entity_id: light.entry_lights
               transition: 1
-
-# automation:
-#   - alias: Entry - Switch1
-#     trigger:
-#     - entity_id: binary_sensor.entry_switch1
-#       platform: state
-#       to: 'on'
-#     action:
-#       - entity_id: light.entry_lights
-#         service: light.toggle
-#         data:
-#           brightness_pct: 100
-#   - alias: Entry - Switch2
-#     trigger:
-#     - entity_id: binary_sensor.entry_switch2
-#       platform: state
-#       to: 'on'
-#     action:
-#       - entity_id: light.carport_lights
-#         service: light.toggle
-#         data:
-#           transition: 0
-#           brightness_pct: 100
