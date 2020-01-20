@@ -3,8 +3,8 @@ light:
     name: Livingroom Lights
     entities:
       - light.livingroom_side
-      - light.livingroom_a
-      - light.livingroom_b
+      - light.livingrooma
+      - light.livingroomb
 
 switch:
   - platform: template
@@ -29,9 +29,6 @@ climate:
     api_key: !secret sensibo_api_key
 
 camera:
-  # - platform: ffmpeg
-  #   name: livingroom
-  #   input: -rtsp_transport tcp -i rtsp://192.168.86.56:554/
   - platform: generic
     name: livingroom
     stream_source: rtsp://192.168.86.56:554/
@@ -192,6 +189,67 @@ automation:
       - service: notify.hangout_notify
         data:
           message: "AC turned on but door/window open"
+  - alias: Livingroom - AC State Heat
+    trigger:
+      - entity_id: climate.living_room
+        platform: state
+        to: 'heat'
+    action:
+      - entity_id: input_select.livingroom_ac_state
+        service: input_select.select_option
+        data:
+          option: "Heat"
+  - alias: Livingroom - AC State Off
+    trigger:
+      - entity_id: climate.living_room
+        platform: state
+        to: 'off'
+    action:
+      - entity_id: input_select.livingroom_ac_state
+        service: input_select.select_option
+        data:
+          option: "Off"
+  - alias: Livingroom - AC State Fan
+    trigger:
+      - entity_id: climate.living_room
+        platform: state
+        to: 'fan_only'
+    action:
+      - entity_id: input_select.livingroom_ac_state
+        service: input_select.select_option
+        data:
+          option: "Fan"
+  - alias: Livingroom - AC State Dry
+    trigger:
+      - entity_id: climate.living_room
+        platform: state
+        to: 'dry'
+    action:
+      - entity_id: input_select.livingroom_ac_state
+        service: input_select.select_option
+        data:
+          option: "Dry"
+  - alias: Livingroom - AC State Auto
+    trigger:
+      - entity_id: climate.living_room
+        platform: state
+        to: 'heat_cool'
+    action:
+      - entity_id: input_select.livingroom_ac_state
+        service: input_select.select_option
+        data:
+          option: "Auto"
+  - alias: Livingroom - AC State Cool
+    trigger:
+      - entity_id: climate.living_room
+        platform: state
+        to: 'cool'
+    action:
+      - entity_id: input_select.livingroom_ac_state
+        service: input_select.select_option
+        data:
+          option: "Cool"
+
 
 scene:
   - name: Normal
@@ -199,7 +257,7 @@ scene:
       light.livingroom_lights:
         state: true
         brightness_pct: 100
-        color_temp: 333
+        color_temp: 420
       light.kitchen_lights:
         brightness_pct: 100
         color_temp: 420
@@ -216,20 +274,15 @@ scene:
     entities:
       light.kitchen_lights:
         state: true
-        rgb_color: [0,0,60]
-        brightness_pct: 50
-      light.livingroom_a:
+        rgb_color: [0,0,155]
+        brightness_pct: 100
+      light.livingroom_lights:
         state: true
-        rgb_color: [0,0,60]
-        brightness_pct: 50
-      light.livingroom_b:
-        state: false
-      light.livingroom_side:
-        state: true
-        rgb_color: [0,0,60]
-        brightness_pct: 50
+        rgb_color: [0,0,155]
+        brightness_pct: 100
       light.backroom_lights:
         rgb_color: [0,0,155]
+        brightness_pct: 100
         state: true
       light.tv_backlight:
         state: true
