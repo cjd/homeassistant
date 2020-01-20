@@ -1,6 +1,7 @@
 {
     "data": {
         "config": {
+            "background": "var(--background-image)",
             "cch": {
                 "exceptions": [
                     {
@@ -40,7 +41,7 @@
             "resources": [
                 {
                     "type": "module",
-                    "url": "/community_plugin/mini-graph-card/mini-graph-card.js"
+                    "url": "/local/floorplan/floorplan-card.js"
                 },
                 {
                     "type": "module",
@@ -93,10 +94,237 @@
                 {
                     "type": "module",
                     "url": "/community_plugin/custom-header/custom-header.js"
+                },
+                {
+                    "type": "js",
+                    "url": "/community_plugin/fan-control-entity-row/fan-control-entity-row.js"
                 }
             ],
             "title": "Home",
             "views": [
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "config": {
+                                "image": "/local/floorplan/Floorplan.svg?v=1",
+                                "log_level": "error",
+                                "rules": [
+                                    {
+                                        "entities": [
+                                            "fan.office_fan",
+                                            "fan.kitchen_fan"
+                                        ],
+                                        "propagate": false,
+                                        "states": [
+                                            {
+                                                "class": "spinning",
+                                                "state": "on"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entity": "climate.living_room",
+                                        "states": [
+                                            {
+                                                "class": "ac-dry",
+                                                "state": "dry"
+                                            },
+                                            {
+                                                "class": "ac-heat_cool",
+                                                "state": "heat_cool"
+                                            },
+                                            {
+                                                "class": "ac-heat",
+                                                "state": "heat"
+                                            },
+                                            {
+                                                "class": "ac-fan_only",
+                                                "state": "fan_only"
+                                            },
+                                            {
+                                                "class": "ac-cool",
+                                                "state": "cool"
+                                            },
+                                            {
+                                                "class": "ac-off",
+                                                "state": "off"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entity": "input_select.livingroom_ac_state",
+                                        "text_template": "${entity.state}"
+                                    },
+                                    {
+                                        "entity": "input_select.livingroom_preset",
+                                        "states": [
+                                            {
+                                                "class": "preset-normal",
+                                                "state": "Normal"
+                                            },
+                                            {
+                                                "class": "preset-night",
+                                                "state": "Night"
+                                            },
+                                            {
+                                                "class": "preset-off",
+                                                "state": "TurnOff"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entities": [
+                                            "binary_sensor.bedroom_window_sensor_contact",
+                                            "binary_sensor.backdoor_sensor_contact",
+                                            "binary_sensor.frontdoor_sensor_contact",
+                                            "binary_sensor.livingroom_window_sensor_contact"
+                                        ],
+                                        "states": [
+                                            {
+                                                "class": "sensor-open",
+                                                "state": "on"
+                                            },
+                                            {
+                                                "class": "sensor-closed",
+                                                "state": "off"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "entities": [
+                                            "person.chris",
+                                            "person.mel"
+                                        ],
+                                        "text_template": "${entity.state}"
+                                    },
+                                    {
+                                        "entities": [
+                                            "camera.backyard",
+                                            "camera.livingroom",
+                                            "camera.carport",
+                                            "camera.backroom"
+                                        ],
+                                        "states": [
+                                            {
+                                                "class": "camera-idle",
+                                                "state": "idle"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "action": {
+                                            "service": "homeassistant.toggle"
+                                        },
+                                        "entities": [
+                                            "light.bedroom_lights",
+                                            "light.office_lights",
+                                            "light.livingroom_lights",
+                                            "light.lucas_lights",
+                                            "light.xander_lights",
+                                            "light.craftroom_lights",
+                                            "light.hall_lights",
+                                            "light.entry_lights",
+                                            "light.kitchen_lights",
+                                            "light.backroom_lights",
+                                            "light.laundry",
+                                            "light.laundry_toilet",
+                                            "light.backyard_lights",
+                                            "light.toilet",
+                                            "light.carport_lights"
+                                        ],
+                                        "states": [
+                                            {
+                                                "class": "light-off",
+                                                "state": "off"
+                                            },
+                                            {
+                                                "class": "light-on",
+                                                "state": "on"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "action": {
+                                            "data": {
+                                                "entity_id": "light.bedroom_lights"
+                                            },
+                                            "service": "homeassistant.toggle"
+                                        },
+                                        "entity": "sensor.bedroom_temperature",
+                                        "text_template": "${entity.state}\u00b0"
+                                    },
+                                    {
+                                        "action": {
+                                            "data": {
+                                                "entity_id": "light.lucas_lights"
+                                            },
+                                            "service": "homeassistant.toggle"
+                                        },
+                                        "entity": "sensor.lucas_bedroom_sensor_temperature",
+                                        "text_template": "${Math.round(entity.state*10)/10}\u00b0"
+                                    },
+                                    {
+                                        "action": {
+                                            "data": {
+                                                "entity_id": "light.xander_lights"
+                                            },
+                                            "service": "homeassistant.toggle"
+                                        },
+                                        "entity": "sensor.xander_bedroom_sensor_temperature",
+                                        "text_template": "${Math.round(entity.state*10)/10}\u00b0"
+                                    },
+                                    {
+                                        "action": {
+                                            "data": {
+                                                "entity_id": "light.backroom_lights"
+                                            },
+                                            "service": "homeassistant.toggle"
+                                        },
+                                        "entity": "sensor.backroom_sensor_temperature",
+                                        "text_template": "${Math.round(entity.state*10)/10}\u00b0"
+                                    },
+                                    {
+                                        "action": {
+                                            "data": {
+                                                "entity_id": "light.livingroom_lights"
+                                            },
+                                            "service": "homeassistant.toggle"
+                                        },
+                                        "entity": "sensor.netatmo_indoor_temperature",
+                                        "text_template": "${entity.state}\u00b0"
+                                    },
+                                    {
+                                        "action": {
+                                            "data": {
+                                                "entity_id": "light.backyard_lights"
+                                            },
+                                            "service": "homeassistant.toggle"
+                                        },
+                                        "entity": "sensor.netatmo_outdoor_temperature",
+                                        "text_template": "${entity.state}\u00b0"
+                                    },
+                                    {
+                                        "action": {
+                                            "data": {
+                                                "entity_id": "light.office_lights"
+                                            },
+                                            "service": "homeassistant.toggle"
+                                        },
+                                        "entity": "sensor.office_temperature",
+                                        "text_template": "${entity.state}\u00b0"
+                                    }
+                                ],
+                                "stylesheet": "/local/floorplan/Floorplan.css?v=1"
+                            },
+                            "type": "custom:floorplan-card"
+                        }
+                    ],
+                    "icon": "mdi:floor-plan",
+                    "id": "system",
+                    "panel": false,
+                    "title": "Floorplan"
+                },
                 {
                     "badges": [
                         {
@@ -829,6 +1057,12 @@
                             "show_header_toggle": false,
                             "title": "Switches",
                             "type": "entities"
+                        },
+                        {
+                            "customTheme": false,
+                            "entity": "fan.office_fan",
+                            "name": "Office Fan",
+                            "type": "custom:fan-control-entity-row"
                         }
                     ],
                     "icon": "mdi:lightbulb",
@@ -1077,6 +1311,12 @@
                             "entities": [
                                 {
                                     "entity": "sensor.tv_power_watts"
+                                },
+                                {
+                                    "entity": "sensor.washing_watts"
+                                },
+                                {
+                                    "entity": "sensor.house_power"
                                 }
                             ],
                             "hours_to_show": 24,
@@ -1159,6 +1399,12 @@
                                 }
                             ],
                             "type": "entities"
+                        },
+                        {
+                            "entities": [],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
+                            "type": "history-graph"
                         }
                     ],
                     "icon": "mdi:settings",
