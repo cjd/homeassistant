@@ -7,3 +7,11 @@ livingroom_amp_input:
   options:
     - "Media Player"
     - "PS4"
+livingroom_ac_state:
+  options:
+    - "Heat"
+    - "Cool"
+    - "Auto"
+    - "Dry"
+    - "Fan"
+    - "Off"
