@@ -1,12 +1,3 @@
-- platform: filter
-  name: "House Power"
-  entity_id: sensor.energy_usage
-  filters:
-    - filter: outlier
-      window_size: 4
-      radius: 2.0
-    - filter: range
-      upper_bound: 1200
 - platform: google_wifi
   host: 192.168.86.1
 - platform: mqtt
