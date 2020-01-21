@@ -34,19 +34,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.46"
-     inkscape:cx="520.51565"
-     inkscape:cy="498.57541"
+     inkscape:zoom="0.86499998"
+     inkscape:cx="148.83652"
+     inkscape:cy="150.81371"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      showguides="true"
-     inkscape:window-width="1276"
-     inkscape:window-height="1400"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
      inkscape:window-x="0"
-     inkscape:window-y="946"
-     inkscape:window-maximized="0"
+     inkscape:window-y="26"
+     inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -75,12 +75,6 @@
      id="layer1"
      transform="translate(-42.747334,-21.13097)"
      style="display:inline">
-    <path
-       style="fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:0.79374999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.43534482"
-       d="M 43.006817,216.0856 H 202.3341 v 48.68332 H 43.006817 Z"
-       id="light.backyard_lights"
-       inkscape:connector-curvature="0"
-       inkscape:label="#light.backyard_lights" />
     <g
        id="light.hall_lights"
        inkscape:label="#g1435">
@@ -374,6 +368,21 @@
          id="light.craftroom_lights-9"
          d="m 172.98527,176.25378 -6.05723,-1e-5 v -30.9803 h 5.76741 m 8.85152,0 h 20.78713 v 30.9803 l -5.09747,1e-5"
          style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00012505;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         style="fill:none;stroke:#666666;stroke-width:0.3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+         d="m 197.23663,176.25378 v -24.99259 h 4.91457"
+         id="path1282"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#666666;stroke-width:0.3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+         d="m 197.23663,151.26119 h -15.41645 v -6.27234"
+         id="path1284"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#666666;stroke-width:0.3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+         d="m 172.98527,176.25378 v -24.34373 h -6.08892"
+         id="path1286"
+         inkscape:connector-curvature="0" />
     </g>
     <g
        id="light.backroom_lights"
@@ -405,6 +414,27 @@
            id="path6138"
            style="fill:none;fill-opacity:1;stroke:#666666;stroke-opacity:1" />
       </g>
+      <path
+         style="fill:none;stroke:#666666;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 193.93228,215.06599 v -28.98252 h 8.43521"
+         id="path1288"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#666666;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 111.55055,216.08561 v -6.64309 h 37.61022 v 6.70491"
+         id="path1290"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#666666;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 158.56997,176.25378 v 9.39712 h 14.59871 v -9.30036"
+         id="path1292"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#666666;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 67.210017,177.24274 0,19.87139 -6.510823,0"
+         id="path1294"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccc" />
     </g>
     <g
        id="light.laundry"
@@ -432,7 +462,7 @@
          style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00012505;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     </g>
     <g
-       id="light.livingroom_lights"
+       id="switch.livingroom_lights"
        inkscape:label="#g1454">
       <path
          inkscape:label="#path4611"
@@ -456,8 +486,8 @@
          d="m 95.904008,87.73863 -8.639613,6e-6 V 154.125 l 13.277275,-2e-5 v 3.75995 m 0,18.36885 h 10.18491 m 47.84339,0 h 8.35806 V 87.738625 h -31.54341"
          style="display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.00012505;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <g
-         style="display:inline;stroke:#666666;stroke-opacity:1;fill:none"
-         transform="matrix(0,0.37640699,-0.37640699,0,169.07211,105.67212)"
+         style="display:inline;fill:none;stroke:#666666;stroke-opacity:1"
+         transform="matrix(0,0.30840686,-0.30840686,0,168.57485,106.32624)"
          id="g5988">
         <path
            inkscape:connector-curvature="0"
@@ -472,6 +502,16 @@
          height="45.449898"
          x="87.352684"
          y="94.954681" />
+      <path
+         style="fill:none;stroke:#4d4d4d;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 166.89635,151.91005 h -4.32575 v 24.00791"
+         id="path1296"
+         inkscape:connector-curvature="0" />
+      <path
+         style="fill:none;stroke:#666666;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 135.38462,87.738625 v 8.369257 h 9.23411 v -8.218924"
+         id="path1298"
+         inkscape:connector-curvature="0" />
     </g>
     <g
        id="light.carport_lights"
@@ -587,16 +627,16 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666667px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;fill:#ffffff;stroke-width:0.26458332;">00.0°</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
-       x="141.75259"
-       y="96.771263"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="145.86206"
+       y="96.554977"
        id="sensor.netatmo_indoor_temperature"
        inkscape:label="#text1565"><tspan
          sodipodi:role="line"
          id="tspan1563-1-5"
-         x="141.75259"
-         y="96.771263"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666667px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;fill:#ffffff;stroke-width:0.26458332;">00.0°</tspan></text>
+         x="145.86206"
+         y="96.554977"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;stroke-width:0.26458332">00.0°</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
@@ -608,18 +648,6 @@
          id="tspan1563-1-8"
          x="45.999115"
          y="127.61227"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666667px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;fill:#ffffff;stroke-width:0.26458332;">00.0°</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
-       x="176.0876"
-       y="227.53706"
-       id="sensor.netatmo_outdoor_temperature"
-       inkscape:label="#text1565"><tspan
-         sodipodi:role="line"
-         id="tspan1563-1-81"
-         x="176.0876"
-         y="227.53706"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666667px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;fill:#ffffff;stroke-width:0.26458332;">00.0°</tspan></text>
     <g
        transform="matrix(0.16128284,0,0,0.16128284,22.038944,64.777185)"
@@ -947,7 +975,7 @@
        style="fill:#ffffff;stroke:#666666;stroke-opacity:1"
        inkscape:label="#g356"
        id="climate.living_room_group"
-       transform="matrix(0.14666904,0,0,0.14666904,205.04007,151.64336)">
+       transform="matrix(0.14666904,0,0,0.14666904,205.04007,154.81838)">
       <text
          xml:space="preserve"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:33.67369843px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.44317463;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -962,7 +990,8 @@
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';fill:#ffffff;stroke:#000000;stroke-width:0.44317463;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">NA</tspan></text>
       <g
          id="climate.living_room"
-         inkscape:label="#g1271">
+         inkscape:label="#g1271"
+         transform="matrix(1,0,0,1.5187359,0,-37.060542)">
         <path
            style="fill:#000000;fill-opacity:1;stroke:none;stroke-opacity:1"
            d="M 121.90072,-0.880085 C 82.812264,-0.874689 43.723544,-0.890876 4.6352472,-0.871992 c -3.5517601,0.05022 -6.6263485,3.383192 -6.199364,6.94932 -0.065148,8.637581 -0.00779,17.327879 1.7256281,25.82902 1.1857015,6.064704 2.7595812,12.099746 5.1420773,17.807046 1.4002259,2.617191 4.4947406,3.381803 7.2453414,3.156521 34.64099,-0.01248 69.282914,0.02497 103.92332,-0.01873 3.35983,-0.115148 5.63843,-3.082343 6.28174,-6.15152 4.20719,-11.829962 5.97014,-24.434499 5.68189,-36.965471 -0.14806,-2.818743 0.63025,-6.062405 -1.49417,-8.352964 -1.24533,-1.443621 -3.13978,-2.272018 -5.04099,-2.261318 z m -17.34228,51.75 c -27.414223,0 -54.828448,0 -82.242674,0 -1.986248,-1.739035 -3.945213,-4.058233 -3.697266,-6.875 29.848471,0 59.696942,0 89.54541,0 0.0464,2.76067 -1.59031,5.137213 -3.60547,6.875 z m 15.54346,-2.72168 c -0.78736,2.250556 -3.328,2.943723 -5.47931,2.72168 -2.41638,0 -4.83277,0 -7.24915,0 1.97585,-2.199554 3.84093,-6.152694 2.16274,-8.800232 -4.25898,-0.172966 -8.54913,-0.02603 -12.820207,-0.07477 -26.333273,0 -52.666545,0 -78.999817,0 -2.385537,1.49447 -0.696297,5.668164 0.675296,7.589466 1.293674,1.151544 1.042804,1.459743 -0.431796,1.285534 -2.691204,-0.06163 -5.400791,0.131201 -8.0791018,-0.111668 C 7.5568608,50.379398 6.5718768,48.076182 6.0165519,46.066083 4.049441,40.437286 2.5993507,34.629231 1.6690985,28.740032 c 41.1778985,0 82.3557965,0 123.5336915,0 -1.04506,6.618381 -2.74776,13.133942 -5.10089,19.408203 z m 6.33398,-34.816895 c 2.4e-4,4.483464 -0.30656,8.966815 -0.91559,13.408692 -41.389584,0 -82.779171,0 -124.1687574,0 C 0.2795606,19.50875 0.4085133,12.185493 0.4593439,4.898289 0.7159078,2.216692 3.5636321,0.797359 6.0202063,1.119915 c 38.6268387,0 77.2536777,0 115.8805137,0 2.7098,-0.123189 4.95825,2.4512 4.53516,5.107294 0,2.368044 0,4.736087 0,7.104131 z"
@@ -1019,5 +1048,68 @@
            style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.03550134;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       </g>
     </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="202.06976"
+       y="106.04078"
+       id="sensor.carport_temperature"
+       inkscape:label="#text1565"><tspan
+         sodipodi:role="line"
+         id="tspan1563-1-6"
+         x="202.06976"
+         y="106.04078"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666622px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;stroke-width:0.26458332">00.0°</tspan></text>
+    <g
+       id="light.backyard_lights"
+       inkscape:label="#g1025">
+      <path
+         inkscape:label="#light.backyard_lights"
+         inkscape:connector-curvature="0"
+         id="light.backyard_lights_floor"
+         d="M 43.006817,216.0856 H 202.3341 v 48.68332 H 43.006817 Z"
+         style="fill:#999999;fill-opacity:1;stroke:#000000;stroke-width:0.79374999;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.43534482" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path997"
+         d="m 47.568067,214.94707 v 8.33785 h 20.268615 v -7.13749"
+         style="fill:none;stroke:#666666;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path999"
+         d="m 111.55055,216.08561 v 7.63188 h 39.34052 v -7.35377"
+         style="fill:none;stroke:#666666;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccccc"
+         inkscape:connector-curvature="0"
+         id="path1001"
+         d="M 47.721946,234.09929 V 261.5678 H 79.516207 V 251.186 H 59.185183 v -17.0867 z"
+         style="fill:none;stroke:#666666;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path1003"
+         d="m 67.187819,239.50648 v 5.40719 h 5.623476 v -5.40719 z"
+         style="fill:none;stroke:#666666;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <rect
+         y="234.15935"
+         x="141.85138"
+         height="16.517342"
+         width="35.787571"
+         id="rect1005"
+         style="fill:none;fill-opacity:1;stroke:#666666;stroke-width:0.42000002;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666667px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:start;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
+       x="176.0876"
+       y="227.53706"
+       id="sensor.netatmo_outdoor_temperature"
+       inkscape:label="#text1565"><tspan
+         sodipodi:role="line"
+         id="tspan1563-1-81"
+         x="176.0876"
+         y="227.53706"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.46666667px;font-family:Roboto;-inkscape-font-specification:'Roboto, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr;text-anchor:start;fill:#ffffff;stroke-width:0.26458332;">00.0°</tspan></text>
   </g>
 </svg>

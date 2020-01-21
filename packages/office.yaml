@@ -60,6 +60,32 @@ fan:
       - low
       - medium
       - high
+  - platform: mqtt  
+    name: "Office Fan2"
+    command_topic: "Office_Fan/cmnd/FanSpeed"
+    speed_command_topic: "Office_Fan/cmnd/FanSpeed"
+    state_topic: "Office_Fan/stat/RESULT"
+    speed_state_topic: "Office_Fan/stat/RESULT"
+    state_value_template: >
+      {% if value_json.FanSpeed is defined %}
+        {% if value_json.FanSpeed == 0 -%}0{%- elif value_json.FanSpeed > 0 -%}ON{%- endif %}
+      {% else %}
+        {% if states.fan.Office_Fan2.state == 'off' -%}0{%- elif states.fan.Office_Fan2.state == 'on' -%}ON{%- endif %}
+      {% endif %}
+    speed_value_template: "{{ value_json.FanSpeed }}"
+    availability_topic: Office_Fan/tele/LWT
+    payload_off: "0"
+    payload_on: "ON"
+    payload_low_speed: "1"
+    payload_medium_speed: "2"
+    payload_high_speed: "3"
+    payload_available: Online
+    payload_not_available: Offline
+    speeds:
+      - off
+      - low
+      - medium
+      - high
 
 automation:
   - alias: Office - Switch 1
@@ -101,6 +127,8 @@ automation:
         service: light.turn_off
       - entity_id: switch.powerboard_outlet_1
         service: switch.turn_off
+      - entity_id: fan.office_fan
+        service: fan.turn_off
   - alias: Office - Dimmer
     id: office_light
     trigger:

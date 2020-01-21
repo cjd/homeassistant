@@ -118,7 +118,7 @@
                                         "propagate": false,
                                         "states": [
                                             {
-                                                "class": "spinning",
+                                                "class": "light-on",
                                                 "state": "on"
                                             }
                                         ]
@@ -157,6 +157,13 @@
                                         "text_template": "${entity.state}"
                                     },
                                     {
+                                        "action": {
+                                            "data": {
+                                                "entity_id": "input_select.livingroom_preset",
+                                                "option": "Night"
+                                            },
+                                            "service": "input_select.select_option"
+                                        },
                                         "entity": "input_select.livingroom_preset",
                                         "states": [
                                             {
@@ -219,7 +226,7 @@
                                         "entities": [
                                             "light.bedroom_lights",
                                             "light.office_lights",
-                                            "light.livingroom_lights",
+                                            "switch.livingroom_lights",
                                             "light.lucas_lights",
                                             "light.xander_lights",
                                             "light.craftroom_lights",
@@ -287,6 +294,16 @@
                                     {
                                         "action": {
                                             "data": {
+                                                "entity_id": "light.carport_lights"
+                                            },
+                                            "service": "homeassistant.toggle"
+                                        },
+                                        "entity": "sensor.carport_temperature",
+                                        "text_template": "${Math.round(entity.state*10)/10}\u00b0"
+                                    },
+                                    {
+                                        "action": {
+                                            "data": {
                                                 "entity_id": "light.livingroom_lights"
                                             },
                                             "service": "homeassistant.toggle"
@@ -320,29 +337,426 @@
                             "type": "custom:floorplan-card"
                         }
                     ],
-                    "icon": "mdi:floor-plan",
+                    "icon": "mdi:home",
                     "id": "system",
                     "panel": false,
                     "title": "Floorplan"
                 },
                 {
-                    "badges": [
+                    "badges": [],
+                    "cards": [
                         {
-                            "entity": "device_tracker.life360_mel"
+                            "entity": "climate.living_room",
+                            "type": "thermostat"
                         },
                         {
-                            "entity": "device_tracker.life360_chris"
-                        },
-                        {
-                            "entity": "sensor.sensibo_temperature"
-                        },
-                        {
-                            "entity": "sensor.netatmo_outdoor_temperature"
-                        },
-                        {
-                            "entity": "sensor.bedroom_temperature"
+                            "entities": [
+                                {
+                                    "customTheme": false,
+                                    "entity": "fan.office_fan2",
+                                    "name": "Office Fan",
+                                    "type": "custom:fan-control-entity-row"
+                                },
+                                {
+                                    "entity": "fan.kitchen_fan"
+                                }
+                            ],
+                            "type": "entities"
                         }
                     ],
+                    "icon": "mdi:air-conditioner",
+                    "title": ""
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.livingroom_lights",
+                                    "name": "Livingroom",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "colors": [
+                                        {
+                                            "entity_id": "scene.normal",
+                                            "icon_color": "white",
+                                            "type": "scene"
+                                        },
+                                        {
+                                            "entity_id": "scene.night",
+                                            "icon_color": "blue",
+                                            "type": "scene"
+                                        },
+                                        {
+                                            "entity_id": "scene.turn_off",
+                                            "icon_color": "black",
+                                            "type": "scene"
+                                        }
+                                    ],
+                                    "entity": "light.livingroom_lights",
+                                    "justify": "center",
+                                    "type": "custom:rgb-light-card"
+                                },
+                                {
+                                    "entity": "light.bedroom_lights",
+                                    "name": "Main Bedroom",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.lucas_lights",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.xander_lights",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.backroom_lights",
+                                    "name": "Backroom",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.craftroom_lights",
+                                    "name": "Craftroom",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.kitchen_lights",
+                                    "name": "Kitchen",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.office_lights",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.hall_lights",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.entry_lights",
+                                    "type": "custom:slider-entity-row"
+                                },
+                                {
+                                    "entity": "light.carport_lights"
+                                },
+                                {
+                                    "entity": "light.laundry"
+                                },
+                                {
+                                    "entity": "light.laundry_toilet"
+                                },
+                                {
+                                    "entity": "light.toilet"
+                                },
+                                {
+                                    "entity": "light.backyard_lights"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Rooms",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "buttons": [
+                                        {
+                                            "name": "Random Colours",
+                                            "service_data": {
+                                                "effect": "Slow Random Effect"
+                                            }
+                                        },
+                                        {
+                                            "name": "Twinkle",
+                                            "service_data": {
+                                                "effect": "Random Twinkle"
+                                            }
+                                        },
+                                        {
+                                            "name": "Rainbow",
+                                            "service_data": {
+                                                "effect": "Rainbow"
+                                            }
+                                        }
+                                    ],
+                                    "entity": "light.tv_backlight",
+                                    "hideBrightness": true,
+                                    "hideColorTemp": true,
+                                    "showColorSliders": false,
+                                    "type": "custom:light-entity-row"
+                                },
+                                {
+                                    "buttons": [
+                                        {
+                                            "name": "Random Colours",
+                                            "service_data": {
+                                                "effect": "Slow Random Effect"
+                                            }
+                                        },
+                                        {
+                                            "name": "Twinkle",
+                                            "service_data": {
+                                                "effect": "Random Twinkle"
+                                            }
+                                        },
+                                        {
+                                            "name": "Rainbow",
+                                            "service_data": {
+                                                "effect": "Rainbow"
+                                            }
+                                        }
+                                    ],
+                                    "entity": "light.family_room_strip",
+                                    "hideBrightness": true,
+                                    "hideColorTemp": true,
+                                    "type": "custom:light-entity-row"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Light Strips",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "switch.kitchen_relay_3"
+                                },
+                                {
+                                    "entity": "switch.powerboard_outlet_1"
+                                },
+                                {
+                                    "entity": "switch.powerboard_outlet_2"
+                                },
+                                {
+                                    "entity": "switch.powerboard_outlet_3"
+                                },
+                                {
+                                    "entity": "switch.powerboard_outlet_4"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Switches",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:lightbulb",
+                    "panel": false,
+                    "title": "Lights"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity_apparent_temp": "sensor.bom_gosford_feels_like_c",
+                            "entity_current_conditions": "sensor.bom_gosford_icon_0",
+                            "entity_current_text": "sensor.bom_current_text",
+                            "entity_daily_summary": "sensor.bom_gosford_detailed_summary_0",
+                            "entity_daytime_high": "sensor.bom_today_max",
+                            "entity_daytime_low": "sensor.bom_today_min",
+                            "entity_fire_danger": "sensor.bom_fire_danger",
+                            "entity_forecast_high_temp_1": "sensor.bom_gosford_max_temp_c_1",
+                            "entity_forecast_high_temp_2": "sensor.bom_gosford_max_temp_c_2",
+                            "entity_forecast_high_temp_3": "sensor.bom_gosford_max_temp_c_3",
+                            "entity_forecast_high_temp_4": "sensor.bom_gosford_max_temp_c_4",
+                            "entity_forecast_high_temp_5": "sensor.bom_gosford_max_temp_c_5",
+                            "entity_forecast_icon_1": "sensor.bom_gosford_icon_1",
+                            "entity_forecast_icon_2": "sensor.bom_gosford_icon_2",
+                            "entity_forecast_icon_3": "sensor.bom_gosford_icon_3",
+                            "entity_forecast_icon_4": "sensor.bom_gosford_icon_4",
+                            "entity_forecast_icon_5": "sensor.bom_gosford_icon_5",
+                            "entity_forecast_low_temp_1": "sensor.bom_gosford_min_temp_c_1",
+                            "entity_forecast_low_temp_2": "sensor.bom_gosford_min_temp_c_2",
+                            "entity_forecast_low_temp_3": "sensor.bom_gosford_min_temp_c_3",
+                            "entity_forecast_low_temp_4": "sensor.bom_gosford_min_temp_c_4",
+                            "entity_forecast_low_temp_5": "sensor.bom_gosford_min_temp_c_5",
+                            "entity_humidity": "sensor.bom_gosford_relative_humidity",
+                            "entity_pop": "sensor.bom_gosford_chance_of_rain_0",
+                            "entity_pop_1": "sensor.bom_gosford_chance_of_rain_1",
+                            "entity_pop_2": "sensor.bom_gosford_chance_of_rain_2",
+                            "entity_pop_3": "sensor.bom_gosford_chance_of_rain_3",
+                            "entity_pop_4": "sensor.bom_gosford_chance_of_rain_4",
+                            "entity_pop_5": "sensor.bom_gosford_chance_of_rain_5",
+                            "entity_pop_intensity": "sensor.bom_gosford_rain_today",
+                            "entity_pos_1": "sensor.bom_gosford_possible_rainfall_1",
+                            "entity_pos_2": "sensor.bom_gosford_possible_rainfall_2",
+                            "entity_pos_3": "sensor.bom_gosford_possible_rainfall_3",
+                            "entity_pos_4": "sensor.bom_gosford_possible_rainfall_4",
+                            "entity_pos_5": "sensor.bom_gosford_possible_rainfall_5",
+                            "entity_possible_today": "sensor.bom_gosford_possible_rainfall_0",
+                            "entity_summary_1": "sensor.bom_gosford_summary_1",
+                            "entity_summary_2": "sensor.bom_gosford_summary_2",
+                            "entity_summary_3": "sensor.bom_gosford_summary_3",
+                            "entity_summary_4": "sensor.bom_gosford_summary_4",
+                            "entity_summary_5": "sensor.bom_gosford_summary_5",
+                            "entity_sun": "sun.sun",
+                            "entity_temperature": "sensor.entry_motion_sensor_temperature",
+                            "entity_uv_alert": "sensor.bom_uv_alert",
+                            "entity_wind_bearing": "sensor.bom_gosford_wind_direction",
+                            "entity_wind_speed": "sensor.bom_gosford_wind_speed_kmh",
+                            "locale": "en",
+                            "old_daily_format": false,
+                            "refresh_interval": 60,
+                            "slot_l1": "daytime_high",
+                            "slot_l2": "daytime_low",
+                            "slot_l3": "wind",
+                            "slot_l4": "sun_next",
+                            "slot_r1": "pop",
+                            "slot_r2": "humidity",
+                            "slot_r3": "possible_today",
+                            "slot_r4": "sun_following",
+                            "static_icons": false,
+                            "sunset": true,
+                            "title": "BOM Weather",
+                            "tooltips": true,
+                            "type": "custom:bom-weather-card"
+                        },
+                        {
+                            "entity": "camera.bom_radar_loop_sydney",
+                            "type": "picture-entity"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.bom_gosford_air_temp_c",
+                                    "name": "BOM Air Temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_temperature",
+                                    "name": "Backyard Temperature"
+                                },
+                                {
+                                    "entity": "sensor.entry_motion_temperature",
+                                    "name": "Carport Temperature"
+                                },
+                                {
+                                    "entity": "sensor.bedroom_temperature"
+                                },
+                                {
+                                    "entity": "sensor.entry_motion_temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_indoor_temperature",
+                                    "name": "Livingroom Temperature"
+                                },
+                                {
+                                    "entity": "sensor.bedroom_temperature",
+                                    "name": "Main Bedroom Temperature"
+                                },
+                                {
+                                    "entity": "sensor.lucas_bedroom_sensor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.xander_bedroom_sensor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_temperature",
+                                    "name": "Backyard Temperature"
+                                },
+                                {
+                                    "entity": "sensor.office_temperature"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_indoor_humidity",
+                                    "name": "Indoor Humidity"
+                                },
+                                {
+                                    "entity": "sensor.sensibo_humidity",
+                                    "name": "Indoor Humidity 2"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_outdoor_humidity",
+                                    "name": "Outdoor Humidity"
+                                },
+                                {
+                                    "entity": "sensor.lucas_bedroom_sensor_humidity"
+                                },
+                                {
+                                    "entity": "sensor.xander_bedroom_sensor_humidity"
+                                }
+                            ],
+                            "hours_to_show": 48,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_indoor_pressure",
+                                    "name": "Living Room Pressure"
+                                },
+                                {
+                                    "entity": "sensor.office_pressure"
+                                },
+                                {
+                                    "entity": "sensor.bedroom_pressure"
+                                }
+                            ],
+                            "hours_to_show": 72,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.netatmo_netatmo_rainy_sum_rain_1"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_netatmo_rainy_rain"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
+                            "type": "history-graph"
+                        }
+                    ],
+                    "icon": "mdi:cloud",
+                    "panel": false,
+                    "title": "Charts"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.carport",
+                            "entities": [],
+                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
+                            "type": "picture-glance"
+                        },
+                        {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.backroom",
+                            "entities": [],
+                            "type": "picture-glance"
+                        },
+                        {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.livingroom",
+                            "entities": [],
+                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
+                            "type": "picture-glance"
+                        },
+                        {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.backyard",
+                            "entities": [],
+                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
+                            "type": "picture-glance"
+                        }
+                    ],
+                    "icon": "mdi:camera",
+                    "title": "Cameras"
+                },
+                {
+                    "badges": [],
                     "cards": [
                         {
                             "card": {
@@ -678,430 +1092,12 @@
                                 }
                             ],
                             "type": "vertical-stack"
-                        },
-                        {
-                            "entity": "climate.living_room",
-                            "type": "thermostat"
                         }
                     ],
                     "icon": "mdi:home",
                     "panel": false,
                     "path": "default_view",
                     "title": "Home"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entity_apparent_temp": "sensor.bom_gosford_feels_like_c",
-                            "entity_current_conditions": "sensor.bom_gosford_icon_0",
-                            "entity_current_text": "sensor.bom_current_text",
-                            "entity_daily_summary": "sensor.bom_gosford_detailed_summary_0",
-                            "entity_daytime_high": "sensor.bom_today_max",
-                            "entity_daytime_low": "sensor.bom_today_min",
-                            "entity_fire_danger": "sensor.bom_fire_danger",
-                            "entity_forecast_high_temp_1": "sensor.bom_gosford_max_temp_c_1",
-                            "entity_forecast_high_temp_2": "sensor.bom_gosford_max_temp_c_2",
-                            "entity_forecast_high_temp_3": "sensor.bom_gosford_max_temp_c_3",
-                            "entity_forecast_high_temp_4": "sensor.bom_gosford_max_temp_c_4",
-                            "entity_forecast_high_temp_5": "sensor.bom_gosford_max_temp_c_5",
-                            "entity_forecast_icon_1": "sensor.bom_gosford_icon_1",
-                            "entity_forecast_icon_2": "sensor.bom_gosford_icon_2",
-                            "entity_forecast_icon_3": "sensor.bom_gosford_icon_3",
-                            "entity_forecast_icon_4": "sensor.bom_gosford_icon_4",
-                            "entity_forecast_icon_5": "sensor.bom_gosford_icon_5",
-                            "entity_forecast_low_temp_1": "sensor.bom_gosford_min_temp_c_1",
-                            "entity_forecast_low_temp_2": "sensor.bom_gosford_min_temp_c_2",
-                            "entity_forecast_low_temp_3": "sensor.bom_gosford_min_temp_c_3",
-                            "entity_forecast_low_temp_4": "sensor.bom_gosford_min_temp_c_4",
-                            "entity_forecast_low_temp_5": "sensor.bom_gosford_min_temp_c_5",
-                            "entity_humidity": "sensor.bom_gosford_relative_humidity",
-                            "entity_pop": "sensor.bom_gosford_chance_of_rain_0",
-                            "entity_pop_1": "sensor.bom_gosford_chance_of_rain_1",
-                            "entity_pop_2": "sensor.bom_gosford_chance_of_rain_2",
-                            "entity_pop_3": "sensor.bom_gosford_chance_of_rain_3",
-                            "entity_pop_4": "sensor.bom_gosford_chance_of_rain_4",
-                            "entity_pop_5": "sensor.bom_gosford_chance_of_rain_5",
-                            "entity_pop_intensity": "sensor.bom_gosford_rain_today",
-                            "entity_pos_1": "sensor.bom_gosford_possible_rainfall_1",
-                            "entity_pos_2": "sensor.bom_gosford_possible_rainfall_2",
-                            "entity_pos_3": "sensor.bom_gosford_possible_rainfall_3",
-                            "entity_pos_4": "sensor.bom_gosford_possible_rainfall_4",
-                            "entity_pos_5": "sensor.bom_gosford_possible_rainfall_5",
-                            "entity_possible_today": "sensor.bom_gosford_possible_rainfall_0",
-                            "entity_summary_1": "sensor.bom_gosford_summary_1",
-                            "entity_summary_2": "sensor.bom_gosford_summary_2",
-                            "entity_summary_3": "sensor.bom_gosford_summary_3",
-                            "entity_summary_4": "sensor.bom_gosford_summary_4",
-                            "entity_summary_5": "sensor.bom_gosford_summary_5",
-                            "entity_sun": "sun.sun",
-                            "entity_temperature": "sensor.entry_motion_sensor_temperature",
-                            "entity_uv_alert": "sensor.bom_uv_alert",
-                            "entity_wind_bearing": "sensor.bom_gosford_wind_direction",
-                            "entity_wind_speed": "sensor.bom_gosford_wind_speed_kmh",
-                            "locale": "en",
-                            "old_daily_format": false,
-                            "refresh_interval": 60,
-                            "slot_l1": "daytime_high",
-                            "slot_l2": "daytime_low",
-                            "slot_l3": "wind",
-                            "slot_l4": "sun_next",
-                            "slot_r1": "pop",
-                            "slot_r2": "humidity",
-                            "slot_r3": "possible_today",
-                            "slot_r4": "sun_following",
-                            "static_icons": false,
-                            "sunset": true,
-                            "title": "BOM Weather",
-                            "tooltips": true,
-                            "type": "custom:bom-weather-card"
-                        },
-                        {
-                            "entity": "camera.bom_radar_loop_sydney",
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_indoor_temperature",
-                                    "name": "Livingroom Temperature"
-                                },
-                                {
-                                    "entity": "sensor.bedroom_temperature",
-                                    "name": "Main Bedroom Temperature"
-                                },
-                                {
-                                    "entity": "sensor.lucas_bedroom_sensor_temperature"
-                                },
-                                {
-                                    "entity": "sensor.xander_bedroom_sensor_temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_temperature",
-                                    "name": "Backyard Temperature"
-                                },
-                                {
-                                    "entity": "sensor.office_temperature"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Temperatures",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.bom_gosford_air_temp_c",
-                                    "name": "BOM Air Temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_temperature",
-                                    "name": "Backyard Temperature"
-                                },
-                                {
-                                    "entity": "sensor.entry_motion_temperature",
-                                    "name": "Carport Temperature"
-                                },
-                                {
-                                    "entity": "sensor.bedroom_temperature"
-                                },
-                                {
-                                    "entity": "sensor.entry_motion_temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_indoor_temperature",
-                                    "name": "Livingroom Temperature"
-                                },
-                                {
-                                    "entity": "sensor.bedroom_temperature",
-                                    "name": "Main Bedroom Temperature"
-                                },
-                                {
-                                    "entity": "sensor.lucas_bedroom_sensor_temperature"
-                                },
-                                {
-                                    "entity": "sensor.xander_bedroom_sensor_temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_temperature",
-                                    "name": "Backyard Temperature"
-                                },
-                                {
-                                    "entity": "sensor.office_temperature"
-                                }
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_indoor_humidity",
-                                    "name": "Indoor Humidity"
-                                },
-                                {
-                                    "entity": "sensor.sensibo_humidity",
-                                    "name": "Indoor Humidity 2"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_humidity",
-                                    "name": "Outdoor Humidity"
-                                },
-                                {
-                                    "entity": "sensor.lucas_bedroom_sensor_humidity"
-                                },
-                                {
-                                    "entity": "sensor.xander_bedroom_sensor_humidity"
-                                }
-                            ],
-                            "hours_to_show": 48,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_indoor_pressure",
-                                    "name": "Living Room Pressure"
-                                },
-                                {
-                                    "entity": "sensor.office_pressure"
-                                },
-                                {
-                                    "entity": "sensor.bedroom_pressure"
-                                }
-                            ],
-                            "hours_to_show": 72,
-                            "type": "history-graph"
-                        }
-                    ],
-                    "icon": "mdi:cloud",
-                    "panel": false,
-                    "title": "Charts"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "light.livingroom_lights",
-                                    "name": "Livingroom",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "colors": [
-                                        {
-                                            "color_name": "red",
-                                            "icon_color": "red"
-                                        },
-                                        {
-                                            "color_name": "green",
-                                            "icon_color": "green"
-                                        },
-                                        {
-                                            "color_name": "blue",
-                                            "icon_color": "blue"
-                                        },
-                                        {
-                                            "color_name": "yellow",
-                                            "icon_color": "yellow"
-                                        },
-                                        {
-                                            "color_name": "purple",
-                                            "icon_color": "purple"
-                                        },
-                                        {
-                                            "color_name": "white",
-                                            "icon_color": "white"
-                                        }
-                                    ],
-                                    "entity": "light.livingroom_lights",
-                                    "justify": "center",
-                                    "type": "custom:rgb-light-card"
-                                },
-                                {
-                                    "entity": "light.bedroom_lights",
-                                    "name": "Main Bedroom",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.lucas_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.xander_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.backroom_lights",
-                                    "name": "Backroom",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.craftroom_lights",
-                                    "name": "Craftroom",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.kitchen_lights",
-                                    "name": "Kitchen",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.office_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.hall_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.carport_lights"
-                                },
-                                {
-                                    "entity": "light.laundry"
-                                },
-                                {
-                                    "entity": "light.laundry_toilet"
-                                },
-                                {
-                                    "entity": "light.toilet"
-                                },
-                                {
-                                    "entity": "light.backyard_lights"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Rooms",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "buttons": [
-                                        {
-                                            "name": "Random Colours",
-                                            "service_data": {
-                                                "effect": "Slow Random Effect"
-                                            }
-                                        },
-                                        {
-                                            "name": "Twinkle",
-                                            "service_data": {
-                                                "effect": "Random Twinkle"
-                                            }
-                                        },
-                                        {
-                                            "name": "Rainbow",
-                                            "service_data": {
-                                                "effect": "Rainbow"
-                                            }
-                                        }
-                                    ],
-                                    "entity": "light.tv_backlight",
-                                    "hideBrightness": true,
-                                    "hideColorTemp": true,
-                                    "showColorSliders": false,
-                                    "type": "custom:light-entity-row"
-                                },
-                                {
-                                    "buttons": [
-                                        {
-                                            "name": "Random Colours",
-                                            "service_data": {
-                                                "effect": "Slow Random Effect"
-                                            }
-                                        },
-                                        {
-                                            "name": "Twinkle",
-                                            "service_data": {
-                                                "effect": "Random Twinkle"
-                                            }
-                                        },
-                                        {
-                                            "name": "Rainbow",
-                                            "service_data": {
-                                                "effect": "Rainbow"
-                                            }
-                                        }
-                                    ],
-                                    "entity": "light.family_room_strip",
-                                    "hideBrightness": true,
-                                    "hideColorTemp": true,
-                                    "type": "custom:light-entity-row"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Light Strips",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "switch.kitchen_relay_3"
-                                },
-                                {
-                                    "entity": "switch.powerboard_outlet_1"
-                                },
-                                {
-                                    "entity": "switch.powerboard_outlet_2"
-                                },
-                                {
-                                    "entity": "switch.powerboard_outlet_3"
-                                },
-                                {
-                                    "entity": "switch.powerboard_outlet_4"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Switches",
-                            "type": "entities"
-                        },
-                        {
-                            "customTheme": false,
-                            "entity": "fan.office_fan",
-                            "name": "Office Fan",
-                            "type": "custom:fan-control-entity-row"
-                        }
-                    ],
-                    "icon": "mdi:lightbulb",
-                    "panel": false,
-                    "title": "Lights"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "aspect_ratio": "0%",
-                            "camera_image": "camera.carport",
-                            "entities": [],
-                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
-                            "type": "picture-glance"
-                        },
-                        {
-                            "aspect_ratio": "0%",
-                            "camera_image": "camera.backroom",
-                            "entities": [],
-                            "type": "picture-glance"
-                        },
-                        {
-                            "aspect_ratio": "0%",
-                            "camera_image": "camera.livingroom",
-                            "entities": [],
-                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
-                            "type": "picture-glance"
-                        },
-                        {
-                            "aspect_ratio": "0%",
-                            "camera_image": "camera.backyard",
-                            "entities": [],
-                            "image": "https://www.home-assistant.io/images/merchandise/shirt-frontpage.png",
-                            "type": "picture-glance"
-                        }
-                    ],
-                    "icon": "mdi:camera",
-                    "title": "Cameras"
                 },
                 {
                     "badges": [],

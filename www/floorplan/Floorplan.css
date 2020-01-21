@@ -15,11 +15,12 @@ svg, svg * {
 
 /* Hover over */
 
-/*.ha-entity:hover {
-  stroke: #03A9F4 !important;
+.ha-entity:hover {
+/*  stroke: #03A9F4 !important;
   stroke-width: 3px !important;
-  stroke-opacity: 1 !important;
-}*/
+  stroke-opacity: 1 !important;*/
+  fill: #7cd2F9 !important;
+}
 
 /* Animation */
 
