@@ -2,7 +2,7 @@ light:
   - platform: group
     name: Livingroom Lights
     entities:
-      - light.livingroom_side
+      - light.livingroomside
       - light.livingrooma
       - light.livingroomb
 
