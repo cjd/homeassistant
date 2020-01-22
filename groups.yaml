@@ -12,6 +12,7 @@ all_light_relays:
     - switch.entry_relay_1
     - switch.entry_relay_2
     - switch.bedroom_relay_1
+    - switch.bedroom_relay_2
     - switch.lucas_relay_1
     - switch.hallway_relay_1
     - switch.office_relay_1

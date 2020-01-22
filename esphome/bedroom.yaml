@@ -49,6 +49,7 @@ binary_sensor:
     on_press:
       then:
         - switch.turn_on: relay1
+        - switch.turn_on: relay2
         - mqtt.publish:
             topic: BedroomA/cmnd/Backlog
             payload: "CT 370; Dimmer 100; POWER ON"
@@ -63,6 +64,7 @@ binary_sensor:
     on_press:
       then:
         - switch.turn_on: relay1
+        - switch.turn_on: relay2
         - mqtt.publish:
             topic: BedroomA/cmnd/Backlog
             payload: "CT 370; Dimmer 50; POWER ON"
@@ -87,3 +89,4 @@ binary_sensor:
       max_length: 5000ms
       then:
         - switch.turn_off: relay1
+        - switch.turn_off: relay2
