@@ -353,8 +353,14 @@
                             "entities": [
                                 {
                                     "customTheme": false,
-                                    "entity": "fan.office_fan2",
+                                    "entity": "fan.office_fan",
                                     "name": "Office Fan",
+                                    "type": "custom:fan-control-entity-row"
+                                },
+                                {
+                                    "customTheme": false,
+                                    "entity": "fan.bedroom_fan",
+                                    "name": "Bedroom Fan",
                                     "type": "custom:fan-control-entity-row"
                                 },
                                 {
@@ -522,9 +528,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.kitchen_relay_3"
-                                },
-                                {
                                     "entity": "switch.powerboard_outlet_1"
                                 },
                                 {
@@ -628,14 +631,14 @@
                                     "name": "Backyard Temperature"
                                 },
                                 {
-                                    "entity": "sensor.entry_motion_temperature",
+                                    "entity": "sensor.carport_temperature",
                                     "name": "Carport Temperature"
                                 },
                                 {
                                     "entity": "sensor.bedroom_temperature"
                                 },
                                 {
-                                    "entity": "sensor.entry_motion_temperature"
+                                    "entity": "sensor.backroom_sensor_temperature"
                                 },
                                 {
                                     "entity": "sensor.netatmo_indoor_temperature",
@@ -666,25 +669,26 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.netatmo_indoor_humidity",
-                                    "name": "Indoor Humidity"
+                                    "entity": "sensor.netatmo_indoor_humidity"
                                 },
                                 {
-                                    "entity": "sensor.sensibo_humidity",
-                                    "name": "Indoor Humidity 2"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_humidity",
-                                    "name": "Outdoor Humidity"
+                                    "entity": "sensor.netatmo_outdoor_humidity"
                                 },
                                 {
                                     "entity": "sensor.lucas_bedroom_sensor_humidity"
                                 },
                                 {
+                                    "entity": "sensor.backroom_sensor_humidity"
+                                },
+                                {
                                     "entity": "sensor.xander_bedroom_sensor_humidity"
+                                },
+                                {
+                                    "entity": "sensor.carport_sensor_humidity"
                                 }
                             ],
                             "hours_to_show": 48,
+                            "refresh_interval": 0,
                             "type": "history-graph"
                         },
                         {
