@@ -113,7 +113,8 @@
                                         "entities": [
                                             "fan.bedroom_fan",
                                             "fan.office_fan",
-                                            "fan.kitchen_fan"
+                                            "fan.kitchen_fan",
+                                            "fan.xander_fan"
                                         ],
                                         "propagate": false,
                                         "states": [
@@ -200,7 +201,8 @@
                                             "binary_sensor.bedroom_window_sensor_contact",
                                             "binary_sensor.backdoor_sensor_contact",
                                             "binary_sensor.frontdoor_sensor_contact",
-                                            "binary_sensor.livingroom_window_sensor_contact"
+                                            "binary_sensor.livingroom_window_sensor_contact",
+                                            "binary_sensor.pantry_sensor_contact"
                                         ],
                                         "states": [
                                             {
@@ -311,6 +313,9 @@
                                 },
                                 {
                                     "entity": "fan.bedroom_fan"
+                                },
+                                {
+                                    "entity": "fan.xander_fan"
                                 },
                                 {
                                     "entity": "fan.kitchen_fan"

@@ -52,16 +52,16 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1275"
-     inkscape:window-height="1016"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
      id="namedview4"
      showgrid="false"
      inkscape:zoom="0.9"
-     inkscape:cx="467.60549"
+     inkscape:cx="276.49438"
      inkscape:cy="460.2933"
      inkscape:window-x="0"
      inkscape:window-y="26"
-     inkscape:window-maximized="0"
+     inkscape:window-maximized="1"
      inkscape:current-layer="svg2"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -676,4 +676,28 @@
      x="48.129353"
      y="702.09247"
      inkscape:label="#rect987" />
+  <g
+     style="clip-rule:evenodd;display:inline;fill:none;fill-rule:evenodd;stroke:#666666;stroke-opacity:1;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+     id="fan.xander_fan"
+     transform="matrix(0.21887206,0,0,0.21887206,187.02253,687.94172)"
+     inkscape:label="#g240">
+    <g
+       id="g1278-67">
+      <circle
+         r="104.97858"
+         cy="-348.64951"
+         cx="-367.13626"
+         id="path1273-5"
+         style="fill:#cccccc;fill-opacity:1;stroke:#000000;stroke-width:1.72682047;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g223-3">
+        <path
+           style="fill:#ffffff;fill-rule:nonzero;stroke-width:0.63572818"
+           inkscape:connector-curvature="0"
+           class="fil0"
+           d="m -369.01899,-367.15918 v -62.30136 c 0,-23.52195 36.87224,-23.52195 36.87224,0 v 32.42214 c 0,14.62174 -14.62175,28.60776 -27.97204,31.15068 5.08582,2.54291 8.90019,6.99301 9.53592,12.71456 h 62.93709 c 23.52195,0 23.52195,36.87224 0,36.87224 h -33.05786 c -13.98602,0 -27.97204,-13.98602 -30.51496,-27.33632 l -0.63572,-0.63572 c -1.90719,5.08582 -6.99301,8.90019 -12.71457,9.53592 v 62.93709 c 0,23.52194 -36.87223,23.52194 -36.87223,0 v -33.05787 c 0,-13.98602 14.62174,-27.97204 27.97204,-31.15068 -5.08583,-1.90718 -8.9002,-6.99301 -9.53593,-12.71456 h -62.30136 c -23.52194,0 -23.52194,-36.87224 0,-36.87224 h 32.42214 c 14.62175,0 28.60777,14.62175 31.15068,27.97204 2.54291,-5.08582 6.99301,-8.90019 12.71456,-9.53592 z"
+           id="path221-5" />
+      </g>
+    </g>
+  </g>
 </svg>
