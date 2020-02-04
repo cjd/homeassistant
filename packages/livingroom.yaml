@@ -141,7 +141,7 @@ automation:
       - entity_id: binary_sensor.ac_active_sensor_contact
         platform: state 
         to: "off"
-        for: "00:00:05"
+        for: "00:01:00"
     condition: []
     action:
       - entity_id: climate.living_room

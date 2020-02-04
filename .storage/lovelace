@@ -1,7 +1,6 @@
 {
     "data": {
         "config": {
-            "background": "var(--background-image)",
             "cch": {
                 "exceptions": [
                     {
@@ -31,7 +30,7 @@
                         },
                         "config": {
                             "disable_sidebar": true,
-                            "hide_tabs": "6,7",
+                            "hide_tabs": "7,8",
                             "options_hide": true
                         }
                     }
@@ -107,11 +106,12 @@
                     "cards": [
                         {
                             "config": {
-                                "image": "/local/floorplan/Floorplan.svg?v=1",
+                                "image": "/local/floorplan/Floorplan-image.svg?v=1",
                                 "log_level": "error",
                                 "rules": [
                                     {
                                         "entities": [
+                                            "fan.bedroom_fan",
                                             "fan.office_fan",
                                             "fan.kitchen_fan"
                                         ],
@@ -164,7 +164,22 @@
                                             },
                                             "service": "input_select.select_option"
                                         },
+                                        "entity": "light.livingroom_lights",
+                                        "states": [
+                                            {
+                                                "class": "livingroom-off",
+                                                "state": "off"
+                                            },
+                                            {
+                                                "class": "livingroom-on",
+                                                "state": "on"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "action": null,
                                         "entity": "input_select.livingroom_preset",
+                                        "propagate": false,
                                         "states": [
                                             {
                                                 "class": "preset-normal",
@@ -252,87 +267,27 @@
                                         ]
                                     },
                                     {
-                                        "action": {
-                                            "data": {
-                                                "entity_id": "light.bedroom_lights"
-                                            },
-                                            "service": "homeassistant.toggle"
-                                        },
-                                        "entity": "sensor.bedroom_temperature",
-                                        "text_template": "${entity.state}\u00b0"
-                                    },
-                                    {
-                                        "action": {
-                                            "data": {
-                                                "entity_id": "light.lucas_lights"
-                                            },
-                                            "service": "homeassistant.toggle"
-                                        },
-                                        "entity": "sensor.lucas_bedroom_sensor_temperature",
+                                        "entities": [
+                                            "sensor.xander_bedroom_sensor_temperature",
+                                            "sensor.office_temperature",
+                                            "sensor.backroom_sensor_temperature",
+                                            "sensor.carport_temperature",
+                                            "sensor.netatmo_indoor_temperature",
+                                            "sensor.netatmo_outdoor_temperature",
+                                            "sensor.office_temperature",
+                                            "sensor.bedroom_temperature",
+                                            "sensor.lucas_bedroom_sensor_temperature"
+                                        ],
                                         "text_template": "${Math.round(entity.state*10)/10}\u00b0"
                                     },
                                     {
-                                        "action": {
-                                            "data": {
-                                                "entity_id": "light.xander_lights"
-                                            },
-                                            "service": "homeassistant.toggle"
-                                        },
-                                        "entity": "sensor.xander_bedroom_sensor_temperature",
-                                        "text_template": "${Math.round(entity.state*10)/10}\u00b0"
-                                    },
-                                    {
-                                        "action": {
-                                            "data": {
-                                                "entity_id": "light.backroom_lights"
-                                            },
-                                            "service": "homeassistant.toggle"
-                                        },
-                                        "entity": "sensor.backroom_sensor_temperature",
-                                        "text_template": "${Math.round(entity.state*10)/10}\u00b0"
-                                    },
-                                    {
-                                        "action": {
-                                            "data": {
-                                                "entity_id": "light.carport_lights"
-                                            },
-                                            "service": "homeassistant.toggle"
-                                        },
-                                        "entity": "sensor.carport_temperature",
-                                        "text_template": "${Math.round(entity.state*10)/10}\u00b0"
-                                    },
-                                    {
-                                        "action": {
-                                            "data": {
-                                                "entity_id": "light.livingroom_lights"
-                                            },
-                                            "service": "homeassistant.toggle"
-                                        },
-                                        "entity": "sensor.netatmo_indoor_temperature",
-                                        "text_template": "${entity.state}\u00b0"
-                                    },
-                                    {
-                                        "action": {
-                                            "data": {
-                                                "entity_id": "light.backyard_lights"
-                                            },
-                                            "service": "homeassistant.toggle"
-                                        },
-                                        "entity": "sensor.netatmo_outdoor_temperature",
-                                        "text_template": "${entity.state}\u00b0"
-                                    },
-                                    {
-                                        "action": {
-                                            "data": {
-                                                "entity_id": "light.office_lights"
-                                            },
-                                            "service": "homeassistant.toggle"
-                                        },
-                                        "entity": "sensor.office_temperature",
-                                        "text_template": "${entity.state}\u00b0"
+                                        "entities": [
+                                            "sensor.netatmo_netatmo_rainy_sum_rain_24"
+                                        ],
+                                        "text_template": "${entity.state}mm"
                                     }
                                 ],
-                                "stylesheet": "/local/floorplan/Floorplan.css?v=1"
+                                "stylesheet": "/local/floorplan/Floorplan-image.css?v=1"
                             },
                             "type": "custom:floorplan-card"
                         }
@@ -352,16 +307,10 @@
                         {
                             "entities": [
                                 {
-                                    "customTheme": false,
-                                    "entity": "fan.office_fan",
-                                    "name": "Office Fan",
-                                    "type": "custom:fan-control-entity-row"
+                                    "entity": "fan.office_fan"
                                 },
                                 {
-                                    "customTheme": false,
-                                    "entity": "fan.bedroom_fan",
-                                    "name": "Bedroom Fan",
-                                    "type": "custom:fan-control-entity-row"
+                                    "entity": "fan.bedroom_fan"
                                 },
                                 {
                                     "entity": "fan.kitchen_fan"
@@ -662,7 +611,7 @@
                                     "entity": "sensor.office_temperature"
                                 }
                             ],
-                            "hours_to_show": 24,
+                            "hours_to_show": 72,
                             "refresh_interval": 0,
                             "type": "history-graph"
                         },
@@ -687,7 +636,7 @@
                                     "entity": "sensor.carport_sensor_humidity"
                                 }
                             ],
-                            "hours_to_show": 48,
+                            "hours_to_show": 72,
                             "refresh_interval": 0,
                             "type": "history-graph"
                         },
@@ -716,7 +665,7 @@
                                     "entity": "sensor.netatmo_netatmo_rainy_rain"
                                 }
                             ],
-                            "hours_to_show": 24,
+                            "hours_to_show": 2472,
                             "refresh_interval": 0,
                             "type": "history-graph"
                         }
@@ -758,350 +707,6 @@
                     ],
                     "icon": "mdi:camera",
                     "title": "Cameras"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "card": {
-                                "type": "glance"
-                            },
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.hall_smoke",
-                                    "name": "Smoke Detector"
-                                },
-                                {
-                                    "entity": "binary_sensor.frontdoor_contact",
-                                    "name": "Front Door"
-                                },
-                                {
-                                    "entity": "binary_sensor.backdoor_sensor_contact",
-                                    "name": "Back Door"
-                                },
-                                {
-                                    "entity": "binary_sensor.ac_active_sensor_contact",
-                                    "name": "Air Conditioner"
-                                },
-                                {
-                                    "entity": "binary_sensor.livingroom_window_sensor_contact"
-                                },
-                                {
-                                    "entity": "binary_sensor.bedroom_window_contact",
-                                    "name": "Bedroom Window"
-                                }
-                            ],
-                            "show_empty": false,
-                            "state_filter": [
-                                "on"
-                            ],
-                            "type": "entity-filter"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "cards": [
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "color-type": "card",
-                                            "entity": "switch.bedroom_lights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.bedroom_lights"
-                                            },
-                                            "icon": "mdi:bed-empty",
-                                            "name": "Main",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "color-type": "card",
-                                            "entity": "switch.lucas_lights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.lucas_lights"
-                                            },
-                                            "icon": "mdi:bed-empty",
-                                            "name": "Lucas",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "color-type": "card",
-                                            "entity": "switch.xander_lights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.xander_lights"
-                                            },
-                                            "icon": "mdi:bed-empty",
-                                            "name": "Xander",
-                                            "type": "custom:button-card"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.livingroom_lights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.livingroom_lights"
-                                            },
-                                            "icon": "mdi:sofa",
-                                            "name": "Livingroom",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.kitchen_lights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.kitchen_lights"
-                                            },
-                                            "icon": "mdi:fridge",
-                                            "name": "Kitchen",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.backroom_lights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.backroom_lights"
-                                            },
-                                            "icon": "mdi:castle",
-                                            "name": "Backroom",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "color-type": "card",
-                                            "entity": "switch.backroom_downlights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "switch.backroom_downlights"
-                                            },
-                                            "name": "Dining",
-                                            "type": "custom:button-card"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.craftroom_lights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.craftroom_lights"
-                                            },
-                                            "icon": "mdi:content-cut",
-                                            "name": "Craft",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "entity": "switch.office_lights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.office_lights"
-                                            },
-                                            "name": "Office",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "color-type": "card",
-                                            "entity": "switch.entry_lights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.entry_lights"
-                                            },
-                                            "name": "Entry",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "color-type": "card",
-                                            "entity": "switch.hall_lights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.hall_lights"
-                                            },
-                                            "name": "Hall",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "color-type": "card",
-                                            "entity": "light.carport_lights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.carport_lights"
-                                            },
-                                            "name": "Car port",
-                                            "type": "custom:button-card"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "color-type": "card",
-                                            "entity": "light.backyard_lights",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.backyard_lights"
-                                            },
-                                            "name": "Backyard",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "color-type": "card",
-                                            "entity": "switch.toilet_light",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.toilet"
-                                            },
-                                            "icon": "mdi:toilet",
-                                            "name": "Main Toilet",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "color-type": "card",
-                                            "entity": "fan.kitchen_fan",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "fan.kitchen_fan"
-                                            },
-                                            "name": "Kitchen Fan",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "color-type": "card",
-                                            "entity": "light.laundry_toilet",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.laundry_toilet"
-                                            },
-                                            "icon": "mdi:toilet",
-                                            "name": "Laundry Toilet",
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "color": "rgb(5, 147, 255)",
-                                            "color-type": "card",
-                                            "entity": "light.laundry",
-                                            "hold_action": {
-                                                "action": "more-info",
-                                                "entity": "light.laundry"
-                                            },
-                                            "icon": "mdi:washing-machine",
-                                            "name": "Laundry",
-                                            "type": "custom:button-card"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                },
-                                {
-                                    "color": "rgb(44, 109, 214)",
-                                    "color_type": "label-card",
-                                    "name": "Scenes",
-                                    "type": "custom:button-card"
-                                },
-                                {
-                                    "cards": [
-                                        {
-                                            "entity": "input_select.livingroom_preset",
-                                            "icon": "mdi:lightbulb",
-                                            "name": "Normal",
-                                            "state": [
-                                                {
-                                                    "color": "rgb(5, 147, 255)",
-                                                    "value": "Normal"
-                                                },
-                                                {
-                                                    "color": "var(--paper-item-icon-color)",
-                                                    "operator": "default"
-                                                }
-                                            ],
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_option",
-                                                "service_data": {
-                                                    "entity_id": "input_select.livingroom_preset",
-                                                    "option": "Normal"
-                                                }
-                                            },
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "entity": "input_select.livingroom_preset",
-                                            "icon": "mdi:weather-night",
-                                            "name": "Night",
-                                            "state": [
-                                                {
-                                                    "color": "rgb(5, 147, 255)",
-                                                    "value": "Night"
-                                                },
-                                                {
-                                                    "color": "var(--paper-item-icon-color)",
-                                                    "operator": "default"
-                                                }
-                                            ],
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_option",
-                                                "service_data": {
-                                                    "entity_id": "input_select.livingroom_preset",
-                                                    "option": "Night"
-                                                }
-                                            },
-                                            "type": "custom:button-card"
-                                        },
-                                        {
-                                            "entity": "input_select.livingroom_preset",
-                                            "icon": "mdi:do-not-disturb",
-                                            "name": "Off",
-                                            "state": [
-                                                {
-                                                    "color": "rgb(5, 147, 255)",
-                                                    "value": "TurnOff"
-                                                },
-                                                {
-                                                    "color": "var(--paper-item-icon-color)",
-                                                    "operator": "default"
-                                                }
-                                            ],
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "input_select.select_option",
-                                                "service_data": {
-                                                    "entity_id": "input_select.livingroom_preset",
-                                                    "option": "TurnOff"
-                                                }
-                                            },
-                                            "type": "custom:button-card"
-                                        }
-                                    ],
-                                    "type": "horizontal-stack"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        }
-                    ],
-                    "icon": "mdi:home",
-                    "panel": false,
-                    "path": "default_view",
-                    "title": "Home"
                 },
                 {
                     "badges": [],
