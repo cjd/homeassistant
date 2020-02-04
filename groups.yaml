@@ -16,6 +16,8 @@ all_light_relays:
     - switch.lucas_relay_1
     - switch.hallway_relay_1
     - switch.office_relay_1
+    - switch.xander_relay_1
+    - switch.xander_relay_2
 all_lights:
   name: All Lights
   entities:
