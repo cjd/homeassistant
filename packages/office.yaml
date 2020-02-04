@@ -42,35 +42,9 @@ fan:
     speed_state_topic: "Office_Fan/stat/RESULT"
     state_value_template: >
       {% if value_json.FanSpeed is defined %}
-        {% if value_json.FanSpeed == 0 -%}0{%- elif value_json.FanSpeed > 0 -%}4{%- endif %}
-      {% else %}
-        {% if states.fan.Office_Fan.state == 'off' -%}0{%- elif states.fan.Office_Fan.state == 'on' -%}4{%- endif %}
-      {% endif %}
-    speed_value_template: "{{ value_json.FanSpeed }}"
-    availability_topic: Office_Fan/tele/LWT
-    payload_off: "0"
-    payload_on: "4"
-    payload_low_speed: "1"
-    payload_medium_speed: "2"
-    payload_high_speed: "3"
-    payload_available: Online
-    payload_not_available: Offline
-    speeds:
-      - off
-      - low
-      - medium
-      - high
-  - platform: mqtt  
-    name: "Office Fan2"
-    command_topic: "Office_Fan/cmnd/FanSpeed"
-    speed_command_topic: "Office_Fan/cmnd/FanSpeed"
-    state_topic: "Office_Fan/stat/RESULT"
-    speed_state_topic: "Office_Fan/stat/RESULT"
-    state_value_template: >
-      {% if value_json.FanSpeed is defined %}
         {% if value_json.FanSpeed == 0 -%}0{%- elif value_json.FanSpeed > 0 -%}ON{%- endif %}
       {% else %}
-        {% if states.fan.Office_Fan2.state == 'off' -%}0{%- elif states.fan.Office_Fan2.state == 'on' -%}ON{%- endif %}
+        {% if states.fan.Office_Fan.state == 'off' -%}0{%- elif states.fan.Office_Fan.state == 'on' -%}ON{%- endif %}
       {% endif %}
     speed_value_template: "{{ value_json.FanSpeed }}"
     availability_topic: Office_Fan/tele/LWT
@@ -88,6 +62,17 @@ fan:
       - high
 
 automation:
+  - alias: Office - fan button
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.office_fan_button1
+        to: 'on'
+    condition: []
+    action:
+      service: fan.set_speed
+      entity_id: fan.office_fan
+      data_template:
+        speed: "{% if is_state('fan.office_fan', 'off') %}low{% else %}false{% endif %}"
   - alias: Office - Switch 1
     trigger:
       - entity_id: binary_sensor.office_switch1

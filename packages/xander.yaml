@@ -31,6 +31,34 @@ climate:
     target_sensor: sensor.xander_bedroom_sensor_temperature
     initial_hvac_mode: "off"
 
+fan:
+  - platform: mqtt
+    name: "Xander Fan"
+    command_topic: "XanderFan/cmnd/FanSpeed"
+    speed_command_topic: "XanderFan/cmnd/FanSpeed"
+    state_topic: "XanderFan/stat/RESULT"
+    speed_state_topic: "XanderFan/stat/RESULT"
+    state_value_template: >
+      {% if value_json.FanSpeed is defined %}
+        {% if value_json.FanSpeed == 0 -%}0{%- elif value_json.FanSpeed > 0 -%}ON{%- endif %}
+      {% else %}
+        {% if states.fan.XanderFan.state == 'off' -%}0{%- elif states.fan.XanderFan.state == 'on' -%}O{%- endif %}
+      {% endif %}
+    speed_value_template: "{{ value_json.FanSpeed }}"
+    availability_topic: XanderFan/tele/LWT
+    payload_off: "0"
+    payload_on: "ON"
+    payload_low_speed: "1"
+    payload_medium_speed: "2"
+    payload_high_speed: "3"
+    payload_available: Online
+    payload_not_available: Offline
+    speeds:
+      - off
+      - low
+      - medium
+      - high
+
 automation:
   - alias: Xander - Dimmer White
     trigger:

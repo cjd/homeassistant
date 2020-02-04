@@ -41,14 +41,14 @@ fan:
     speed_state_topic: "Bedroom_Fan/stat/RESULT"
     state_value_template: >
       {% if value_json.FanSpeed is defined %}
-        {% if value_json.FanSpeed == 0 -%}0{%- elif value_json.FanSpeed > 0 -%}4{%- endif %}
+        {% if value_json.FanSpeed == 0 -%}0{%- elif value_json.FanSpeed > 0 -%}ON{%- endif %}
       {% else %}
-        {% if states.fan.Bedroom_Fan.state == 'off' -%}0{%- elif states.fan.Bedroom_Fan.state == 'on' -%}4{%- endif %}
+        {% if states.fan.Bedroom_Fan.state == 'off' -%}0{%- elif states.fan.Bedroom_Fan.state == 'on' -%}O{%- endif %}
       {% endif %}
     speed_value_template: "{{ value_json.FanSpeed }}"
     availability_topic: Bedroom_Fan/tele/LWT
     payload_off: "0"
-    payload_on: "4"
+    payload_on: "ON"
     payload_low_speed: "1"
     payload_medium_speed: "2"
     payload_high_speed: "3"
