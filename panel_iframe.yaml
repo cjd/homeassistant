@@ -23,3 +23,8 @@ motion:
   url: 'https://home.adebenham.com/int/motion/'
   icon: mdi:video
   require_admin: true
+pihole:
+  title: 'Pihole'
+  url: 'https://home.adebenham.com/int/pihole/'
+  icon: mdi:dns
+  require_admin: true
