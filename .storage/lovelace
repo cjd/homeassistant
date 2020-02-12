@@ -97,6 +97,10 @@
                 {
                     "type": "js",
                     "url": "/community_plugin/fan-control-entity-row/fan-control-entity-row.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/community_plugin/lovelace-thermostat-card/thermostat-card.js"
                 }
             ],
             "title": "Home",
@@ -106,7 +110,7 @@
                     "cards": [
                         {
                             "config": {
-                                "image": "/local/floorplan/Floorplan-image.svg?v=1",
+                                "image": "/local/floorplan/Floorplan-image.svg",
                                 "log_level": "error",
                                 "rules": [
                                     {
@@ -125,6 +129,9 @@
                                         ]
                                     },
                                     {
+                                        "entities": [
+                                            "climate.living_room"
+                                        ],
                                         "entity": "climate.living_room",
                                         "states": [
                                             {
@@ -154,6 +161,9 @@
                                         ]
                                     },
                                     {
+                                        "entities": [
+                                            "input_select.livingroom_ac_state"
+                                        ],
                                         "entity": "input_select.livingroom_ac_state",
                                         "text_template": "${entity.state}"
                                     },
@@ -165,6 +175,9 @@
                                             },
                                             "service": "input_select.select_option"
                                         },
+                                        "entities": [
+                                            "light.livingroom_lights"
+                                        ],
                                         "entity": "light.livingroom_lights",
                                         "states": [
                                             {
@@ -179,6 +192,9 @@
                                     },
                                     {
                                         "action": null,
+                                        "entities": [
+                                            "input_select.livingroom_preset"
+                                        ],
                                         "entity": "input_select.livingroom_preset",
                                         "propagate": false,
                                         "states": [
@@ -255,12 +271,17 @@
                                             "light.laundry_toilet",
                                             "light.backyard_lights",
                                             "light.toilet",
-                                            "light.carport_lights"
+                                            "light.carport_lights",
+                                            "light.bathroom_lights"
                                         ],
                                         "states": [
                                             {
                                                 "class": "light-off",
                                                 "state": "off"
+                                            },
+                                            {
+                                                "class": "light-off",
+                                                "state": "unknown"
                                             },
                                             {
                                                 "class": "light-on",
@@ -289,7 +310,8 @@
                                         "text_template": "${entity.state}mm"
                                     }
                                 ],
-                                "stylesheet": "/local/floorplan/Floorplan-image.css?v=1"
+                                "stylesheet": "/local/floorplan/Floorplan-image.css?v=1",
+                                "svg": {}
                             },
                             "type": "custom:floorplan-card"
                         }
@@ -322,6 +344,10 @@
                                 }
                             ],
                             "type": "entities"
+                        },
+                        {
+                            "entity": "climate.44054805a4cf12ac4ace",
+                            "type": "thermostat"
                         }
                     ],
                     "icon": "mdi:air-conditioner",
@@ -664,13 +690,13 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.netatmo_netatmo_rainy_sum_rain_1"
+                                    "entity": "sensor.netatmo_netatmo_rainy_sum_rain_24"
                                 },
                                 {
                                     "entity": "sensor.netatmo_netatmo_rainy_rain"
                                 }
                             ],
-                            "hours_to_show": 2472,
+                            "hours_to_show": 48,
                             "refresh_interval": 0,
                             "type": "history-graph"
                         }
@@ -870,6 +896,14 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "group.all_light_relays"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
                                     "entity": "binary_sensor.smoke_detector_smoke",
                                     "name": "Smoke Detector"
                                 },
@@ -912,10 +946,6 @@
                             },
                             "hours": 48,
                             "type": "custom:auto-entities"
-                        },
-                        {
-                            "entity": "climate.office",
-                            "type": "thermostat"
                         },
                         {
                             "entities": [
@@ -998,14 +1028,6 @@
                                     "name": "Advanced",
                                     "type": "cast",
                                     "view": 6
-                                }
-                            ],
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "group.all_light_relays"
                                 }
                             ],
                             "type": "entities"
