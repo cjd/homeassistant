@@ -44,9 +44,9 @@ automation:
       - service: camera.snapshot
         data:
           entity_id: camera.carport
-          filename: /tmp/snapshot1.jpg
-      - service: notify.hangout_notify
+          filename: /config/www/camera-snapshots/carport.jpg
+      - service: notify.mobile_app_pixel_3_xl
         data:
           message: "Carport motion"
           data:
-            image_file: "/tmp/snapshot1.jpg"
+            image: "https://ha.adebenham.com/local/camera-snapshots/carport.jpg"
