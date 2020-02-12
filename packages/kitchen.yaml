@@ -4,6 +4,7 @@ light:
     entities:
       - light.kitchen_back
       - light.kitchen_front
+      - light.kitchenstrip
 
 switch:
   - platform: template
