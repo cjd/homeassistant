@@ -23,6 +23,7 @@ history:
 sun:
 system_health:
 stream:
+mobile_app:
 person:
 ffmpeg:
 ssdp:
@@ -85,6 +86,7 @@ influxdb:
 
 telegram_bot: !include telegram_bot.yaml
 netatmo: !include netatmo.yaml
+tuya: !include tuya.yaml
 mqtt: !include mqtt.yaml
 hangouts: !include hangouts.yaml
 hacs: !include hacs.yaml
