@@ -97,10 +97,6 @@
                 {
                     "type": "js",
                     "url": "/community_plugin/fan-control-entity-row/fan-control-entity-row.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/lovelace-thermostat-card/thermostat-card.js"
                 }
             ],
             "title": "Home",
@@ -110,7 +106,7 @@
                     "cards": [
                         {
                             "config": {
-                                "image": "/local/floorplan/Floorplan-image.svg",
+                                "image": "/local/floorplan/Floorplan.svg",
                                 "log_level": "error",
                                 "rules": [
                                     {
@@ -310,7 +306,7 @@
                                         "text_template": "${entity.state}mm"
                                     }
                                 ],
-                                "stylesheet": "/local/floorplan/Floorplan-image.css?v=1",
+                                "stylesheet": "/local/floorplan/Floorplan.css?v=1",
                                 "svg": {}
                             },
                             "type": "custom:floorplan-card"
