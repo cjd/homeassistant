@@ -40,3 +40,32 @@ fan:
           service: switch.turn_off
           data:
             entity_id: switch.kitchen_relay_3
+
+automation:
+  - alias: Kitchen - Switch 1
+    trigger:
+      - entity_id: binary_sensor.kitchen_switch1
+        platform: state
+        to: "on"
+    condition: []
+    action:
+      - entity_id: light.kitchenstrip
+        service: light.turn_on
+  - alias: Kitchen - Switch 2
+    trigger:
+      - entity_id: binary_sensor.kitchen_switch2
+        platform: state
+        to: "on"
+    condition: []
+    action:
+      - entity_id: light.kitchenstrip
+        service: light.turn_on
+  - alias: Kitchen - Switch 3
+    trigger:
+      - entity_id: binary_sensor.kitchen_switch3
+        platform: state
+        to: "on"
+    condition: []
+    action:
+      - entity_id: light.kitchenstrip
+        service: light.turn_off

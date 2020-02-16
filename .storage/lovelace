@@ -1,25 +1,6 @@
 {
     "data": {
         "config": {
-            "cch": {
-                "exceptions": [
-                    {
-                        "conditions": {
-                            "user": "Mel"
-                        },
-                        "config": {
-                            "disable_sidebar": true,
-                            "menu": "show",
-                            "notifications": "show",
-                            "options": "show",
-                            "voice": "hide"
-                        }
-                    }
-                ],
-                "swipe": true,
-                "swipe_animate": "swipe",
-                "voice": "hide"
-            },
             "custom_header": {
                 "chevrons": false,
                 "compact_mode": true,
@@ -295,7 +276,8 @@
                                             "sensor.netatmo_outdoor_temperature",
                                             "sensor.office_temperature",
                                             "sensor.bedroom_temperature",
-                                            "sensor.lucas_bedroom_sensor_temperature"
+                                            "sensor.lucas_bedroom_sensor_temperature",
+                                            "sensor.bathroom_temperature"
                                         ],
                                         "text_template": "${Math.round(entity.state*10)/10}\u00b0"
                                     },
@@ -304,6 +286,12 @@
                                             "sensor.netatmo_netatmo_rainy_sum_rain_24"
                                         ],
                                         "text_template": "${entity.state}mm"
+                                    },
+                                    {
+                                        "entities": [
+                                            "sensor.bathroom_humidity"
+                                        ],
+                                        "text_template": "${Math.round(entity.state)}%"
                                     }
                                 ],
                                 "stylesheet": "/local/floorplan/Floorplan.css?v=1",
@@ -661,6 +649,9 @@
                                 },
                                 {
                                     "entity": "sensor.carport_sensor_humidity"
+                                },
+                                {
+                                    "entity": "sensor.bathroom_humidity"
                                 }
                             ],
                             "hours_to_show": 72,
