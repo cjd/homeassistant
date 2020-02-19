@@ -24,6 +24,35 @@ switch:
               transition: 1
 
 automation:
+  - alias: Hall - switch 2 - day
+    trigger:
+      platform: state
+      entity_id: binary_sensor.hallway_switch2
+      to: 'on'
+    condition:
+      condition: time
+      before: '19:00:00'
+    action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_lights
+        brightness_pct: 40
+        white_value: 100
+        color_name: white
+  - alias: Hall - switch 2 - night
+    trigger:
+      platform: state
+      entity_id: binary_sensor.hallway_switch2
+      to: 'on'
+    condition:
+      condition: time
+      after: '19:00:00'
+    action:
+    - service: light.turn_on
+      data:
+        entity_id: light.hall_lights
+        brightness_pct: 30
+        color_name: blue
   # Change the hall light colour based on time and if the kids lights are on
   - id: hall_nightlight
     alias: Hall - nightlight

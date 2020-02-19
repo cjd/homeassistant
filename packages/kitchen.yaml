@@ -4,7 +4,7 @@ light:
     entities:
       - light.kitchen_back
       - light.kitchen_front
-      - light.kitchenstrip
+      - light.kitchen_strip
 
 switch:
   - platform: template
@@ -49,8 +49,11 @@ automation:
         to: "on"
     condition: []
     action:
-      - entity_id: light.kitchenstrip
-        service: light.turn_on
+      - service: light.turn_on
+        data:
+          entity_id: light.kitchen_strip
+          brightness_pct: 100
+          color_name: white
   - alias: Kitchen - Switch 2
     trigger:
       - entity_id: binary_sensor.kitchen_switch2
@@ -58,8 +61,12 @@ automation:
         to: "on"
     condition: []
     action:
-      - entity_id: light.kitchenstrip
-        service: light.turn_on
+      - service: light.turn_on
+        data:
+          entity_id: light.kitchen_lights
+          transition: 1
+          brightness_pct: 50
+          color_name: blue
   - alias: Kitchen - Switch 3
     trigger:
       - entity_id: binary_sensor.kitchen_switch3
@@ -67,5 +74,5 @@ automation:
         to: "on"
     condition: []
     action:
-      - entity_id: light.kitchenstrip
+      - entity_id: light.kitchen_strip
         service: light.turn_off

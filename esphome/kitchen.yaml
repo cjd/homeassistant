@@ -17,6 +17,7 @@ mqtt:
   broker: 192.168.86.2
   username: !secret mqtt_username
   password: !secret mqtt_password
+  discovery: false
 
 ota:
 
@@ -67,15 +68,15 @@ binary_sensor:
       then:
         - switch.turn_on: relay1
         - switch.turn_on: relay2
-        - mqtt.publish:
-            topic: Kitchen_Front/cmnd/Backlog
-            payload: "CT 370; Dimmer 40; POWER ON"
-        - mqtt.publish:
-            topic: Kitchen_Back/cmnd/Backlog
-            payload: "CT 370; Dimmer 40; POWER ON"
-        - mqtt.publish:
-            topic: "zigbee2mqtt/Kitchen Counter/set"
-            payload: '{"state": "on", "brightness": "90", "color_temp": "420"}'
+#        - mqtt.publish:
+#            topic: Kitchen_Front/cmnd/Backlog
+#            payload: "CT 370; Dimmer 40; POWER ON"
+#        - mqtt.publish:
+#            topic: Kitchen_Back/cmnd/Backlog
+#            payload: "CT 370; Dimmer 40; POWER ON"
+#        - mqtt.publish:
+#            topic: "zigbee2mqtt/Kitchen Counter/set"
+#            payload: '{"state": "on", "brightness": "90", "color_temp": "420"}'
   - platform: gpio
     pin:
       number: GPIO4
