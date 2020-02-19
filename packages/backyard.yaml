@@ -7,7 +7,7 @@ light:
 camera:
   - platform: generic
     name: backyard
-    still_image_url: https://home.adebenham.com/int/motion/picture/5/current/
+    still_image_url: https://home.adebenham.com/int/motion/picture/6/current/
     stream_source: rtsp://dafang.lan:8554/unicast
 
 automation:
