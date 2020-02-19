@@ -21,7 +21,6 @@ exclude:
     - sensor.date_time
     - switch.entertainment_unit
     - sun.sun
-    - sensor.efergy_686946
     - sensor.netatmo_indoor_wifi
     - sensor.netatmo_outdoor_battery
     - sensor.netatmo_outdoor_battery_percent

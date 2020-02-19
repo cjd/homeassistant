@@ -45,12 +45,6 @@ sensor:
       - 'summary'
       - 'detailed_summary'
       - 'icon'
-  - platform: efergy
-    app_token: !secret efergy_app_token
-    utc_offset: UTC_OFFSET
-    monitored_variables:
-      - type: instant_readings
-      - type: current_values
   - platform: template
     sensors:
       sensibo_temperature:
@@ -61,14 +55,6 @@ sensor:
         value_template: '{{ states.climate.living_room.attributes["current_humidity"] }}'
         unit_of_measurement: '%'
         friendly_name: "Livingroom Humidity"
-      melphone_battery:
-        value_template: '{{ states.device_tracker.life360_mel.attributes["battery"] }}'
-        unit_of_measurement: '%'
-        friendly_name: "Mels Battery"
-      chrisphone_battery:
-        value_template: '{{ states.device_tracker.life360_chris.attributes["battery"] }}'
-        unit_of_measurement: '%'
-        friendly_name: "Chris' Battery"
       bom_current_text:
         value_template: >
             {% set val = states('sensor.bom_gosford_summary_0').split('.')[0] %} 
