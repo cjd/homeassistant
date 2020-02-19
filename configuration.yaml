@@ -70,11 +70,6 @@ timer:
     name: Time remaining
     duration: 600
 
-upnp:
-  port_mapping: false
-  sensors: true
-  local_ip: 192.168.86.2
-
 influxdb:
   host: a0d7b954-influxdb
   port: 8086
