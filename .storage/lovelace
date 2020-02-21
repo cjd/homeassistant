@@ -52,10 +52,6 @@
                     "url": "/community_plugin/bom-weather-card/bom-weather-card.js"
                 },
                 {
-                    "type": "module",
-                    "url": "/community_plugin/rgb-light-card/card.js"
-                },
-                {
                     "type": "js",
                     "url": "/community_plugin/favicon-counter/favicon-counter.js"
                 },
@@ -78,6 +74,10 @@
                 {
                     "type": "js",
                     "url": "/community_plugin/fan-control-entity-row/fan-control-entity-row.js"
+                },
+                {
+                    "type": "js",
+                    "url": "/community_plugin/rgb-light-card/card.js"
                 }
             ],
             "title": "Home",
@@ -483,6 +483,32 @@
                                     "hideBrightness": true,
                                     "hideColorTemp": true,
                                     "type": "custom:light-entity-row"
+                                },
+                                {
+                                    "buttons": [
+                                        {
+                                            "name": "Random Colours",
+                                            "service_data": {
+                                                "effect": "Slow Random Effect"
+                                            }
+                                        },
+                                        {
+                                            "name": "Twinkle",
+                                            "service_data": {
+                                                "effect": "Random Twinkle"
+                                            }
+                                        },
+                                        {
+                                            "name": "Rainbow",
+                                            "service_data": {
+                                                "effect": "Rainbow"
+                                            }
+                                        }
+                                    ],
+                                    "entity": "light.kitchen_strip",
+                                    "hideBrightness": true,
+                                    "hideColorTemp": true,
+                                    "type": "custom:light-entity-row"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -784,7 +810,7 @@
                                     "type": "custom:mini-media-player"
                                 },
                                 {
-                                    "entity": "media_player.googlehome2690",
+                                    "entity": "media_player.living_room_speaker",
                                     "group": true,
                                     "hide": {
                                         "controls": true
@@ -793,6 +819,14 @@
                                 },
                                 {
                                     "entity": "media_player.living_room_mini",
+                                    "group": true,
+                                    "hide": {
+                                        "controls": true
+                                    },
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.bedroom_speaker",
                                     "group": true,
                                     "hide": {
                                         "controls": true
@@ -971,53 +1005,6 @@
                             ],
                             "title": "System Stats",
                             "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "hide_if_unavailable": false,
-                                    "name": "Main",
-                                    "type": "cast",
-                                    "view": "0"
-                                },
-                                {
-                                    "hide_if_unavailable": false,
-                                    "name": "Weather",
-                                    "type": "cast",
-                                    "view": 1
-                                },
-                                {
-                                    "hide_if_unavailable": false,
-                                    "name": "Lights",
-                                    "type": "cast",
-                                    "view": 2
-                                },
-                                {
-                                    "hide_if_unavailable": false,
-                                    "name": "Cameras",
-                                    "type": "cast",
-                                    "view": 3
-                                },
-                                {
-                                    "hide_if_unavailable": false,
-                                    "name": "Media",
-                                    "type": "cast",
-                                    "view": 4
-                                },
-                                {
-                                    "hide_if_unavailable": false,
-                                    "name": "Map",
-                                    "type": "cast",
-                                    "view": 5
-                                },
-                                {
-                                    "hide_if_unavailable": false,
-                                    "name": "Advanced",
-                                    "type": "cast",
-                                    "view": 6
-                                }
-                            ],
-                            "type": "entities"
                         },
                         {
                             "entities": [],
