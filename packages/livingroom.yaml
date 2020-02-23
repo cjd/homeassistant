@@ -89,20 +89,20 @@ automation:
         service: input_select.select_option
         data:
           option: "TurnOff"
-  - alias: Livingroom - Preset manual on
-    trigger:
-      - entity_id: light.livingroom_lights
-        platform: state
-        to: "on"
-        for: "00:00:05"
-    condition:
-      - condition: template
-        value_template: '{{ is_state("input_select.livingroom_preset", "TurnOff") }}'
-    action:
-      - entity_id: input_select.livingroom_preset
-        service: input_select.select_option
-        data:
-          option: "Normal"
+  # - alias: Livingroom - Preset manual on
+  #   trigger:
+  #     - entity_id: light.livingroom_lights
+  #       platform: state
+  #       to: "on"
+  #       for: "00:00:05"
+  #   condition:
+  #     - condition: template
+  #       value_template: '{{ is_state("input_select.livingroom_preset", "TurnOff") }}'
+  #   action:
+  #     - entity_id: input_select.livingroom_preset
+  #       service: input_select.select_option
+  #       data:
+  #         option: "Normal"
   - alias: Livingroom - Switch 1
     trigger:
       - entity_id: binary_sensor.livingroom_switch1
@@ -263,6 +263,10 @@ scene:
         brightness_pct: 100
         color_temp: 420
         state: true
+      light.kitchen_strip:
+        brightness_pct: 100
+        color_name: white
+        state: true
       light.tv_backlight:
         state: true
         brightness_pct: 100
@@ -275,6 +279,11 @@ scene:
     entities:
       light.kitchen_lights:
         state: true
+        rgb_color: [0,0,155]
+        brightness_pct: 100
+      light.kitchen_strip:
+        state: true
+        brightness_pct: 100
         rgb_color: [0,0,155]
         brightness_pct: 100
       light.livingroom_lights:
@@ -298,6 +307,7 @@ scene:
   - name: Turn off
     entities:
       light.kitchen_lights: false
+      light.kitchen_strip: false
       light.livingroom_lights: false
       light.backroom_lights: false
       light.tv_backlight:
