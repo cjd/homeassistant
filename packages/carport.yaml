@@ -50,3 +50,5 @@ automation:
           message: "Carport motion"
           data:
             image: "https://ha.adebenham.com/local/camera-snapshots/carport.jpg"
+      - service: image_processing.scan
+        entity_id: image_processing.doods_camera_carport
