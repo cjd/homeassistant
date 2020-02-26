@@ -73,6 +73,7 @@ automation:
         entity_id: >
           {% if trigger.to_state.state == "Normal" %}scene.normal
           {% elif trigger.to_state.state == "Night" %}scene.night
+          {% elif trigger.to_state.state == "Party" %}scene.party
           {% elif trigger.to_state.state == "TurnOff" %}scene.turn_off
           {% endif %}
   - alias: Livingroom - Preset manual off
@@ -125,6 +126,18 @@ automation:
         service: input_select.select_option
         data:
           option: "Night"
+  - alias: Livingroom - Switch 2 - longpress
+    trigger:
+      - entity_id: binary_sensor.livingroom_switch2
+        platform: state
+        to: "on"
+        for: "00:00:05"
+    condition: []
+    action:
+      - entity_id: input_select.livingroom_preset
+        service: input_select.select_option
+        data:
+          option: "Party"
   - alias: Livingroom - Switch 3
     trigger:
       - entity_id: binary_sensor.livingroom_switch3
@@ -257,15 +270,18 @@ scene:
     entities:
       light.livingroom_lights:
         state: true
+        effect: 0
         brightness_pct: 100
         color_temp: 420
       light.kitchen_lights:
+        effect: 0
         brightness_pct: 100
         color_temp: 420
         state: true
       light.kitchen_strip:
         brightness_pct: 100
         color_name: white
+        effect: None
         state: true
       light.tv_backlight:
         state: true
@@ -279,25 +295,59 @@ scene:
     entities:
       light.kitchen_lights:
         state: true
+        effect: 0
         rgb_color: [0,0,155]
         brightness_pct: 100
       light.kitchen_strip:
         state: true
-        brightness_pct: 100
+        effect: None
         rgb_color: [0,0,155]
         brightness_pct: 100
       light.livingroom_lights:
         state: true
+        effect: 0
         rgb_color: [0,0,155]
         brightness_pct: 100
       light.backroom_lights:
         rgb_color: [0,0,155]
+        effect: 0
         brightness_pct: 100
         state: true
       light.tv_backlight:
         state: true
         brightness_pct: 100
         effect: Random Twinkle
+      switch.livingroom_relay_1:
+        state: true
+      switch.kitchen_relay_1:
+        state: true
+      switch.kitchen_relay_2:
+        state: true
+  - name: Party
+    entities:
+      light.kitchen_lights:
+        state: true
+        effect: 2
+        rgb_color: [0,0,155]
+        brightness_pct: 100
+      light.kitchen_strip:
+        state: true
+        effect: Rainbow
+        brightness_pct: 100
+      light.livingroom_lights:
+        state: true
+        effect: 2
+        rgb_color: [0,0,155]
+        brightness_pct: 100
+      light.backroom_lights:
+        state: true
+        effect: 2
+        rgb_color: [0,0,155]
+        brightness_pct: 100
+      light.tv_backlight:
+        state: true
+        brightness_pct: 100
+        effect: Rainbow
       switch.livingroom_relay_1:
         state: true
       switch.kitchen_relay_1:
