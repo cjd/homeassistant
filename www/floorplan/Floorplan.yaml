@@ -1,0 +1,123 @@
+image: /local/floorplan/Floorplan.svg?v=2
+log_level: error
+rules:
+  - entities:
+      - fan.bedroom_fan
+      - fan.office_fan
+      - fan.kitchen_fan
+      - fan.xander_fan
+    propagate: false
+    states:
+      - class: light-on
+        state: 'on'
+  - entities:
+      - climate.living_room
+    entity: climate.living_room
+    states:
+      - class: ac-dry
+        state: dry
+      - class: ac-heat_cool
+        state: heat_cool
+      - class: ac-heat
+        state: heat
+      - class: ac-fan_only
+        state: fan_only
+      - class: ac-cool
+        state: cool
+      - class: ac-off
+        state: 'off'
+  - entities:
+      - input_select.livingroom_ac_state
+    entity: input_select.livingroom_ac_state
+    text_template: '${entity.state}'
+  - action:
+      entity_id: scene.night
+      service: scene.turn_on
+    entities:
+      - light.livingroom_lights
+    entity: light.livingroom_lights
+    states:
+      - class: livingroom-off
+        state: 'off'
+      - class: livingroom-on
+        state: 'on'
+  - action: null
+    entities:
+      - input_select.livingroom_preset
+    entity: input_select.livingroom_preset
+    propagate: false
+    states:
+      - class: preset-normal
+        state: Normal
+      - class: preset-night
+        state: Night
+      - class: preset-off
+        state: TurnOff
+  - entities:
+      - binary_sensor.bedroom_window_sensor_contact
+      - binary_sensor.backdoor_sensor_contact
+      - binary_sensor.frontdoor_sensor_contact
+      - binary_sensor.livingroom_window_sensor_contact
+      - binary_sensor.pantry_sensor_contact
+    states:
+      - class: sensor-open
+        state: 'on'
+      - class: sensor-closed
+        state: 'off'
+  - entities:
+      - person.chris
+      - person.mel
+    text_template: '${entity.state}'
+  - entities:
+      - camera.backyard
+      - camera.livingroom
+      - camera.carport
+      - camera.backroom
+    states:
+      - class: camera-idle
+        state: idle
+  - action:
+      service: homeassistant.toggle
+    entities:
+      - light.bedroom_lights
+      - light.office_lights
+      - switch.livingroom_lights
+      - light.lucas_lights
+      - light.xander_lights
+      - light.craftroom_lights
+      - light.hall_lights
+      - light.entry_lights
+      - light.kitchen_lights
+      - light.backroom_lights
+      - light.laundry
+      - light.laundry_toilet
+      - light.backyard_lights
+      - light.toilet
+      - light.carport_lights
+      - light.bathroom_lights
+    states:
+      - class: light-off
+        state: 'off'
+      - class: light-off
+        state: unknown
+      - class: light-on
+        state: 'on'
+  - entities:
+      - sensor.xander_bedroom_sensor_temperature
+      - sensor.office_temperature
+      - sensor.backroom_sensor_temperature
+      - sensor.carport_temperature
+      - sensor.netatmo_indoor_temperature
+      - sensor.netatmo_outdoor_temperature
+      - sensor.office_temperature
+      - sensor.bedroom_temperature
+      - sensor.lucas_bedroom_sensor_temperature
+      - sensor.bathroom_temperature
+    text_template: '${Math.round(entity.state*10)/10}°'
+  - entities:
+      - sensor.netatmo_netatmo_rainy_sum_rain_24
+    text_template: '${entity.state}mm'
+  - entities:
+      - sensor.bathroom_humidity
+    text_template: '${Math.round(entity.state)}%'
+stylesheet: /local/floorplan/Floorplan.css?v=1
