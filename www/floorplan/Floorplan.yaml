@@ -41,18 +41,6 @@ rules:
         state: 'off'
       - class: livingroom-on
         state: 'on'
-  - action: null
-    entities:
-      - input_select.livingroom_preset
-    entity: input_select.livingroom_preset
-    propagate: false
-    states:
-      - class: preset-normal
-        state: Normal
-      - class: preset-night
-        state: Night
-      - class: preset-off
-        state: TurnOff
   - entities:
       - binary_sensor.bedroom_window_sensor_contact
       - binary_sensor.backdoor_sensor_contact

@@ -1,26 +1,3 @@
 noop:
   sequence:
     delay: 00:00:00
-leaving_home:
-  alias: Leaving Home
-  sequence:
-    - service: homeassistant.turn_off
-      data:
-        entity_id: group.all_lights
-    - service: light.turn_on
-      data:
-        entity_id: light.tv_backlight
-        state: true
-        brightness_pct:  100
-        effect: Random Twinkle
-    - service: light.turn_on
-      data:
-        entity_id: light.family_room_strip
-        effect: Slow Random Effect
-arriving_home:
-  alias: Arrived Home
-  sequence:
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.livingroom_preset
-        option: "Normal"

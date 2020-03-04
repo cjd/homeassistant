@@ -1,8 +1,3 @@
-livingroom_preset:
-  options:
-    - Normal
-    - Night
-    - TurnOff
 livingroom_amp_input:
   options:
     - "Media Player"
