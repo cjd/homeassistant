@@ -12,17 +12,13 @@ switch:
       livingroom_lights:
         icon_template: mdi:sofa
         friendly_name: "Livingroom"
-        value_template: "{{ not is_state('input_select.livingroom_preset', 'TurnOff') }}"
+        value_template: "{{ states('light.livingroom_lights') }}"
         turn_on:
-          service: input_select.select_option
-          data:
-            entity_id: input_select.livingroom_preset
-            option: "Normal"
+          service: scene.turn_on
+          entity_id: scene.normal
         turn_off:
-          service: input_select.select_option
-          data:
-            entity_id: input_select.livingroom_preset
-            option: "TurnOff"
+          service: scene.turn_on
+          entity_id: scene.turn_off
 
 climate:
   - platform: sensibo
@@ -36,74 +32,6 @@ camera:
 
 
 automation:
-  - id: day
-    alias: Livingroom - Time - Day
-    trigger:
-    - event: sunrise
-      platform: sun
-    condition: []
-    action:
-    - data:
-        effect: Slow Random Effect
-        entity_id: light.family_room_strip
-      entity_id: light.family_room_strip
-      service: light.turn_on
-  - id: night
-    alias: Livingroom - Time - Night
-    trigger:
-    - event: sunset
-      platform: sun
-    condition: []
-    action:
-    - data:
-        effect: Rainbow
-        entity_id: light.family_room_strip
-      entity_id: light.family_room_strip
-      service: light.turn_on
-  - alias: Livingroom - Preset selected
-    trigger:
-      platform: state
-      entity_id: input_select.livingroom_preset
-    action:
-      service_template: >
-        {% if trigger.to_state.state|length %}scene.turn_on
-        {% else %}script.noop
-        {% endif %}
-      data_template:
-        entity_id: >
-          {% if trigger.to_state.state == "Normal" %}scene.normal
-          {% elif trigger.to_state.state == "Night" %}scene.night
-          {% elif trigger.to_state.state == "Party" %}scene.party
-          {% elif trigger.to_state.state == "TurnOff" %}scene.turn_off
-          {% endif %}
-  - alias: Livingroom - Preset manual off
-    trigger:
-      - entity_id: light.livingroom_lights
-        platform: state
-        to: "off"
-        for: "00:00:05"
-    condition:
-      - condition: template
-        value_template: '{{ not is_state("input_select.livingroom_preset", "TurnOff") }}'
-    action:
-      - entity_id: input_select.livingroom_preset
-        service: input_select.select_option
-        data:
-          option: "TurnOff"
-  # - alias: Livingroom - Preset manual on
-  #   trigger:
-  #     - entity_id: light.livingroom_lights
-  #       platform: state
-  #       to: "on"
-  #       for: "00:00:05"
-  #   condition:
-  #     - condition: template
-  #       value_template: '{{ is_state("input_select.livingroom_preset", "TurnOff") }}'
-  #   action:
-  #     - entity_id: input_select.livingroom_preset
-  #       service: input_select.select_option
-  #       data:
-  #         option: "Normal"
   - alias: Livingroom - Switch 1
     trigger:
       - entity_id: binary_sensor.livingroom_switch1
@@ -111,10 +39,8 @@ automation:
         to: "on"
     condition: []
     action:
-      - entity_id: input_select.livingroom_preset
-        service: input_select.select_option
-        data:
-          option: "Normal"
+      - entity_id: scene.normal
+        service: scene.turn_on
   - alias: Livingroom - Switch 2
     trigger:
       - entity_id: binary_sensor.livingroom_switch2
@@ -122,10 +48,8 @@ automation:
         to: "on"
     condition: []
     action:
-      - entity_id: input_select.livingroom_preset
-        service: input_select.select_option
-        data:
-          option: "Night"
+      - entity_id: scene.night
+        service: scene.turn_on
   - alias: Livingroom - Switch 2 - longpress
     trigger:
       - entity_id: binary_sensor.livingroom_switch2
@@ -134,10 +58,8 @@ automation:
         for: "00:00:05"
     condition: []
     action:
-      - entity_id: input_select.livingroom_preset
-        service: input_select.select_option
-        data:
-          option: "Party"
+      - entity_id: scene.party
+        service: scene.turn_on
   - alias: Livingroom - Switch 3
     trigger:
       - entity_id: binary_sensor.livingroom_switch3
@@ -145,10 +67,8 @@ automation:
         to: "on"
     condition: []
     action:
-      - entity_id: input_select.livingroom_preset
-        service: input_select.select_option
-        data:
-          option: "TurnOff"
+      - entity_id: scene.turn_off
+        service: scene.turn_on
   - alias: Livingroom - AC State set
     trigger:
       - entity_id: binary_sensor.ac_active_sensor_contact
