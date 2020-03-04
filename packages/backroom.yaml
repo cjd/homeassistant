@@ -27,3 +27,29 @@ switch:
           data:
             entity_id: light.backroom_lights
             transition: 1
+
+automation:
+  - id: day
+    alias: Backroom - Time - Day
+    trigger:
+    - event: sunrise
+      platform: sun
+    condition: []
+    action:
+    - data:
+        effect: Slow Random Effect
+        entity_id: light.family_room_strip
+      entity_id: light.family_room_strip
+      service: light.turn_on
+  - id: night
+    alias: Backroom - Time - Night
+    trigger:
+    - event: sunset
+      platform: sun
+    condition: []
+    action:
+    - data:
+        effect: Rainbow
+        entity_id: light.family_room_strip
+      entity_id: light.family_room_strip
+      service: light.turn_on
