@@ -28,8 +28,8 @@ binary_sensor:
       then:
         - switch.turn_on: relay2
         - mqtt.publish:
-            topic: "zigbee2mqtt/Entry Light/set"
-            payload: '{"state": "toggle"}'
+            topic: Entry/cmnd/Backlog
+            payload: "CT 370; Dimmer 100; POWER toggle"
   - platform: gpio
     pin:
       number: GPIO5

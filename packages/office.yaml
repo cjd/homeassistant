@@ -2,7 +2,7 @@ light:
   - platform: group
     name: Office Lights
     entities:
-      - light.office_light_light
+      - light.office
 
 switch:
   - platform: template
@@ -80,11 +80,6 @@ automation:
         to: "on"
     condition: []
     action:
-      - entity_id: light.office_lights
-        service: light.turn_on
-        data:
-          transition: 1
-          brightness_pct: 100
       - entity_id: switch.powerboard_outlet_1
         service: switch.turn_on
   - alias: Office - Switch 2

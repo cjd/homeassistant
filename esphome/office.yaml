@@ -31,6 +31,10 @@ binary_sensor:
     on_press:
       then:
         - switch.turn_on: relay1
+        - mqtt.publish:
+            topic: Office/cmnd/Backlog
+            payload: "Scheme 0; CT 370; Dimmer 100; POWER ON"
+
   - platform: gpio
     pin:
       number: GPIO5
@@ -44,6 +48,11 @@ binary_sensor:
       number: GPIO4
       inverted: True
     name: "Office Switch3"
+    on_press:
+      then:
+        - mqtt.publish:
+            topic: Office/cmnd/POWER
+            payload: "OFF"
     on_click:
       min_length: 2000ms
       max_length: 5000ms

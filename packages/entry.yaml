@@ -2,7 +2,7 @@ light:
   - platform: group
     name: Entry Lights
     entities:
-      - light.entry_light_light
+      - light.entry
 
 switch:
   - platform: template
@@ -16,7 +16,7 @@ switch:
           data:
               entity_id: light.entry_lights
               brightness_pct: 100
-              color_name: white
+              color_temp: 420
               transition: 1
         turn_off:
           service: light.turn_off
