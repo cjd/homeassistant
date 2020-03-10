@@ -74,6 +74,7 @@ automation:
       - entity_id: binary_sensor.ac_active_sensor_contact
         platform: state 
         to: "off"
+        from: "on"
         for: "00:01:00"
     condition: []
     action:
