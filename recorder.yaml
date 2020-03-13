@@ -148,3 +148,6 @@ exclude:
     - sensor.tv_power_voltage
     - sensor.backyard_light_linkquality
     - sensor.zigbee2mqtt_networkmap
+    - sensor.washing_watts
+    - sensor.washing_current
+    - sensor.washing_voltage
