@@ -679,8 +679,9 @@
                     "cards": [
                         {
                             "card": {
+                                "show_header_toggle": false,
                                 "title": "Notices",
-                                "type": "glance"
+                                "type": "entities"
                             },
                             "filter": {
                                 "exclude": [
@@ -699,6 +700,9 @@
                                         "attributes": {
                                             "battery": "< 50"
                                         }
+                                    },
+                                    {
+                                        "state": "unavailable"
                                     }
                                 ]
                             },
@@ -794,12 +798,6 @@
                                 "sensor.disk_free"
                             ],
                             "title": "System Stats",
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0,
                             "type": "history-graph"
                         }
                     ],
