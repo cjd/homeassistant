@@ -1,3 +1,6 @@
+- platform: onkyo
+  host: 192.168.86.30
+  name: receiver
 - platform: universal
   name: "Livingroom TV"
   state_template: >
