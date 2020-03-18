@@ -94,8 +94,6 @@ automation:
         data:
           transition: 1
           brightness_pct: 50
-      - entity_id: switch.powerboard_outlet_1
-        service: switch.turn_on
   - alias: Office - Switch 3
     trigger:
       - entity_id: binary_sensor.office_switch3
@@ -103,35 +101,7 @@ automation:
         to: "on"
     condition: []
     action:
-      - entity_id: light.office_lights
-        service: light.turn_off
       - entity_id: switch.powerboard_outlet_1
         service: switch.turn_off
       - entity_id: fan.office_fan
         service: fan.turn_off
-  - alias: Office - Dimmer
-    id: office_light
-    trigger:
-    - entity_id: sensor.office_dimmer_action
-      platform: state
-    condition:
-      - condition: template
-        value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'down-press', 'off-press'] }}"
-    action:
-    - entity_id: switch.powerboard_outlet_1
-      service_template: >
-          {% if trigger.to_state.state == 'on-press' %}switch.turn_on
-          {% elif trigger.to_state.state == 'up-press' %}switch.turn_on
-          {% elif trigger.to_state.state == 'down-press' %}switch.turn_off
-          {% elif trigger.to_state.state == 'off-press' %}switch.turn_off
-          {% endif %}
-    - entity_id: light.office_lights
-      service: light.turn_on
-      data_template:
-        transition: 1
-        brightness_pct: >
-          {% if trigger.to_state.state == 'on-press' %}100
-          {% elif trigger.to_state.state == 'up-press' %} 50
-          {% elif trigger.to_state.state == 'down-press' %}1
-          {% elif trigger.to_state.state == 'off-press' %}0
-          {% endif %}
