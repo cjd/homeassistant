@@ -1,4 +1,2 @@
 token: !secret github_access_token
 appdaemon: true
-python_script: true
-theme: true
