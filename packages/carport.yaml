@@ -45,7 +45,7 @@ automation:
         data:
           entity_id: camera.carport
           filename: /config/www/camera-snapshots/carport.jpg
-      - service: notify.mobile_app_pixel_3_xl
+      - service: notify.mobile_app_chrisphone
         data:
           message: "Carport motion"
           data:
