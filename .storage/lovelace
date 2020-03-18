@@ -18,68 +18,6 @@
                 ],
                 "voice_hide": true
             },
-            "resources": [
-                {
-                    "type": "js",
-                    "url": "/local/floorplan/floorplan.js?v=1.0.1"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/lovelace-slider-entity-row/slider-entity-row.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/light-entity-row/light-entity-row.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/lovelace-auto-entities/auto-entities.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/simple-thermostat/simple-thermostat.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/button-card/button-card.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/lovelace-fold-entity-row/fold-entity-row.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/bom-weather-card/bom-weather-card.js"
-                },
-                {
-                    "type": "js",
-                    "url": "/community_plugin/favicon-counter/favicon-counter.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/mini-graph-card/mini-graph-card-bundle.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/mini-media-player/mini-media-player-bundle.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/lovelace-more-info-card/more-info-card.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/community_plugin/custom-header/custom-header.js"
-                },
-                {
-                    "type": "js",
-                    "url": "/community_plugin/fan-control-entity-row/fan-control-entity-row.js"
-                },
-                {
-                    "type": "js",
-                    "url": "/community_plugin/rgb-light-card/card.js"
-                }
-            ],
             "title": "Home",
             "views": [
                 {
@@ -138,26 +76,13 @@
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "colors": [
-                                        {
-                                            "entity_id": "scene.normal",
-                                            "icon_color": "white",
-                                            "type": "scene"
-                                        },
-                                        {
-                                            "entity_id": "scene.night",
-                                            "icon_color": "blue",
-                                            "type": "scene"
-                                        },
-                                        {
-                                            "entity_id": "scene.turn_off",
-                                            "icon_color": "black",
-                                            "type": "scene"
-                                        }
+                                    "buttons": [
+                                        "scene.turn_off",
+                                        "scene.night",
+                                        "scene.party",
+                                        "scene.normal"
                                     ],
-                                    "entity": "light.livingroom_lights",
-                                    "justify": "center",
-                                    "type": "custom:rgb-light-card"
+                                    "type": "custom:paper-buttons-row"
                                 },
                                 {
                                     "entity": "light.bedroom_lights",
@@ -221,84 +146,129 @@
                         },
                         {
                             "entities": [
+                                "light.tv_backlight",
                                 {
                                     "buttons": [
                                         {
                                             "name": "Random Colours",
-                                            "service_data": {
-                                                "effect": "Slow Random Effect"
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Slow Random Effect",
+                                                    "entity_id": "light.tv_backlight"
+                                                }
                                             }
                                         },
                                         {
                                             "name": "Twinkle",
-                                            "service_data": {
-                                                "effect": "Random Twinkle"
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Random Twinkle",
+                                                    "entity_id": "light.tv_backlight"
+                                                }
                                             }
                                         },
                                         {
                                             "name": "Rainbow",
-                                            "service_data": {
-                                                "effect": "Rainbow"
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "entity": "light.tv_backlight",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Rainbow",
+                                                    "entity_id": "light.tv_backlight"
+                                                }
                                             }
                                         }
                                     ],
-                                    "entity": "light.tv_backlight",
-                                    "hideBrightness": true,
-                                    "hideColorTemp": true,
-                                    "showColorSliders": false,
-                                    "type": "custom:light-entity-row"
+                                    "type": "custom:paper-buttons-row"
+                                },
+                                {
+                                    "entity": "light.family_room_strip"
                                 },
                                 {
                                     "buttons": [
                                         {
                                             "name": "Random Colours",
-                                            "service_data": {
-                                                "effect": "Slow Random Effect"
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Slow Random Effect",
+                                                    "entity_id": "light.family_room_strip"
+                                                }
                                             }
                                         },
                                         {
                                             "name": "Twinkle",
-                                            "service_data": {
-                                                "effect": "Random Twinkle"
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Random Twinkle",
+                                                    "entity_id": "light.family_room_strip"
+                                                }
                                             }
                                         },
                                         {
                                             "name": "Rainbow",
-                                            "service_data": {
-                                                "effect": "Rainbow"
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "entity": "light.tv_backlight",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Rainbow",
+                                                    "entity_id": "light.family_room_strip"
+                                                }
                                             }
                                         }
                                     ],
-                                    "entity": "light.family_room_strip",
-                                    "hideBrightness": true,
-                                    "hideColorTemp": true,
-                                    "type": "custom:light-entity-row"
+                                    "type": "custom:paper-buttons-row"
+                                },
+                                {
+                                    "entity": "light.kitchen_strip"
                                 },
                                 {
                                     "buttons": [
                                         {
                                             "name": "Random Colours",
-                                            "service_data": {
-                                                "effect": "Slow Random Effect"
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Slow Random Effect",
+                                                    "entity_id": "light.kitchen_strip"
+                                                }
                                             }
                                         },
                                         {
                                             "name": "Twinkle",
-                                            "service_data": {
-                                                "effect": "Random Twinkle"
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Random Twinkle",
+                                                    "entity_id": "light.kitchen_strip"
+                                                }
                                             }
                                         },
                                         {
                                             "name": "Rainbow",
-                                            "service_data": {
-                                                "effect": "Rainbow"
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "entity": "light.tv_backlight",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Rainbow",
+                                                    "entity_id": "light.kitchen_strip"
+                                                }
                                             }
                                         }
                                     ],
-                                    "entity": "light.kitchen_strip",
-                                    "hideBrightness": true,
-                                    "hideColorTemp": true,
-                                    "type": "custom:light-entity-row"
+                                    "type": "custom:paper-buttons-row"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -546,6 +516,10 @@
                     "badges": [],
                     "cards": [
                         {
+                            "entity": "media_player.receiver",
+                            "type": "media-control"
+                        },
+                        {
                             "entity": "media_player.living_room_tv_2",
                             "hide": {
                                 "mute": true
@@ -764,12 +738,6 @@
                         },
                         {
                             "entities": [
-                                {
-                                    "entity": "sensor.tv_power_watts"
-                                },
-                                {
-                                    "entity": "sensor.washing_watts"
-                                },
                                 {
                                     "entity": "sensor.house_power"
                                 }
