@@ -31,7 +31,18 @@
                     "icon": "mdi:home",
                     "id": "system",
                     "panel": false,
-                    "title": "Floorplan"
+                    "title": "Floorplan",
+                    "visible": [
+                        {
+                            "user": "78554c5a47cd465b8f4689851629b80f"
+                        },
+                        {
+                            "user": "6fd087c7c9e74322b7c54c88566cda0a"
+                        },
+                        {
+                            "user": "47c95d2b4100460597954951fb807e4a"
+                        }
+                    ]
                 },
                 {
                     "badges": [],
@@ -63,7 +74,18 @@
                         }
                     ],
                     "icon": "mdi:air-conditioner",
-                    "title": ""
+                    "title": "",
+                    "visible": [
+                        {
+                            "user": "78554c5a47cd465b8f4689851629b80f"
+                        },
+                        {
+                            "user": "6fd087c7c9e74322b7c54c88566cda0a"
+                        },
+                        {
+                            "user": "47c95d2b4100460597954951fb807e4a"
+                        }
+                    ]
                 },
                 {
                     "badges": [],
@@ -297,7 +319,18 @@
                     ],
                     "icon": "mdi:lightbulb",
                     "panel": false,
-                    "title": "Lights"
+                    "title": "Lights",
+                    "visible": [
+                        {
+                            "user": "78554c5a47cd465b8f4689851629b80f"
+                        },
+                        {
+                            "user": "6fd087c7c9e74322b7c54c88566cda0a"
+                        },
+                        {
+                            "user": "47c95d2b4100460597954951fb807e4a"
+                        }
+                    ]
                 },
                 {
                     "badges": [],
@@ -476,7 +509,18 @@
                     ],
                     "icon": "mdi:cloud",
                     "panel": false,
-                    "title": "Charts"
+                    "title": "Charts",
+                    "visible": [
+                        {
+                            "user": "78554c5a47cd465b8f4689851629b80f"
+                        },
+                        {
+                            "user": "6fd087c7c9e74322b7c54c88566cda0a"
+                        },
+                        {
+                            "user": "47c95d2b4100460597954951fb807e4a"
+                        }
+                    ]
                 },
                 {
                     "badges": [],
@@ -510,7 +554,18 @@
                         }
                     ],
                     "icon": "mdi:camera",
-                    "title": "Cameras"
+                    "title": "Cameras",
+                    "visible": [
+                        {
+                            "user": "78554c5a47cd465b8f4689851629b80f"
+                        },
+                        {
+                            "user": "6fd087c7c9e74322b7c54c88566cda0a"
+                        },
+                        {
+                            "user": "47c95d2b4100460597954951fb807e4a"
+                        }
+                    ]
                 },
                 {
                     "badges": [],
@@ -610,7 +665,12 @@
                         }
                     ],
                     "icon": "mdi:movie",
-                    "title": "Media"
+                    "title": "Media",
+                    "visible": [
+                        {
+                            "user": "78554c5a47cd465b8f4689851629b80f"
+                        }
+                    ]
                 },
                 {
                     "badges": [],
@@ -646,7 +706,12 @@
                     ],
                     "icon": "mdi:map",
                     "panel": true,
-                    "title": "Map"
+                    "title": "Map",
+                    "visible": [
+                        {
+                            "user": "78554c5a47cd465b8f4689851629b80f"
+                        }
+                    ]
                 },
                 {
                     "badges": [],
@@ -770,7 +835,12 @@
                         }
                     ],
                     "icon": "mdi:settings",
-                    "title": ""
+                    "title": "",
+                    "visible": [
+                        {
+                            "user": "78554c5a47cd465b8f4689851629b80f"
+                        }
+                    ]
                 }
             ]
         }
