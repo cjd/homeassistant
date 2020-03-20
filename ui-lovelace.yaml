@@ -334,9 +334,7 @@ views:
     type: custom:mini-media-player
     volume_stateless: true
   - entities:
-    - entity: switch.lg_amp
     - entity: switch.livingroomtv
-    - entity: input_select.livingroom_amp_input
     show_header_toggle: false
     type: entities
   - entities:

@@ -51,8 +51,6 @@ exclude:
     - switch.bedroom_lights
     - switch.craftroom_lights
     - switch.kitchen_lights
-    - switch.lg_amp_voldown
-    - switch.lg_amp_voldown
     - switch.livingroom_lights
     - switch.lucas_bedroom_lights
     - switch.office_lights

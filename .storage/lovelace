@@ -587,13 +587,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.lg_amp"
-                                },
-                                {
                                     "entity": "switch.livingroomtv"
-                                },
-                                {
-                                    "entity": "input_select.livingroom_amp_input"
                                 }
                             ],
                             "show_header_toggle": false,
