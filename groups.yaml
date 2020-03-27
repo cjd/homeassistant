@@ -18,7 +18,7 @@ all_light_relays:
     - switch.office_relay_1
     - switch.xander_relay_1
     - switch.xander_relay_2
-    - switch.tv_power
+    - switch.backyard_cam
 all_lights:
   name: All Lights
   entities:
