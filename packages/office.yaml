@@ -82,6 +82,14 @@ automation:
     action:
       - entity_id: switch.powerboard_outlet_1
         service: switch.turn_on
+      - service: switch.turn_on
+        entity_id: switch.powerboard2_outlet_1
+      - service: switch.turn_on
+        entity_id: switch.powerboard2_outlet_2
+      - service: switch.turn_on
+        entity_id: switch.powerboard2_outlet_3
+      - service: switch.turn_on
+        entity_id: switch.powerboard2_outlet_4
   - alias: Office - Switch 2
     trigger:
       - entity_id: binary_sensor.office_switch2
@@ -94,6 +102,12 @@ automation:
         data:
           transition: 1
           brightness_pct: 50
+      - service: switch.turn_on
+        entity_id: switch.powerboard2_outlet_1
+      - service: switch.turn_on
+        entity_id: switch.powerboard2_outlet_3
+      - service: switch.turn_on
+        entity_id: switch.powerboard2_outlet_4
   - alias: Office - Switch 3
     trigger:
       - entity_id: binary_sensor.office_switch3
@@ -105,3 +119,11 @@ automation:
         service: switch.turn_off
       - entity_id: fan.office_fan
         service: fan.turn_off
+      - service: switch.turn_off
+        entity_id: switch.powerboard2_outlet_1
+      - service: switch.turn_off
+        entity_id: switch.powerboard2_outlet_2
+      - service: switch.turn_off
+        entity_id: switch.powerboard2_outlet_3
+      - service: switch.turn_off
+        entity_id: switch.powerboard2_outlet_4
