@@ -90,6 +90,11 @@ automation:
         entity_id: switch.powerboard2_outlet_3
       - service: switch.turn_on
         entity_id: switch.powerboard2_outlet_4
+      - service: light.turn_on
+        entity_id: light.office_strip
+        data:
+          entity_id: light.office_strip
+          effect: Rainbow
   - alias: Office - Switch 2
     trigger:
       - entity_id: binary_sensor.office_switch2
@@ -97,11 +102,6 @@ automation:
         to: "on"
     condition: []
     action:
-      - entity_id: light.office_lights
-        service: light.turn_on
-        data:
-          transition: 1
-          brightness_pct: 50
       - service: switch.turn_on
         entity_id: switch.powerboard2_outlet_1
       - service: switch.turn_on
@@ -127,3 +127,5 @@ automation:
         entity_id: switch.powerboard2_outlet_3
       - service: switch.turn_off
         entity_id: switch.powerboard2_outlet_4
+      - service: light.turn_off
+        entity_id: light.office_strip
