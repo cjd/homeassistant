@@ -14,6 +14,14 @@
                             "hide_tabs": "7,8",
                             "options_hide": true
                         }
+                    },
+                    {
+                        "conditions": {
+                            "user": "family"
+                        },
+                        "config": {
+                            "kiosk_mode": true
+                        }
                     }
                 ],
                 "voice_hide": true
@@ -37,10 +45,10 @@
                             "user": "78554c5a47cd465b8f4689851629b80f"
                         },
                         {
-                            "user": "6fd087c7c9e74322b7c54c88566cda0a"
+                            "user": "47c95d2b4100460597954951fb807e4a"
                         },
                         {
-                            "user": "47c95d2b4100460597954951fb807e4a"
+                            "user": "0b1cbeace9894723ae6b36fb5a846990"
                         }
                     ]
                 },
@@ -80,10 +88,10 @@
                             "user": "78554c5a47cd465b8f4689851629b80f"
                         },
                         {
-                            "user": "6fd087c7c9e74322b7c54c88566cda0a"
+                            "user": "47c95d2b4100460597954951fb807e4a"
                         },
                         {
-                            "user": "47c95d2b4100460597954951fb807e4a"
+                            "user": "0b1cbeace9894723ae6b36fb5a846990"
                         }
                     ]
                 },
@@ -310,6 +318,18 @@
                                 },
                                 {
                                     "entity": "switch.powerboard_outlet_4"
+                                },
+                                {
+                                    "entity": "switch.powerboard2_outlet_1"
+                                },
+                                {
+                                    "entity": "switch.powerboard2_outlet_2"
+                                },
+                                {
+                                    "entity": "switch.powerboard2_outlet_3"
+                                },
+                                {
+                                    "entity": "switch.powerboard2_outlet_4"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -325,10 +345,10 @@
                             "user": "78554c5a47cd465b8f4689851629b80f"
                         },
                         {
-                            "user": "6fd087c7c9e74322b7c54c88566cda0a"
+                            "user": "47c95d2b4100460597954951fb807e4a"
                         },
                         {
-                            "user": "47c95d2b4100460597954951fb807e4a"
+                            "user": "0b1cbeace9894723ae6b36fb5a846990"
                         }
                     ]
                 },
@@ -515,10 +535,10 @@
                             "user": "78554c5a47cd465b8f4689851629b80f"
                         },
                         {
-                            "user": "6fd087c7c9e74322b7c54c88566cda0a"
+                            "user": "47c95d2b4100460597954951fb807e4a"
                         },
                         {
-                            "user": "47c95d2b4100460597954951fb807e4a"
+                            "user": "0b1cbeace9894723ae6b36fb5a846990"
                         }
                     ]
                 },
@@ -560,10 +580,10 @@
                             "user": "78554c5a47cd465b8f4689851629b80f"
                         },
                         {
-                            "user": "6fd087c7c9e74322b7c54c88566cda0a"
+                            "user": "47c95d2b4100460597954951fb807e4a"
                         },
                         {
-                            "user": "47c95d2b4100460597954951fb807e4a"
+                            "user": "0b1cbeace9894723ae6b36fb5a846990"
                         }
                     ]
                 },
