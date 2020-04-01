@@ -1,0 +1,26 @@
+substitutions:
+  device: officestrip
+  board: d1_mini
+  
+<<: !include common/common.yaml
+
+light:
+  - platform: fastled_clockless
+    chipset: WS2812B
+    pin: D4
+    num_leds: 35
+    rgb_order: GRB
+    name: "Office Strip"
+    id: strip1
+    effects:
+      # Customize parameters
+      - random:
+          name: "Slow Random Effect"
+          transition_length: 30s
+          update_interval: 30s
+      - random:
+          name: "Fast Random Effect"
+          transition_length: 4s
+          update_interval: 5s
+      - addressable_rainbow:
+      - addressable_random_twinkle:

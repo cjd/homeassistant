@@ -1,5 +1,6 @@
 substitutions:
   device: xander
+  board: esp01_1m
   
 <<: !include common/common.yaml
 

@@ -1,5 +1,6 @@
 substitutions:
   device: backyardcam
+  board: esp01_1m
 
 <<: !include common/common.yaml
 
