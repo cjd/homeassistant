@@ -1,24 +1,12 @@
-esphome:
-  name: officeesp
-  platform: ESP8266
+substitutions:
+  device: officeesp
   board: d1_mini
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
-
-ota:
+  
+<<: !include common/common.yaml
 
 web_server:
-  css_url: https://home.adebenham.com:8123/local/esphome/webserver-v1.min.css
-  js_url: https://home.adebenham.com:8123/local/esphome/webserver-v1.min.css
-
+  port: 80
+  
 i2c:
 
 # Example configuration entry
@@ -32,3 +20,25 @@ sensor:
       unit_of_measurement: mbar
     address: 0x76
     update_interval: 60s
+
+
+light:
+  - platform: fastled_clockless
+    chipset: WS2812B
+    pin: D4
+    num_leds: 35
+    rgb_order: GRB
+    name: "Office Strip"
+    id: strip1
+    effects:
+      # Customize parameters
+      - random:
+          name: "Slow Random Effect"
+          transition_length: 30s
+          update_interval: 30s
+      - random:
+          name: "Fast Random Effect"
+          transition_length: 4s
+          update_interval: 5s
+      - addressable_rainbow:
+      - addressable_random_twinkle:

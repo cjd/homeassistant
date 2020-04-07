@@ -127,5 +127,8 @@ automation:
         entity_id: switch.powerboard2_outlet_3
       - service: switch.turn_off
         entity_id: switch.powerboard2_outlet_4
-      - service: light.turn_off
+      - service: light.turn_on
         entity_id: light.office_strip
+        data:
+          entity_id: light.office_strip
+          effect: Random Twinkle
