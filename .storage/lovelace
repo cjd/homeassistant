@@ -74,11 +74,8 @@
                                     "entity": "fan.kitchen_fan"
                                 }
                             ],
+                            "show_header_toggle": false,
                             "type": "entities"
-                        },
-                        {
-                            "entity": "climate.44054805a4cf12ac4ace",
-                            "type": "thermostat"
                         }
                     ],
                     "icon": "mdi:air-conditioner",
@@ -294,6 +291,48 @@
                                                 "service_data": {
                                                     "effect": "Rainbow",
                                                     "entity_id": "light.kitchen_strip"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "type": "custom:paper-buttons-row"
+                                },
+                                {
+                                    "entity": "light.office_strip"
+                                },
+                                {
+                                    "buttons": [
+                                        {
+                                            "name": "Random Colours",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Slow Random Effect",
+                                                    "entity_id": "light.office_strip"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "name": "Twinkle",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Random Twinkle",
+                                                    "entity_id": "light.office_strip"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "name": "Rainbow",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "entity": "light.tv_backlight",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Rainbow",
+                                                    "entity_id": "light.office_strip"
                                                 }
                                             }
                                         }
@@ -525,6 +564,11 @@
                             "hours_to_show": 48,
                             "refresh_interval": 0,
                             "type": "history-graph"
+                        },
+                        {
+                            "aspect_ratio": "75%",
+                            "type": "iframe",
+                            "url": "https://embed.windy.com/embed2.html?lat=-33.907&lon=151.156&zoom=5&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-33.907&detailLon=151.156&metricWind=default&metricTemp=default&radarRange=-1https://www.home-assistant.io"
                         }
                     ],
                     "icon": "mdi:cloud",
