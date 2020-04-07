@@ -69,10 +69,13 @@ influxdb:
   host: a0d7b954-influxdb
   port: 8086
   database: homeassistant
-  username: homeassistant
-  password: homeassistant
+  username: !secret influx_username
+  password: !secret influx_username
   max_retries: 3
-  default_measurement: state
+  default_measurement: value
+  include:
+    domains:
+      - sensor
 
 image_processing:
   - platform: doods
