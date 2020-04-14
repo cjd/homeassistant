@@ -1,0 +1,35 @@
+esphome:
+  name: officestrip
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+light:
+  - platform: fastled_clockless
+    chipset: WS2812B
+    pin: D4
+    num_leds: 95
+    rgb_order: GRB
+    name: "Office Shelf"
+    effects:
+      - random:
+          name: "Slow Random Effect"
+          transition_length: 30s
+          update_interval: 30s
+      - random:
+          name: "Fast Random Effect"
+          transition_length: 4s
+          update_interval: 5s
+      - addressable_rainbow:
+      - addressable_random_twinkle:
