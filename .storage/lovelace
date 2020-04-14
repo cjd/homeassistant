@@ -338,6 +338,48 @@
                                         }
                                     ],
                                     "type": "custom:paper-buttons-row"
+                                },
+                                {
+                                    "entity": "light.office_shelf"
+                                },
+                                {
+                                    "buttons": [
+                                        {
+                                            "name": "Random Colours",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Slow Random Effect",
+                                                    "entity_id": "light.office_shelf"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "name": "Twinkle",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Random Twinkle",
+                                                    "entity_id": "light.office_shelf"
+                                                }
+                                            }
+                                        },
+                                        {
+                                            "name": "Rainbow",
+                                            "tap_action": {
+                                                "action": "call-service",
+                                                "entity": "light.tv_backlight",
+                                                "service": "light.turn_on",
+                                                "service_data": {
+                                                    "effect": "Rainbow",
+                                                    "entity_id": "light.office_shelf"
+                                                }
+                                            }
+                                        }
+                                    ],
+                                    "type": "custom:paper-buttons-row"
                                 }
                             ],
                             "show_header_toggle": false,
