@@ -5,10 +5,10 @@ light:
       - light.backyard_light_light
 
 camera:
-  - platform: generic
+  - platform: mjpeg
     name: backyard
-    still_image_url: https://home.adebenham.com/int/motion/picture/6/current/
-    stream_source: rtsp://dafang.lan:8554/unicast
+    still_image_url: https://home.adebenham.com/int/motion/picture/3/current/
+    mjpeg_url: http://192.168.86.61/videostream.cgi?loginuse=admin&loginpas=admin
 
 automation:
   - alias: Backyard - Backdoors left open

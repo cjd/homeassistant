@@ -1,8 +1,8 @@
 camera:
-  - platform: mjpeg
+  - platform: generic
     name: backroom
-    still_image_url: https://home.adebenham.com/int/motion/picture/3/current/
-    mjpeg_url: http://192.168.86.61/videostream.cgi?loginuse=admin&loginpas=admin
+    still_image_url: https://home.adebenham.com/int/motion/picture/1/current/
+    stream_source: rtsp://admin:542285@192.168.86.42/live/profile.0
 
 switch:
   - platform: command_line

@@ -8,6 +8,10 @@ custom_header:
       disable_sidebar: true
       hide_tabs: 7,8
       options_hide: true
+  - conditions:
+      user: family
+    config:
+      kiosk_mode: true
   voice_hide: true
 title: Home
 views:
@@ -21,8 +25,8 @@ views:
   title: Floorplan
   visible:
   - user: 78554c5a47cd465b8f4689851629b80f
-  - user: 6fd087c7c9e74322b7c54c88566cda0a
   - user: 47c95d2b4100460597954951fb807e4a
+  - user: 0b1cbeace9894723ae6b36fb5a846990
 - badges: []
   cards:
   - entity: climate.living_room
@@ -32,15 +36,14 @@ views:
     - entity: fan.bedroom_fan
     - entity: fan.xander_fan
     - entity: fan.kitchen_fan
+    show_header_toggle: false
     type: entities
-  - entity: climate.44054805a4cf12ac4ace
-    type: thermostat
   icon: mdi:air-conditioner
   title: ''
   visible:
   - user: 78554c5a47cd465b8f4689851629b80f
-  - user: 6fd087c7c9e74322b7c54c88566cda0a
   - user: 47c95d2b4100460597954951fb807e4a
+  - user: 0b1cbeace9894723ae6b36fb5a846990
 - badges: []
   cards:
   - entities:
@@ -159,6 +162,56 @@ views:
             effect: Rainbow
             entity_id: light.kitchen_strip
       type: custom:paper-buttons-row
+    - entity: light.office_strip
+    - buttons:
+      - name: Random Colours
+        tap_action:
+          action: call-service
+          service: light.turn_on
+          service_data:
+            effect: Slow Random Effect
+            entity_id: light.office_strip
+      - name: Twinkle
+        tap_action:
+          action: call-service
+          service: light.turn_on
+          service_data:
+            effect: Random Twinkle
+            entity_id: light.office_strip
+      - name: Rainbow
+        tap_action:
+          action: call-service
+          entity: light.tv_backlight
+          service: light.turn_on
+          service_data:
+            effect: Rainbow
+            entity_id: light.office_strip
+      type: custom:paper-buttons-row
+    - entity: light.office_shelf
+    - buttons:
+      - name: Random Colours
+        tap_action:
+          action: call-service
+          service: light.turn_on
+          service_data:
+            effect: Slow Random Effect
+            entity_id: light.office_shelf
+      - name: Twinkle
+        tap_action:
+          action: call-service
+          service: light.turn_on
+          service_data:
+            effect: Random Twinkle
+            entity_id: light.office_shelf
+      - name: Rainbow
+        tap_action:
+          action: call-service
+          entity: light.tv_backlight
+          service: light.turn_on
+          service_data:
+            effect: Rainbow
+            entity_id: light.office_shelf
+      type: custom:paper-buttons-row
     show_header_toggle: false
     title: Light Strips
     type: entities
@@ -167,6 +220,10 @@ views:
     - entity: switch.powerboard_outlet_2
     - entity: switch.powerboard_outlet_3
     - entity: switch.powerboard_outlet_4
+    - entity: switch.powerboard2_outlet_1
+    - entity: switch.powerboard2_outlet_2
+    - entity: switch.powerboard2_outlet_3
+    - entity: switch.powerboard2_outlet_4
     show_header_toggle: false
     title: Switches
     type: entities
@@ -175,8 +232,8 @@ views:
   title: Lights
   visible:
   - user: 78554c5a47cd465b8f4689851629b80f
-  - user: 6fd087c7c9e74322b7c54c88566cda0a
   - user: 47c95d2b4100460597954951fb807e4a
+  - user: 0b1cbeace9894723ae6b36fb5a846990
 - badges: []
   cards:
   - entity_apparent_temp: sensor.bom_gosford_feels_like_c
@@ -288,13 +345,16 @@ views:
     hours_to_show: 48
     refresh_interval: 0
     type: history-graph
+  - aspect_ratio: 75%
+    type: iframe
+    url: https://embed.windy.com/embed2.html?lat=-33.907&lon=151.156&zoom=5&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-33.907&detailLon=151.156&metricWind=default&metricTemp=default&radarRange=-1https://www.home-assistant.io
   icon: mdi:cloud
   panel: false
   title: Charts
   visible:
   - user: 78554c5a47cd465b8f4689851629b80f
-  - user: 6fd087c7c9e74322b7c54c88566cda0a
   - user: 47c95d2b4100460597954951fb807e4a
+  - user: 0b1cbeace9894723ae6b36fb5a846990
 - badges: []
   cards:
   - aspect_ratio: 0%
@@ -320,8 +380,8 @@ views:
   title: Cameras
   visible:
   - user: 78554c5a47cd465b8f4689851629b80f
-  - user: 6fd087c7c9e74322b7c54c88566cda0a
   - user: 47c95d2b4100460597954951fb807e4a
+  - user: 0b1cbeace9894723ae6b36fb5a846990
 - badges: []
   cards:
   - entity: media_player.receiver
