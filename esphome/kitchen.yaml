@@ -42,6 +42,11 @@ binary_sensor:
         - mqtt.publish:
             topic: "zigbee2mqtt/Kitchen Counter/set"
             payload: '{"state": "on", "brightness": "255", "color_temp": "350"}'
+    on_click:
+      min_length: 1200ms
+      max_length: 8000ms
+      then:
+        - switch.toggle: relay3
   - platform: gpio
     pin:
       number: GPIO5
@@ -57,9 +62,6 @@ binary_sensor:
 #        - mqtt.publish:
 #            topic: Kitchen_Back/cmnd/Backlog
 #            payload: "CT 370; Dimmer 40; POWER ON"
-#        - mqtt.publish:
-#            topic: "zigbee2mqtt/Kitchen Counter/set"
-#            payload: '{"state": "on", "brightness": "90", "color_temp": "420"}'
   - platform: gpio
     pin:
       number: GPIO4
@@ -73,9 +75,6 @@ binary_sensor:
         - mqtt.publish:
             topic: Kitchen_Front/cmnd/POWER
             payload: "OFF"
-        - mqtt.publish:
-            topic: "zigbee2mqtt/Kitchen Counter/set"
-            payload: '{"state": "off"}'
     on_click:
       min_length: 2000ms
       max_length: 5000ms
