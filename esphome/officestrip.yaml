@@ -6,6 +6,7 @@ substitutions:
 
 light:
   - platform: fastled_clockless
+    id: strip1
     chipset: WS2812B
     pin: D4
     num_leds: 95
@@ -45,3 +46,265 @@ light:
               num_leds: 2
           add_led_interval: 100ms
           reverse: False
+      - automation:
+          name: Countdown
+          sequence:
+            - light.turn_off:
+                id: no0
+            - delay: 100ms
+            - light.turn_on:
+                id:  no9
+            - delay: 1000ms
+            - light.turn_off:
+                id: no9
+            - delay: 100ms
+            - light.turn_on:
+                id:  no8
+            - delay: 1000ms
+            - light.turn_off:
+                id: no8
+            - delay: 100ms
+            - light.turn_on:
+                id:  no7
+            - delay: 1000ms
+            - light.turn_off:
+                id: no7
+            - delay: 100ms
+            - light.turn_on:
+                id:  no6
+            - delay: 1000ms
+            - light.turn_off:
+                id: no6
+            - delay: 100ms
+            - light.turn_on:
+                id:  no5
+            - delay: 1000ms
+            - light.turn_off:
+                id: no5
+            - delay: 100ms
+            - light.turn_on:
+                id:  no4
+            - delay: 1000ms
+            - light.turn_off:
+                id: no4
+            - delay: 100ms
+            - light.turn_on:
+                id:  no3
+            - delay: 1000ms
+            - light.turn_off:
+                id: no3
+            - delay: 100ms
+            - light.turn_on:
+                id:  no2
+            - delay: 1000ms
+            - light.turn_off:
+                id: no2
+            - delay: 100ms
+            - light.turn_on:
+                id:  no1
+            - delay: 1000ms
+            - light.turn_off:
+                id: no1
+            - delay: 100ms
+            - light.turn_on:
+                id:  no0
+            - delay: 1000ms
+  - platform: partition
+    name: "Office Shelf - 1"
+    id: no1
+    effects:
+      - addressable_rainbow:
+      - addressable_color_wipe:
+    segments:
+      - id: strip1
+        from: 39
+        to: 61
+  - platform: partition
+    name: "Office Shelf - 2"
+    id: no2
+    effects:
+      - addressable_rainbow:
+      - addressable_color_wipe:
+    segments:
+      - id: strip1
+        from: 61 
+        to: 77
+      - id: strip1
+        from: 0
+        to: 10
+      - id: strip1
+        from: 78
+        to: 94
+      - id: strip1
+        from: 39
+        to: 49
+      - id: strip1
+        from: 22
+        to: 38
+  - platform: partition
+    name: "Office Shelf - 3"
+    id: no3
+    effects:
+      - addressable_rainbow:
+      - addressable_color_wipe:
+    segments:
+      - id: strip1
+        from: 22
+        to: 94
+  - platform: partition
+    name: "Office Shelf - 4"
+    id: no4
+    effects:
+      - addressable_rainbow:
+      - addressable_color_wipe:
+    segments:
+      - id: strip1
+        from: 11
+        to: 21
+      - id: strip1
+        from: 39
+        to: 49
+      - id: strip1
+        from: 50
+        to: 60
+      - id: strip1
+        from: 78
+        to: 94
+  - platform: partition
+    name: "Office Shelf - 5"
+    id: no5
+    effects:
+      - addressable_rainbow:
+      - addressable_color_wipe:
+    segments:
+      - id: strip1
+        from: 11
+        to: 21
+      - id: strip1
+        from: 22
+        to: 38
+      - id: strip1
+        from: 50
+        to: 60
+      - id: strip1
+        from: 61 
+        to: 77
+      - id: strip1
+        from: 78
+        to: 94
+  - platform: partition
+    name: "Office Shelf - 6"
+    id: no6
+    effects:
+      - addressable_rainbow:
+      - addressable_color_wipe:
+    segments:
+      - id: strip1
+        from: 0
+        to: 10
+      - id: strip1
+        from: 11
+        to: 21
+      - id: strip1
+        from: 22
+        to: 38
+      - id: strip1
+        from: 50
+        to: 60
+      - id: strip1
+        from: 61 
+        to: 77
+      - id: strip1
+        from: 78
+        to: 94
+  - platform: partition
+    name: "Office Shelf - 7"
+    id: no7
+    effects:
+      - addressable_rainbow:
+      - addressable_color_wipe:
+    segments:
+      - id: strip1
+        from: 22
+        to: 38
+      - id: strip1
+        from: 39
+        to: 49
+      - id: strip1
+        from: 50
+        to: 60
+  - platform: partition
+    name: "Office Shelf - 8"
+    id: no8
+    effects:
+      - addressable_rainbow:
+      - addressable_color_wipe:
+    segments:
+      - id: strip1
+        from: 0
+        to: 10
+      - id: strip1
+        from: 11
+        to: 21
+      - id: strip1
+        from: 22
+        to: 38
+      - id: strip1
+        from: 39
+        to: 49
+      - id: strip1
+        from: 50
+        to: 60
+      - id: strip1
+        from: 61 
+        to: 77
+      - id: strip1
+        from: 78
+        to: 94
+  - platform: partition
+    name: "Office Shelf - 9"
+    id: no9
+    effects:
+      - addressable_rainbow:
+      - addressable_color_wipe:
+    segments:
+      - id: strip1
+        from: 11
+        to: 21
+      - id: strip1
+        from: 22
+        to: 38
+      - id: strip1
+        from: 39
+        to: 49
+      - id: strip1
+        from: 50
+        to: 60
+      - id: strip1
+        from: 61 
+        to: 77
+      - id: strip1
+        from: 78
+        to: 94
+  - platform: partition
+    name: "Office Shelf - 0"
+    id: no0
+    segments:
+      - id: strip1
+        from: 0
+        to: 10
+      - id: strip1
+        from: 11
+        to: 21
+      - id: strip1
+        from: 22
+        to: 38
+      - id: strip1
+        from: 39
+        to: 49
+      - id: strip1
+        from: 50
+        to: 60
+      - id: strip1
+        from: 61 
+        to: 77
