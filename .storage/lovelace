@@ -1,6 +1,23 @@
 {
     "data": {
         "config": {
+            "animated_background": {
+                "default_url": "/hacsfiles/lovelace-animated-background/background-animations/sunny.html",
+                "entity": "sensor.bom_gosford_icon_0",
+                "state_url": {
+                    "clear-night": "/hacsfiles/lovelace-animated-background/background-animations/night.html",
+                    "cloudy": "/hacsfiles/lovelace-animated-background/background-animations/mostlycloudy.html",
+                    "fog": "/hacsfiles/lovelace-animated-background/background-animations/fog.html",
+                    "haze": "/hacsfiles/lovelace-animated-background/background-animations/fog.html",
+                    "heavy-showers": "/hacsfiles/lovelace-animated-background/background-animations/mostlycloudy.html",
+                    "light-rain": "/hacsfiles/lovelace-animated-background/background-animations/mostlycloudy.html",
+                    "light-showers": "/hacsfiles/lovelace-animated-background/background-animations/mostlycloudy.html",
+                    "partly-cloudy": "/hacsfiles/lovelace-animated-background/background-animations/cloudy.html",
+                    "rain": "/hacsfiles/lovelace-animated-background/background-animations/mostlycloudy.html",
+                    "showers": "/hacsfiles/lovelace-animated-background/background-animations/mostlycloudy.html",
+                    "sunny": "/hacsfiles/lovelace-animated-background/background-animations/sunny.html"
+                }
+            },
             "custom_header": {
                 "chevrons": false,
                 "compact_mode": true,
@@ -411,6 +428,9 @@
                                 },
                                 {
                                     "entity": "switch.powerboard2_outlet_4"
+                                },
+                                {
+                                    "entity": "script.1588132444815"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -677,7 +697,7 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "media_player.receiver",
+                            "entity": "media_player.pioneer_vsx_832_ed2c08",
                             "type": "media-control"
                         },
                         {
