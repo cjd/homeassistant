@@ -6,9 +6,13 @@ light:
 
 camera:
   - platform: generic
-    name: carport
+    name: entry
     still_image_url: https://home.adebenham.com/int/motion/picture/2/current/
     stream_source: rtsp://192.168.86.188/live/profile.0
+  - platform: generic
+    name: carport
+    still_image_url: https://home.adebenham.com/int/motion/picture/5/current/
+    stream_source: rtsp://192.168.86.129/live/profile.0
 
 binary_sensor:
   - platform: mqtt

@@ -7,8 +7,8 @@ light:
 camera:
   - platform: mjpeg
     name: backyard
-    still_image_url: https://home.adebenham.com/int/motion/picture/3/current/
-    mjpeg_url: http://192.168.86.61/videostream.cgi?loginuse=admin&loginpas=admin
+    still_image_url: https://home.adebenham.com/int/motion/picture/6/current/
+    mjpeg_url: rtsp://192.168.86.51/live
 
 automation:
   - alias: Backyard - Backdoors left open

@@ -108,7 +108,7 @@ automation:
     condition: []
     action:
       - service: switch.turn_on
-        entity_id: switch.powerboard2_outlet_1
+        entity_id: switch.powerboard2_outlet_2
       - service: switch.turn_on
         entity_id: switch.powerboard2_outlet_3
       - service: switch.turn_on
