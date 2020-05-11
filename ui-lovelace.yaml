@@ -1,3 +1,47 @@
+animated_background:
+  default_url: /local/backgrounds/sunny-1.mp4
+  entity: sensor.bom_gosford_icon_0
+  state_url:
+    clear-night:
+    - /local/backgrounds/clear-night-1.mp4
+    - /local/backgrounds/clear-night-2.mp4
+    - /local/backgrounds/clear-night-3.mp4
+    - /local/backgrounds/clear-night-4.mp4
+    cloudy:
+    - /local/backgrounds/mostlycloudy-1.mp4
+    - /local/backgrounds/mostlycloudy-2.mp4
+    - /local/backgrounds/mostlycloudy-3.mp4
+    fog:
+    - /local/backgrounds/fog-1.mp4
+    - /local/backgrounds/fog-2.mp4
+    haze:
+    - /local/backgrounds/fog-1.mp4
+    - /local/backgrounds/fog-2.mp4
+    heavy-showers:
+    - /local/backgrounds/rainy-1.mp4
+    light-rain:
+    - /local/backgrounds/rainy-1.mp4
+    light-showers:
+    - /local/backgrounds/rainy-1.mp4
+    partly-cloudy:
+    - /local/backgrounds/cloudy-1.mp4
+    - /local/backgrounds/cloudy-2.mp4
+    - /local/backgrounds/cloudy-3.mp4
+    - /local/backgrounds/cloudy-4.mp4
+    - /local/backgrounds/cloudy-5.mp4
+    - /local/backgrounds/cloudy-6.mp4
+    rain:
+    - /local/backgrounds/rainy-1.mp4
+    showers:
+    - /local/backgrounds/rainy-1.mp4
+    storm:
+    - /local/backgrounds/rainy-1.mp4
+    sunny:
+    - /local/backgrounds/sunny-1.mp4
+    - /local/backgrounds/sunny-2.mp4
+    - /local/backgrounds/sunny-3.mp4
+    - /local/backgrounds/sunny-4.mp4
+    - /local/backgrounds/sunny-5.mp4
 custom_header:
   chevrons: false
   compact_mode: true
@@ -224,6 +268,7 @@ views:
     - entity: switch.powerboard2_outlet_2
     - entity: switch.powerboard2_outlet_3
     - entity: switch.powerboard2_outlet_4
+    - entity: script.1588132444815
     show_header_toggle: false
     title: Switches
     type: entities
@@ -357,25 +402,32 @@ views:
   - user: 0b1cbeace9894723ae6b36fb5a846990
 - badges: []
   cards:
-  - aspect_ratio: 0%
-    camera_image: camera.carport
-    entities: []
-    image: https://www.home-assistant.io/images/merchandise/shirt-frontpage.png
-    type: picture-glance
-  - aspect_ratio: 0%
-    camera_image: camera.backroom
-    entities: []
-    type: picture-glance
-  - aspect_ratio: 0%
-    camera_image: camera.livingroom
-    entities: []
-    image: https://www.home-assistant.io/images/merchandise/shirt-frontpage.png
-    type: picture-glance
-  - aspect_ratio: 0%
-    camera_image: camera.backyard
-    entities: []
-    image: https://www.home-assistant.io/images/merchandise/shirt-frontpage.png
-    type: picture-glance
+  - aspect_ratio: 50%
+    camera_image: camera.entry
+    entity: camera.entry
+    show_name: false
+    show_state: false
+    type: picture-entity
+  - aspect_ratio: 50%
+    entity: camera.carport
+    show_name: false
+    show_state: false
+    type: picture-entity
+  - aspect_ratio: 50%
+    entity: camera.livingroom
+    show_name: false
+    show_state: false
+    type: picture-entity
+  - aspect_ratio: 50%
+    entity: camera.backroom
+    show_name: false
+    show_state: false
+    type: picture-entity
+  - aspect_ratio: 50%
+    entity: camera.backyard
+    show_name: false
+    show_state: false
+    type: picture-entity
   icon: mdi:camera
   title: Cameras
   visible:
@@ -384,7 +436,7 @@ views:
   - user: 0b1cbeace9894723ae6b36fb5a846990
 - badges: []
   cards:
-  - entity: media_player.receiver
+  - entity: media_player.pioneer_vsx_832_ed2c08
     type: media-control
   - entity: media_player.living_room_tv_2
     hide:
@@ -494,12 +546,18 @@ views:
     show_icon: true
     type: glance
   - card:
-      title: Battery level
-      type: history-graph
+      collapse: 4
+      sort_by_level: asc
+      title: Battery level < 90%
+      type: custom:battery-state-card
     filter:
+      exclude:
+      - state: '> 90'
+      - state: Full
+      - state: High
+      - state: unknown
       include:
       - entity_id: sensor.*battery
-    hours: 48
     type: custom:auto-entities
   - entities:
     - entity: sensor.house_power
