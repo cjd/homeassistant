@@ -66,38 +66,16 @@ tts:
     service_name: google_say
 
 influxdb:
-  host: a0d7b954-influxdb
+  host: 192.168.86.2
   port: 8086
   database: homeassistant
-  username: !secret influx_username
-  password: !secret influx_username
+  #username: !secret influx_username
+  #password: !secret influx_username
   max_retries: 3
   default_measurement: value
   include:
     domains:
       - sensor
-
-image_processing:
-  - platform: doods
-    url: "http://localhost:8089"
-    detector: default
-    scan_interval: 10000
-    confidence: 50
-    source:
-      - entity_id: camera.carport
-    labels:
-      - name: person
-        area:
-          top: 0.2
-          # Any part of the detection inside this area will trigger
-          covers: false
-      - name: car
-        area:
-          top: 0.2
-          covers: true
-    file_out:
-      - "/tmp/{{ camera_entity.split('.')[1] }}_latest.jpg"
-      - "/tmp/{{ camera_entity.split('.')[1] }}_{{ now().strftime('%Y%m%d_%H%M%S') }}.jpg"
 
 telegram_bot: !include telegram_bot.yaml
 netatmo: !include netatmo.yaml
