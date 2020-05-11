@@ -5,10 +5,10 @@ light:
       - light.backyard_light_light
 
 camera:
-  - platform: mjpeg
+  - platform: generic
     name: backyard
     still_image_url: https://home.adebenham.com/int/motion/picture/6/current/
-    mjpeg_url: rtsp://192.168.86.51/live
+    stream_source: rtsp://192.168.86.51/live
 
 automation:
   - alias: Backyard - Backdoors left open
