@@ -1,3 +1,18 @@
+grafana:
+  title: 'Grafana'
+  url: 'https://home.adebenham.com/int/grafana/'
+  icon: mdi:chart-timeline-variant
+  require_admin: true
+vscode:
+  title: 'VSCode'
+  url: 'https://home.adebenham.com/int/vscode/'
+  icon: mdi:code-tags
+  require_admin: true
+esphome:
+  title: 'ESPHome'
+  url: 'https://home.adebenham.com/int/esphome/'
+  icon: mdi:settings-box
+  require_admin: true
 tasmoadmin:
   title: 'TasmoAdmin'
   url: 'https://home.adebenham.com/int/tasmo/'
