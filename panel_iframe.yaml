@@ -1,3 +1,8 @@
+z2m:
+  title: 'Z2M'
+  url: 'https://home.adebenham.com/int/z2m/'
+  icon: mdi:antenna
+  require_admin: true
 grafana:
   title: 'Grafana'
   url: 'https://home.adebenham.com/int/grafana/'
