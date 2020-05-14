@@ -42,7 +42,7 @@ fan:
       {% if value_json.FanSpeed is defined %}
         {% if value_json.FanSpeed == 0 -%}0{%- elif value_json.FanSpeed > 0 -%}ON{%- endif %}
       {% else %}
-        {% if states.fan.XanderFan.state == 'off' -%}0{%- elif states.fan.XanderFan.state == 'on' -%}O{%- endif %}
+        {% if states.fan.Xander_Fan.state == 'off' -%}0{%- elif states.fan.Xander_Fan.state == 'on' -%}O{%- endif %}
       {% endif %}
     speed_value_template: "{{ value_json.FanSpeed }}"
     availability_topic: XanderFan/tele/LWT
