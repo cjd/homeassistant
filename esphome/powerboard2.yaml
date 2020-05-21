@@ -25,3 +25,44 @@ switch:
     pin: GPIO12
     id: relay4
     
+    
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO3
+      mode: INPUT_PULLUP
+      inverted: True
+    name: "Powerboard2 Button"
+    on_multi_click:
+    - timing:
+        - ON for at most 1s
+        - OFF for at least 0.2s
+      then:
+        - switch.toggle: relay1
+    - timing:
+        - ON for at most 1s
+        - OFF for at most 1s
+        - ON for at most 1s
+        - OFF for at least 0.2s
+      then:
+        - switch.toggle: relay2
+    - timing:
+        - ON for at most 1s
+        - OFF for at most 1s
+        - ON for at most 1s
+        - OFF for at most 1s
+        - ON for at most 1s
+        - OFF for at least 0.2s
+      then:
+        - switch.toggle: relay3
+    - timing:
+        - ON for at most 1s
+        - OFF for at most 1s
+        - ON for at most 1s
+        - OFF for at most 1s
+        - ON for at most 1s
+        - OFF for at most 1s
+        - ON for at most 1s
+        - OFF for at least 0.2s
+      then:
+        - switch.toggle: relay4
