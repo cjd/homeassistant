@@ -83,7 +83,8 @@ hacs: !include hacs.yaml
 geo_location: !include geo_location.yaml
 input_select: !include input_select.yaml
 sensor: !include sensors.yaml
-google_assistant: !include google.yaml
+google_assistant: !include google_assistant.yaml
+google: !include google.yaml
 zone: !include zone.yaml
 automation: !include_dir_merge_list automation
 script: !include scripts.yaml
