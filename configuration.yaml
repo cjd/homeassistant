@@ -14,8 +14,6 @@ frontend:
   themes: !include_dir_merge_named themes/
 
 discovery:
-  ignore:
-    - igd
 config:
 conversation:
 logbook:
@@ -79,7 +77,6 @@ influxdb:
 
 telegram_bot: !include telegram_bot.yaml
 netatmo: !include netatmo.yaml
-tuya: !include tuya.yaml
 mqtt: !include mqtt.yaml
 hangouts: !include hangouts.yaml
 hacs: !include hacs.yaml
