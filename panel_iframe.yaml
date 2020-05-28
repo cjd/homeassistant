@@ -48,3 +48,8 @@ pihole:
   url: 'https://home.adebenham.com/int/pihole/'
   icon: mdi:dns
   require_admin: true
+zm:
+  title: 'ZoneMinder'
+  url: 'https://home.adebenham.com/zm/?view=montage'
+  icon: mdi:video
+  require_admin: true
