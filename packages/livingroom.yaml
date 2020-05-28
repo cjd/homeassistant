@@ -28,7 +28,7 @@ camera:
   - platform: generic
     name: livingroom
     stream_source: rtsp://192.168.86.56:554/
-    still_image_url: https://home.adebenham.com/int/motion/picture/4/current/
+    still_image_url: http://192.168.86.2:6080/zm/cgi-bin/zms?mode=single&monitor=4
 
 
 automation:

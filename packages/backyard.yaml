@@ -7,7 +7,7 @@ light:
 camera:
   - platform: generic
     name: backyard
-    still_image_url: https://home.adebenham.com/int/motion/picture/6/current/
+    still_image_url: http://192.168.86.2:6080/zm/cgi-bin/zms?mode=single&monitor=6
     stream_source: rtsp://192.168.86.51/live
 
 automation:
