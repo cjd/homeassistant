@@ -121,3 +121,58 @@ automation:
         brightness: 80
     - entity_id: switch.bedroom_relay_1
       service: switch.turn_on
+  - alias: Cube rotate_left
+    trigger:
+    - entity_id: sensor.cube
+      platform: state
+      to: 'rotate_left'
+    action:
+    - entity_id: light.bedroom_lights
+      service: light.turn_on
+      data:
+        entity_id: light.bedroom_lights
+        brightness: 125
+        transition: 1
+        color_temp: 450
+  - alias: Cube rotate_right
+    trigger:
+    - entity_id: sensor.cube
+      platform: state
+      to: 'rotate_right'
+    action:
+    - entity_id: light.bedroom_lights
+      service: light.turn_on
+      data:
+        entity_id: light.bedroom_lights
+        brightness: 255
+        transition: 1
+        color_temp: 450
+  - alias: Cube flip90
+    trigger:
+    - entity_id: sensor.cube
+      platform: state
+      to: 'flip90'
+    action:
+    - entity_id: light.bedroom_lights
+      service: light.turn_off
+  - alias: Cube flip180
+    trigger:
+    - entity_id: sensor.cube
+      platform: state
+      to: 'flip180'
+    action:
+      - entity_id: scene.turn_off
+        service: scene.turn_on
+  # - alias: Cube slide
+  #   trigger:
+  #   - entity_id: sensor.cube
+  #     platform: state
+  #     to: 'slide'
+  - alias: Cube shake
+    trigger:
+    - entity_id: sensor.cube
+      platform: state
+      to: 'shake'
+    action:
+    - entity_id: scene.night
+      service: scene.turn_on
