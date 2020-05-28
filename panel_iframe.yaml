@@ -38,11 +38,6 @@ medusa:
   url: 'https://home.adebenham.com/int/medusa/'
   icon: mdi:library-movie
   require_admin: true
-motion:
-  title: 'Motion'
-  url: 'https://home.adebenham.com/int/motion/'
-  icon: mdi:video
-  require_admin: true
 pihole:
   title: 'Pihole'
   url: 'https://home.adebenham.com/int/pihole/'
