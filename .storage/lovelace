@@ -700,7 +700,7 @@
                                     "entity": "binary_sensor.motion_entry"
                                 },
                                 {
-                                    "entity": "switch.camera_frontdoor_ir_lights"
+                                    "entity": "switch.camera_entry_ir_lights"
                                 }
                             ],
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
@@ -708,11 +708,19 @@
                             "type": "picture-glance"
                         },
                         {
-                            "aspect_ratio": "50%",
-                            "entity": "camera.carport",
-                            "show_name": false,
-                            "show_state": false,
-                            "type": "picture-entity"
+                            "aspect_ratio": "60%",
+                            "camera_image": "camera.carport",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.motion_carport"
+                                },
+                                {
+                                    "entity": "switch.camera_carport_ir_lights"
+                                }
+                            ],
+                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+                            "title": "Carport",
+                            "type": "picture-glance"
                         },
                         {
                             "aspect_ratio": "50%",
@@ -893,6 +901,27 @@
                 {
                     "badges": [],
                     "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.octoprint_current_state"
+                                },
+                                {
+                                    "entity": "sensor.octoprint_job_percentage"
+                                },
+                                {
+                                    "entity": "sensor.octoprint_time_elapsed_format"
+                                },
+                                {
+                                    "entity": "sensor.octoprint_time_remaining_format"
+                                },
+                                {
+                                    "entity": "switch.powerboard_outlet_3"
+                                }
+                            ],
+                            "title": "Octoprint",
+                            "type": "entities"
+                        },
                         {
                             "card": {
                                 "show_header_toggle": false,
