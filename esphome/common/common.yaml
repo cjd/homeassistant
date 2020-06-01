@@ -22,7 +22,7 @@ logger:
 api:
 
 mqtt:
-  broker: 192.168.86.3
+  broker: 192.168.86.5
   username: !secret mqtt_username
   password: !secret mqtt_password
   discovery: false
