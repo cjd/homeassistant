@@ -402,17 +402,22 @@ views:
   - user: 0b1cbeace9894723ae6b36fb5a846990
 - badges: []
   cards:
-  - aspect_ratio: 50%
+  - aspect_ratio: 60%
     camera_image: camera.entry
-    entity: camera.entry
-    show_name: false
-    show_state: false
-    type: picture-entity
-  - aspect_ratio: 50%
-    entity: camera.carport
-    show_name: false
-    show_state: false
-    type: picture-entity
+    entities:
+    - entity: binary_sensor.motion_entry
+    - entity: switch.camera_entry_ir_lights
+    image: https://demo.home-assistant.io/stub_config/kitchen.png
+    title: Entry
+    type: picture-glance
+  - aspect_ratio: 60%
+    camera_image: camera.carport
+    entities:
+    - entity: binary_sensor.motion_carport
+    - entity: switch.camera_carport_ir_lights
+    image: https://demo.home-assistant.io/stub_config/kitchen.png
+    title: Carport
+    type: picture-glance
   - aspect_ratio: 50%
     entity: camera.livingroom
     show_name: false
@@ -428,6 +433,15 @@ views:
     show_name: false
     show_state: false
     type: picture-entity
+  - aspect_ratio: 0%
+    camera_image: camera.printer
+    entities:
+    - entity: binary_sensor.octoprint_printing
+    - entity: sensor.octoprint_time_remaining_format
+    - entity: sensor.octoprint_current_state
+    image: https://demo.home-assistant.io/stub_config/kitchen.png
+    title: Printer
+    type: picture-glance
   icon: mdi:camera
   title: Cameras
   visible:
@@ -513,6 +527,14 @@ views:
   - user: 78554c5a47cd465b8f4689851629b80f
 - badges: []
   cards:
+  - entities:
+    - entity: sensor.octoprint_current_state
+    - entity: sensor.octoprint_job_percentage
+    - entity: sensor.octoprint_time_elapsed_format
+    - entity: sensor.octoprint_time_remaining_format
+    - entity: switch.powerboard_outlet_3
+    title: Octoprint
+    type: entities
   - card:
       show_header_toggle: false
       title: Notices
@@ -560,23 +582,8 @@ views:
       - entity_id: sensor.*battery
     type: custom:auto-entities
   - entities:
-    - entity: sensor.house_power
-    hours_to_show: 24
-    refresh_interval: 0
-    type: history-graph
-  - entities:
     - entity: sensor.netatmo_indoor_noise
       name: Noise level
-    type: history-graph
-  - entities:
-    - sensor.load_1m
-    - sensor.processor_use
-    - sensor.load_5m
-    - sensor.load_15m
-    - sensor.memory_use_percent
-    - sensor.last_boot
-    - sensor.disk_free
-    title: System Stats
     type: history-graph
   icon: mdi:settings
   title: ''
