@@ -8,9 +8,10 @@ This repository exists mostly for my own amusement, but it may contain some thin
 
 Description | Value
 -- | --
-Entities in the [`automation`](https://www.home-assistant.io/components/automation) domain | 60
-Entities in the [`binary_sensor`](https://www.home-assistant.io/components/binary_sensor) domain | 54
-Entities in the [`camera`](https://www.home-assistant.io/components/camera) domain | 6
+Entities in the [`automation`](https://www.home-assistant.io/components/automation) domain | 66
+Entities in the [`binary_sensor`](https://www.home-assistant.io/components/binary_sensor) domain | 61
+Entities in the [`calendar`](https://www.home-assistant.io/components/calendar) domain | 7
+Entities in the [`camera`](https://www.home-assistant.io/components/camera) domain | 12
 Entities in the [`climate`](https://www.home-assistant.io/components/climate) domain | 6
 Entities in the [`device_tracker`](https://www.home-assistant.io/components/device_tracker) domain | 10
 Entities in the [`entity_controller`](https://www.home-assistant.io/components/entity_controller) domain | 1
@@ -24,9 +25,9 @@ Entities in the [`media_player`](https://www.home-assistant.io/components/media_
 Entities in the [`person`](https://www.home-assistant.io/components/person) domain | 2
 Entities in the [`scene`](https://www.home-assistant.io/components/scene) domain | 5
 Entities in the [`script`](https://www.home-assistant.io/components/script) domain | 2
-Entities in the [`sensor`](https://www.home-assistant.io/components/sensor) domain | 222
+Entities in the [`sensor`](https://www.home-assistant.io/components/sensor) domain | 248
 Entities in the [`sun`](https://www.home-assistant.io/components/sun) domain | 1
-Entities in the [`switch`](https://www.home-assistant.io/components/switch) domain | 85
+Entities in the [`switch`](https://www.home-assistant.io/components/switch) domain | 83
 Entities in the [`timer`](https://www.home-assistant.io/components/timer) domain | 1
 Entities in the [`zone`](https://www.home-assistant.io/components/zone) domain | 7
 
@@ -61,17 +62,19 @@ A summary of custom_components that I use.
 
 ### [FCM Android custom component](https://github.com/Crewski/HANotify)
 
-### [HACS (Home Assistant Community Store)](https://hacs.xyz/docs/configuration/start)
-
-_Manage (Install, track, upgrade) and discover custom elements for Home Assistant._
-
-I use this to discover new awesome stuff, and to keep the custom elements I use up to date with the latest version of it from the developer.
-
 ### [Generate readme](https://github.com/custom-components/readme)
 
 _Generates this awesome readme file._
 
 I use this integration to generate this readme, and to convert my lovelace configuration.
+
+### [HACS](https://hacs.xyz/docs/configuration/start)
+
+_Manage (Install, track, upgrade) and discover custom elements for Home Assistant._
+
+I use this to discover new awesome stuff, and to keep the custom elements I use up to date with the latest version of it from the developer.
+
+### [Reolink IP camera](https://www.example.com)
 
 
 ## Custom Lovelace plugins that I use
