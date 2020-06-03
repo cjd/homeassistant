@@ -12,7 +12,12 @@ automation:
       from: 'on'
       platform: state
       to: 'off'
-    condition: []
+    condition:
+      condition: and
+      conditions:
+        - condition: time
+          after: '19:00:00'
+          before: '07:00:00'
     action:
     - data: {}
       entity_id: switch.powerboard_outlet_3
