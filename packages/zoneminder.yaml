@@ -1,0 +1,7 @@
+zoneminder:
+  - host: 192.168.86.2:6080
+#camera:
+#  - platform: zoneminder
+sensor:
+  - platform: zoneminder
+    include_archived: false
