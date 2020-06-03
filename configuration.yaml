@@ -44,16 +44,6 @@ http:
 #webehome:
 #  username: !secret webehome_username
 #  password: !secret webehome_password
-
-entity_controller:
-  entry_motion_light:
-    sensor:
-      - binary_sensor.entry_motion_sensor_occupancy
-      - binary_sensor.carport_camera_motion
-    entity: light.carport_lights
-    delay: 180
-    start_time: sunset - 00:30:00
-    end_time: sunrise + 00:30:00
     
 updater:
   include_used_components: true

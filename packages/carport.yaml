@@ -4,6 +4,20 @@ light:
     entity_id:
       - switch.carport
 
+
+entity_controller:
+  entry_motion_light:
+    sensor:
+      - binary_sensor.entry_motion_sensor_occupancy
+      - binary_sensor.carport_camera_motion
+      - binary_sensor.entry_camera_motion
+      #- binary_sensor.motion_entry
+      #- binary_sensor.motion_carport
+    entity: light.carport_lights
+    delay: 180
+    start_time: sunset - 00:30:00
+    end_time: sunrise + 00:30:00
+
 camera:
   - platform: reolink_dev
     name: entry
@@ -16,11 +30,14 @@ camera:
     username: admin
     password: ""
 
-binary_sensor:
+sensor:
   - platform: mqtt
-    state_topic: "home/carport/camera/motion"
+    state_topic: "zoneminder/2"
     name: Carport Camera Motion
-    device_class: motion
+  - platform: mqtt
+    state_topic: "zoneminder/7"
+    name: Entry Camera Motion
+binary_sensor:
   - platform: template
     sensors:
       motion_entry:
@@ -32,7 +49,7 @@ binary_sensor:
           seconds: 30
   - platform: template
     sensors:
-      motion_entry:
+      motion_carport:
         friendly_name: Camera Carport
         device_class: motion
         entity_id: camera.carport
@@ -90,6 +107,28 @@ switch:
           {% endif %}
 
 automation:
+  - alias: 'Reset alert from Carport'
+    trigger:
+      - platform: state
+        entity_id: sensor.carport_camera_motion
+        to: 'on'
+        for: "00:05:00"
+    action:
+      - service: mqtt.publish
+        data:
+          topic: 'zoneminder/2'
+          payload: '{"state":"noalarm"}'
+  - alias: 'Reset alert from Entry'
+    trigger:
+      - platform: state
+        entity_id: sensor.entry_camera_motion
+        to: 'on'
+        for: "00:05:00"
+    action:
+      - service: mqtt.publish
+        data:
+          topic: 'zoneminder/7'
+          payload: '{"state":"noalarm"}'
   - alias: Carport - motion
     trigger:
       - platform: state
