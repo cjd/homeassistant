@@ -2,6 +2,12 @@ octoprint:
   host: 192.168.86.117
   api_key: !secret octoprint_key
 
+camera:
+  - platform: mjpeg
+    name: printer
+    mjpeg_url: http://octopi.lan:8080/?action=stream
+    still_image_url: http://octopi.lan:8080/?action=snapshot
+
 automation:
   - id: octoprint_finished
     alias: Printing finished
