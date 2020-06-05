@@ -4,11 +4,11 @@ light:
     entities:
       - light.backyard_light_light
 
-camera:
-  - platform: generic
-    name: backyard
-    still_image_url: http://192.168.86.2:6080/zm/cgi-bin/zms?mode=single&monitor=6
-    stream_source: rtsp://192.168.86.51/live
+# camera:
+#   - platform: generic
+#     name: backyard
+#     #still_image_url: http://192.168.86.2:6080/zm/cgi-bin/zms?mode=single&monitor=6
+#     stream_source: rtsp://192.168.86.51/live
 
 automation:
   - alias: Backyard - Backdoors left open

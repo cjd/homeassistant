@@ -24,11 +24,11 @@ climate:
   - platform: sensibo
     api_key: !secret sensibo_api_key
 
-camera:
-  - platform: generic
-    name: livingroom
-    stream_source: rtsp://192.168.86.56:554/
-    still_image_url: http://192.168.86.2:6080/zm/cgi-bin/zms?mode=single&monitor=4
+# camera:
+#   - platform: generic
+#     name: livingroom
+#     stream_source: rtsp://192.168.86.56:554/
+#     #still_image_url: http://192.168.86.2:6080/zm/cgi-bin/zms?mode=single&monitor=4
 
 
 automation:

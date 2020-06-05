@@ -8,9 +8,8 @@ light:
 entity_controller:
   entry_motion_light:
     sensor:
-      - binary_sensor.entry_motion_sensor_occupancy
-      - binary_sensor.carport_camera_motion
-      - binary_sensor.entry_camera_motion
+      - sensor.carport_camera_motion
+      - sensor.entry_camera_motion
       #- binary_sensor.motion_entry
       #- binary_sensor.motion_carport
     entity: light.carport_lights
@@ -18,17 +17,17 @@ entity_controller:
     start_time: sunset - 00:30:00
     end_time: sunrise + 00:30:00
 
-camera:
-  - platform: reolink_dev
-    name: entry
-    host: 192.168.86.199
-    username: admin
-    password: ""
-  - platform: reolink_dev
-    name: carport
-    host: 192.168.86.130
-    username: admin
-    password: ""
+# camera:
+#   - platform: reolink_dev
+#     name: entry
+#     host: 192.168.86.199
+#     username: admin
+#     password: ""
+#   - platform: reolink_dev
+#     name: carport
+#     host: 192.168.86.130
+#     username: admin
+#     password: ""
 
 sensor:
   - platform: mqtt
