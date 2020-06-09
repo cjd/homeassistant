@@ -95,3 +95,7 @@ entity_config:
     expose: true
   sensor.netatmo_outdoor_temperature:
     expose: true
+  switch.bedroom_plug_bottom:
+    expose: true
+  switch.bedroom_plug_top:
+    expose: true
