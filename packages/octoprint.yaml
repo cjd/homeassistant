@@ -1,6 +1,8 @@
 octoprint:
   host: 192.168.86.117
   api_key: !secret octoprint_key
+  bed: true
+  number_of_tools: 1
 
 camera:
   - platform: mjpeg
@@ -28,6 +30,23 @@ automation:
     - data: {}
       entity_id: switch.powerboard_outlet_3
       service: switch.turn_off
+  - id: octoprint_started
+    alias: Printing started
+    description: ''
+    trigger:
+    - entity_id: binary_sensor.octoprint_printing
+      platform: state
+      to: 'on'
+    condition:
+      condition: and
+      conditions:
+        - condition: time
+          after: '06:00:00'
+          before: '21:00:00'
+    action:
+    - data: {}
+      entity_id: switch.powerboard_outlet_3
+      service: switch.turn_on
 
 sensor:
   - platform: template
