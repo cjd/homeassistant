@@ -32,24 +32,15 @@ Entities in the [`{{domain}}`](https://www.home-assistant.io/components/{{domain
 
 ## Hardware and general setup
 
-OS | Ubuntu desktop 18.04
+OS | Ubuntu 20.04
 -- | --
 SSD | 512GB
-RAM | 8GB
-Processor | Intel® Core™ i7-4500U Processor
-Connectivity | WiFi
+HD  | 14GB
+RAM | 24GB
+Processor | Intel® Core™ i7-4790U Processor
+Connectivity | Enternet
 
-For the installation method of Home Assistant I went with [the generic Linux installation of Hassio](https://www.home-assistant.io/hassio/installation/#alternative-install-on-a-generic-linux-host)
-
-This method stores the files used by hassio/Home Assistant in `/usr/share/hassio`.
-
-## Core integrations that I use
-
-- [Default Config](https://www.home-assistant.io/components/default_config/)
-- [File](https://www.home-assistant.io/components/file/)
-- [Input Boolean](https://www.home-assistant.io/components/input_boolean/)
-- [Shell command](https://www.home-assistant.io/components/shell_command/)
-
+For the installation method of Home Assistant I went with [Installing on Docker](https://www.home-assistant.io/docs/installation/docker/)
 
 ## custom_components that I use
 
@@ -64,26 +55,70 @@ _{{custom_component_descriptions[integration.domain]["description"]}}_
 {% endfor %}
 
 ## Custom Lovelace plugins that I use
-
 A summary of custom Lovelace plugins that I use.
 
-### [Compact Custom Header](https://github.com/maykar/compact-custom-header)
-
-_CCH - Customize the header and add enhancements to Lovelace. Features: kiosk mode, conditional header styling, per user/device views, swiping between views on mobile, and more._
-
-I use this to get more screen space by minifying the space used by the header, and to lock my laptop that I have in the hallway by the door to one view.
-
-### [Favicon Counter](https://github.com/custom-cards/favicon-counter)
-
-_Show a notification count badge.._
-
-I use this to show a badge on the Home Assistant tab in my browser when there are active [Persistent notifications](https://www.home-assistant.io/components/persistent_notification/)
-
-### [Mini Graph Card](https://github.com/kalkih/mini-graph-card)
-
-_Minimalistic graph card for Home Assistant Lovelace UI_
-
-I use this to create beautiful statistics cards for my UI.
+### auto-entities - Lovelace
+Automatically populate the entities-list of lovelace cards
+￼
+### ￼ Battery State Card - Lovelace
+Battery state card for Home Assistant
+￼
+### ￼ Bom Weather Card - Lovelace
+Custom BOM Australia Animated Weather Card
+￼
+### ￼ button-card - Lovelace
+❇️ Lovelace button-card for home assistant
+￼
+### ￼ Custom Header - Lovelace
+Custom Header adds enhancements and customization options to Home Assistant's Lovelace header.
+￼
+### ￼ Fan Control Entity Row - Lovelace
+Provides a means to show a compact graphical control row for 3 speed fans in Home Assistant
+￼
+### ￼ Favicon counter - Lovelace
+Show a notification count badge.
+￼
+### ￼ fold-entity-row - Lovelace
+A foldable row for entities card, containing other rows
+￼
+### ￼ Honeycomb Menu - Lovelace
+Honeycomb menu is a Home Assistant module (not a card) that can be applied to any lovelace card. When activated by the defined action on said card, the module will display a 'rounded' list of honeycomb buttons with an optional XY pad to make interfacing with lovelace more fluent
+￼
+### ￼ Light Entity Row - Lovelace
+Entity row for lights with sliders for adjusting different values based on features
+￼
+### Lovelace Animated Background - Lovelace
+Animated backgrounds for lovelace
+￼
+### ￼ Midnight Theme - Theme
+Midnight theme for Home Assistant
+￼
+### ￼ mini climate card - Lovelace
+Minimalistic climate card for Home Assistant Lovelace UI
+￼
+### ￼ Mini Graph Card - Lovelace
+Minimalistic graph card for Home Assistant Lovelace UI
+￼
+### ￼ Mini Media Player - Lovelace
+Minimalistic media card for Home Assistant Lovelace UI
+￼
+### ￼ more-info-card - Lovelace
+Display the more-info dialog of any entity as a lovelace card
+￼
+### ￼ Paper Buttons Row - Lovelace
+Adds highly configurable buttons that use actions and per-state styling.
+￼
+### ￼ Simple Thermostat - Lovelace
+A different take on the thermostat card for Home Assistant ♨️
+￼
+### ￼ slider-entity-row - Lovelace
+Add sliders to entity cards
+￼
+### ￼ UX Goodie Theme - Theme
+🎨 Theme for Home Assistant inspired by iOS Dark Mode 🌖
+￼
+### Your Name. - Theme
+Home Assistant theme - A dark, electric blue theme that reminds the movie Your Name.
 
 ***
 
