@@ -10,12 +10,10 @@ entity_controller:
     sensor:
       - sensor.carport_camera_motion
       - sensor.entry_camera_motion
-      #- binary_sensor.motion_entry
-      #- binary_sensor.motion_carport
     entity: light.carport_lights
     delay: 180
-    start_time: sunset - 00:30:00
-    end_time: sunrise + 00:30:00
+    #start_time: sunset - 00:30:00
+    #end_time: sunrise + 00:30:00
 
 # camera:
 #   - platform: reolink_dev
@@ -33,9 +31,12 @@ sensor:
   - platform: mqtt
     state_topic: "zoneminder/2"
     name: Carport Camera Motion
+    value_template: '{% if value_json.state == "alarm" %} on {% else %} off {% endif %}'
   - platform: mqtt
     state_topic: "zoneminder/7"
     name: Entry Camera Motion
+    value_template: '{% if value_json.state == "alarm" %} on {% else %} off {% endif %}'
+
 binary_sensor:
   - platform: template
     sensors:
@@ -111,7 +112,7 @@ automation:
       - platform: state
         entity_id: sensor.carport_camera_motion
         to: 'on'
-        for: "00:05:00"
+        for: "00:00:05"
     action:
       - service: mqtt.publish
         data:
@@ -122,7 +123,7 @@ automation:
       - platform: state
         entity_id: sensor.entry_camera_motion
         to: 'on'
-        for: "00:05:00"
+        for: "00:00:05"
     action:
       - service: mqtt.publish
         data:
