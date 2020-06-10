@@ -1,0 +1,10 @@
+host: 192.168.86.2
+port: 8086
+database: homeassistant
+#username: !secret influx_username
+#password: !secret influx_username
+max_retries: 3
+default_measurement: value
+include:
+  domains:
+    - sensor

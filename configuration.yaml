@@ -53,18 +53,7 @@ tts:
   - platform: google_translate
     service_name: google_say
 
-influxdb:
-  host: 192.168.86.2
-  port: 8086
-  database: homeassistant
-  #username: !secret influx_username
-  #password: !secret influx_username
-  max_retries: 3
-  default_measurement: value
-  include:
-    domains:
-      - sensor
-
+influxdb: !include influxdb.yaml
 telegram_bot: !include telegram_bot.yaml
 netatmo: !include netatmo.yaml
 mqtt: !include mqtt.yaml
