@@ -36,7 +36,7 @@ Entities in the [`zone`](https://www.home-assistant.io/components/zone) domain |
 OS | Ubuntu 20.04
 -- | --
 SSD | 512GB
-HD  | 14GB
+HD  | 14TB
 RAM | 24GB
 Processor | Intel® Core™ i7-4790U Processor
 Connectivity | Enternet
@@ -74,61 +74,61 @@ A summary of custom Lovelace plugins that I use.
 ### auto-entities - Lovelace
 Automatically populate the entities-list of lovelace cards
 ￼
-### ￼ Battery State Card - Lovelace
+### Battery State Card - Lovelace
 Battery state card for Home Assistant
 ￼
-### ￼ Bom Weather Card - Lovelace
+### Bom Weather Card - Lovelace
 Custom BOM Australia Animated Weather Card
 ￼
-### ￼ button-card - Lovelace
+### button-card - Lovelace
 ❇️ Lovelace button-card for home assistant
 ￼
-### ￼ Custom Header - Lovelace
+### Custom Header - Lovelace
 Custom Header adds enhancements and customization options to Home Assistant's Lovelace header.
 ￼
-### ￼ Fan Control Entity Row - Lovelace
+### Fan Control Entity Row - Lovelace
 Provides a means to show a compact graphical control row for 3 speed fans in Home Assistant
 ￼
-### ￼ Favicon counter - Lovelace
+### Favicon counter - Lovelace
 Show a notification count badge.
 ￼
-### ￼ fold-entity-row - Lovelace
+### fold-entity-row - Lovelace
 A foldable row for entities card, containing other rows
 ￼
-### ￼ Honeycomb Menu - Lovelace
+### Honeycomb Menu - Lovelace
 Honeycomb menu is a Home Assistant module (not a card) that can be applied to any lovelace card. When activated by the defined action on said card, the module will display a 'rounded' list of honeycomb buttons with an optional XY pad to make interfacing with lovelace more fluent
 ￼
-### ￼ Light Entity Row - Lovelace
+### Light Entity Row - Lovelace
 Entity row for lights with sliders for adjusting different values based on features
 ￼
 ### Lovelace Animated Background - Lovelace
 Animated backgrounds for lovelace
 ￼
-### ￼ Midnight Theme - Theme
+### Midnight Theme - Theme
 Midnight theme for Home Assistant
 ￼
-### ￼ mini climate card - Lovelace
+### mini climate card - Lovelace
 Minimalistic climate card for Home Assistant Lovelace UI
 ￼
-### ￼ Mini Graph Card - Lovelace
+### Mini Graph Card - Lovelace
 Minimalistic graph card for Home Assistant Lovelace UI
 ￼
-### ￼ Mini Media Player - Lovelace
+### Mini Media Player - Lovelace
 Minimalistic media card for Home Assistant Lovelace UI
 ￼
-### ￼ more-info-card - Lovelace
+### more-info-card - Lovelace
 Display the more-info dialog of any entity as a lovelace card
 ￼
-### ￼ Paper Buttons Row - Lovelace
+### Paper Buttons Row - Lovelace
 Adds highly configurable buttons that use actions and per-state styling.
 ￼
-### ￼ Simple Thermostat - Lovelace
+### Simple Thermostat - Lovelace
 A different take on the thermostat card for Home Assistant ♨️
 ￼
-### ￼ slider-entity-row - Lovelace
+### slider-entity-row - Lovelace
 Add sliders to entity cards
 ￼
-### ￼ UX Goodie Theme - Theme
+### UX Goodie Theme - Theme
 🎨 Theme for Home Assistant inspired by iOS Dark Mode 🌖
 ￼
 ### Your Name. - Theme
