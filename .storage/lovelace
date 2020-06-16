@@ -724,13 +724,6 @@
                             "type": "picture-entity"
                         },
                         {
-                            "aspect_ratio": "50%",
-                            "entity": "camera.backyard",
-                            "show_name": false,
-                            "show_state": false,
-                            "type": "picture-entity"
-                        },
-                        {
                             "aspect_ratio": "0%",
                             "camera_image": "camera.printer",
                             "entities": [
@@ -747,6 +740,13 @@
                             "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
                             "title": "Printer",
                             "type": "picture-glance"
+                        },
+                        {
+                            "aspect_ratio": "50%",
+                            "entity": "camera.backyard",
+                            "show_name": false,
+                            "show_state": false,
+                            "type": "picture-entity"
                         }
                     ],
                     "icon": "mdi:camera",
@@ -766,29 +766,6 @@
                 {
                     "badges": [],
                     "cards": [
-                        {
-                            "entity": "media_player.pioneer_vsx_832_ed2c08",
-                            "type": "media-control"
-                        },
-                        {
-                            "entity": "media_player.living_room_tv_2",
-                            "hide": {
-                                "mute": true
-                            },
-                            "source": "full",
-                            "toggle_power": false,
-                            "type": "custom:mini-media-player",
-                            "volume_stateless": true
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "switch.livingroomtv"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "type": "entities"
-                        },
                         {
                             "entities": [
                                 {
