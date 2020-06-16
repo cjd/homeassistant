@@ -123,7 +123,7 @@ automation:
       service: switch.turn_on
   - alias: Cube rotate_left
     trigger:
-    - entity_id: sensor.cube
+    - entity_id: sensor.cube_action
       platform: state
       to: 'rotate_left'
     action:
@@ -136,7 +136,7 @@ automation:
         color_temp: 450
   - alias: Cube rotate_right
     trigger:
-    - entity_id: sensor.cube
+    - entity_id: sensor.cube_action
       platform: state
       to: 'rotate_right'
     action:
@@ -149,7 +149,7 @@ automation:
         color_temp: 450
   - alias: Cube flip90
     trigger:
-    - entity_id: sensor.cube
+    - entity_id: sensor.cube_action
       platform: state
       to: 'flip90'
     action:
@@ -157,7 +157,7 @@ automation:
       service: light.turn_off
   - alias: Cube flip180
     trigger:
-    - entity_id: sensor.cube
+    - entity_id: sensor.cube_action
       platform: state
       to: 'flip180'
     action:
@@ -165,12 +165,12 @@ automation:
         service: scene.turn_on
   # - alias: Cube slide
   #   trigger:
-  #   - entity_id: sensor.cube
+  #   - entity_id: sensor.cube_action
   #     platform: state
   #     to: 'slide'
   - alias: Cube shake
     trigger:
-    - entity_id: sensor.cube
+    - entity_id: sensor.cube_action
       platform: state
       to: 'shake'
     action:
