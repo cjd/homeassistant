@@ -32,7 +32,6 @@ logger:
   default: info
 
 http:
-  base_url: https://ha.adebenham.com
   server_port: 8122
   trusted_proxies:
     - 192.168.86.2
