@@ -212,6 +212,31 @@ scene:
         state: true
       switch.kitchen_relay_2:
         state: true
+  - name: Movie
+    entities:
+      light.livingroom_lights:
+        state: true
+        effect: 0
+        brightness_pct: 50
+        color_temp: 420
+      light.kitchen_lights:
+        effect: 0
+        brightness_pct: 50
+        color_temp: 420
+        state: true
+      light.kitchen_strip:
+        brightness_pct: 50
+        color_name: white
+        effect: None
+        state: true
+      light.tv_backlight:
+        state: true
+        brightness_pct: 100
+        effect: Slow Random Effect
+      switch.livingroom_relay_1:
+        state: true
+      switch.kitchen_relay_2:
+        state: true
   - name: Night
     entities:
       light.kitchen_lights:

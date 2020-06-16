@@ -19,6 +19,8 @@ entity_config:
     expose: true
   scene.all_off:
     expose: true
+  scene.movie:
+    expose: true
   scene.night:
     expose: true
   scene.normal:
