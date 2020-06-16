@@ -112,7 +112,7 @@ automation:
       - platform: state
         entity_id: sensor.carport_camera_motion
         to: 'on'
-        for: "00:00:05"
+        for: "00:03:10"
     action:
       - service: mqtt.publish
         data:
@@ -123,7 +123,7 @@ automation:
       - platform: state
         entity_id: sensor.entry_camera_motion
         to: 'on'
-        for: "00:00:05"
+        for: "00:03:10"
     action:
       - service: mqtt.publish
         data:
