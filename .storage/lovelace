@@ -270,34 +270,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.netatmo_indoor_humidity"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_humidity"
-                                },
-                                {
-                                    "entity": "sensor.lucas_bedroom_sensor_humidity"
-                                },
-                                {
-                                    "entity": "sensor.backroom_sensor_humidity"
-                                },
-                                {
-                                    "entity": "sensor.xander_bedroom_sensor_humidity"
-                                },
-                                {
-                                    "entity": "sensor.carport_sensor_humidity"
-                                },
-                                {
-                                    "entity": "sensor.bathroom_humidity"
-                                }
-                            ],
-                            "hours_to_show": 72,
-                            "refresh_interval": 0,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
                                     "entity": "sensor.netatmo_indoor_pressure",
                                     "name": "Living Room Pressure"
                                 },
@@ -328,6 +300,11 @@
                             "aspect_ratio": "75%",
                             "type": "iframe",
                             "url": "https://embed.windy.com/embed2.html?lat=-33.907&lon=151.156&zoom=5&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-33.907&detailLon=151.156&metricWind=default&metricTemp=default&radarRange=-1https://www.home-assistant.io"
+                        },
+                        {
+                            "aspect_ratio": "50%",
+                            "type": "iframe",
+                            "url": "https://home.adebenham.com/int/grafana/d-solo/o2dfIZRGz/ha?orgId=1&kiosk&panelId=10&refresh=1m&kiosk&fullscreen"
                         }
                     ],
                     "icon": "mdi:cloud",
