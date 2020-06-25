@@ -42,6 +42,21 @@ Connectivity | Enternet
 
 For the installation method of Home Assistant I went with [Installing on Docker](https://www.home-assistant.io/docs/installation/docker/)
 
+### Integrations
+{%- for component in hacs_components | selectattr('category', 'equalto', 'integration') | sort(attribute='name') %}
+- [{{component.name}}]({{component.documentation}})
+{%- endfor %}
+
+### Lovelace
+{%- for component in hacs_components | selectattr('category', 'equalto', 'plugin') | sort(attribute='name') %}
+- [{{component.name}}]({{component.documentation}})
+{%- endfor %}
+
+### Themes
+{%- for component in hacs_components | selectattr('category', 'equalto', 'theme') | sort(attribute='name') %}
+- [{{component.name}}]({{component.documentation}})
+{%- endfor %}
+
 ## custom_components that I use
 
 A summary of custom_components that I use.
