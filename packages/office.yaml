@@ -66,6 +66,7 @@ automation:
     trigger:
       - platform: state
         entity_id: binary_sensor.office_fan_button1
+        from: 'off'
         to: 'on'
     condition: []
     action:
@@ -77,6 +78,7 @@ automation:
     trigger:
       - entity_id: binary_sensor.office_switch1
         platform: state
+        from: 'off'
         to: "on"
     condition: []
     action:
@@ -104,6 +106,7 @@ automation:
     trigger:
       - entity_id: binary_sensor.office_switch2
         platform: state
+        from: 'off'
         to: "on"
     condition: []
     action:
@@ -117,6 +120,7 @@ automation:
     trigger:
       - entity_id: binary_sensor.office_switch3
         platform: state
+        from: 'off'
         to: "on"
     condition: []
     action:

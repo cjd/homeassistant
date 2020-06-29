@@ -65,6 +65,7 @@ automation:
     trigger:
       - platform: state
         entity_id: binary_sensor.bedroom_fan_button1
+        from: 'off'
         to: 'on'
     condition: []
     action:

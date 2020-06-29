@@ -36,6 +36,7 @@ automation:
     trigger:
       - entity_id: binary_sensor.livingroom_switch1
         platform: state
+        from: "off"
         to: "on"
     condition: []
     action:
@@ -45,6 +46,7 @@ automation:
     trigger:
       - entity_id: binary_sensor.livingroom_switch2
         platform: state
+        from: "off"
         to: "on"
     condition: []
     action:
@@ -54,6 +56,7 @@ automation:
     trigger:
       - entity_id: binary_sensor.livingroom_switch2
         platform: state
+        from: "off"
         to: "on"
         for: "00:00:05"
     condition: []
@@ -64,6 +67,7 @@ automation:
     trigger:
       - entity_id: binary_sensor.livingroom_switch3
         platform: state
+        from: "off"
         to: "on"
     condition: []
     action:
@@ -84,10 +88,12 @@ automation:
     trigger:
       - entity_id: binary_sensor.backdoor_sensor_contact
         platform: state
+        from: "off"
         to: 'on'
         for: "00:00:30"
       - entity_id: binary_sensor.frontdoor_contact
         platform: state
+        from: "off"
         to: 'on'
         for: "00:00:30"
       - entity_id: binary_sensor.livingroom_window_sensor_contact
@@ -106,6 +112,7 @@ automation:
     trigger:
       - entity_id: binary_sensor.ac_active_sensor_contact
         platform: state
+        from: "off"
         to: 'on'
         for: "00:00:30"
     condition:
