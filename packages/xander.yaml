@@ -29,7 +29,7 @@ climate:
     name: Xander Bedroom
     heater: switch.xander_heater
     target_sensor: sensor.xander_bedroom_sensor_temperature
-    initial_hvac_mode: "off"
+    initial_hvac_mode: 'off'
 
 fan:
   - platform: mqtt
@@ -47,7 +47,7 @@ fan:
     speed_value_template: "{{ value_json.FanSpeed }}"
     availability_topic: XanderFan/tele/LWT
     payload_off: "0"
-    payload_on: "ON"
+    payload_on: 'on'
     payload_low_speed: "1"
     payload_medium_speed: "2"
     payload_high_speed: "3"

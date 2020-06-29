@@ -31,7 +31,7 @@ climate:
     name: Office
     heater: switch.koganpow1
     target_sensor: sensor.office_temperature
-    initial_hvac_mode: "off"
+    initial_hvac_mode: 'off'
 
 fan:
   - platform: mqtt
@@ -49,7 +49,7 @@ fan:
     speed_value_template: "{{ value_json.FanSpeed }}"
     availability_topic: Office_Fan/tele/LWT
     payload_off: "0"
-    payload_on: "ON"
+    payload_on: 'on'
     payload_low_speed: "1"
     payload_medium_speed: "2"
     payload_high_speed: "3"
@@ -79,7 +79,7 @@ automation:
       - entity_id: binary_sensor.office_switch1
         platform: state
         from: 'off'
-        to: "on"
+        to: 'on'
     condition: []
     action:
       - entity_id: switch.powerboard_outlet_1
@@ -107,7 +107,7 @@ automation:
       - entity_id: binary_sensor.office_switch2
         platform: state
         from: 'off'
-        to: "on"
+        to: 'on'
     condition: []
     action:
       - service: switch.turn_on
@@ -121,7 +121,7 @@ automation:
       - entity_id: binary_sensor.office_switch3
         platform: state
         from: 'off'
-        to: "on"
+        to: 'on'
     condition: []
     action:
       - entity_id: switch.powerboard_outlet_1

@@ -52,7 +52,7 @@ automation:
       - entity_id: binary_sensor.kitchen_switch1
         platform: state
         from: 'off'
-        to: "on"
+        to: 'on'
     condition: []
     action:
       - service: light.turn_on
@@ -65,7 +65,7 @@ automation:
       - entity_id: binary_sensor.kitchen_switch2
         platform: state
         from: 'off'
-        to: "on"
+        to: 'on'
     condition: []
     action:
       - service: light.turn_on
@@ -85,7 +85,7 @@ automation:
       - entity_id: binary_sensor.kitchen_switch3
         platform: state
         from: 'off'
-        to: "on"
+        to: 'on'
     condition: []
     action:
       - entity_id: light.kitchen_strip

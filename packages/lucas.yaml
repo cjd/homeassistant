@@ -29,4 +29,4 @@ climate:
     name: Lucas Bedroom
     heater: switch.lucas_heater
     target_sensor: sensor.lucas_bedroom_sensor_temperature
-    initial_hvac_mode: "off"
+    initial_hvac_mode: 'off'

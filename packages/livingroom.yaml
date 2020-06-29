@@ -36,8 +36,8 @@ automation:
     trigger:
       - entity_id: binary_sensor.livingroom_switch1
         platform: state
-        from: "off"
-        to: "on"
+        from: 'off'
+        to: 'on'
     condition: []
     action:
       - entity_id: scene.normal
@@ -46,8 +46,8 @@ automation:
     trigger:
       - entity_id: binary_sensor.livingroom_switch2
         platform: state
-        from: "off"
-        to: "on"
+        from: 'off'
+        to: 'on'
     condition: []
     action:
       - entity_id: scene.night
@@ -56,8 +56,8 @@ automation:
     trigger:
       - entity_id: binary_sensor.livingroom_switch2
         platform: state
-        from: "off"
-        to: "on"
+        from: 'off'
+        to: 'on'
         for: "00:00:05"
     condition: []
     action:
@@ -67,8 +67,8 @@ automation:
     trigger:
       - entity_id: binary_sensor.livingroom_switch3
         platform: state
-        from: "off"
-        to: "on"
+        from: 'off'
+        to: 'on'
     condition: []
     action:
       - entity_id: scene.turn_off
@@ -77,8 +77,8 @@ automation:
     trigger:
       - entity_id: binary_sensor.ac_active_sensor_contact
         platform: state 
-        to: "off"
-        from: "on"
+        to: 'off'
+        from: 'on'
         for: "00:01:00"
     condition: []
     action:
@@ -88,12 +88,12 @@ automation:
     trigger:
       - entity_id: binary_sensor.backdoor_sensor_contact
         platform: state
-        from: "off"
+        from: 'off'
         to: 'on'
         for: "00:00:30"
       - entity_id: binary_sensor.frontdoor_contact
         platform: state
-        from: "off"
+        from: 'off'
         to: 'on'
         for: "00:00:30"
       - entity_id: binary_sensor.livingroom_window_sensor_contact
@@ -112,7 +112,7 @@ automation:
     trigger:
       - entity_id: binary_sensor.ac_active_sensor_contact
         platform: state
-        from: "off"
+        from: 'off'
         to: 'on'
         for: "00:00:30"
     condition:
@@ -150,7 +150,7 @@ automation:
       - entity_id: input_select.livingroom_ac_state
         service: input_select.select_option
         data:
-          option: "Off"
+          option: 'off'
   - alias: Livingroom - AC State Fan
     trigger:
       - entity_id: climate.living_room
