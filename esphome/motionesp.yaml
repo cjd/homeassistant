@@ -1,0 +1,11 @@
+substitutions:
+  device: motionesp
+  board: d1_mini
+  
+<<: !include common/common.yaml
+
+binary_sensor:
+  - platform: gpio
+    pin: D4
+    name: "Motionesp PIR Sensor"
+    device_class: motion

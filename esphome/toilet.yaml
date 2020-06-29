@@ -1,19 +1,8 @@
-esphome:
-  name: toilet
-  platform: ESP8266
+substitutions:
+  device: toilet
   board: esp01_1m
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
-
-ota:
+  
+<<: !include common/common.yaml
 
 switch:
   - platform: gpio
