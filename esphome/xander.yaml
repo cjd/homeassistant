@@ -1,8 +1,7 @@
 substitutions:
-  device: xander
-  board: esp01_1m
+  name: xander
   
-<<: !include common/common.yaml
+<<: !include common/esp8266.yaml
 
 switch:
   - platform: gpio

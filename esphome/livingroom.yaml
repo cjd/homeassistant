@@ -1,8 +1,7 @@
 substitutions:
-  device: livingroom
-  board: esp01_1m
+  name: livingroom
 
-<<: !include common/common.yaml
+<<: !include common/esp8266.yaml
 
 switch:
   - platform: gpio

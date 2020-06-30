@@ -1,8 +1,7 @@
 substitutions:
-  device: motionesp
-  board: d1_mini
+  name: motionesp
   
-<<: !include common/common.yaml
+<<: !include common/d1mini.yaml
 
 binary_sensor:
   - platform: gpio

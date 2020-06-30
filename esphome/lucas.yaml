@@ -1,8 +1,7 @@
 substitutions:
-  device: lucas
-  board: esp01_1m
+  name: lucas
   
-<<: !include common/common.yaml
+<<: !include common/esp8266.yaml
 
 switch:
   - platform: gpio

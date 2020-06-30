@@ -1,8 +1,7 @@
 substitutions:
-  device: officestrip
-  board: d1_mini
+  name: officestrip
 
-<<: !include common/common.yaml
+<<: !include common/d1mini.yaml
 
 light:
   - platform: fastled_clockless

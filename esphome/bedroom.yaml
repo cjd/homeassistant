@@ -1,8 +1,7 @@
 substitutions:
-  device: bedroom
-  board: esp01_1m
-  
-<<: !include common/common.yaml
+  name: bedroom
+
+<<: !include common/esp8266.yaml
 
 switch:
   - platform: gpio

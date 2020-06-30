@@ -1,19 +1,7 @@
-esphome:
+substitutions:
   name: kitchenstrip
-  platform: ESP8266
-  board: d1_mini
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
-
-ota:
+<<: !include common/d1mini.yaml
 
 light:
   - platform: fastled_clockless

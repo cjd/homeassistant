@@ -1,8 +1,7 @@
 substitutions:
-  device: backyardcam
-  board: esp01_1m
+  name: backyardcam
 
-<<: !include common/common.yaml
+<<: !include common/esp8266.yaml
 
 binary_sensor:
   - platform: gpio

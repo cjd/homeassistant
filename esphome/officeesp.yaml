@@ -1,12 +1,8 @@
 substitutions:
-  device: officeesp
-  board: d1_mini
+  name: officeesp
   
-<<: !include common/common.yaml
+<<: !include common/d1mini.yaml
 
-web_server:
-  port: 80
-  
 i2c:
 
 # Example configuration entry

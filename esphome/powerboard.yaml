@@ -1,11 +1,7 @@
 substitutions:
-  device: powerboard
-  board: esp01_1m
+  name: powerboard
   
-<<: !include common/common.yaml
-
-web_server:
-  port: 80
+<<: !include common/esp8266.yaml
 
 switch:
   - platform: gpio

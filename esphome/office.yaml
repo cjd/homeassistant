@@ -1,8 +1,7 @@
 substitutions:
-  device: office
-  board: esp01_1m
+  name: office
   
-<<: !include common/common.yaml
+<<: !include common/esp8266.yaml
 
 switch:
   - platform: gpio

@@ -1,12 +1,8 @@
 substitutions:
-  device: powerboard2
-  board: esp01_1m
+  name: powerboard2
   
-<<: !include common/common.yaml
+<<: !include common/esp8266.yaml
 
-web_server:
-  port: 80
-  
 switch:
   - platform: gpio
     name: "Powerboard2 Outlet 1"

@@ -1,20 +1,14 @@
-esphome:
+substitutions:
   name: power2
-  platform: ESP8266
-  board: esp01_1m
 
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
+<<: !include common/esp8266.yaml
 
-# Disnable USB logging
+# Disable USB logging
 logger:
   baud_rate: 0
 
 # Enable Home Assistant API
 api:
-
-ota:
 
 binary_sensor:
   - platform: gpio

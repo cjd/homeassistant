@@ -1,8 +1,7 @@
 substitutions:
-  device: toilet
-  board: esp01_1m
+  name: toilet
   
-<<: !include common/common.yaml
+<<: !include common/esp8266.yaml
 
 switch:
   - platform: gpio

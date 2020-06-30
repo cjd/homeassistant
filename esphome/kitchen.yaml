@@ -1,8 +1,7 @@
 substitutions:
-  device: kitchen
-  board: esp01_1m
+  name: kitchen
   
-<<: !include common/common.yaml
+<<: !include common/esp8266.yaml
 
 switch:
   - platform: gpio
