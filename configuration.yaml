@@ -39,6 +39,7 @@ http:
   use_x_forwarded_for: true
   cors_allowed_origins:
     - https://cast.home-assistant.io
+  base_url: https://ha.adebenham.com
 
 #webehome:
 #  username: !secret webehome_username
@@ -74,3 +75,4 @@ recorder: !include recorder.yaml
 media_player: !include media_player.yaml
 panel_iframe: !include panel_iframe.yaml
 notify: !include notify.yaml
+monitor_docker: !include monitor_docker.yaml
