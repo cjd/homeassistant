@@ -3,9 +3,6 @@ substitutions:
 
 <<: !include common/d1mini.yaml
 
-# Enable Home Assistant API
-api:
-
 light:
   - platform: fastled_clockless
     chipset: WS2812B

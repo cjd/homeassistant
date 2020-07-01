@@ -21,6 +21,7 @@ light:
           transition_length: 4s
           update_interval: 5s
       - addressable_rainbow:
+          width: 39
       - addressable_random_twinkle:
       - addressable_color_wipe:
       - strobe:
