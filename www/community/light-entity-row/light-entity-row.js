@@ -117,7 +117,7 @@ class AdjustableLightEntityRow extends Polymer.Element {
 </template>
 
 <div class="flex-box">
-    <template is="dom-repeat" items="[[_buttons]]">
+    <template is="dom-repeat" items="[[_config.buttons]]">
         <paper-button on-click="handleButton">{{item.name}}</paper-button>
     </template>
 </div>
@@ -128,7 +128,6 @@ class AdjustableLightEntityRow extends Polymer.Element {
     return {
       _hass: Object,
       _config: Object,
-      _buttons: Object,
       isOn: { type: Boolean },
       stateObj: { type: Object, value: null },
       brightnessMin: { type: Number, value: 0 },
@@ -169,7 +168,7 @@ class AdjustableLightEntityRow extends Polymer.Element {
     }
     
     this._config = config;
-    this._buttons = config.buttons || []
+    this._config.buttons = config.buttons || []
 
     
   }
