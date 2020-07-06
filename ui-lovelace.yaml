@@ -176,17 +176,6 @@ views:
     refresh_interval: 0
     type: history-graph
   - entities:
-    - entity: sensor.netatmo_indoor_humidity
-    - entity: sensor.netatmo_outdoor_humidity
-    - entity: sensor.lucas_bedroom_sensor_humidity
-    - entity: sensor.backroom_sensor_humidity
-    - entity: sensor.xander_bedroom_sensor_humidity
-    - entity: sensor.carport_sensor_humidity
-    - entity: sensor.bathroom_humidity
-    hours_to_show: 72
-    refresh_interval: 0
-    type: history-graph
-  - entities:
     - entity: sensor.netatmo_indoor_pressure
       name: Living Room Pressure
     - entity: sensor.office_pressure
@@ -202,6 +191,9 @@ views:
   - aspect_ratio: 75%
     type: iframe
     url: https://embed.windy.com/embed2.html?lat=-33.907&lon=151.156&zoom=5&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-33.907&detailLon=151.156&metricWind=default&metricTemp=default&radarRange=-1https://www.home-assistant.io
+  - aspect_ratio: 50%
+    type: iframe
+    url: https://home.adebenham.com/int/grafana/d-solo/o2dfIZRGz/ha?orgId=1&kiosk&panelId=10&refresh=1m&kiosk&fullscreen
   icon: mdi:cloud
   panel: false
   title: Charts
@@ -218,6 +210,7 @@ views:
     - buttons:
       - scene.turn_off
       - scene.night
+      - scene.movie
       - scene.party
       - scene.normal
       type: custom:paper-buttons-row
@@ -423,11 +416,6 @@ views:
     show_name: false
     show_state: false
     type: picture-entity
-  - aspect_ratio: 50%
-    entity: camera.backyard
-    show_name: false
-    show_state: false
-    type: picture-entity
   - aspect_ratio: 0%
     camera_image: camera.printer
     entities:
@@ -437,6 +425,11 @@ views:
     image: https://demo.home-assistant.io/stub_config/kitchen.png
     title: Printer
     type: picture-glance
+  - aspect_ratio: 50%
+    entity: camera.backyard
+    show_name: false
+    show_state: false
+    type: picture-entity
   icon: mdi:camera
   title: Cameras
   visible:
@@ -445,19 +438,6 @@ views:
   - user: 0b1cbeace9894723ae6b36fb5a846990
 - badges: []
   cards:
-  - entity: media_player.pioneer_vsx_832_ed2c08
-    type: media-control
-  - entity: media_player.living_room_tv_2
-    hide:
-      mute: true
-    source: full
-    toggle_power: false
-    type: custom:mini-media-player
-    volume_stateless: true
-  - entities:
-    - entity: switch.livingroomtv
-    show_header_toggle: false
-    type: entities
   - entities:
     - entity: media_player.whole_house
       group: true
@@ -590,3 +570,33 @@ views:
   title: ''
   visible:
   - user: 78554c5a47cd465b8f4689851629b80f
+- badges: []
+  cards:
+  - card:
+      collapse: 4
+      title: Docker containers
+      type: entities
+    filter:
+      exclude:
+      - state: running
+      include:
+      - entity_id: sensor.docker_*_state
+    sort:
+      method: state
+      reverse: true
+    type: custom:auto-entities
+  - card:
+      hours_to_show: 48
+      points_per_hour: 6
+      show:
+        fill: false
+        legend: false
+      smoothing: false
+      title: CPU Usage
+      type: custom:mini-graph-card
+    filter:
+      include:
+      - entity_id: sensor.docker_*_cpu
+    type: custom:auto-entities
+  path: docker
+  title: Docker
