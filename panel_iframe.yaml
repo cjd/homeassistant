@@ -1,3 +1,8 @@
+int:
+  title: 'Internal'
+  url: 'https://home.adebenham.com/int/'
+  icon: mdi:cloud-download
+  require_admin: true
 z2m:
   title: 'Z2M'
   url: 'https://home.adebenham.com/int/z2m/'
@@ -23,28 +28,13 @@ tasmoadmin:
   url: 'https://home.adebenham.com/int/tasmo/'
   icon: mdi:settings-box
   require_admin: true
-portainer:
-  title: 'Portainer'
-  url: 'https://home.adebenham.com/int/portainer/'
-  icon: mdi:ferry
-  require_admin: true
-deluge:
-  title: 'Deluge'
-  url: 'https://home.adebenham.com/int/deluge/'
-  icon: mdi:cloud-download
-  require_admin: true
-medusa:
-  title: 'Medusa'
-  url: 'https://home.adebenham.com/int/medusa/'
-  icon: mdi:library-movie
-  require_admin: true
-pihole:
-  title: 'Pihole'
-  url: 'https://home.adebenham.com/int/pihole/'
-  icon: mdi:dns
-  require_admin: true
 zm:
   title: 'ZoneMinder'
   url: 'https://home.adebenham.com/zm/?view=montage'
   icon: mdi:video
+  require_admin: true
+nodered:
+  title: 'NodeRed'
+  url: 'https://home.adebenham.com/int/nodered'
+  icon: mdi:sitemap
   require_admin: true
