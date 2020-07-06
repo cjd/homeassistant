@@ -7,7 +7,6 @@ max_retries: 3
 default_measurement: value
 tags_attributes:
   - friendly_name
-  - hidden
 include:
   domains:
     - sensor
