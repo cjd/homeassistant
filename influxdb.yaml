@@ -1,4 +1,4 @@
-host: 192.168.86.2
+host: 192.168.86.5
 port: 8086
 database: homeassistant
 #username: !secret influx_username

@@ -34,6 +34,7 @@ logger:
 http:
   server_port: 8122
   trusted_proxies:
+    - 192.168.86.5
     - 192.168.86.2
     - 127.0.0.1
   use_x_forwarded_for: true
@@ -75,4 +76,3 @@ recorder: !include recorder.yaml
 media_player: !include media_player.yaml
 panel_iframe: !include panel_iframe.yaml
 notify: !include notify.yaml
-monitor_docker: !include monitor_docker.yaml
