@@ -1017,38 +1017,6 @@
                             "user": "78554c5a47cd465b8f4689851629b80f"
                         }
                     ]
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "card": {
-                                "collapse": 4,
-                                "title": "Docker containers",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "state": "running"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.docker_*_state"
-                                    }
-                                ]
-                            },
-                            "sort": {
-                                "method": "state",
-                                "reverse": true
-                            },
-                            "type": "custom:auto-entities"
-                        }
-                    ],
-                    "icon": "mdi:docker",
-                    "path": "docker",
-                    "title": "Docker"
                 }
             ]
         }
