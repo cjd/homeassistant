@@ -55,7 +55,7 @@ tts:
     service_name: google_say
 
 influxdb: !include influxdb.yaml
-telegram_bot: !include telegram_bot.yaml
+#telegram_bot: !include telegram_bot.yaml
 netatmo: !include netatmo.yaml
 mqtt: !include mqtt.yaml
 hangouts: !include hangouts.yaml

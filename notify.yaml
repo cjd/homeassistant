@@ -7,6 +7,6 @@
   platform: hangouts
   default_conversations:
     - id: !secret hangout_id
-- name: Telegram Notify
-  platform: telegram
-  chat_id: !secret telegram_chatid
+#- name: Telegram Notify
+#  platform: telegram
+#  chat_id: !secret telegram_chatid
