@@ -241,6 +241,7 @@ views:
     - entity: light.laundry_toilet
     - entity: light.toilet
     - entity: light.backyard_lights
+    - entity: switch.backroom_relay_2
     show_header_toggle: false
     title: Rooms
     type: entities
@@ -570,33 +571,3 @@ views:
   title: ''
   visible:
   - user: 78554c5a47cd465b8f4689851629b80f
-- badges: []
-  cards:
-  - card:
-      collapse: 4
-      title: Docker containers
-      type: entities
-    filter:
-      exclude:
-      - state: running
-      include:
-      - entity_id: sensor.docker_*_state
-    sort:
-      method: state
-      reverse: true
-    type: custom:auto-entities
-  - card:
-      hours_to_show: 48
-      points_per_hour: 6
-      show:
-        fill: false
-        legend: false
-      smoothing: false
-      title: CPU Usage
-      type: custom:mini-graph-card
-    filter:
-      include:
-      - entity_id: sensor.docker_*_cpu
-    type: custom:auto-entities
-  path: docker
-  title: Docker
