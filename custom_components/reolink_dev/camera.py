@@ -150,16 +150,16 @@ async def async_setup_platform(hass, config, async_add_devices, discovery_info=N
 
         if entity:
             entity.enable_motion_detection()
-    hass.services.async_register(DOMAIN, SERVICE_ENABLE_RECORDING, handler_enable_motion_detection)
+    hass.services.async_register(DOMAIN, SERVICE_ENABLE_MOTION_DETECTION, handler_enable_motion_detection)
 
-# Event disable recording
+# Event disable motion detection
     def handler_disable_motion_detection(call):
         component = hass.data.get(DOMAIN)
         entity = component.get_entity(call.data.get(ATTR_ENTITY_ID))
 
         if entity:
             entity.disable_motion_detection()
-    hass.services.async_register(DOMAIN, SERVICE_DISABLE_RECORDING, handler_disable_motion_detection)
+    hass.services.async_register(DOMAIN, SERVICE_DISABLE_MOTION_DETECTION, handler_disable_motion_detection)
 
 
 class ReolinkCamera(Camera):
@@ -399,6 +399,7 @@ class ReolinkCamera(Camera):
 
         except Exception as ex:
             _LOGGER.error(f"Got exception while fetching the state: {ex}")
+            self._reolinkSession.clear_token()
 
     async def disconnect(self, event):
         _LOGGER.info("Disconnecting from Reolink camera")
