@@ -651,6 +651,9 @@
                                 },
                                 {
                                     "entity": "switch.bedroom_plug_bottom"
+                                },
+                                {
+                                    "entity": "switch.sonoff_pow_r2_relay"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -867,10 +870,10 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.carport_camera_motion"
+                                    "entity": "binary_sensor.motion_carport"
                                 },
                                 {
-                                    "entity": "sensor.entry_camera_motion"
+                                    "entity": "binary_sensor.motion_entry"
                                 }
                             ],
                             "title": "Motion",
