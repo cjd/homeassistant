@@ -1,1 +1,18 @@
-[]
+- id: '1597056191228'
+  alias: Lucas light back off
+  description: ''
+  trigger:
+  - entity_id: light.lucas_lights
+    for: '"0:05:00"'
+    from: 'off'
+    platform: state
+    to: 'on'
+  condition:
+  - after: '21:00'
+    before: '6:00'
+    condition: time
+  action:
+  - data: {}
+    entity_id: light.lucas_lights
+    service: light.turn_off
+  mode: restart

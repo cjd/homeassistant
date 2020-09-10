@@ -101,3 +101,5 @@ entity_config:
     expose: true
   switch.bedroom_plug_top:
     expose: true
+  switch.sonoff_pow_r2_relay:
+    expose: true
