@@ -1,5 +1,5 @@
 octoprint:
-  host: 192.168.86.117
+  host: 192.168.86.8
   api_key: !secret octoprint_key
   bed: true
   number_of_tools: 1

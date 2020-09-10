@@ -1,17 +1,7 @@
-esphome:
-  name: sonoffpow1
-  platform: ESP8266
-  board: esp01_1m
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-
-# Enable Home Assistant API
-api:
-
-ota:
-
+substitutions:
+  name: power2
+  
+<<: !include common/esp8266.yaml
 # Disable logging over USB
 logger:
   baud_rate: 0

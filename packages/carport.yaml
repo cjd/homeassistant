@@ -15,27 +15,47 @@ entity_controller:
     start_time: sunset - 00:30:00
     end_time: sunrise + 00:30:00
 
-# camera:
-#   - platform: reolink_dev
-#     name: entry
-#     host: 192.168.86.199
-#     username: admin
-#     password: ""
-#   - platform: reolink_dev
-#     name: carport
-#     host: 192.168.86.130
-#     username: admin
-#     password: ""
+camera:
+  - platform: reolink_dev
+    name: entry_reo
+    host: entrycam.lan
+    username: admin
+    password: ""
+  - platform: reolink_dev
+    name: carport_reo
+    host: carport.lan
+    username: admin
+    password: ""
 
-sensor:
-  - platform: mqtt
-    state_topic: "zoneminder/2"
-    name: Carport Camera Motion
-    value_template: '{% if value_json.state == "alarm" %} on {% else %} off {% endif %}'
-  - platform: mqtt
-    state_topic: "zoneminder/7"
-    name: Entry Camera Motion
-    value_template: '{% if value_json.state == "alarm" %} on {% else %} off {% endif %}'
+binary_sensor:
+  - platform: template
+    sensors:
+      motion_entry:
+        friendly_name: Camera Entry
+        device_class: motion
+        entity_id: camera.entry_reo
+        value_template: "{{ is_state('camera.entry_reo', 'motion') }}"
+        delay_off: 
+          seconds: 30
+  - platform: template
+    sensors:
+      motion_carport:
+        friendly_name: Camera Carport
+        device_class: motion
+        entity_id: camera.carport_reo
+        value_template: "{{ is_state('camera.carport_reo', 'motion') }}"
+        delay_off: 
+          seconds: 30
+
+#sensor:
+#  - platform: mqtt
+#    state_topic: "zoneminder/2"
+#    name: Carport Camera Motion
+#    value_template: '{% if value_json.state == "alarm" %} on {% else %} off {% endif %}'
+#  - platform: mqtt
+#    state_topic: "zoneminder/7"
+#    name: Entry Camera Motion
+#    value_template: '{% if value_json.state == "alarm" %} on {% else %} off {% endif %}'
 
 switch:
   - platform: template
@@ -53,46 +73,55 @@ switch:
           service: light.turn_off
           data:
               entity_id: light.carport_lights
+  - platform: telnet
+    switches:
+      zm_trigger_carport:
+        resource: 'dock'
+        port: 6802
+        command_on: '1|on|123|Motion Trigger|Home Assistant'
+        command_off: '1|off|123|Motion Trigger|Home Assistant'
+      zm_trigger_entry:
+        resource: 'dock'
+        port: 6802
+        command_on: '2|on|123|Motion Trigger|Home Assistant'
+        command_off: '2|off|123|Motion Trigger|Home Assistant'
 
 automation:
-  - alias: 'Reset alert from Carport'
-    trigger:
-      - platform: state
-        entity_id: sensor.carport_camera_motion
-        to: 'on'
-        for: "00:03:10"
-    action:
-      - service: mqtt.publish
-        data:
-          topic: 'zoneminder/2'
-          payload: '{"state":"noalarm"}'
-  - alias: 'Reset alert from Entry'
-    trigger:
-      - platform: state
-        entity_id: sensor.entry_camera_motion
-        to: 'on'
-        for: "00:03:10"
-    action:
-      - service: mqtt.publish
-        data:
-          topic: 'zoneminder/7'
-          payload: '{"state":"noalarm"}'
   - alias: Carport - motion
+    mode: restart
     trigger:
       - platform: state
-        entity_id: binary_sensor.carport_camera_motion
+        entity_id: binary_sensor.motion_carport
+        entity_id: binary_sensor.motion_entry
         from: 'off'
         to: 'on'
+    condition:
+      condition: state
+      entity_id: light.carport_lights
+      state: 'off'
+      for:
+        seconds: 5
+    action:
+      - service: light.turn_on
+        entity_id: light.carport_lights
+      - service: switch.turn_on
+        entity_id: switch.zm_trigger_carport
+      - service: switch.turn_on
+        entity_id: switch.zm_trigger_entry
+  - alias: Carport - motion off
+    mode: restart
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.motion_carport
+        entity_id: binary_sensor.motion_entry
+        from: 'on'
+        to: 'off'
     condition: []
     action:
-      - service: camera.snapshot
-        data:
-          entity_id: camera.carport
-          filename: /config/www/camera-snapshots/carport.jpg
-      - service: notify.mobile_app_chrisphone
-        data:
-          message: "Carport motion"
-          data:
-            image: "https://ha.adebenham.com/local/camera-snapshots/carport.jpg"
-      - service: image_processing.scan
-        entity_id: image_processing.doods_camera_carport
+      - service: switch.turn_off
+        entity_id: switch.zm_trigger_entry
+      - service: switch.turn_off
+        entity_id: switch.zm_trigger_carport
+      - delay: 00:01:00
+      - service: light.turn_off
+        entity_id: light.carport_lights

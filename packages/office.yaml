@@ -2,7 +2,7 @@ light:
   - platform: group
     name: Office Lights
     entities:
-      - light.office
+      - light.shelly_shdm_2_e0980695124b
 
 switch:
   - platform: template
@@ -98,6 +98,8 @@ automation:
           entity_id: light.office_strip
           effect: Rainbow
       - service: light.turn_on
+        entity_id: light.office_lights
+      - service: light.turn_on
         entity_id: light.office_shelf
         data:
           entity_id: light.office_shelf
@@ -143,3 +145,5 @@ automation:
           effect: Random Twinkle
       - service: light.turn_off
         entity_id: light.office_shelf
+      - service: light.turn_off
+        entity_id: light.office_lights

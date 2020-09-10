@@ -1,8 +1,8 @@
 light:
-  - platform: group
+  - platform: switch
     name: Entry Lights
-    entities:
-      - light.entry
+    entity_id:
+      - switch.entry_relay_2
 
 switch:
   - platform: template
