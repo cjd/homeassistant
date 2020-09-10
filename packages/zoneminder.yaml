@@ -1,5 +1,5 @@
 zoneminder:
-  - host: 192.168.86.3:8080
+  - host: 192.168.86.5:8082
     username: !secret zoneminder_username
     password: !secret zoneminder_password
 camera:
