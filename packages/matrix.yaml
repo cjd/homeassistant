@@ -1,5 +1,5 @@
 matrix:
-  homeserver: https://www.adebenham.com/
+  homeserver: https://matrix.adebenham.com/
   username: !secret matrix_user
   password: !secret matrix_password
   rooms:
