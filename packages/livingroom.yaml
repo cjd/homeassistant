@@ -197,32 +197,32 @@ scene:
   - name: Normal
     entities:
       light.livingroom_lights:
-        state: true
+        state: "on"
         effect: 0
-        brightness_pct: 100
+        brightness: 255
         color_temp: 420
       light.kitchen_lights:
         effect: 0
-        brightness_pct: 100
+        brightness: 255
         color_temp: 420
-        state: true
+        state: "on"
       light.kitchen_strip:
-        brightness_pct: 100
+        brightness: 255
         color_name: white
         effect: None
-        state: true
+        state: "on"
       light.tv_backlight:
-        state: true
-        brightness_pct: 100
+        state: "on"
+        brightness: 255
         effect: Slow Random Effect
       switch.livingroom_relay_1:
-        state: true
+        state: "on"
       switch.kitchen_relay_2:
-        state: true
+        state: "on"
   - name: Movie
     entities:
       light.livingroom_lights:
-        state: true
+        state: "on"
         effect: 0
         brightness_pct: 50
         color_temp: 420
@@ -230,90 +230,94 @@ scene:
         effect: 0
         brightness_pct: 50
         color_temp: 420
-        state: true
+        state: "on"
       light.kitchen_strip:
         brightness_pct: 50
         color_name: white
         effect: None
-        state: true
+        state: "on"
       light.tv_backlight:
-        state: true
-        brightness_pct: 100
+        state: "on"
+        brightness: 255
         effect: Slow Random Effect
       switch.livingroom_relay_1:
-        state: true
+        state: "on"
       switch.kitchen_relay_2:
-        state: true
+        state: "on"
   - name: Night
     entities:
       light.kitchen_lights:
-        state: true
+        state: "on"
         effect: 0
         rgb_color: [0,0,155]
-        brightness_pct: 100
+        brightness: 255
       light.kitchen_strip:
-        state: true
+        state: "on"
         effect: None
         rgb_color: [0,0,155]
-        brightness_pct: 100
+        brightness: 255
       light.livingroom_lights:
-        state: true
+        state: "on"
         effect: 0
         rgb_color: [0,0,155]
-        brightness_pct: 100
+        brightness: 255
       light.backroom_lights:
         rgb_color: [0,0,155]
         effect: 0
-        brightness_pct: 100
-        state: true
+        brightness: 255
+        state: "on"
       light.tv_backlight:
-        state: true
-        brightness_pct: 100
+        state: "on"
+        brightness: 255
         effect: Random Twinkle
       switch.livingroom_relay_1:
-        state: true
+        state: "on"
       switch.kitchen_relay_1:
-        state: true
+        state: "on"
       switch.kitchen_relay_2:
-        state: true
+        state: "on"
   - name: Party
     entities:
       light.kitchen_lights:
-        state: true
+        state: "on"
         effect: 2
         rgb_color: [0,0,155]
-        brightness_pct: 100
+        brightness: 255
       light.kitchen_strip:
-        state: true
+        state: "on"
         effect: Rainbow
-        brightness_pct: 100
+        brightness: 255
       light.livingroom_lights:
-        state: true
+        state: "on"
         effect: 2
         rgb_color: [0,0,155]
-        brightness_pct: 100
+        brightness: 255
       light.backroom_lights:
-        state: true
+        state: "on"
         effect: 2
         rgb_color: [0,0,155]
-        brightness_pct: 100
+        brightness: 255
       light.tv_backlight:
-        state: true
-        brightness_pct: 100
+        state: "on"
+        brightness: 255
         effect: Rainbow
       switch.livingroom_relay_1:
-        state: true
+        state: "on"
       switch.kitchen_relay_1:
-        state: true
+        state: "on"
       switch.kitchen_relay_2:
-        state: true
+        state: "on"
   - name: Turn off
     entities:
-      light.kitchen_lights: false
-      light.kitchen_strip: false
-      light.livingroom_lights: false
-      light.backroom_lights: false
+      light.kitchen_lights: 
+        state: "off"
+      light.kitchen_strip: 
+        state: "off"
+      light.livingroom_lights: 
+        state: "off"
+      light.backroom_lights: 
+        state: "off"
       light.tv_backlight:
-        state: true
-        brightness_pct: 100
+        state: "on"
+        brightness: 255
         effect: Random Twinkle

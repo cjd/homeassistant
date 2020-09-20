@@ -79,4 +79,4 @@ automation:
       - service: light.turn_on
         data:
           entity_id: light.backyard_lights
-          brightness_pct: 100
+          brightness: 255

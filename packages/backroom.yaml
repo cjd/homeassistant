@@ -24,7 +24,7 @@ switch:
           service: light.turn_on
           data:
             entity_id: light.backroom_lights
-            brightness_pct: 100
+            brightness: 255
             color_temp: 370
             white_value: 255
             transition: 1

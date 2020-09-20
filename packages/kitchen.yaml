@@ -16,13 +16,13 @@ switch:
           - service: light.turn_on
             data:
               entity_id: light.kitchen_lights
-              brightness_pct: 100
+              brightness: 255
               transition: 1
               color_temp: 420
           - service: light.turn_on
             data:
               entity_id: light.kitchen_strip
-              brightness_pct: 100
+              brightness: 255
               transition: 1
               color_name: white
         turn_off:
@@ -58,7 +58,7 @@ automation:
       - service: light.turn_on
         data:
           entity_id: light.kitchen_strip
-          brightness_pct: 100
+          brightness: 255
           color_name: white
   - alias: Kitchen - Switch 2
     trigger:

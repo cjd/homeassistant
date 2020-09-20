@@ -15,7 +15,7 @@ switch:
           service: light.turn_on
           data:
               entity_id: light.entry_lights
-              brightness_pct: 100
+              brightness: 255
               color_temp: 420
               transition: 1
         turn_off:
