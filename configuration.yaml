@@ -5,10 +5,12 @@ homeassistant:
   elevation: 0
   unit_system: metric
   time_zone: Australia/Sydney
-  whitelist_external_dirs:
+  allowlist_external_dirs:
     - /tmp
   packages: !include_dir_named packages
   customize: !include customize.yaml
+  internal_url: https://ha.adebenham.com
+  external_url: https://ha.adebenham.com
 
 frontend:
   themes: !include_dir_merge_named themes/
@@ -37,10 +39,10 @@ http:
     - 192.168.86.5
     - 192.168.86.2
     - 127.0.0.1
+    - 172.20.0.8
   use_x_forwarded_for: true
   cors_allowed_origins:
     - https://cast.home-assistant.io
-  base_url: https://ha.adebenham.com
 
 #webehome:
 #  username: !secret webehome_username
