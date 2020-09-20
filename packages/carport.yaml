@@ -18,12 +18,12 @@ entity_controller:
 camera:
   - platform: reolink_dev
     name: entry_reo
-    host: entrycam.lan
+    host: entrycam.iot
     username: admin
     password: ""
   - platform: reolink_dev
     name: carport_reo
-    host: carport.lan
+    host: carport.iot
     username: admin
     password: ""
 
@@ -33,7 +33,6 @@ binary_sensor:
       motion_entry:
         friendly_name: Camera Entry
         device_class: motion
-        entity_id: camera.entry_reo
         value_template: "{{ is_state('camera.entry_reo', 'motion') }}"
         delay_off: 
           seconds: 30
@@ -42,7 +41,6 @@ binary_sensor:
       motion_carport:
         friendly_name: Camera Carport
         device_class: motion
-        entity_id: camera.carport_reo
         value_template: "{{ is_state('camera.carport_reo', 'motion') }}"
         delay_off: 
           seconds: 30
@@ -68,7 +66,7 @@ switch:
           service: light.turn_on
           data:
               entity_id: light.carport_lights
-              brightness_pct: 100
+              brightness: 255
         turn_off:
           service: light.turn_off
           data:
@@ -91,8 +89,9 @@ automation:
     mode: restart
     trigger:
       - platform: state
-        entity_id: binary_sensor.motion_carport
-        entity_id: binary_sensor.motion_entry
+        entity_id:
+          - binary_sensor.motion_carport
+          - binary_sensor.motion_entry
         from: 'off'
         to: 'on'
     condition:
@@ -112,8 +111,9 @@ automation:
     mode: restart
     trigger:
       - platform: state
-        entity_id: binary_sensor.motion_carport
-        entity_id: binary_sensor.motion_entry
+        entity_id:
+          - binary_sensor.motion_carport
+          - binary_sensor.motion_entry
         from: 'on'
         to: 'off'
     condition: []
