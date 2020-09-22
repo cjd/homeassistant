@@ -1,4 +1,6 @@
 {
+    "version": 1,
+    "key": "lovelace",
     "data": {
         "config": {
             "animated_background": {
@@ -680,11 +682,11 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "camera.carport",
+                            "entity": "camera.carport_reo",
                             "show_name": false,
                             "show_state": false,
-                            "title": "Carport",
-                            "type": "picture-entity"
+                            "type": "picture-entity",
+                            "camera_image": "camera.carport_reo"
                         },
                         {
                             "aspect_ratio": "50%",
@@ -694,7 +696,7 @@
                             "type": "picture-entity"
                         },
                         {
-                            "entity": "camera.entry",
+                            "entity": "camera.entry_reo",
                             "show_name": false,
                             "show_state": false,
                             "title": "Entry",
@@ -813,6 +815,10 @@
                         {
                             "entity": "media_player.bedroom_tv",
                             "type": "custom:mini-media-player"
+                        },
+                        {
+                            "type": "media-control",
+                            "entity": "media_player.googlehome0972"
                         }
                     ],
                     "icon": "mdi:movie",
@@ -1023,7 +1029,5 @@
                 }
             ]
         }
-    },
-    "key": "lovelace",
-    "version": 1
+    }
 }

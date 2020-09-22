@@ -7,11 +7,10 @@ light:
       - light.backroom_right
       - light.backroom_left
 
-# camera:
-#   - platform: generic
-#     name: backroom
-#     #still_image_url: http://192.168.86.2:6080/zm/cgi-bin/zms?mode=single&monitor=1
-#     stream_source: rtsp://admin:542285@192.168.86.42/live/profile.0
+camera:
+  - platform: ffmpeg
+    name: backroom
+    input: rtsp://admin:542285@dcs-8100lh.lan/live/profile.0
 
 switch:
   - platform: template
