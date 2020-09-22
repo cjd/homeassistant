@@ -11,6 +11,8 @@ homeassistant:
   customize: !include customize.yaml
   internal_url: https://ha.adebenham.com
   external_url: https://ha.adebenham.com
+  media_dirs:
+    motion: /media/zoneminder
 
 frontend:
   themes: !include_dir_merge_named themes/
@@ -56,6 +58,7 @@ tts:
   - platform: google_translate
     service_name: google_say
 
+media_source:
 influxdb: !include influxdb.yaml
 #telegram_bot: !include telegram_bot.yaml
 netatmo: !include netatmo.yaml
