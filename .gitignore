@@ -32,3 +32,5 @@ core
 partitions.csv
 partitions.csv
 .ssh/id_rsa
+.ssh/id_rsa.pub
+.ssh/known_hosts
