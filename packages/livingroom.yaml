@@ -310,7 +310,9 @@ scene:
       light.kitchen_lights: 
         state: "off"
       light.kitchen_strip: 
-        state: "off"
+        state: "on"
+        brightness: 255
+        effect: Random Twinkle
       light.livingroom_lights: 
         state: "off"
       light.backroom_lights: 

@@ -1,0 +1,29 @@
+image: /local/floorplan/Deane.svg?v=1
+log_level: error
+rules:
+  - action:
+      service: homeassistant.toggle
+    entities:
+      - light.bedroom_lights
+      - light.office_lights
+      - light.livingroom_lights
+      - light.lucas_lights
+      - light.xander_lights
+      - light.craftroom_lights
+      - light.hall_lights
+      - light.entry_lights
+      - light.kitchen_lights
+      - light.lounge_lights
+      - light.laundry
+      - light.backyard_lights
+      - light.toilet
+      - light.garage_lights
+      - light.bathroom_lights
+    states:
+      - class: light-off
+        state: 'off'
+      - class: light-off
+        state: unknown
+      - class: light-on
+        state: 'on'
+stylesheet: /local/floorplan/Floorplan.css?v=1
