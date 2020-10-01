@@ -25,6 +25,15 @@ switch:
           data:
               entity_id: light.office_lights
               transition: 1
+  - platform: wake_on_lan
+    name: Jimbob
+    mac: f8:b1:56:c9:20:6d
+    host: jimbob.lan
+    turn_off:
+      service: shell_command.turn_off_jimbob
+
+shell_command:
+  turn_off_jimbob: 'ssh hass@jimbob.lan sudo pm-suspend'
 
 climate:
   - platform: generic_thermostat

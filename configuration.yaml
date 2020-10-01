@@ -39,9 +39,8 @@ http:
   server_port: 8122
   trusted_proxies:
     - 192.168.86.5
-    - 192.168.86.2
     - 127.0.0.1
-    - 172.20.0.8
+    - 172.20.0.0/24
   use_x_forwarded_for: true
   cors_allowed_origins:
     - https://cast.home-assistant.io
@@ -59,6 +58,7 @@ tts:
     service_name: google_say
 
 media_source:
+wake_on_lan:
 influxdb: !include influxdb.yaml
 #telegram_bot: !include telegram_bot.yaml
 netatmo: !include netatmo.yaml
