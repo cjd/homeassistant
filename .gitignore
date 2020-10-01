@@ -30,4 +30,5 @@ google_calendars.yaml
 .google.token
 core
 partitions.csv
-esphome/bedroomesp/partitions.csv
+partitions.csv
+.ssh/id_rsa
