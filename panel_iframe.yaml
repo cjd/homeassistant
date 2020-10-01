@@ -1,12 +1,7 @@
 int:
   title: 'Internal'
-  url: 'https://home.adebenham.com/int/'
+  url: 'https://home.adebenham.com/int/mux/'
   icon: mdi:cloud-download
-  require_admin: true
-z2m:
-  title: 'Z2M'
-  url: 'https://home.adebenham.com/int/z2m/'
-  icon: mdi:antenna
   require_admin: true
 grafana:
   title: 'Grafana'
@@ -21,12 +16,7 @@ vscode:
 esphome:
   title: 'ESPHome'
   url: 'https://home.adebenham.com/int/esphome/'
-  icon: mdi:settings-box
-  require_admin: true
-tasmoadmin:
-  title: 'TasmoAdmin'
-  url: 'https://home.adebenham.com/int/tasmo/'
-  icon: mdi:settings-box
+  icon: mdi:cog
   require_admin: true
 zm:
   title: 'ZoneMinder'
