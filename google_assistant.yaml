@@ -35,6 +35,8 @@ entity_config:
     expose: true
   camera.livingroom:
     expose: true
+  camera.entry:
+    expose: true
   light.office_lights:
     expose: true
   light.lucas_lights:
