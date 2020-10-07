@@ -3,7 +3,7 @@
   description: ''
   trigger:
   - entity_id: light.lucas_lights
-    for: '"0:05:00"'
+    for: '"00:05:00"'
     from: 'off'
     platform: state
     to: 'on'
