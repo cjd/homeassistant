@@ -822,6 +822,10 @@
                         {
                             "type": "media-control",
                             "entity": "media_player.googlehome0972"
+                        },
+                        {
+                            "type": "media-control",
+                            "entity": "media_player.pioneer_vsx_832_ed2c08"
                         }
                     ],
                     "icon": "mdi:movie",
