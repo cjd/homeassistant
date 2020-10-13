@@ -11,10 +11,6 @@ homeassistant:
   customize: !include customize.yaml
   internal_url: https://ha.adebenham.com
   external_url: https://ha.adebenham.com
-  media_dirs:
-    motion: /media/zoneminder
-    television: /media/television
-    movies: /media/movies
 
 frontend:
   themes: !include_dir_merge_named themes/
@@ -43,6 +39,7 @@ http:
     - 192.168.86.5
     - 127.0.0.1
     - 172.20.0.0/24
+    - 172.18.0.0/24
   use_x_forwarded_for: true
   cors_allowed_origins:
     - https://cast.home-assistant.io
