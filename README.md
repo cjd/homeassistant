@@ -33,12 +33,11 @@ Entities in the [`zone`](https://www.home-assistant.io/components/zone) domain |
 
 ## Hardware and general setup
 
-OS | Ubuntu 20.04
 -- | --
-SSD | 512GB
-HD  | 14TB
-RAM | 24GB
-Processor | Intel® Core™ i7-4790U Processor
+OS | Debian Buster
+SSD | 120GB
+RAM | 3GB
+Processor | Intel® Core™ i5-5250U Processor
 Connectivity | Enternet
 
 For the installation method of Home Assistant I went with [Installing on Docker](https://www.home-assistant.io/docs/installation/docker/)
