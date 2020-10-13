@@ -13,11 +13,11 @@ rules:
       - light.hall_lights
       - light.entry_lights
       - light.kitchen_lights
-      - light.lounge_lights
+      - light.backroom_lights
       - light.laundry
       - light.backyard_lights
       - light.toilet
-      - light.garage_lights
+      - light.carport_lights
       - light.bathroom_lights
     states:
       - class: light-off
