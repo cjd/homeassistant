@@ -18,7 +18,7 @@ along with Entity Controller.  If not, see <https://www.gnu.org/licenses/>.
 """
 Entity controller component for Home Assistant.
 Maintainer:       Daniel Mason
-Version:          v9.0.2
+Version:          v9.1.0
 Project Page:     https://danielbkr.net/projects/entity-controller/
 Documentation:    https://github.com/danobot/entity-controller
 """
@@ -101,7 +101,7 @@ from .entity_services import (
 
 
 
-VERSION = '9.0.2'
+VERSION = '9.1.0'
 
 
 _LOGGER = logging.getLogger(__name__)
@@ -595,7 +595,12 @@ class Model:
             str(old),
             str(new)
         )
-        if new.context.id == self.context.id or new.context.id in self.ignored_event_sources:
+        def regex_match(context_id):
+            return any(
+                re.match(pattern + r"\b", context_id) is not None
+                for pattern in self.ignored_event_sources
+            )
+        if new.context.id == self.context.id or regex_match(new.context.id):
             self.log.debug("state_entity_state_change :: Ignoring this state change because it came from %s" % (new.context.id))
             return
 
