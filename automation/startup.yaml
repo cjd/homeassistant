@@ -7,7 +7,7 @@
   action:
     - service: frontend.set_theme
       data:
-        name: "yourname"
+        name: "debenham"
     - service: mqtt.publish
       data:
         topic: "tasmotas/cmnd/state"
