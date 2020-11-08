@@ -29,15 +29,14 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         if user_input is not None:
             try:
                 collector = Collector(
-                    self.hass.config.latitude,
-                    self.hass.config.longitude
+                    user_input[CONF_LATITUDE],
+                    user_input[CONF_LONGITUDE],
                 )
-                result = await collector.get_observations_data()
+                result = await collector.get_location_name()
                 if result is None:
                     raise CannotConnect
 
-                name = collector.observations_data["data"]["station"]["name"]
-                return self.async_create_entry(title=name, data=user_input)
+                return self.async_create_entry(title=collector.location_name, data=user_input)
             except CannotConnect:
                 errors["base"] = "cannot_connect"
             except Exception:
