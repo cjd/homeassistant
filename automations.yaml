@@ -16,3 +16,39 @@
     entity_id: light.lucas_lights
     service: light.turn_off
   mode: restart
+- id: '1604523377433'
+  alias: Android - Basic notification
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: light.office_strip
+  condition: []
+  action:
+  - service: notify.mobile_app_chrisphone
+    data:
+      title: Lights
+      message: 'The current temp is: {{states(''sensor.office_temperature'')}}'
+      data:
+        actions:
+        - action: LIGHTS_RAINBOW
+          title: Rainbow time
+        - action: LIGHTS_TWINKLE
+          title: Twinkle time
+        - action: LIGHTS_OFF
+          title: 'Off'
+  mode: single
+- id: '1604525361961'
+  alias: Android - Office rainbow
+  description: ''
+  trigger:
+  - platform: event
+    event_type: mobile_app_notification_action
+    event_data:
+      action: LIGHTS_RAINBOW
+  condition: []
+  action:
+  - service: light.turn_on
+    data:
+      entity_id: light.office_strip
+      effect: Rainbow
+  mode: single

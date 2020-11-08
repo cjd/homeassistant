@@ -103,9 +103,19 @@ automation:
         entity_id: binary_sensor.ac_active_sensor_contact
         state: 'on'
     action:
-      - service: notify.hangout_notify
+      - service: notify.mobile_app_chrisphone
         data:
+          title: Back door open
           message: "Door/window left open but AC is on"
+          message: 'The backdoor is open and the current temp is: {{states(''sensor.office_temperature'')}}'
+          data:
+            actions:
+            - action: LIGHTS_RAINBOW
+              title: Rainbow time
+            - action: LIGHTS_TWINKLE
+              title: Twinkle time
+            - action: LIGHTS_OFF
+              title: 'Off'
   - alias: Livingroom - AC on but doors/windows already open
     trigger:
       - entity_id: binary_sensor.ac_active_sensor_contact
