@@ -80,3 +80,8 @@ recorder: !include recorder.yaml
 media_player: !include media_player.yaml
 panel_iframe: !include panel_iframe.yaml
 notify: !include notify.yaml
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret 
+  project_id: !secret nest_project_id
+  subscriber_id: !secret nest_subscriber_id
