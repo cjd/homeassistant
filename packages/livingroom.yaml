@@ -106,7 +106,6 @@ automation:
       - service: notify.mobile_app_chrisphone
         data:
           title: Back door open
-          message: "Door/window left open but AC is on"
           message: 'The backdoor is open and the current temp is: {{states(''sensor.office_temperature'')}}'
           data:
             actions:
