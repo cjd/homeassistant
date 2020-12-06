@@ -52,3 +52,27 @@
       entity_id: light.office_strip
       effect: Rainbow
   mode: single
+- id: '1607223896706'
+  alias: Christmas Lights On
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:00'
+  condition: []
+  action:
+  - service: switch.turn_on
+    data: {}
+    entity_id: switch.bedroom_plug_bottom
+  mode: single
+- id: '1607223951158'
+  alias: Christmas Lights off
+  description: ''
+  trigger:
+  - platform: time
+    at: '23:59'
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    entity_id: switch.bedroom_plug_bottom
+  mode: single
