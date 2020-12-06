@@ -8,3 +8,9 @@
     - type: last_boot
     - type: disk_free
       arg: /
+- platform: pfsense_gateways
+  host: 192.168.86.1
+  name: pfSense gateway
+  key: pfsense
+  monitored_gateway_interfaces:
+    - wan
