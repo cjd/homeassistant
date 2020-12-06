@@ -1,6 +1,6 @@
 int:
   title: 'Internal'
-  url: 'https://home.adebenham.com/int/mux/'
+  url: 'https://home.adebenham.com/'
   icon: mdi:cloud-download
   require_admin: true
 grafana:

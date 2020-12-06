@@ -170,8 +170,8 @@
                             "entity_summary_4": "sensor.narara_short_text_4",
                             "entity_summary_5": "sensor.narara_short_text_5",
                             "entity_sun": "sun.sun",
-                            "entity_daytime_high": "sensor.bom_today_max",
-                            "entity_daytime_low": "sensor.bom_today_min",
+                            "entity_daytime_high": "sensor.narara_max_0",
+                            "entity_daytime_low": "sensor.narara_min_0",
                             "entity_wind_bearing": "sensor.gosford_wind_direction",
                             "entity_wind_speed": "sensor.gosford_wind_speed",
                             "entity_wind_gust": "sensor.gosford_gust_speed",
@@ -304,7 +304,7 @@
                         {
                             "aspect_ratio": "75%",
                             "type": "iframe",
-                            "url": "https://embed.windy.com/embed2.html?lat=-33.907&lon=151.156&zoom=5&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-33.907&detailLon=151.156&metricWind=default&metricTemp=default&radarRange=-1https://www.home-assistant.io"
+                            "url": "https://embed.windy.com/embed2.html?lat=-33.454&lon=151.200&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-33.907&detailLon=151.156&metricWind=default&metricTemp=default&radarRange=-1"
                         },
                         {
                             "entities": [
