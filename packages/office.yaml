@@ -91,7 +91,7 @@ automation:
         to: 'on'
     condition: []
     action:
-      - entity_id: switch.powerboard_outlet_1
+      - entity_id: switch.officepower_d
         service: switch.turn_on
       - service: switch.turn_on
         entity_id: switch.powerboard2_outlet_1
@@ -135,7 +135,7 @@ automation:
         to: 'on'
     condition: []
     action:
-      - entity_id: switch.powerboard_outlet_1
+      - entity_id: switch.officepower_d
         service: switch.turn_off
       - entity_id: fan.office_fan
         service: fan.turn_off
