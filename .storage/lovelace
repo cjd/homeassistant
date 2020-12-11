@@ -641,16 +641,16 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "switch.powerboard_outlet_1"
+                                    "entity": "switch.officepower_a"
                                 },
                                 {
-                                    "entity": "switch.powerboard_outlet_2"
+                                    "entity": "switch.officepower_b"
                                 },
                                 {
-                                    "entity": "switch.powerboard_outlet_3"
+                                    "entity": "switch.officepower_c"
                                 },
                                 {
-                                    "entity": "switch.powerboard_outlet_4"
+                                    "entity": "switch.officepower_d"
                                 },
                                 {
                                     "entity": "switch.powerboard2_outlet_1"
@@ -701,11 +701,11 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "camera.carport_reo",
+                            "entity": "camera.carport_2",
                             "show_name": false,
                             "show_state": false,
                             "type": "picture-entity",
-                            "camera_image": "camera.carport_reo"
+                            "camera_image": "camera.carport_2"
                         },
                         {
                             "aspect_ratio": "50%",
@@ -715,11 +715,11 @@
                             "type": "picture-entity"
                         },
                         {
-                            "entity": "camera.entry_reo",
+                            "entity": "camera.entrycam",
                             "show_name": false,
                             "show_state": false,
-                            "title": "Entry",
-                            "type": "picture-entity"
+                            "type": "picture-entity",
+                            "camera_image": "camera.entrycam"
                         },
                         {
                             "aspect_ratio": "50%",
