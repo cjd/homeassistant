@@ -105,3 +105,11 @@ entity_config:
     expose: true
   switch.sonoff_pow_r2_relay:
     expose: true
+  switch.officepower_a:
+    expose: true
+  switch.officepower_b:
+    expose: true
+  switch.officepower_c:
+    expose: true  
+  switch.officepower_d:
+    expose: true
