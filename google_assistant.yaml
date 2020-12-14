@@ -113,3 +113,5 @@ entity_config:
     expose: true  
   switch.officepower_d:
     expose: true
+  group.pihole:
+    expose: true

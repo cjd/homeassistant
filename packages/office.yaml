@@ -4,6 +4,13 @@ light:
     entities:
       - light.shelly_shdm_2_e0980695124b
 
+group:
+  pihole:
+    name: Pihole
+    entities:
+      - switch.pi_hole_dock
+      - switch.pi_hole_piserve
+
 switch:
   - platform: template
     switches:
