@@ -59,10 +59,8 @@ tts:
 media_source:
 wake_on_lan:
 influxdb: !include influxdb.yaml
-#telegram_bot: !include telegram_bot.yaml
 netatmo: !include netatmo.yaml
 mqtt: !include mqtt.yaml
-hangouts: !include hangouts.yaml
 hacs: !include hacs.yaml
 geo_location: !include geo_location.yaml
 input_select: !include input_select.yaml
@@ -73,7 +71,6 @@ zone: !include zone.yaml
 automation: !include_dir_merge_list automation
 script: !include scripts.yaml
 switch: !include_dir_merge_list switches
-life360: !include life.yaml
 scene: !include scene.yaml
 group: !include groups.yaml
 recorder: !include recorder.yaml
