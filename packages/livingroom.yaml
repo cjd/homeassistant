@@ -27,7 +27,7 @@ climate:
 camera:
   - platform: ffmpeg
     name: livingroom
-    input: rtsp://livingcam.lan:554/
+    input: rtsp://livingcam.iot:554/
 
 automation:
   - alias: Livingroom - Switch 1

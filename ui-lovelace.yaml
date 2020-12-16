@@ -42,21 +42,6 @@ animated_background:
     - /local/backgrounds/sunny-3.mp4
     - /local/backgrounds/sunny-4.mp4
     - /local/backgrounds/sunny-5.mp4
-custom_header:
-  chevrons: false
-  compact_mode: true
-  exceptions:
-  - conditions:
-      user: Mel
-    config:
-      disable_sidebar: true
-      hide_tabs: 7,8
-      options_hide: true
-  - conditions:
-      user: family
-    config:
-      kiosk_mode: true
-  voice_hide: true
 title: Home
 views:
 - badges: []
@@ -90,70 +75,111 @@ views:
   - user: 0b1cbeace9894723ae6b36fb5a846990
 - badges: []
   cards:
-  - entity_apparent_temp: sensor.bom_gosford_feels_like_c
-    entity_current_conditions: sensor.bom_gosford_icon_0
-    entity_current_text: sensor.bom_current_text
-    entity_daily_summary: sensor.bom_gosford_detailed_summary_0
-    entity_daytime_high: sensor.bom_today_max
-    entity_daytime_low: sensor.bom_today_min
-    entity_fire_danger: sensor.bom_fire_danger
-    entity_forecast_high_temp_1: sensor.bom_gosford_max_temp_c_1
-    entity_forecast_high_temp_2: sensor.bom_gosford_max_temp_c_2
-    entity_forecast_high_temp_3: sensor.bom_gosford_max_temp_c_3
-    entity_forecast_high_temp_4: sensor.bom_gosford_max_temp_c_4
-    entity_forecast_high_temp_5: sensor.bom_gosford_max_temp_c_5
-    entity_forecast_icon_1: sensor.bom_gosford_icon_1
-    entity_forecast_icon_2: sensor.bom_gosford_icon_2
-    entity_forecast_icon_3: sensor.bom_gosford_icon_3
-    entity_forecast_icon_4: sensor.bom_gosford_icon_4
-    entity_forecast_icon_5: sensor.bom_gosford_icon_5
-    entity_forecast_low_temp_1: sensor.bom_gosford_min_temp_c_1
-    entity_forecast_low_temp_2: sensor.bom_gosford_min_temp_c_2
-    entity_forecast_low_temp_3: sensor.bom_gosford_min_temp_c_3
-    entity_forecast_low_temp_4: sensor.bom_gosford_min_temp_c_4
-    entity_forecast_low_temp_5: sensor.bom_gosford_min_temp_c_5
-    entity_humidity: sensor.bom_gosford_relative_humidity
-    entity_pop: sensor.bom_gosford_chance_of_rain_0
-    entity_pop_1: sensor.bom_gosford_chance_of_rain_1
-    entity_pop_2: sensor.bom_gosford_chance_of_rain_2
-    entity_pop_3: sensor.bom_gosford_chance_of_rain_3
-    entity_pop_4: sensor.bom_gosford_chance_of_rain_4
-    entity_pop_5: sensor.bom_gosford_chance_of_rain_5
-    entity_pop_intensity: sensor.bom_gosford_rain_today
-    entity_pos_1: sensor.bom_gosford_possible_rainfall_1
-    entity_pos_2: sensor.bom_gosford_possible_rainfall_2
-    entity_pos_3: sensor.bom_gosford_possible_rainfall_3
-    entity_pos_4: sensor.bom_gosford_possible_rainfall_4
-    entity_pos_5: sensor.bom_gosford_possible_rainfall_5
-    entity_possible_today: sensor.bom_gosford_possible_rainfall_0
-    entity_summary_1: sensor.bom_gosford_summary_1
-    entity_summary_2: sensor.bom_gosford_summary_2
-    entity_summary_3: sensor.bom_gosford_summary_3
-    entity_summary_4: sensor.bom_gosford_summary_4
-    entity_summary_5: sensor.bom_gosford_summary_5
+  - center_latitude: -33.39405
+    center_longitude: 151.33568
+    frame_count: 10
+    marker_latitude: -33.39405
+    marker_longitude: 151.33568
+    show_marker: true
+    show_playback: true
+    show_range: true
+    show_recenter: true
+    show_zoom: true
+    type: custom:bom-radar-card
+    zoom_level: 9
+  - apparent_right_margin: 1em
+    apparent_right_pos: 1em
+    apparent_top_margin: 45px
+    current_data_top_margin: 10em
+    current_text_alignment: center
+    current_text_font_size: 1.5em
+    current_text_left_pos: 0px
+    current_text_top_margin: 4.5em
+    current_text_width: 100%
+    entity_apparent_temp: sensor.gosford_temperature_feels_like
+    entity_current_conditions: sensor.narara_icon_0
+    entity_daily_summary: sensor.narara_extended_text_0
+    entity_daytime_high: sensor.narara_max_0
+    entity_daytime_low: sensor.narara_min_0
+    entity_forecast_high_temp_1: sensor.narara_max_1
+    entity_forecast_high_temp_2: sensor.narara_max_2
+    entity_forecast_high_temp_3: sensor.narara_max_3
+    entity_forecast_high_temp_4: sensor.narara_max_4
+    entity_forecast_high_temp_5: sensor.narara_max_5
+    entity_forecast_icon_1: sensor.narara_icon_1
+    entity_forecast_icon_2: sensor.narara_icon_2
+    entity_forecast_icon_3: sensor.narara_icon_3
+    entity_forecast_icon_4: sensor.narara_icon_4
+    entity_forecast_icon_5: sensor.narara_icon_5
+    entity_forecast_low_temp_1: sensor.narara_min_1
+    entity_forecast_low_temp_2: sensor.narara_min_2
+    entity_forecast_low_temp_3: sensor.narara_min_3
+    entity_forecast_low_temp_4: sensor.narara_min_4
+    entity_forecast_low_temp_5: sensor.narara_min_5
+    entity_humidity: sensor.gosford_humidity
+    entity_pop: sensor.narara_rain_chance_0
+    entity_pop_1: sensor.narara_rain_chance_1
+    entity_pop_2: sensor.narara_rain_chance_2
+    entity_pop_3: sensor.narara_rain_chance_3
+    entity_pop_4: sensor.narara_rain_chance_4
+    entity_pop_5: sensor.narara_rain_chance_5
+    entity_pop_intensity: sensor.gosford_rain_since_9am
+    entity_pos_1: sensor.narara_rain_amount_range_1
+    entity_pos_2: sensor.narara_rain_amount_range_2
+    entity_pos_3: sensor.narara_rain_amount_range_3
+    entity_pos_4: sensor.narara_rain_amount_range_4
+    entity_pos_5: sensor.narara_rain_amount_range_5
+    entity_possible_today: sensor.narara_rain_amount_range_0
+    entity_summary_1: sensor.narara_short_text_1
+    entity_summary_2: sensor.narara_short_text_2
+    entity_summary_3: sensor.narara_short_text_3
+    entity_summary_4: sensor.narara_short_text_4
+    entity_summary_5: sensor.narara_short_text_5
     entity_sun: sun.sun
-    entity_temperature: sensor.entry_motion_sensor_temperature
-    entity_uv_alert: sensor.bom_uv_alert
-    entity_wind_bearing: sensor.bom_gosford_wind_direction
-    entity_wind_speed: sensor.bom_gosford_wind_speed_kmh
+    entity_temperature: sensor.gosford_temperature
+    entity_wind_bearing: sensor.gosford_wind_direction
+    entity_wind_gust: sensor.gosford_gust_speed
+    entity_wind_speed: sensor.gosford_wind_speed
+    large_icon_left_position: 0px
+    large_icon_top_margin: -3.2em
     locale: en
     old_daily_format: false
+    old_icon: hybrid
     refresh_interval: 60
+    separator_top_margin: 6em
+    show_beaufort: false
+    show_separator: false
     slot_l1: daytime_high
     slot_l2: daytime_low
     slot_l3: wind
-    slot_l4: sun_next
+    slot_l4: pressure
+    slot_l5: sun_next
     slot_r1: pop
     slot_r2: humidity
-    slot_r3: possible_today
-    slot_r4: sun_following
+    slot_r3: uv_summary
+    slot_r4: fire_summary
+    slot_r5: sun_following
     static_icons: false
+    summary_font_size: 0.8em
+    summary_top_padding: 2em
     sunset: true
+    temp_font_size: 4em
+    temp_font_weight: 300
+    temp_right_pos: 0.85em
+    temp_top_margin: 0px
+    temp_uom_right_margin: 7px
+    temp_uom_top_margin: -12px
+    time_format: 12
     title: BOM Weather
+    tooltip_bg_color: rgb( 75,155,239)
+    tooltip_border_color: rgb(255,161,0)
+    tooltip_border_width: 1
+    tooltip_caret_size: 5
+    tooltip_fg_color: '#fff'
+    tooltip_left_offset: -12
+    tooltip_width: 110
     tooltips: true
     type: custom:bom-weather-card
-  - entity: camera.bom_radar_loop_sydney
-    type: picture-entity
   - entities:
     - entity: sensor.bom_gosford_air_temp_c
       name: BOM Air Temperature
@@ -182,15 +208,15 @@ views:
     - entity: sensor.bedroom_pressure
     hours_to_show: 72
     type: history-graph
+  - aspect_ratio: 75%
+    type: iframe
+    url: https://embed.windy.com/embed2.html?lat=-33.454&lon=151.200&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-33.907&detailLon=151.156&metricWind=default&metricTemp=default&radarRange=-1
   - entities:
     - entity: sensor.netatmo_netatmo_rainy_sum_rain_24
     - entity: sensor.netatmo_netatmo_rainy_rain
     hours_to_show: 48
     refresh_interval: 0
     type: history-graph
-  - aspect_ratio: 75%
-    type: iframe
-    url: https://embed.windy.com/embed2.html?lat=-33.907&lon=151.156&zoom=5&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-33.907&detailLon=151.156&metricWind=default&metricTemp=default&radarRange=-1https://www.home-assistant.io
   - aspect_ratio: 50%
     type: iframe
     url: https://home.adebenham.com/int/grafana/d-solo/o2dfIZRGz/ha?orgId=1&kiosk&panelId=10&refresh=1m&kiosk&fullscreen
@@ -375,10 +401,10 @@ views:
     title: Light Strips
     type: entities
   - entities:
-    - entity: switch.powerboard_outlet_1
-    - entity: switch.powerboard_outlet_2
-    - entity: switch.powerboard_outlet_3
-    - entity: switch.powerboard_outlet_4
+    - entity: switch.officepower_a
+    - entity: switch.officepower_b
+    - entity: switch.officepower_c
+    - entity: switch.officepower_d
     - entity: switch.powerboard2_outlet_1
     - entity: switch.powerboard2_outlet_2
     - entity: switch.powerboard2_outlet_3
@@ -399,8 +425,8 @@ views:
   - user: 0b1cbeace9894723ae6b36fb5a846990
 - badges: []
   cards:
-  - camera_image: camera.carport_reo
-    entity: camera.carport_reo
+  - camera_image: camera.carport_2
+    entity: camera.carport_2
     show_name: false
     show_state: false
     type: picture-entity
@@ -409,10 +435,10 @@ views:
     show_name: false
     show_state: false
     type: picture-entity
-  - entity: camera.entry_reo
+  - camera_image: camera.entrycam
+    entity: camera.entrycam
     show_name: false
     show_state: false
-    title: Entry
     type: picture-entity
   - aspect_ratio: 50%
     entity: camera.backroom
