@@ -1,0 +1,13 @@
+zone:
+  - name: Work
+    latitude: -33.867494
+    longitude: 151.198045
+    icon: mdi:google
+  - name: School
+    latitude: -33.409171
+    longitude: 151.335211
+    icon: mdi:school
+  - name: Church
+    latitude: -33.405661
+    longitude: 151.336372
+    icon: mdi:church

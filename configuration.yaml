@@ -15,6 +15,26 @@ homeassistant:
 frontend:
   themes: !include_dir_merge_named themes/
 
+http:
+  server_port: 8122
+  trusted_proxies:
+    - 192.168.86.5
+    - 127.0.0.1
+    - 172.20.0.0/24
+    - 172.18.0.0/24
+  use_x_forwarded_for: true
+  cors_allowed_origins:
+    - https://cast.home-assistant.io
+
+logger:
+      default: info
+    
+updater:
+  include_used_components: true
+    
+automation: !include_dir_merge_list automation
+
+# Enable features
 discovery:
 config:
 conversation:
@@ -29,56 +49,5 @@ ffmpeg:
 ssdp:
 zeroconf:
 webhook:
-
-logger:
-  default: info
-
-http:
-  server_port: 8122
-  trusted_proxies:
-    - 192.168.86.5
-    - 127.0.0.1
-    - 172.20.0.0/24
-    - 172.18.0.0/24
-  use_x_forwarded_for: true
-  cors_allowed_origins:
-    - https://cast.home-assistant.io
-
-#webehome:
-#  username: !secret webehome_username
-#  password: !secret webehome_password
-    
-updater:
-  include_used_components: true
-    
-# Text to speech
-tts:
-  - platform: google_translate
-    service_name: google_say
-
 media_source:
 wake_on_lan:
-influxdb: !include influxdb.yaml
-netatmo: !include netatmo.yaml
-mqtt: !include mqtt.yaml
-hacs: !include hacs.yaml
-geo_location: !include geo_location.yaml
-input_select: !include input_select.yaml
-sensor: !include sensors.yaml
-google_assistant: !include google_assistant.yaml
-google: !include google.yaml
-zone: !include zone.yaml
-automation: !include_dir_merge_list automation
-script: !include scripts.yaml
-switch: !include_dir_merge_list switches
-scene: !include scene.yaml
-group: !include groups.yaml
-recorder: !include recorder.yaml
-media_player: !include media_player.yaml
-panel_iframe: !include panel_iframe.yaml
-notify: !include notify.yaml
-nest:
-  client_id: !secret nest_client_id
-  client_secret: !secret nest_client_secret 
-  project_id: !secret nest_project_id
-  subscriber_id: !secret nest_subscriber_id

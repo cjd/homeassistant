@@ -1,0 +1,6 @@
+geo_location:
+  - platform: nsw_rural_fire_service_feed
+    categories:
+      - 'Emergency Warning'
+      - 'Watch and Act'
+      - 'Advice'

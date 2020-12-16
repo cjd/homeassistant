@@ -1,0 +1,9 @@
+input_select:
+  livingroom_ac_state:
+    options:
+      - "Heat"
+      - "Cool"
+      - "Auto"
+      - "Dry"
+      - "Fan"
+      - "Off"

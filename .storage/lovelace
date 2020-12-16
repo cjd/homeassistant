@@ -860,10 +860,10 @@
                             "default_zoom": 13,
                             "entities": [
                                 {
-                                    "entity": "device_tracker.life360_mel"
+                                    "entity": "device_tracker.melphone_2"
                                 },
                                 {
-                                    "entity": "device_tracker.life360_chris"
+                                    "entity": "device_tracker.pixel_4_xl"
                                 },
                                 {
                                     "entity": "zone.home"
@@ -881,7 +881,8 @@
                             "geo_location_sources": [
                                 "all"
                             ],
-                            "type": "map"
+                            "type": "map",
+                            "hours_to_show": 0
                         }
                     ],
                     "icon": "mdi:map",
