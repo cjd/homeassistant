@@ -1,0 +1,5 @@
+light:
+  - platform: group
+    name: Robe Lights
+    entities:
+      - light.robe

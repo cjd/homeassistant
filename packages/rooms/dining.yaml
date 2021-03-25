@@ -1,0 +1,5 @@
+light:
+  - platform: group
+    name: Dining Lights
+    entities:
+      - light.dining

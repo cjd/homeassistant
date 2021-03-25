@@ -1,0 +1,5 @@
+light:
+  - platform: group
+    name: Ensuite Lights
+    entities:
+      - light.ensuite

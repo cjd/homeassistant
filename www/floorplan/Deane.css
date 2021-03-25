@@ -1,0 +1,79 @@
+#floorplan  {
+  padding: 10px;
+}
+
+svg tspan {
+  fill: var(--primary-text-color);
+}
+
+/* SVG shapes */
+
+svg, svg * {
+  /*vector-effect: non-scaling-stroke !important;*/
+  pointer-events: all !important;
+}
+
+/* Hover over */
+
+.ha-entity:hover {
+/*  stroke: #03A9F4 !important;
+  stroke-width: 3px !important;
+  stroke-opacity: 1 !important;*/
+}
+
+/* Animation */
+
+.spinning {
+  animation-name: spin;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* Binary sensors */
+
+.light-on {
+  visibility: hidden !important;
+}
+
+.light-off {
+  visibility: visible !important;
+}
+
+.livingroom-on {
+  fill: #888800 !important;
+}
+
+.livingroom-off {
+  fill: #444444 !important;
+}
+
+.sensor-open {
+  fill: #ff0000 !important;
+}
+
+.sensor-closed {
+  fill: #000000 !important;
+}
+
+.preset-normal {
+  visibility: hidden !important;
+}
+
+.preset-night {
+  visibility: visible !important;
+}
+
+.preset-off {
+  visibility: hidden !important;
+}

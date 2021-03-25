@@ -1,0 +1,5 @@
+light:
+  - platform: group
+    name: Driveway Lights
+    entities:
+      - light.frontdoordimmer

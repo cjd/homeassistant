@@ -1,0 +1,30 @@
+image: /local/floorplan/Deane-angle.svg?v=1
+console_log_level: warning
+rules:
+  - name: Livingroom
+    entities:
+      - light.office_lights
+      - light.xander_lights
+      - light.familyroom_lights
+      - light.bedroom_lights
+      - light.lucas_lights
+      - light.craftroom_lights
+      - light.hall_lights
+      - light.robe_lights
+      - light.bathroom_lights
+      - light.ensuite_lights
+      - light.laundry_lights
+      - light.kitchen_lights
+      - light.toilet_lights
+      - light.garage_lights
+      - light.livingroom_lights
+      - light.entry_lights
+      - light.driveway_lights
+    tap_action:
+      service: homeassistant.toggle
+    state_action:
+      action: call-service
+      service: floorplan.class_set
+      service_data:
+        class: '${(entity.state === "on") ? "light-on" : "light-off"}'
+stylesheet: /local/floorplan/Deane.css?v=1

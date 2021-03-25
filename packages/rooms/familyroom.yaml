@@ -1,0 +1,364 @@
+group:
+  familyroom_lightgroup:
+    name: Familyroom Light Group
+    entities:
+      - light.family_bl
+      - light.family_br
+      - light.family_ml
+      - light.family_mr
+      - light.family_fl
+      - light.family_fr
+light:
+  - platform: group
+    name: Familyroom Lights
+    entities:
+      - light.family_bl
+      - light.family_br
+      - light.family_ml
+      - light.family_mr
+      - light.family_fl
+      - light.family_fr
+  - platform: template
+    lights:
+      backlight_switch:
+        friendly_name: "TV Backlight"
+        value_template: "{{ is_state('light.tv_backlight', 'on') }}"
+        turn_on:
+          service: script.turn_on
+          entity_id: script.turn_tv_lights_on
+        turn_off:
+          service: script.turn_on
+          entity_id: script.turn_tv_lights_off
+
+switch:
+  - platform: template
+    switches:
+      familyroom_normal:
+        friendly_name: "Familyroom Full"
+        value_template: >
+          {% if states('light.family_ml') %}
+            {% if state_attr('light.family_ml','brightness') == 255 %}
+              true
+            {% else %}
+              false
+            {% endif %}
+          {% else %}
+            false
+          {% endif %}
+        turn_on:
+          service: scene.turn_on
+          target:
+            entity_id: scene.familyroom_normal
+        turn_off:
+          service: scene.turn_on
+          target:
+            entity_id: scene.familyroom_off
+      familyroom_low:
+        friendly_name: "Familyroom Medium"
+        value_template: >
+          {% if states('light.family_ml') %}
+            {% if ((state_attr('light.family_ml','brightness')|int > 100) and (state_attr('light.family_ml','brightness')|int < 200)) %}
+              true
+            {% else %}
+              false
+            {% endif %}
+          {% else %}
+            false
+          {% endif %}
+        turn_on:
+          service: scene.turn_on
+          target:
+            entity_id: scene.familyroom_low
+        turn_off:
+          service: scene.turn_on
+          target:
+            entity_id: scene.familyroom_off
+      familyroom_dim:
+        friendly_name: "Familyroom Dim"
+        value_template: >
+          {% if states('light.family_ml') %}
+            {% if ((state_attr('light.family_ml','brightness')|int < 100) and (state_attr('light.family_ml','brightness')|int > 0)) %}
+              true
+            {% else %}
+              false
+            {% endif %}
+          {% else %}
+            false
+          {% endif %}
+        turn_on:
+          service: scene.turn_on
+          target:
+            entity_id: scene.familyroom_dim
+        turn_off:
+          service: scene.turn_on
+          target:
+            entity_id: scene.familyroom_off
+
+camera:
+  - platform: ffmpeg
+    name: familyroom
+    input: rtsp://192.168.0.80:8554/unicast
+
+automation:
+  - id: '1613520733143'
+    alias: Familyroom Switch 1
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.familyroom_switch1
+      from: 'off'
+      to: 'on'
+    condition: []
+    action:
+    - service: switch.toggle
+      entity_id: switch.familyroom_dim
+    mode: single
+  - id: '1613520733144'
+    alias: Familyroom Switch 2
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.familyroom_switch2
+      from: 'off'
+      to: 'on'
+    condition: []
+    action:
+    - service: switch.toggle
+      entity_id: switch.familyroom_low
+    mode: single
+  - id: '1613520733145'
+    alias: Familyroom Switch 3
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.familyroom_switch3
+      from: 'off'
+      to: 'on'
+    condition: []
+    action:
+    - service: switch.toggle
+      entity_id: switch.familyroom_normal
+    mode: single
+  - id: '1610429484473'
+    alias: Family room light strip on
+    description: ''
+    trigger:
+    - platform: time
+      at: '18:00'
+    condition: []
+    action:
+    - service: light.turn_on
+      data:
+        entity_id: light.familyroom_lowerstrip
+        color_name: green
+        brightness_pct: 50
+    - service: light.turn_on
+      data:
+        entity_id: light.familyroom_shelfstrip
+        color_name: blue
+        brightness_pct: 75
+    mode: single
+  - id: '1610429484474'
+    alias: Family room light strip off
+    description: ''
+    trigger:
+    - platform: time
+      at: '22:00'
+    condition: []
+    action:
+    - service: light.turn_off
+      entity_id: light.familyroom_lowerstrip
+    - service: light.turn_off
+      entity_id: light.familyroom_shelfstrip
+    mode: single
+  - id: '1610430895469'
+    alias: TV Backlight on
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: media_player.samsung_tv_remote
+      from: 'off'
+      to: 'on'
+      for: 0:00:30
+    condition: []
+    action:
+    - service: light.turn_on
+      data:
+        color_name: blue
+        brightness_pct: 100
+      entity_id: light.tv_backlight
+    mode: single
+  - id: '1610430895470'
+    alias: TV Backlight off
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: media_player.samsung_tv_remote
+      from: 'on'
+      to: 'off'
+      for: 0:00:02
+    condition: []
+    action:
+    - service: light.turn_off
+      entity_id: light.tv_backlight
+    mode: single
+
+script:
+  turn_tv_lights_on:
+    mode: restart
+    sequence:
+      - service: light.turn_on
+        entity_id: light.tv_backlight
+        data:
+          brightness: 255
+          rgb_color: [0,0,255]
+          effect: None
+      - service: light.turn_on
+        entity_id: light.familyroom_lowerstrip
+        data:
+          brightness: 150
+          rgb_color: [0,255,0]
+          effect: None
+      - delay:
+          seconds: 2
+      - service: light.turn_on
+        entity_id: light.familyroom_shelfstrip
+        data:
+          brightness: 200
+          rgb_color: [0,0,255]
+          effect: None
+  turn_tv_lights_off:
+    mode: restart
+    sequence:
+      - service: light.turn_off
+        entity_id: light.tv_backlight
+      - service: light.turn_off
+        entity_id: light.familyroom_lowerstrip
+      - delay:
+          seconds: 2
+      - service: light.turn_off
+        entity_id: light.familyroom_shelfstrip
+
+scene:
+  - id: '1611195993245'
+    name: Watching TV
+    entities:
+      light.tv_backlight:
+        brightness: 255
+        rgb_color: [0,0,255]
+        effect: None
+        state: "on"
+      light.familyroom_lowerstrip:
+        brightness: 128
+        rgb_color: [0,255,0]
+        effect: None
+        state: "on"
+      light.familyroom_shelfstrip:
+        brightness: 255
+        rgb_color: [0,0,255]
+        effect: None
+        state: "on"
+    icon: mdi:television-ambient-light
+  - id: '1611195993246'
+    name: Not Watching TV
+    entities:
+      light.tv_backlight:
+        state: "off"
+      light.familyroom_lowerstrip:
+        state: "off"
+      light.familyroom_shelfstrip:
+        state: "off"
+    icon: mdi:television
+  - id: '1613889672194'
+    name: Familyroom Normal
+    entities:
+      light.familyroom_lights:
+        brightness: 255
+        color_temp: 402
+        effect: None
+        state: 'on'
+      light.tv_backlight:
+        brightness: 255
+        rgb_color: [0,0,255]
+        effect: None
+        state: 'on'
+      light.familyroom_lowerstrip:
+        brightness: 150
+        rgb_color: [0,255,0]
+        effect: None
+        state: 'on'
+      light.familyroom_shelfstrip:
+        brightness: 200
+        rgb_color: [0,0,255]
+        effect: None
+        state: 'on'
+  - id: '1613889765919'
+    name: Familyroom Dim
+    entities:
+      light.family_bl:
+        state: 'off'
+      light.family_br:
+        state: 'off'
+      light.family_fl:
+        state: 'off'
+      light.family_fr:
+        state: 'off'
+      light.family_ml:
+        brightness: 70
+        color_temp: 402
+        effect: None
+        state: 'on'
+      light.family_mr:
+        brightness: 70
+        color_temp: 402
+        effect: None
+        state: 'on'
+      light.familyroom_lowerstrip:
+        brightness: 150
+        rgb_color: [0,255,0]
+        effect: None
+        state: 'on'
+      light.familyroom_shelfstrip:
+        brightness: 200
+        rgb_color: [0,0,255]
+        effect: None
+        state: 'on'
+      light.tv_backlight:
+        brightness: 255
+        rgb_color: [0,0,255]
+        effect: None
+        state: 'on'
+  - id: '1613889879080'
+    name: Familyroom Off
+    entities:
+      light.familyroom_lowerstrip:
+        state: 'off'
+      light.familyroom_shelfstrip:
+        state: 'off'
+      light.familyroom_lights:
+        state: 'off'
+      light.tv_backlight:
+        state: 'off'
+  - id: '1614067231868'
+    name: Familyroom Low
+    entities:
+      light.tv_backlight:
+        brightness: 255
+        rgb_color: [0,0,255]
+        effect: None
+        state: 'on'
+      light.familyroom_lowerstrip:
+        brightness: 150
+        rgb_color: [0,255,0]
+        effect: None
+        state: 'on'
+      light.familyroom_shelfstrip:
+        brightness: 200
+        rgb_color: [0,0,255]
+        effect: None
+        state: 'on'
+      light.familyroom_lights:
+        brightness: 150
+        color_temp: 402
+        effect: None
+        state: 'on'

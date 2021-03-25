@@ -1,0 +1,5 @@
+light:
+  - platform: group
+    name: Pantry Lights
+    entities:
+      - light.pantry
