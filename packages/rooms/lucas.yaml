@@ -2,31 +2,4 @@ light:
   - platform: group
     name: Lucas Lights
     entities:
-      - light.lucas
-
-switch:
-  - platform: template
-    switches:
-      lucas_lights:
-        value_template: "{{ states('light.lucas_lights') }}"
-        icon_template: mdi:bed-empty
-        friendly_name: "Lucas Bedroom"
-        turn_on:
-          service: light.turn_on
-          data:
-              entity_id: light.lucas_lights
-              brightness_pct: 1
-              white_value: 255
-              transition: 1
-        turn_off:
-          service: light.turn_off
-          data:
-              entity_id: light.lucas_lights
-              transition: 1
-
-climate:
-  - platform: generic_thermostat
-    name: Lucas Bedroom
-    heater: switch.lucas_heater
-    target_sensor: sensor.lucas_bedroom_sensor_temperature
-    initial_hvac_mode: 'off'
+      - light.lucasdimmer

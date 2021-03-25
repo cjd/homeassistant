@@ -12,47 +12,17 @@ google_assistant:
     - camera
   expose_by_default: false
   entity_config:
-    script.leaving_home:
-      expose: true
-    script.arriving_home:
-      expose: true
-    climate.living_room:
-      expose: true
-    scene.all_off:
-      expose: true
-    scene.movie:
-      expose: true
-    scene.night:
-      expose: true
-    scene.normal:
-      expose: true
-    scene.turn_off:
-      expose: true
-    camera.backroom:
-      expose: true
-    camera.backyard:
-      expose: true
-    camera.carport:
-      expose: true
-    camera.livingroom:
-      expose: true
-    camera.entry:
-      expose: true
-    light.office_lights:
-      expose: true
-    light.lucas_lights:
-      expose: true
-    light.backroom_lights:
-      expose: true
-    light.backyard_lights:
-      expose: true
     light.bedroom_lights:
-      expose: true
-    light.carport_lights:
       expose: true
     light.craftroom_lights:
       expose: true
+    light.dining_lights:
+      expose: true
     light.entry_lights:
+      expose: true
+    light.familyroom_lights:
+      expose: true
+    light.frontdoor_lights:
       expose: true
     light.hall_lights:
       expose: true
@@ -60,59 +30,27 @@ google_assistant:
       expose: true
     light.livingroom_lights:
       expose: true
+    light.lucas_lights:
+      expose: true
+    light.office_lights:
+      expose: true
+    light.pantry_lights:
+      expose: true
     light.xander_lights:
       expose: true
-    light.toilet:
+    light.backlight_switch:
       expose: true
-    light.laundry_toilet:
+    camera.backroom:
       expose: true
-    light.laundry:
+    camera.entrycam:
       expose: true
-    switch.power2:
+    camera.familyroom:
       expose: true
-    switch.powerboard_outlet_1:
+    camera.livingroom:
       expose: true
-    switch.powerboard_outlet_2:
+    scene.familyroom_normal:
       expose: true
-    switch.powerboard_outlet_3:
-      expose: true  
-    switch.powerboard_outlet_4:
+    scene.familyroom_low:
       expose: true
-    fan.office_fan:
-      expose: true
-    fan.bedroom_fan:
-      expose: true
-    fan.kitchen_fan:
-      expose: true
-    fan.xander_fan:
-      expose: true
-    sensor.xander_bedroom_sensor_temperature:
-      expose: true
-    sensor.backroom_sensor_temperature:
-      expose: true
-    sensor.bedroom_temperature:
-      expose: true
-    sensor.carport_temperature:
-      expose: true
-    sensor.lucas_bedroom_sensor_temperature:
-      expose: true
-    sensor.office_temperature:
-      expose: true
-    sensor.netatmo_outdoor_temperature:
-      expose: true
-    switch.bedroom_plug_bottom:
-      expose: true
-    switch.bedroom_plug_top:
-      expose: true
-    switch.sonoff_pow_r2_relay:
-      expose: true
-    switch.officepower_a:
-      expose: true
-    switch.officepower_b:
-      expose: true
-    switch.officepower_c:
-      expose: true  
-    switch.officepower_d:
-      expose: true
-    group.pihole:
+    scene.familyroom_dim:
       expose: true

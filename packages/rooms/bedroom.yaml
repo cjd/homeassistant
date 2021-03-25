@@ -2,178 +2,102 @@ light:
   - platform: group
     name: Bedroom Lights
     entities:
-      - light.bedrooma
-      - light.bedroomb
-
-switch:
-  - platform: template
-    switches:
-      bedroom_lights:
-        value_template: "{{ states('light.bedroom_lights') }}"
-        icon_template: mdi:bed-empty
-        friendly_name: "Bedroom"
-        turn_on:
-          service: light.turn_on
-          data:
-              entity_id: light.bedroom_lights
-              brightness: 255
-              color_temp: 370
-              transition: 1
-        turn_off:
-          service: light.turn_off
-          data:
-              entity_id: light.bedroom_lights
-              transition: 1
-
-climate:
-  - platform: generic_thermostat
-    name: Main Bedroom
-    heater: switch.bedroom_heater
-    target_sensor: sensor.bedroom_temperature
-    initial_hvac_mode: 'off'
-
-fan:
-  - platform: mqtt
-    name: "Bedroom Fan"
-    command_topic: "Bedroom_Fan/cmnd/FanSpeed"
-    speed_command_topic: "Bedroom_Fan/cmnd/FanSpeed"
-    state_topic: "Bedroom_Fan/stat/RESULT"
-    speed_state_topic: "Bedroom_Fan/stat/RESULT"
-    state_value_template: >
-      {% if value_json.FanSpeed is defined %}
-        {% if value_json.FanSpeed == 0 -%}0{%- elif value_json.FanSpeed > 0 -%}ON{%- endif %}
-      {% else %}
-        {% if states.fan.Bedroom_Fan.state == 'off' -%}0{%- elif states.fan.Bedroom_Fan.state == 'on' -%}O{%- endif %}
-      {% endif %}
-    speed_value_template: "{{ value_json.FanSpeed }}"
-    availability_topic: Bedroom_Fan/tele/LWT
-    payload_off: "0"
-    payload_on: 'on'
-    payload_low_speed: "1"
-    payload_medium_speed: "2"
-    payload_high_speed: "3"
-    payload_available: Online
-    payload_not_available: Offline
-    speeds:
-      - off
-      - low
-      - medium
-      - high
+      - light.bedroomdimmer
 
 automation:
-  - alias: Main Bedroom - fan button
+  - id: '1610172763965'
+    alias: Main bedroom - Kid indicator on
     trigger:
-      - platform: state
-        entity_id: binary_sensor.bedroom_fan_button1
-        from: 'off'
-        to: 'on'
-    condition: []
+    - platform: state
+      entity_id: light.lucas_lights
+    - platform: state
+      entity_id: light.xander_lights
+    condition: 
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: light.lucas_lights
+          state: 'on'
+        - condition: state
+          entity_id: light.xander_lights
+          state: 'on'
     action:
-      service: fan.set_speed
-      entity_id: fan.bedroom_fan
-      data_template:
-        speed: "{% if is_state('fan.bedroom_fan', 'off') %}low{% else %}false{% endif %}"
-  - id: kids_lights
-    alias: Main bedroom - Kid indicator
-    trigger:
-      - platform: state
-        entity_id: light.lucas_lights
-      - platform: state
-        entity_id: light.xander_lights
-    condition: []
-    action:
-      service: light.turn_on
+    - service: light.turn_on
       data_template:
         entity_id: light.bedroom_led
-        brightness_pct: "{% if is_state('light.lucas_lights', 'off') and is_state('light.xander_lights', 'off') %}0{% else %}40{% endif %}"
-        color_name: >
-          {% if is_state('light.lucas_lights', 'on') and is_state('light.xander_lights', 'on') %} red
-          {% elif is_state('light.lucas_lights', 'off') and is_state('light.xander_lights', 'on') %} green
-          {% elif is_state('light.lucas_lights', 'on') and is_state('light.xander_lights', 'off') %} blue
-          {% else %} white
-          {% endif %}
-  - id: main_bedroom_night_mode
-    alias: Main bedroom - night mode
+        brightness_pct: 40
+        color_name: '{% if is_state(''light.lucas_lights'', ''on'') and is_state(''light.xander_lights'',
+          ''on'') %} red {% elif is_state(''light.lucas_lights'', ''off'') and is_state(''light.xander_lights'',
+          ''on'') %} green {% elif is_state(''light.lucas_lights'', ''on'') and is_state(''light.xander_lights'',
+          ''off'') %} blue {% else %} black {% endif %}'
+  - id: '1610172763966'
+    alias: Main bedroom - Kid indicator off
     trigger:
-      platform: time
-      at: '20:30:00'
-    condition:
-      condition: state
-      entity_id: light.bedroom_lights
-      state: 'off'
+    - platform: state
+      entity_id: light.lucas_lights
+    - platform: state
+      entity_id: light.xander_lights
+    condition: 
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: light.lucas_lights
+          state: 'off'
+        - condition: state
+          entity_id: light.xander_lights
+          state: 'off'
     action:
-      service: light.turn_on
-      data:
-        entity_id: light.bedroom_lights
-        brightness: 125
-        transition: 300
-        color_temp: 450
-  - alias: Main Bedroom - Dimmer
-    trigger:
-    - entity_id: sensor.bedroom_dimmer_action
-      platform: state
-      to: 'down-press'
-    action:
-    - entity_id: light.bedroom_lights
-      service: light.turn_on
+    - service: light.turn_off
       data_template:
-        transition: 1
-        color_name: blue
-        brightness: 80
-    - entity_id: switch.bedroom_relay_1
-      service: switch.turn_on
-  - alias: Cube rotate_left
+        entity_id: light.bedroom_led
+  - id: '1610190580265'
+    alias: Bedroom night light
+    description: ''
     trigger:
-    - entity_id: sensor.cube_action
-      platform: state
-      to: 'rotate_left'
+    - platform: time
+      at: '20:30'
+    condition: []
     action:
-    - entity_id: light.bedroom_lights
-      service: light.turn_on
+    - service: light.turn_on
+      data_template:
+        entity_id: light.bedroom_lights
+        brightness_pct: 10
+  - id: '1611015024885'
+    alias: Bedroom_Left
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: sensor.double_switch_click
+      to: left
+    condition: []
+    action:
+    - service: light.turn_on
       data:
         entity_id: light.bedroom_lights
-        brightness: 125
-        transition: 1
-        color_temp: 450
-  - alias: Cube rotate_right
+        brightness_pct: 10
+    - service: light.turn_off
+      data:
+        entity_id: light.familyroom_lights
+    - service: script.turn_on
+      data:
+        entity_id: script.turn_tv_lights_off
+    mode: single
+  - id: '1611015024886'
+    alias: Bedroom_Right
+    description: ''
     trigger:
-    - entity_id: sensor.cube_action
-      platform: state
-      to: 'rotate_right'
+    - platform: state
+      entity_id: sensor.double_switch_click
+      to: right
+    condition: []
     action:
-    - entity_id: light.bedroom_lights
-      service: light.turn_on
+    - service: light.turn_off
       data:
         entity_id: light.bedroom_lights
-        brightness: 255
-        transition: 1
-        color_temp: 450
-  - alias: Cube flip90
-    trigger:
-    - entity_id: sensor.cube_action
-      platform: state
-      to: 'flip90'
-    action:
-    - entity_id: light.bedroom_lights
-      service: light.turn_off
-  - alias: Cube flip180
-    trigger:
-    - entity_id: sensor.cube_action
-      platform: state
-      to: 'flip180'
-    action:
-      - entity_id: scene.turn_off
-        service: scene.turn_on
-  # - alias: Cube slide
-  #   trigger:
-  #   - entity_id: sensor.cube_action
-  #     platform: state
-  #     to: 'slide'
-  - alias: Cube shake
-    trigger:
-    - entity_id: sensor.cube_action
-      platform: state
-      to: 'shake'
-    action:
-    - entity_id: scene.night
-      service: scene.turn_on
+    - service: light.turn_off
+      data:
+        entity_id: light.familyroom_lights
+    - service: script.turn_on
+      data:
+        entity_id: script.turn_tv_lights_off
+    mode: single

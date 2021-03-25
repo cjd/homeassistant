@@ -1,43 +1,41 @@
-sensor.bom_gosford_cloud_oktas:
-  hidden: true
-sensor.netatmo_indoor_co2:
-  friendly_name: Indoor CO2
-sensor.netatmo_indoor_humidity:
-  friendly_name: Indoor Humidity
-sensor.netatmo_indoor_noise:
-  friendly_name: Indoor Noise
-sensor.netatmo_outdoor_temperature:
-  friendly_name: Outdoor Temperature
-sensor.netatmo_indoor_pressure:
-  friendly_name: Indoor Pressure
-sensor.netatmo_indoor_temperature:
-  friendly_name: Indoor Temperature
-sensor.netatmo_outdoor_humidity:
-  friendly_name: Outdoor Humidity
-binary_sensor.livingroom_window_sensor_contact:
-  device_class: window
-binary_sensor.ac_active_sensor_contact:
-  device_class: power
-sensor.entry_motion_sensor_temperature:
-  friendly_name: Carport Temperature
-sensor.lucas_bedroom_sensor_temperature:
-  friendly_name: Lucas Bedroom Temperature
-sensor.xander_bedroom_sensor_temperature:
-  friendly_name: Xander Bedroom Temperature
-light.backyard_lights:
-  friendly_name: Backyard
+light.bathroom_lights:
+  friendly_name: Bathroom
+  icon: mdi:shower
+light.bedroom_lights:
+  friendly_name: Bedroom
+  icon: mdi:bed-double
+light.craftroom_lights:
+  friendly_name: Craftroom
+  icon: mdi:record-player
+light.ensuite_lights:
+  friendly_name: Ensuite
+  icon: mdi:shower-head
+light.entry_lights:
+  friendly_name: Entry
+  icon: mdi:ceiling-light
+light.familyroom_lights:
+  friendly_name: Familyroom
+  icon: mdi:television
+light.garage_lights:
+  friendly_name: Garage
+  icon: mdi:car
+light.kitchen_lights:
+  friendly_name: Kitchen
+  icon: mdi:stove
+light.lucas_lights:
+  friendly_name: Lucas
+  icon: mdi:rocket
 light.office_lights:
   friendly_name: Office
+  icon: mdi:desktop-tower-monitor
 light.xander_lights:
-  friendly_name: Xander Bedroom
-light.lucas_lights:
-  friendly_name: Lucas Bedroom
+  friendly_name: Xander
+  icon: mdi:toy-brick
+light.dining_lights:
+  friendly_name: Dining
+  icon: mdi:table-chair
+light.livingroom_lights:
+  friendly_name: Livingroom
+  icon: mdi:seat
 light.hall_lights:
   friendly_name: Hall
-light.carport_lights:
-  friendly_name: Carport
-switch.christmas_tree:
-  icon: mdi:pine-tree
-switch.powerboard_outlet_4: {}
-switch.christmas_lights_bright:
-  friendly_name: Christmas Lights Bright

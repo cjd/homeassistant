@@ -1,9 +1,0 @@
-notify:
-  - name: Home assistant
-    platform: html5
-    vapid_pub_key: !secret vapid_pub_key
-    vapid_prv_key: !secret vapid_prv_key
-    vapid_email: !secret email
-  #- name: Telegram Notify
-  #  platform: telegram
-  #  chat_id: !secret telegram_chatid

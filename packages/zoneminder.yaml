@@ -1,9 +1,0 @@
-zoneminder:
-  - host: 192.168.86.19:8082
-    username: !secret zoneminder_username
-    password: !secret zoneminder_password
-camera:
-  - platform: zoneminder
-sensor:
-  - platform: zoneminder
-    include_archived: false

@@ -11,7 +11,13 @@ from homeassistant.const import (
     TEMP_CELSIUS,
 )
 from homeassistant.components.weather import WeatherEntity
-from .const import ATTRIBUTION, DOMAIN
+from homeassistant.core import callback
+from .const import (ATTRIBUTION,
+                    COLLECTOR,
+                    CONF_FORECASTS_BASENAME,
+                    COORDINATOR,
+                    DOMAIN,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -47,11 +53,16 @@ CONDITION_MAP = {
 
 async def async_setup_entry(hass, config_entry, async_add_devices):
     """Add sensors for passed config_entry in HA."""
-    collector = hass.data[DOMAIN][config_entry.entry_id]
+    hass_data = hass.data[DOMAIN][config_entry.entry_id]
 
     new_devices = []
 
-    new_devices.append(Weather(collector))
+    if CONF_FORECASTS_BASENAME in config_entry.data:
+        location_name = config_entry.data[CONF_FORECASTS_BASENAME]
+    else:
+        location_name = hass_data[COLLECTOR].location_name
+
+    new_devices.append(Weather(hass_data, location_name))
 
     if new_devices:
         async_add_devices(new_devices)
@@ -60,19 +71,41 @@ async def async_setup_entry(hass, config_entry, async_add_devices):
 class Weather(WeatherEntity):
     """Representation of a BOM weather entity."""
 
-    def __init__(self, collector):
+    def __init__(self, hass_data, location_name):
         """Initialize the sensor."""
-        self.collector = collector
+        self.collector = hass_data[COLLECTOR]
+        self.coordinator = hass_data[COORDINATOR]
+        self.location_name = location_name
+
+    async def async_added_to_hass(self) -> None:
+        """Set up a listener and load data."""
+        self.async_on_remove(
+            self.coordinator.async_add_listener(self._update_callback)
+        )
+        self.async_on_remove(
+            self.coordinator.async_add_listener(self._update_callback)
+        )
+        self._update_callback()
+
+    @callback
+    def _update_callback(self) -> None:
+        """Load data from integration."""
+        self.async_write_ha_state()
+
+    @property
+    def should_poll(self) -> bool:
+        """Entities do not individually poll."""
+        return False
 
     @property
     def name(self):
         """Return the name."""
-        return self.collector.location_name
+        return self.location_name
 
     @property
     def unique_id(self):
         """Return Unique ID string."""
-        return self.collector.location_name
+        return self.location_name
 
     @property
     def temperature(self):
@@ -129,4 +162,7 @@ class Weather(WeatherEntity):
     @property
     def condition(self):
         """Return the current condition."""
-        return self.collector.daily_forecasts_data["data"][0]["short_text"]
+        return CONDITION_MAP[self.collector.daily_forecasts_data["data"][0]["icon_descriptor"]]
+
+    async def async_update(self):
+        await self.coordinator.async_update()

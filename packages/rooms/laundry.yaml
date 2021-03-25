@@ -1,7 +1,5 @@
 light:
-  - platform: switch
-    name: Laundry Toilet
-    entity_id: switch.laundry_toilet_light
-  - platform: switch
-    name: Laundry
-    entity_id: switch.laundry_light
+  - platform: group
+    name: Laundry Lights
+    entities:
+      - light.laundry

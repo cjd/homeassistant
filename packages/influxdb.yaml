@@ -1,13 +1,20 @@
 influxdb:
-  host: 192.168.86.5
+  host: 192.168.0.10
+  ssl: false
+  api_version: 2
   port: 8086
-  database: homeassistant
-  #username: !secret influx_username
-  #password: !secret influx_username
-  max_retries: 3
-  default_measurement: value
+  token: ITggE3LjpMpZWCf-GP3d5W_6bEC11WdzPVVar1xI-1hbCuqSLyaNOSufCoirzF4Jg5bWjUANlHFGEjV4wIxRWA==
+  organization: 42a0e6e4c1d39b17
+  bucket: homeassistant
+  tags:
+    source: HA
   tags_attributes:
     - friendly_name
+  default_measurement: units
   include:
-    domains:
-      - sensor
+    entity_globs:
+      - sensor.*_temperature
+      - sensor.*_humidity
+      - sensor.*_pressure
+      - sensor.*_power
+

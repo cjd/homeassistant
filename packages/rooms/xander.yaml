@@ -2,95 +2,25 @@ light:
   - platform: group
     name: Xander Lights
     entities:
-      - light.xander
-
-switch:
-  - platform: template
-    switches:
-      xander_lights:
-        value_template: "{{ states('light.xander_lights') }}"
-        icon_template: mdi:bed-empty
-        friendly_name: "Xander Bedroom"
-        turn_on:
-          service: light.turn_on
-          data:
-              entity_id: light.xander_lights
-              brightness: 255
-              transition: 1
-        turn_off:
-          service: light.turn_off
-          data:
-              entity_id: light.xander_lights
-              transition: 1
-    
-
-climate:
-  - platform: generic_thermostat
-    name: Xander Bedroom
-    heater: switch.xander_heater
-    target_sensor: sensor.xander_bedroom_sensor_temperature
-    initial_hvac_mode: 'off'
-
-fan:
-  - platform: mqtt
-    name: "Xander Fan"
-    command_topic: "XanderFan/cmnd/FanSpeed"
-    speed_command_topic: "XanderFan/cmnd/FanSpeed"
-    state_topic: "XanderFan/stat/RESULT"
-    speed_state_topic: "XanderFan/stat/RESULT"
-    state_value_template: >
-      {% if value_json.FanSpeed is defined %}
-        {% if value_json.FanSpeed == 0 -%}0{%- elif value_json.FanSpeed > 0 -%}ON{%- endif %}
-      {% else %}
-        {% if states.fan.Xander_Fan.state == 'off' -%}0{%- elif states.fan.Xander_Fan.state == 'on' -%}O{%- endif %}
-      {% endif %}
-    speed_value_template: "{{ value_json.FanSpeed }}"
-    availability_topic: XanderFan/tele/LWT
-    payload_off: "0"
-    payload_on: 'on'
-    payload_low_speed: "1"
-    payload_medium_speed: "2"
-    payload_high_speed: "3"
-    payload_available: Online
-    payload_not_available: Offline
-    speeds:
-      - off
-      - low
-      - medium
-      - high
+      - light.xanderdimmer
 
 automation:
-  - alias: Xander - Dimmer White
+  - id: moon_on
+    alias: Moon - turn on
     trigger:
-    - entity_id: sensor.xander_dimmer_action
-      platform: state
-    condition:
-      - condition: template
-        value_template: "{{ trigger.to_state.state in ['on-press', 'up-press', 'off-press'] }}"
+      platform: time
+      at: "18:00"
     action:
-    - entity_id: light.xander_lights
       service: light.turn_on
-      data_template:
-        transition: 1
-        color_temp: 450
-        brightness_pct: >
-          {% if trigger.to_state.state == 'on-press' %} 100
-          {% elif trigger.to_state.state == 'up-press' %} 50
-          {% elif trigger.to_state.state == 'off-press' %} 0
-          {% endif %}
-        effect: 0
-  - alias: Xander - Dimmer Colour
+      data:
+        entity_id: light.moon_led
+        effect: Slow Random Effect
+  - id: moon_off
+    alias: Moon - turn off
     trigger:
-    - entity_id: sensor.xander_dimmer_action
-      platform: state
-    condition:
-      - condition: template
-        value_template: "{{ trigger.to_state.state in ['down-press']}}"
+      platform: time
+      at: "7:00"
     action:
-    - entity_id: light.xander_lights
-      service: light.turn_on
-      data_template:
-        transition: 1
-        color_name: blue
-        brightness: 255
-        effect: 2
+      service: light.turn_off
+      data:
+        entity_id: light.moon_led

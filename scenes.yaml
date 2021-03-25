@@ -1,8 +1,0 @@
-- id: '1574489181898'
-  name: Office On
-  entities:
-    light.office_light_light:
-      brightness: 255
-      state: 'on'
-    switch.office_speaker:
-      state: 'on'

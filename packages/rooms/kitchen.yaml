@@ -2,91 +2,32 @@ light:
   - platform: group
     name: Kitchen Lights
     entities:
-      - light.kitchen_back
-      - light.kitchen_front
-
-switch:
-  - platform: template
-    switches:
-      kitchen_lights:
-        icon_template: mdi:fridge
-        friendly_name: "Kitchen"
-        value_template: "{{ states('light.kitchen_lights') }}"
-        turn_on:
-          - service: light.turn_on
-            data:
-              entity_id: light.kitchen_lights
-              brightness: 255
-              transition: 1
-              color_temp: 420
-          - service: light.turn_on
-            data:
-              entity_id: light.kitchen_strip
-              brightness: 255
-              transition: 1
-              color_name: white
-        turn_off:
-          service: light.turn_off
-          data:
-              entity_id: light.kitchen_lights
-              transition: 1
-
-fan:
-  - platform: template
-    fans:
-      kitchen_fan:
-        friendly_name: "Kitchen Fan"
-        value_template: "{{ states('switch.kitchen_relay_3.state') }}"
-        turn_on:
-          service: switch.turn_on
-          data:
-            entity_id: switch.kitchen_relay_3
-        turn_off:
-          service: switch.turn_off
-          data:
-            entity_id: switch.kitchen_relay_3
+      - light.kitchenfront
+      - light.kitchenback
 
 automation:
-  - alias: Kitchen - Switch 1
+  - id: '1615539466617'
+    alias: Turn on the kitchen strip when the sun is set
+    description: ''
     trigger:
-      - entity_id: binary_sensor.kitchen_switch1
-        platform: state
-        from: 'off'
-        to: 'on'
+      - platform: sun
+        event: sunset
     condition: []
     action:
       - service: light.turn_on
+        entity_id: light.kitchen_strip
         data:
-          entity_id: light.kitchen_strip
-          brightness: 255
-          color_name: white
-  - alias: Kitchen - Switch 2
-    trigger:
-      - entity_id: binary_sensor.kitchen_switch2
-        platform: state
-        from: 'off'
-        to: 'on'
-    condition: []
-    action:
-      - service: light.turn_on
-        data:
-          entity_id: light.kitchen_lights
-          transition: 1
           brightness_pct: 50
-          color_name: blue
-      - service: light.turn_on
-        data:
-          entity_id: light.kitchen_strip
-          transition: 1
-          brightness_pct: 50
-          color_name: blue
-  - alias: Kitchen - Switch 3
+          effect: Random Fade
+    mode: single
+  - id: '1615539466618'
+    alias: Turn off the kitchen strip when the sun is up
+    description: ''
     trigger:
-      - entity_id: binary_sensor.kitchen_switch3
-        platform: state
-        from: 'off'
-        to: 'on'
+      - platform: sun
+        event: sunrise
     condition: []
     action:
-      - entity_id: light.kitchen_strip
-        service: light.turn_off
+      - service: light.turn_off
+        entity_id: light.kitchen_strip
+    mode: single

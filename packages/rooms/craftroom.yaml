@@ -2,36 +2,4 @@ light:
   - platform: group
     name: Craftroom Lights
     entities:
-      - light.craft_room
-
-switch:
-  - platform: template
-    switches:
-      craftroom_lights:
-        icon_template: mdi:content-cut
-        friendly_name: "Craft"
-        value_template: "{{ states('light.craftroom_lights') }}"
-        turn_on:
-          service: light.turn_on
-          data:
-              entity_id: light.craftroom_lights
-              brightness: 255
-              color_temp: 370
-              transition: 1
-        turn_off:
-          service: light.turn_off
-          data:
-              entity_id: light.craftroom_lights
-              transition: 1
-
-automation:
-  - alias: Craftroom - Dimmer
-    trigger:
-    - entity_id: sensor.doubleswitch_click
-      platform: state
-    condition:
-      - condition: template
-        value_template: "{{ trigger.to_state.state in ['left','left_long','right','right_long'] }}"
-    action:
-    - entity_id: light.craftroom_lights
-      service: light.toggle
+      - light.craftdimmer

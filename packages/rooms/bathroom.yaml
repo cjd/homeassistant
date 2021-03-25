@@ -1,10 +1,5 @@
 light:
-  - platform: template
-    lights:
-      bathroom_lights:
-        friendly_name: "Bathroom Lights"
-        value_template: off
-        turn_on:
-          service: script.noop
-        turn_off:
-          service: script.noop
+  - platform: group
+    name: Bathroom Lights
+    entities:
+      - light.bathroom

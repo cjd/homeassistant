@@ -2,94 +2,9 @@ light:
   - platform: group
     name: Office Lights
     entities:
-      - light.shelly_shdm_2_e0980695124b
-
-group:
-  pihole:
-    name: Pihole
-    entities:
-      - switch.pi_hole_dock
-      - switch.pi_hole_piserve
-
-switch:
-  - platform: template
-    switches:
-      office_lights:
-        value_template: "{{ states('light.office_lights') }}"
-        icon_template: mdi:desktop-classic
-        friendly_name: "Office"
-        turn_on:
-          - service: light.turn_on
-            data:
-              entity_id: light.office_lights
-              brightness: 255
-              transition: 1
-          - service: light.turn_on
-            data:
-              entity_id: light.office_lights
-        turn_off:
-          service: light.turn_off
-          data:
-              entity_id: light.office_lights
-              transition: 1
-  - platform: wake_on_lan
-    name: Jimbob
-    mac: f8:b1:56:c9:20:6d
-    host: jimbob.lan
-    turn_off:
-      service: shell_command.turn_off_jimbob
-
-shell_command:
-  turn_off_jimbob: 'ssh hass@jimbob.lan sudo pm-suspend'
-
-climate:
-  - platform: generic_thermostat
-    name: Office
-    heater: switch.koganpow1
-    target_sensor: sensor.office_temperature
-    initial_hvac_mode: 'off'
-
-fan:
-  - platform: mqtt
-    name: "Office Fan"
-    command_topic: "Office_Fan/cmnd/FanSpeed"
-    speed_command_topic: "Office_Fan/cmnd/FanSpeed"
-    state_topic: "Office_Fan/stat/RESULT"
-    speed_state_topic: "Office_Fan/stat/RESULT"
-    state_value_template: >
-      {% if value_json.FanSpeed is defined %}
-        {% if value_json.FanSpeed == 0 -%}0{%- elif value_json.FanSpeed > 0 -%}ON{%- endif %}
-      {% else %}
-        {% if states.fan.Office_Fan.state == 'off' -%}0{%- elif states.fan.Office_Fan.state == 'on' -%}ON{%- endif %}
-      {% endif %}
-    speed_value_template: "{{ value_json.FanSpeed }}"
-    availability_topic: Office_Fan/tele/LWT
-    payload_off: "0"
-    payload_on: 'on'
-    payload_low_speed: "1"
-    payload_medium_speed: "2"
-    payload_high_speed: "3"
-    payload_available: Online
-    payload_not_available: Offline
-    speeds:
-      - off
-      - low
-      - medium
-      - high
+      - light.office_light
 
 automation:
-  - alias: Office - fan button
-    trigger:
-      - platform: state
-        entity_id: binary_sensor.office_fan_button1
-        from: 'off'
-        to: 'on'
-    condition: []
-    action:
-      service: fan.set_speed
-      entity_id: fan.office_fan
-      data_template:
-        speed: "{% if is_state('fan.office_fan', 'off') %}low{% else %}false{% endif %}"
   - alias: Office - Switch 1
     trigger:
       - entity_id: binary_sensor.office_switch1
@@ -98,28 +13,8 @@ automation:
         to: 'on'
     condition: []
     action:
-      - entity_id: switch.officepower_d
-        service: switch.turn_on
-      - service: switch.turn_on
-        entity_id: switch.powerboard2_outlet_1
-      - service: switch.turn_on
-        entity_id: switch.powerboard2_outlet_2
-      - service: switch.turn_on
-        entity_id: switch.powerboard2_outlet_3
-      - service: switch.turn_on
-        entity_id: switch.powerboard2_outlet_4
       - service: light.turn_on
         entity_id: light.office_strip
-        data:
-          entity_id: light.office_strip
-          effect: Rainbow
-      - service: light.turn_on
-        entity_id: light.office_lights
-      - service: light.turn_on
-        entity_id: light.office_shelf
-        data:
-          entity_id: light.office_shelf
-          effect: Rainbow
   - alias: Office - Switch 2
     trigger:
       - entity_id: binary_sensor.office_switch2
@@ -129,11 +24,11 @@ automation:
     condition: []
     action:
       - service: switch.turn_on
-        entity_id: switch.powerboard2_outlet_2
+        entity_id: switch.powerboard3_outlet_1
       - service: switch.turn_on
-        entity_id: switch.powerboard2_outlet_3
+        entity_id: switch.powerboard3_outlet_2
       - service: switch.turn_on
-        entity_id: switch.powerboard2_outlet_4
+        entity_id: switch.powerboard3_outlet_4
   - alias: Office - Switch 3
     trigger:
       - entity_id: binary_sensor.office_switch3
@@ -142,24 +37,13 @@ automation:
         to: 'on'
     condition: []
     action:
-      - entity_id: switch.officepower_d
-        service: switch.turn_off
-      - entity_id: fan.office_fan
-        service: fan.turn_off
       - service: switch.turn_off
-        entity_id: switch.powerboard2_outlet_1
+        entity_id: switch.powerboard3_outlet_1
       - service: switch.turn_off
-        entity_id: switch.powerboard2_outlet_2
+        entity_id: switch.powerboard3_outlet_2
       - service: switch.turn_off
-        entity_id: switch.powerboard2_outlet_3
-      - service: switch.turn_off
-        entity_id: switch.powerboard2_outlet_4
-      - service: light.turn_on
-        entity_id: light.office_strip
-        data:
-          entity_id: light.office_strip
-          effect: Random Twinkle
+        entity_id: switch.powerboard3_outlet_4
       - service: light.turn_off
-        entity_id: light.office_shelf
+        entity_id: light.office_strip
       - service: light.turn_off
         entity_id: light.office_lights

@@ -1,25 +1,5 @@
 light:
-  - platform: switch
+  - platform: group
     name: Entry Lights
-    entity_id:
-      - switch.entry_relay_2
-
-switch:
-  - platform: template
-    switches:
-      entry_lights:
-        value_template: "{{ states('light.entry_lights') }}"
-        icon_template: mdi:door
-        friendly_name: "Entry"
-        turn_on:
-          service: light.turn_on
-          data:
-              entity_id: light.entry_lights
-              brightness: 255
-              color_temp: 420
-              transition: 1
-        turn_off:
-          service: light.turn_off
-          data:
-              entity_id: light.entry_lights
-              transition: 1
+    entities:
+      - light.entrydimmer

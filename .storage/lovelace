@@ -3,180 +3,41 @@
     "key": "lovelace",
     "data": {
         "config": {
-            "animated_background": {
-                "default_url": "/local/backgrounds/sunny-1.mp4",
-                "entity": "sensor.bom_gosford_icon_0",
-                "state_url": {
-                    "clear-night": [
-                        "/local/backgrounds/clear-night-1.mp4",
-                        "/local/backgrounds/clear-night-2.mp4",
-                        "/local/backgrounds/clear-night-3.mp4",
-                        "/local/backgrounds/clear-night-4.mp4"
-                    ],
-                    "cloudy": [
-                        "/local/backgrounds/mostlycloudy-1.mp4",
-                        "/local/backgrounds/mostlycloudy-2.mp4",
-                        "/local/backgrounds/mostlycloudy-3.mp4"
-                    ],
-                    "fog": [
-                        "/local/backgrounds/fog-1.mp4",
-                        "/local/backgrounds/fog-2.mp4"
-                    ],
-                    "haze": [
-                        "/local/backgrounds/fog-1.mp4",
-                        "/local/backgrounds/fog-2.mp4"
-                    ],
-                    "heavy-showers": [
-                        "/local/backgrounds/rainy-1.mp4"
-                    ],
-                    "light-rain": [
-                        "/local/backgrounds/rainy-1.mp4"
-                    ],
-                    "light-showers": [
-                        "/local/backgrounds/rainy-1.mp4"
-                    ],
-                    "partly-cloudy": [
-                        "/local/backgrounds/cloudy-1.mp4",
-                        "/local/backgrounds/cloudy-2.mp4",
-                        "/local/backgrounds/cloudy-3.mp4",
-                        "/local/backgrounds/cloudy-4.mp4",
-                        "/local/backgrounds/cloudy-5.mp4",
-                        "/local/backgrounds/cloudy-6.mp4"
-                    ],
-                    "rain": [
-                        "/local/backgrounds/rainy-1.mp4"
-                    ],
-                    "showers": [
-                        "/local/backgrounds/rainy-1.mp4"
-                    ],
-                    "storm": [
-                        "/local/backgrounds/rainy-1.mp4"
-                    ],
-                    "sunny": [
-                        "/local/backgrounds/sunny-1.mp4",
-                        "/local/backgrounds/sunny-2.mp4",
-                        "/local/backgrounds/sunny-3.mp4",
-                        "/local/backgrounds/sunny-4.mp4",
-                        "/local/backgrounds/sunny-5.mp4"
-                    ]
-                }
-            },
             "title": "Home",
             "views": [
                 {
+                    "path": "default_view",
+                    "title": "Home",
                     "badges": [],
                     "cards": [
-                        {
-                            "config": "/local/floorplan/Floorplan.yaml",
-                            "type": "custom:floorplan-card"
-                        }
-                    ],
-                    "icon": "mdi:home",
-                    "id": "system",
-                    "panel": false,
-                    "title": "Floorplan",
-                    "visible": [
-                        {
-                            "user": "78554c5a47cd465b8f4689851629b80f"
-                        },
-                        {
-                            "user": "47c95d2b4100460597954951fb807e4a"
-                        },
-                        {
-                            "user": "0b1cbeace9894723ae6b36fb5a846990"
-                        }
-                    ]
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entity": "climate.living_room",
-                            "type": "thermostat"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "fan.office_fan"
-                                },
-                                {
-                                    "entity": "fan.bedroom_fan"
-                                },
-                                {
-                                    "entity": "fan.xander_fan"
-                                },
-                                {
-                                    "entity": "fan.kitchen_fan"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "type": "entities"
-                        }
-                    ],
-                    "icon": "mdi:air-conditioner",
-                    "title": "",
-                    "visible": [
-                        {
-                            "user": "78554c5a47cd465b8f4689851629b80f"
-                        },
-                        {
-                            "user": "47c95d2b4100460597954951fb807e4a"
-                        },
-                        {
-                            "user": "0b1cbeace9894723ae6b36fb5a846990"
-                        }
-                    ]
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "custom:bom-radar-card",
-                            "frame_count": 10,
-                            "center_latitude": -33.39405,
-                            "center_longitude": 151.33568,
-                            "marker_latitude": -33.39405,
-                            "marker_longitude": 151.33568,
-                            "show_marker": true,
-                            "show_range": true,
-                            "show_zoom": true,
-                            "show_recenter": true,
-                            "show_playback": true,
-                            "zoom_level": 9
-                        },
                         {
                             "type": "custom:bom-weather-card",
                             "title": "BOM Weather",
-                            "entity_current_conditions": "sensor.narara_icon_0",
-                            "entity_temperature": "sensor.gosford_temperature",
-                            "entity_forecast_high_temp_1": "sensor.narara_max_1",
-                            "entity_forecast_high_temp_2": "sensor.narara_max_2",
-                            "entity_forecast_high_temp_3": "sensor.narara_max_3",
-                            "entity_forecast_high_temp_4": "sensor.narara_max_4",
-                            "entity_forecast_high_temp_5": "sensor.narara_max_5",
-                            "entity_forecast_icon_1": "sensor.narara_icon_1",
-                            "entity_forecast_icon_2": "sensor.narara_icon_2",
-                            "entity_forecast_icon_3": "sensor.narara_icon_3",
-                            "entity_forecast_icon_4": "sensor.narara_icon_4",
-                            "entity_forecast_icon_5": "sensor.narara_icon_5",
-                            "entity_forecast_low_temp_1": "sensor.narara_min_1",
-                            "entity_forecast_low_temp_2": "sensor.narara_min_2",
-                            "entity_forecast_low_temp_3": "sensor.narara_min_3",
-                            "entity_forecast_low_temp_4": "sensor.narara_min_4",
-                            "entity_forecast_low_temp_5": "sensor.narara_min_5",
+                            "entity_current_conditions": "sensor.narara_icon_descriptor_0",
+                            "entity_temperature": "sensor.netatmo_netatmo_indoor_outdoor_temperature",
+                            "entity_forecast_high_temp_1": "sensor.narara_temp_max_1",
+                            "entity_forecast_high_temp_2": "sensor.narara_temp_max_2",
+                            "entity_forecast_high_temp_3": "sensor.narara_temp_max_3",
+                            "entity_forecast_high_temp_4": "sensor.narara_temp_max_4",
+                            "entity_forecast_high_temp_5": "sensor.narara_temp_max_5",
+                            "entity_forecast_icon_1": "sensor.narara_icon_descriptor_1",
+                            "entity_forecast_icon_2": "sensor.narara_icon_descriptor_2",
+                            "entity_forecast_icon_3": "sensor.narara_icon_descriptor_3",
+                            "entity_forecast_icon_4": "sensor.narara_icon_descriptor_4",
+                            "entity_forecast_icon_5": "sensor.narara_icon_descriptor_5",
+                            "entity_forecast_low_temp_1": "sensor.narara_temp_min_1",
+                            "entity_forecast_low_temp_2": "sensor.narara_temp_min_2",
+                            "entity_forecast_low_temp_3": "sensor.narara_temp_min_3",
+                            "entity_forecast_low_temp_4": "sensor.narara_temp_min_4",
+                            "entity_forecast_low_temp_5": "sensor.narara_temp_min_5",
                             "entity_summary_1": "sensor.narara_short_text_1",
                             "entity_summary_2": "sensor.narara_short_text_2",
                             "entity_summary_3": "sensor.narara_short_text_3",
                             "entity_summary_4": "sensor.narara_short_text_4",
                             "entity_summary_5": "sensor.narara_short_text_5",
                             "entity_sun": "sun.sun",
-                            "entity_daytime_high": "sensor.narara_max_0",
-                            "entity_daytime_low": "sensor.narara_min_0",
-                            "entity_wind_bearing": "sensor.gosford_wind_direction",
-                            "entity_wind_speed": "sensor.gosford_wind_speed",
-                            "entity_wind_gust": "sensor.gosford_gust_speed",
                             "entity_humidity": "sensor.gosford_humidity",
-                            "entity_apparent_temp": "sensor.gosford_temperature_feels_like",
+                            "entity_apparent_temp": "sensor.gosford_temp_feels_like",
                             "entity_daily_summary": "sensor.narara_extended_text_0",
                             "entity_pop": "sensor.narara_rain_chance_0",
                             "entity_pop_intensity": "sensor.gosford_rain_since_9am",
@@ -191,178 +52,210 @@
                             "entity_pop_3": "sensor.narara_rain_chance_3",
                             "entity_pop_4": "sensor.narara_rain_chance_4",
                             "entity_pop_5": "sensor.narara_rain_chance_5",
-                            "locale": "en",
-                            "sunset": true,
-                            "static_icons": false,
-                            "old_icon": "hybrid",
-                            "tooltip_bg_color": "rgb( 75,155,239)",
-                            "tooltip_border_color": "rgb(255,161,0)",
-                            "tooltip_border_width": 1,
-                            "tooltip_caret_size": 5,
-                            "tooltip_fg_color": "#fff",
-                            "tooltip_left_offset": -12,
-                            "tooltip_width": 110,
-                            "tooltips": true,
-                            "old_daily_format": false,
-                            "time_format": 12,
-                            "show_beaufort": false,
-                            "refresh_interval": 60,
-                            "show_separator": false,
-                            "temp_top_margin": "0px",
-                            "temp_font_weight": 300,
-                            "temp_font_size": "4em",
-                            "temp_right_pos": "0.85em",
-                            "temp_uom_top_margin": "-12px",
-                            "temp_uom_right_margin": "7px",
-                            "apparent_top_margin": "45px",
-                            "apparent_right_pos": "1em",
-                            "apparent_right_margin": "1em",
-                            "current_text_top_margin": "4.5em",
-                            "current_text_left_pos": "0px",
-                            "current_text_font_size": "1.5em",
-                            "current_text_alignment": "center",
-                            "current_text_width": "100%",
-                            "current_data_top_margin": "10em",
-                            "large_icon_top_margin": "-3.2em",
-                            "large_icon_left_position": "0px",
-                            "separator_top_margin": "6em",
-                            "summary_top_padding": "2em",
-                            "summary_font_size": "0.8em",
-                            "slot_l1": "daytime_high",
-                            "slot_l2": "daytime_low",
-                            "slot_l3": "wind",
-                            "slot_l4": "pressure",
-                            "slot_l5": "sun_next",
-                            "slot_r1": "pop",
-                            "slot_r2": "humidity",
-                            "slot_r3": "uv_summary",
-                            "slot_r4": "fire_summary",
-                            "slot_r5": "sun_following"
+                            "entity_fire_danger_summary": "sensor.narara_fire_danger_0",
+                            "entity_uv_alert_summary": "sensor.narara_uv_category_0",
+                            "entity_wind_bearing": "sensor.gosford_wind_direction",
+                            "entity_wind_speed": "sensor.gosford_wind_speed_kilometre",
+                            "entity_current_text": "sensor.bom_current_text",
+                            "entity_uv_alert": "sensor.bom_uv_alert",
+                            "entity_fire_danger": "sensor.bom_fire_danger",
+                            "entity_daytime_high": "sensor.bom_today_max",
+                            "entity_daytime_low": "sensor.bom_today_min"
                         },
                         {
+                            "type": "horizontal-stack",
+                            "cards": [
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.familyroom_normal"
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.familyroom_low"
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.familyroom_dim",
+                                    "show_icon": true,
+                                    "show_state": false
+                                }
+                            ]
+                        },
+                        {
+                            "type": "grid",
+                            "cards": [
+                                {
+                                    "type": "light",
+                                    "entity": "light.entry_lights"
+                                },
+                                {
+                                    "type": "light",
+                                    "entity": "light.bedroom_lights"
+                                },
+                                {
+                                    "type": "light",
+                                    "entity": "light.craftroom_lights"
+                                },
+                                {
+                                    "type": "light",
+                                    "entity": "light.familyroom_lights"
+                                },
+                                {
+                                    "type": "light",
+                                    "entity": "light.hall_lights"
+                                },
+                                {
+                                    "type": "light",
+                                    "entity": "light.lucas_lights"
+                                },
+                                {
+                                    "type": "light",
+                                    "entity": "light.office_lights"
+                                },
+                                {
+                                    "type": "light",
+                                    "entity": "light.xander_lights"
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "light.backlight_switch",
+                                    "icon": "mdi:television-ambient-light",
+                                    "name": "TV Backlight"
+                                },
+                                {
+                                    "type": "light",
+                                    "entity": "light.dining_lights"
+                                },
+                                {
+                                    "type": "light",
+                                    "entity": "light.kitchen_lights"
+                                },
+                                {
+                                    "type": "light",
+                                    "entity": "light.livingroom_lights"
+                                },
+                                {
+                                    "type": "light",
+                                    "entity": "light.driveway_lights"
+                                },
+                                {
+                                    "type": "light",
+                                    "entity": "light.garage_lights"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "glance",
                             "entities": [
                                 {
-                                    "entity": "sensor.bom_gosford_air_temp_c",
-                                    "name": "BOM Air Temperature"
+                                    "entity": "binary_sensor.garage_sensor_contact"
                                 },
                                 {
-                                    "entity": "sensor.netatmo_outdoor_temperature",
-                                    "name": "Backyard Temperature"
+                                    "entity": "binary_sensor.front_door_sensor_contact"
                                 },
                                 {
-                                    "entity": "sensor.carport_temperature",
-                                    "name": "Carport Temperature"
+                                    "entity": "binary_sensor.backdoor_sensor_contact"
                                 },
                                 {
-                                    "entity": "sensor.bedroom_temperature"
+                                    "entity": "binary_sensor.sidedoor_sensor_contact"
                                 },
                                 {
-                                    "entity": "sensor.backroom_sensor_temperature"
+                                    "entity": "binary_sensor.laundry_door_contact"
                                 },
                                 {
-                                    "entity": "sensor.netatmo_indoor_temperature",
-                                    "name": "Livingroom Temperature"
-                                },
-                                {
-                                    "entity": "sensor.bedroom_temperature",
-                                    "name": "Main Bedroom Temperature"
-                                },
-                                {
-                                    "entity": "sensor.lucas_bedroom_sensor_temperature"
-                                },
-                                {
-                                    "entity": "sensor.xander_bedroom_sensor_temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_outdoor_temperature",
-                                    "name": "Backyard Temperature"
-                                },
-                                {
-                                    "entity": "sensor.office_temperature"
+                                    "entity": "binary_sensor.pantry_sensor_occupancy"
                                 }
-                            ],
-                            "hours_to_show": 72,
-                            "refresh_interval": 0,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_indoor_pressure",
-                                    "name": "Living Room Pressure"
-                                },
-                                {
-                                    "entity": "sensor.office_pressure"
-                                },
-                                {
-                                    "entity": "sensor.bedroom_pressure"
-                                }
-                            ],
-                            "hours_to_show": 72,
-                            "type": "history-graph"
-                        },
-                        {
-                            "aspect_ratio": "75%",
-                            "type": "iframe",
-                            "url": "https://embed.windy.com/embed2.html?lat=-33.454&lon=151.200&zoom=8&level=surface&overlay=rain&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-33.907&detailLon=151.156&metricWind=default&metricTemp=default&radarRange=-1"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_netatmo_rainy_sum_rain_24"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_netatmo_rainy_rain"
-                                }
-                            ],
-                            "hours_to_show": 48,
-                            "refresh_interval": 0,
-                            "type": "history-graph"
-                        },
-                        {
-                            "aspect_ratio": "50%",
-                            "type": "iframe",
-                            "url": "https://home.adebenham.com/int/grafana/d-solo/o2dfIZRGz/ha?orgId=1&kiosk&panelId=10&refresh=1m&kiosk&fullscreen"
-                        }
-                    ],
-                    "icon": "mdi:cloud",
-                    "panel": false,
-                    "title": "Charts",
-                    "visible": [
-                        {
-                            "user": "78554c5a47cd465b8f4689851629b80f"
-                        },
-                        {
-                            "user": "47c95d2b4100460597954951fb807e4a"
-                        },
-                        {
-                            "user": "0b1cbeace9894723ae6b36fb5a846990"
+                            ]
                         }
                     ]
                 },
                 {
+                    "icon": "mdi:music",
+                    "title": "",
                     "badges": [],
                     "cards": [
                         {
+                            "type": "custom:mini-media-player",
+                            "entity": "media_player.samsung_tv_remote",
+                            "volume_stateless": true,
+                            "artwork": "cover",
+                            "sound_mode": "full",
+                            "min_volume": "1",
+                            "max_volume": "60",
+                            "volume_step": "1",
+                            "source": "full"
+                        },
+                        {
+                            "type": "media-control",
+                            "entity": "media_player.family_room_tv"
+                        },
+                        {
+                            "type": "media-control",
+                            "entity": "media_player.living_room_speaker"
+                        },
+                        {
+                            "type": "media-control",
+                            "entity": "media_player.living_room_display"
+                        },
+                        {
+                            "type": "media-control",
+                            "entity": "media_player.living_room_tv"
+                        },
+                        {
+                            "type": "media-control",
+                            "entity": "media_player.whole_house"
+                        },
+                        {
+                            "type": "media-control",
+                            "entity": "media_player.livingroom"
+                        }
+                    ]
+                },
+                {
+                    "title": "",
+                    "path": "house",
+                    "panel": true,
+                    "icon": "mdi:home",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:floorplan-card",
+                            "config": "/local/floorplan/Deane-overhead.yaml",
+                            "full_height": true
+                        }
+                    ]
+                },
+                {
+                    "title": "",
+                    "path": "lights",
+                    "icon": "mdi:lightbulb",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "light.livingroom_lights",
-                                    "name": "Livingroom",
+                                    "entity": "light.bedroom_lights",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "buttons": [
-                                        "scene.turn_off",
-                                        "scene.night",
-                                        "scene.movie",
-                                        "scene.party",
-                                        "scene.normal"
-                                    ],
-                                    "type": "custom:paper-buttons-row"
+                                    "entity": "light.hall_lights",
+                                    "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.bedroom_lights",
-                                    "name": "Main Bedroom",
+                                    "entity": "light.familyroom_lights",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
@@ -374,26 +267,7 @@
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.backroom_lights",
-                                    "name": "Backroom",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
                                     "entity": "light.craftroom_lights",
-                                    "name": "Craftroom",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.kitchen_lights",
-                                    "name": "Kitchen",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.office_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.hall_lights",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
@@ -401,710 +275,457 @@
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.carport_lights"
+                                    "entity": "light.pantry_lights",
+                                    "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.laundry"
+                                    "entity": "light.driveway_lights",
+                                    "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.laundry_toilet"
+                                    "entity": "light.gardenlights",
+                                    "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.toilet"
+                                    "entity": "light.office_lights"
                                 },
                                 {
-                                    "entity": "light.backyard_lights"
+                                    "entity": "light.garage_lights"
                                 },
                                 {
-                                    "entity": "switch.backroom_relay_2"
+                                    "entity": "light.kitchen_lights"
+                                },
+                                {
+                                    "entity": "light.dining_lights"
+                                },
+                                {
+                                    "entity": "light.livingroom_lights"
+                                },
+                                {
+                                    "entity": "light.backlight_switch"
                                 }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Rooms",
-                            "type": "entities"
+                            "state_color": true,
+                            "title": "Lights",
+                            "show_header_toggle": false
                         },
                         {
+                            "type": "entities",
                             "entities": [
-                                "light.tv_backlight",
                                 {
-                                    "buttons": [
-                                        {
-                                            "name": "Random Colours",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Slow Random Effect",
-                                                    "entity_id": "light.tv_backlight"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "name": "Twinkle",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Random Twinkle",
-                                                    "entity_id": "light.tv_backlight"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "name": "Rainbow",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "entity": "light.tv_backlight",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Rainbow",
-                                                    "entity_id": "light.tv_backlight"
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "type": "custom:paper-buttons-row"
+                                    "entity": "sensor.lucasdimmer_power"
                                 },
                                 {
-                                    "entity": "light.family_room_strip"
+                                    "entity": "sensor.bedroomdimmer_power"
                                 },
                                 {
-                                    "buttons": [
+                                    "entity": "sensor.xanderdimmer_power"
+                                },
+                                {
+                                    "entity": "sensor.craftdimmer_power"
+                                },
+                                {
+                                    "entity": "sensor.kitchenfront_power"
+                                },
+                                {
+                                    "entity": "sensor.dining_power"
+                                }
+                            ],
+                            "title": "Power"
+                        },
+                        {
+                            "type": "entities",
+                            "show_header_toggle": false,
+                            "entities": [
+                                {
+                                    "entity": "light.bedroom_led"
+                                },
+                                {
+                                    "type": "custom:rgb-light-card",
+                                    "justify": "around",
+                                    "entity": "light.bedroom_led",
+                                    "colors": [
                                         {
-                                            "name": "Random Colours",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Slow Random Effect",
-                                                    "entity_id": "light.family_room_strip"
-                                                }
-                                            }
+                                            "color_name": "red",
+                                            "brightness": 100
                                         },
                                         {
-                                            "name": "Twinkle",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Random Twinkle",
-                                                    "entity_id": "light.family_room_strip"
-                                                }
-                                            }
+                                            "color_name": "green",
+                                            "brightness": 100
                                         },
                                         {
-                                            "name": "Rainbow",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "entity": "light.tv_backlight",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Rainbow",
-                                                    "entity_id": "light.family_room_strip"
-                                                }
-                                            }
+                                            "color_name": "blue",
+                                            "brightness": 100
                                         }
-                                    ],
-                                    "type": "custom:paper-buttons-row"
+                                    ]
                                 },
                                 {
                                     "entity": "light.kitchen_strip"
                                 },
                                 {
-                                    "buttons": [
+                                    "entity": "light.kitchen_strip",
+                                    "type": "custom:rgb-light-card",
+                                    "justify": "around",
+                                    "colors": [
                                         {
-                                            "name": "Random Colours",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Slow Random Effect",
-                                                    "entity_id": "light.kitchen_strip"
-                                                }
-                                            }
+                                            "color_name": "red",
+                                            "brightness": 220
                                         },
                                         {
-                                            "name": "Twinkle",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Random Twinkle",
-                                                    "entity_id": "light.kitchen_strip"
-                                                }
-                                            }
+                                            "color_name": "green",
+                                            "brightness": 220
                                         },
                                         {
-                                            "name": "Rainbow",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "entity": "light.tv_backlight",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Rainbow",
-                                                    "entity_id": "light.kitchen_strip"
-                                                }
-                                            }
+                                            "color_name": "blue",
+                                            "brightness": 220
                                         }
-                                    ],
-                                    "type": "custom:paper-buttons-row"
+                                    ]
+                                },
+                                {
+                                    "entity": "light.moon_led"
+                                },
+                                {
+                                    "entity": "light.moon_led",
+                                    "type": "custom:rgb-light-card",
+                                    "justify": "around",
+                                    "colors": [
+                                        {
+                                            "color_name": "red",
+                                            "brightness": 220
+                                        },
+                                        {
+                                            "color_name": "green",
+                                            "brightness": 220
+                                        },
+                                        {
+                                            "color_name": "blue",
+                                            "brightness": 220
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "light.familyroom_lowerstrip"
+                                },
+                                {
+                                    "entity": "light.familyroom_lowerstrip",
+                                    "type": "custom:rgb-light-card",
+                                    "justify": "around",
+                                    "colors": [
+                                        {
+                                            "color_name": "red",
+                                            "brightness": 220
+                                        },
+                                        {
+                                            "color_name": "green",
+                                            "brightness": 220
+                                        },
+                                        {
+                                            "color_name": "blue",
+                                            "brightness": 220
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "light.familyroom_shelfstrip"
+                                },
+                                {
+                                    "entity": "light.familyroom_shelfstrip",
+                                    "type": "custom:rgb-light-card",
+                                    "justify": "around",
+                                    "colors": [
+                                        {
+                                            "color_name": "red",
+                                            "brightness": 220
+                                        },
+                                        {
+                                            "color_name": "green",
+                                            "brightness": 220
+                                        },
+                                        {
+                                            "color_name": "blue",
+                                            "brightness": 220
+                                        }
+                                    ]
+                                },
+                                {
+                                    "entity": "light.tv_backlight"
+                                },
+                                {
+                                    "entity": "light.tv_backlight",
+                                    "type": "custom:rgb-light-card",
+                                    "justify": "around",
+                                    "colors": [
+                                        {
+                                            "color_name": "red",
+                                            "brightness": 220
+                                        },
+                                        {
+                                            "color_name": "green",
+                                            "brightness": 220
+                                        },
+                                        {
+                                            "color_name": "blue",
+                                            "brightness": 220
+                                        }
+                                    ]
                                 },
                                 {
                                     "entity": "light.office_strip"
                                 },
                                 {
-                                    "buttons": [
+                                    "entity": "light.office_strip",
+                                    "type": "custom:rgb-light-card",
+                                    "justify": "around",
+                                    "colors": [
                                         {
-                                            "name": "Random Colours",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Slow Random Effect",
-                                                    "entity_id": "light.office_strip"
-                                                }
-                                            }
+                                            "color_name": "red",
+                                            "brightness": 220
                                         },
                                         {
-                                            "name": "Twinkle",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Random Twinkle",
-                                                    "entity_id": "light.office_strip"
-                                                }
-                                            }
+                                            "color_name": "green",
+                                            "brightness": 220
                                         },
                                         {
-                                            "name": "Rainbow",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "entity": "light.tv_backlight",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Rainbow",
-                                                    "entity_id": "light.office_strip"
-                                                }
-                                            }
+                                            "color_name": "blue",
+                                            "brightness": 220
                                         }
-                                    ],
-                                    "type": "custom:paper-buttons-row"
-                                },
-                                {
-                                    "entity": "light.office_shelf"
-                                },
-                                {
-                                    "buttons": [
-                                        {
-                                            "name": "Random Colours",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Slow Random Effect",
-                                                    "entity_id": "light.office_shelf"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "name": "Twinkle",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Random Twinkle",
-                                                    "entity_id": "light.office_shelf"
-                                                }
-                                            }
-                                        },
-                                        {
-                                            "name": "Rainbow",
-                                            "tap_action": {
-                                                "action": "call-service",
-                                                "entity": "light.tv_backlight",
-                                                "service": "light.turn_on",
-                                                "service_data": {
-                                                    "effect": "Rainbow",
-                                                    "entity_id": "light.office_shelf"
-                                                }
-                                            }
-                                        }
-                                    ],
-                                    "type": "custom:paper-buttons-row"
+                                    ]
                                 }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Light Strips",
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "switch.officepower_a"
-                                },
-                                {
-                                    "entity": "switch.officepower_b"
-                                },
-                                {
-                                    "entity": "switch.officepower_c"
-                                },
-                                {
-                                    "entity": "switch.officepower_d"
-                                },
-                                {
-                                    "entity": "switch.powerboard2_outlet_1"
-                                },
-                                {
-                                    "entity": "switch.powerboard2_outlet_2"
-                                },
-                                {
-                                    "entity": "switch.powerboard2_outlet_3"
-                                },
-                                {
-                                    "entity": "switch.powerboard2_outlet_4"
-                                },
-                                {
-                                    "entity": "script.1588132444815"
-                                },
-                                {
-                                    "entity": "switch.bedroom_plug_bottom"
-                                },
-                                {
-                                    "entity": "switch.sonoff_pow_r2_relay"
-                                },
-                                {
-                                    "entity": "switch.jimbob"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Switches",
-                            "type": "entities"
-                        }
-                    ],
-                    "icon": "mdi:lightbulb",
-                    "panel": false,
-                    "title": "Lights",
-                    "visible": [
-                        {
-                            "user": "78554c5a47cd465b8f4689851629b80f"
-                        },
-                        {
-                            "user": "47c95d2b4100460597954951fb807e4a"
-                        },
-                        {
-                            "user": "0b1cbeace9894723ae6b36fb5a846990"
+                            ]
                         }
                     ]
                 },
                 {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entity": "camera.carport_2",
-                            "show_name": false,
-                            "show_state": false,
-                            "type": "picture-entity",
-                            "camera_image": "camera.carport_2"
-                        },
-                        {
-                            "aspect_ratio": "50%",
-                            "entity": "camera.livingroom",
-                            "show_name": false,
-                            "show_state": false,
-                            "type": "picture-entity"
-                        },
-                        {
-                            "entity": "camera.entrycam",
-                            "show_name": false,
-                            "show_state": false,
-                            "type": "picture-entity",
-                            "camera_image": "camera.entrycam"
-                        },
-                        {
-                            "aspect_ratio": "50%",
-                            "entity": "camera.backroom",
-                            "show_name": false,
-                            "show_state": false,
-                            "type": "picture-entity"
-                        },
-                        {
-                            "aspect_ratio": "0%",
-                            "camera_image": "camera.printer",
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.octoprint_printing"
-                                },
-                                {
-                                    "entity": "sensor.octoprint_time_remaining_format"
-                                },
-                                {
-                                    "entity": "sensor.octoprint_current_state"
-                                }
-                            ],
-                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
-                            "title": "Printer",
-                            "type": "picture-glance"
-                        },
-                        {
-                            "aspect_ratio": "50%",
-                            "entity": "camera.backyard",
-                            "show_name": false,
-                            "show_state": false,
-                            "type": "picture-entity"
-                        }
-                    ],
-                    "icon": "mdi:camera",
-                    "title": "Cameras",
-                    "visible": [
-                        {
-                            "user": "78554c5a47cd465b8f4689851629b80f"
-                        },
-                        {
-                            "user": "47c95d2b4100460597954951fb807e4a"
-                        },
-                        {
-                            "user": "0b1cbeace9894723ae6b36fb5a846990"
-                        }
-                    ]
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "entities": [
-                                {
-                                    "entity": "media_player.whole_house",
-                                    "group": true,
-                                    "hide": {
-                                        "power": true,
-                                        "volume": true
-                                    },
-                                    "info": "short",
-                                    "source": "icon",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.family_room_speaker",
-                                    "group": true,
-                                    "hide": {
-                                        "controls": true
-                                    },
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.living_room_display",
-                                    "group": true,
-                                    "hide": {
-                                        "controls": true
-                                    },
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.living_room_speaker",
-                                    "group": true,
-                                    "hide": {
-                                        "controls": true
-                                    },
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.living_room_mini",
-                                    "group": true,
-                                    "hide": {
-                                        "controls": true
-                                    },
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.bedroom_speaker",
-                                    "group": true,
-                                    "hide": {
-                                        "controls": true
-                                    },
-                                    "type": "custom:mini-media-player"
-                                }
-                            ],
-                            "type": "entities"
-                        },
-                        {
-                            "entity": "media_player.living_room_display",
-                            "type": "custom:mini-media-player"
-                        },
-                        {
-                            "entity": "media_player.bedroom_tv",
-                            "type": "custom:mini-media-player"
-                        },
-                        {
-                            "type": "media-control",
-                            "entity": "media_player.googlehome0972"
-                        },
-                        {
-                            "type": "media-control",
-                            "entity": "media_player.pioneer_vsx_832_ed2c08"
-                        }
-                    ],
-                    "icon": "mdi:movie",
-                    "title": "Media",
-                    "visible": [
-                        {
-                            "user": "78554c5a47cd465b8f4689851629b80f"
-                        }
-                    ]
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "dark_mode": false,
-                            "default_zoom": 13,
-                            "entities": [
-                                {
-                                    "entity": "device_tracker.melphone_2"
-                                },
-                                {
-                                    "entity": "device_tracker.pixel_4_xl"
-                                },
-                                {
-                                    "entity": "zone.home"
-                                },
-                                {
-                                    "entity": "zone.work"
-                                },
-                                {
-                                    "entity": "zone.school"
-                                },
-                                {
-                                    "entity": "zone.church"
-                                }
-                            ],
-                            "geo_location_sources": [
-                                "all"
-                            ],
-                            "type": "map",
-                            "hours_to_show": 0
-                        }
-                    ],
-                    "icon": "mdi:map",
-                    "panel": true,
-                    "title": "Map",
-                    "visible": [
-                        {
-                            "user": "78554c5a47cd465b8f4689851629b80f"
-                        }
-                    ]
-                },
-                {
-                    "icon": "mdi:cog",
                     "title": "",
-                    "visible": [
-                        {
-                            "user": "78554c5a47cd465b8f4689851629b80f"
-                        }
-                    ],
+                    "path": "office",
+                    "icon": "mdi:laptop",
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
+                            "type": "horizontal-stack",
+                            "cards": [
                                 {
-                                    "entity": "binary_sensor.motion_carport"
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "light.office_monitors_strip"
                                 },
                                 {
-                                    "entity": "binary_sensor.motion_entry"
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "light.office_strip"
                                 }
-                            ],
-                            "title": "Motion",
-                            "type": "entities"
+                            ]
                         },
                         {
-                            "entities": [
+                            "type": "grid",
+                            "columns": 2,
+                            "square": false,
+                            "cards": [
                                 {
-                                    "entity": "sensor.octoprint_current_state"
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.powerboard_outlet_1"
                                 },
                                 {
-                                    "entity": "sensor.octoprint_job_percentage"
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.powerboard_outlet_2"
                                 },
                                 {
-                                    "entity": "sensor.octoprint_time_elapsed_format"
-                                },
-                                {
-                                    "entity": "sensor.octoprint_time_remaining_format"
-                                },
-                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
                                     "entity": "switch.powerboard_outlet_3"
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.powerboard_outlet_4"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "grid",
+                            "columns": 2,
+                            "square": false,
+                            "cards": [
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.powerboardusb_outlet_1"
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.powerboardusb_outlet_2"
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.powerboardusb_outlet_3"
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.powerboardusb_outlet_4"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "grid",
+                            "columns": 2,
+                            "square": false,
+                            "cards": [
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.powerboard3_outlet_1"
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.powerboard3_outlet_2"
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.powerboard3_outlet_3"
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.powerboard3_outlet_4"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "light",
+                            "entity": "light.robedimmer"
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:chart-timeline-variant",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:apexcharts-card",
+                            "header": {
+                                "show": true,
+                                "title": "Temperatures",
+                                "show_states": true,
+                                "colorize_states": true
+                            },
+                            "graph_span": "7d",
+                            "series": [
+                                {
+                                    "entity": "sensor.familyroom_sensor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_netatmo_indoor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_netatmo_indoor_outdoor_temperature"
+                                },
+                                {
+                                    "entity": "sensor.bedroom_temperature"
+                                },
+                                {
+                                    "entity": "sensor.office_temperature"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:apexcharts-card",
+                            "header": {
+                                "show": true,
+                                "title": "Humidity",
+                                "show_states": true,
+                                "colorize_states": true
+                            },
+                            "series": [
+                                {
+                                    "entity": "sensor.netatmo_netatmo_indoor_humidity"
+                                },
+                                {
+                                    "entity": "sensor.netatmo_netatmo_indoor_outdoor_humidity"
+                                },
+                                {
+                                    "entity": "sensor.bathroom_sensor_humidity"
                                 }
                             ],
-                            "title": "Octoprint",
-                            "type": "entities"
-                        },
-                        {
-                            "card": {
-                                "show_header_toggle": false,
-                                "title": "Notices",
-                                "type": "entities"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "domain": "device_tracker"
-                                    },
-                                    {
-                                        "entity_id": "sensor.canon_ts5000*"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "attributes": {
-                                            "linkquality": "< 20"
-                                        },
-                                        "entity_id": "sensor.*linkquality"
-                                    },
-                                    {
-                                        "attributes": {
-                                            "battery": "< 50"
-                                        }
-                                    },
-                                    {
-                                        "state": "unavailable"
-                                    }
-                                ]
-                            },
-                            "type": "custom:auto-entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "group.all_light_relays"
-                                }
-                            ],
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.smoke_detector_smoke",
-                                    "name": "Smoke Detector"
-                                },
-                                {
-                                    "entity": "binary_sensor.frontdoor_sensor_contact",
-                                    "name": "Front Door"
-                                },
-                                {
-                                    "entity": "binary_sensor.backdoor_sensor_contact",
-                                    "name": "Back Door"
-                                },
-                                {
-                                    "entity": "binary_sensor.ac_active_sensor_contact",
-                                    "name": "AC Power sensor"
-                                },
-                                {
-                                    "entity": "binary_sensor.pantry_sensor_contact"
-                                },
-                                {
-                                    "entity": "binary_sensor.bedroom_window_sensor_contact"
-                                },
-                                {
-                                    "entity": "binary_sensor.back_screen_door_sensor_contact"
-                                }
-                            ],
-                            "show_icon": true,
-                            "type": "glance"
-                        },
-                        {
-                            "card": {
-                                "collapse": 4,
-                                "sort_by_level": "asc",
-                                "title": "Battery level < 90%",
-                                "type": "custom:battery-state-card"
-                            },
-                            "filter": {
-                                "exclude": [
-                                    {
-                                        "state": "> 90"
-                                    },
-                                    {
-                                        "state": "Full"
-                                    },
-                                    {
-                                        "state": "High"
-                                    },
-                                    {
-                                        "state": "unknown"
-                                    }
-                                ],
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.*battery"
-                                    }
-                                ]
-                            },
-                            "type": "custom:auto-entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.netatmo_indoor_noise",
-                                    "name": "Noise level"
-                                }
-                            ],
-                            "type": "history-graph"
+                            "graph_span": "7d"
                         }
                     ]
                 },
                 {
                     "icon": "mdi:video",
-                    "visible": [
-                        {
-                            "user": "78554c5a47cd465b8f4689851629b80f"
-                        }
-                    ],
-                    "theme": "",
                     "badges": [],
                     "cards": [
                         {
                             "type": "picture-entity",
-                            "entity": "camera.backroom",
-                            "camera_view": "live",
-                            "tap_action": {
-                                "action": "none"
-                            },
-                            "camera_image": "camera.backroom",
+                            "entity": "camera.livingroom",
+                            "camera_image": "camera.livingroom",
                             "show_state": false,
                             "show_name": false
                         },
                         {
                             "type": "picture-entity",
-                            "entity": "camera.backyard",
+                            "entity": "camera.familyroom",
                             "show_name": false,
-                            "show_state": false,
-                            "camera_image": "camera.backyard",
-                            "tap_action": {
-                                "action": "none"
-                            },
-                            "camera_view": "live"
+                            "show_state": false
                         },
                         {
                             "type": "picture-entity",
-                            "entity": "camera.livingroom",
-                            "image": "https://demo.home-assistant.io/stub_config/bedroom.png",
-                            "camera_image": "camera.livingroom",
+                            "entity": "camera.garage",
                             "show_name": false,
+                            "show_state": false
+                        },
+                        {
+                            "type": "picture-entity",
+                            "entity": "camera.entrycam",
                             "show_state": false,
-                            "camera_view": "live",
-                            "tap_action": {
-                                "action": "none"
-                            }
+                            "show_name": false
                         }
                     ]
                 },
                 {
-                    "icon": "",
-                    "title": "Deane",
+                    "path": "",
+                    "icon": "mdi:home",
+                    "panel": true,
                     "badges": [],
                     "cards": [
                         {
-                            "config": "/local/floorplan/Deane.yaml",
-                            "type": "custom:floorplan-card"
+                            "type": "custom:floorplan-card",
+                            "config": "/local/floorplan/Deane-angle.yaml",
+                            "full_height": true
                         }
                     ]
                 }
