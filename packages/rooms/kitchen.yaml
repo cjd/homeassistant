@@ -18,7 +18,7 @@ automation:
         entity_id: light.kitchen_strip
         data:
           brightness_pct: 50
-          effect: Random Fade
+          effect: Cycle
     mode: single
   - id: '1615539466618'
     alias: Turn off the kitchen strip when the sun is up
