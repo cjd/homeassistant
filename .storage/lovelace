@@ -517,6 +517,13 @@
                                         "action": "toggle"
                                     },
                                     "entity": "light.office_strip"
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "light.office_lights"
                                 }
                             ]
                         },
