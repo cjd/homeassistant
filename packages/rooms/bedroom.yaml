@@ -56,7 +56,10 @@ automation:
     trigger:
     - platform: time
       at: '20:30'
-    condition: []
+    condition:
+      - condition: state
+        entity_id: light.bedroom_lights
+        state: 'off'
     action:
     - service: light.turn_on
       data_template:
