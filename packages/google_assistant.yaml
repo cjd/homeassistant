@@ -40,6 +40,8 @@ google_assistant:
       expose: true
     light.backlight_switch:
       expose: true
+    light.garage_lights:
+      expose: true
     camera.backroom:
       expose: true
     camera.entrycam:
