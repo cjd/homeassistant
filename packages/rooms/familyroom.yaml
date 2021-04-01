@@ -144,7 +144,7 @@ automation:
     description: ''
     trigger:
     - platform: time
-      at: '18:00'
+      at: '18:00:00'
     condition: []
     action:
     - service: light.turn_on
@@ -163,7 +163,7 @@ automation:
     description: ''
     trigger:
     - platform: time
-      at: '22:00'
+      at: '22:00:00'
     condition: []
     action:
     - service: light.turn_off
@@ -202,6 +202,42 @@ automation:
     - service: light.turn_off
       entity_id: light.tv_backlight
     mode: single
+  - id: '1610430895471'
+    alias: Familyroom Outside Switch - lights on
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.familyroomdimmer_channel_1_input
+      from:
+        - 'on'
+        - 'off'
+      to:
+        - 'on'
+        - 'off'
+    condition: 
+      - condition: state
+        entity_id: light.familyroom_lights
+        state: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.familyroom_off
+  - id: '1610430895472'
+    alias: Familyroom Outside Switch - lights off
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.familyroomdimmer_channel_1_input
+      from:
+        - 'off'
+        - 'off'
+      to:
+        - 'on'
+        - 'off'
+    condition: 
+      - condition: state
+        entity_id: light.familyroom_lights
+        state: 'off'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.familyroom_low
 
 script:
   turn_tv_lights_on:
@@ -362,3 +398,4 @@ scene:
         color_temp: 402
         effect: None
         state: 'on'
+  
