@@ -55,7 +55,7 @@ automation:
     description: ''
     trigger:
     - platform: time
-      at: '20:30'
+      at: '20:30:00'
     condition:
       - condition: state
         entity_id: light.bedroom_lights
