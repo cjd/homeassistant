@@ -9,7 +9,7 @@ automation:
     alias: Moon - turn on
     trigger:
       platform: time
-      at: "18:00"
+      at: "18:00:00"
     action:
       service: light.turn_on
       data:
@@ -19,7 +19,7 @@ automation:
     alias: Moon - turn off
     trigger:
       platform: time
-      at: "7:00"
+      at: "07:00:00"
     action:
       service: light.turn_off
       data:
