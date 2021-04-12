@@ -81,6 +81,9 @@ automation:
     - service: light.turn_off
       data:
         entity_id: light.familyroom_lights
+    - service: light.turn_off
+      data:
+        entity_id: light.entry_lights
     - service: script.turn_on
       data:
         entity_id: script.turn_tv_lights_off
@@ -100,6 +103,9 @@ automation:
     - service: light.turn_off
       data:
         entity_id: light.familyroom_lights
+    - service: light.turn_off
+      data:
+        entity_id: light.entry_lights
     - service: script.turn_on
       data:
         entity_id: script.turn_tv_lights_off

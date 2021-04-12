@@ -3,3 +3,32 @@ light:
     name: Entry Lights
     entities:
       - light.entrydimmer
+
+automation:
+  - id: '1618214320098'
+    alias: turn entry lights on at sunset
+    description: ''
+    trigger:
+    - platform: sun
+      event: sunset
+    condition: []
+    action:
+    - domain: light
+      entity_id: light.entry_lights
+      device_id: 07c0c8a603f37f42fd7614d1fd6c7946
+      type: turn_on
+      brightness_pct: 100
+    mode: single
+  - id: '1618214320099'
+    alias: turn entry lights off at sunrise
+    description: ''
+    trigger:
+    - platform: sun
+      event: sunrise
+    condition: []
+    action:
+    - domain: light
+      entity_id: light.entry_lights
+      device_id: 07c0c8a603f37f42fd7614d1fd6c7946
+      type: turn_off
+    mode: single
