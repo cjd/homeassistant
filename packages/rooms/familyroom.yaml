@@ -226,7 +226,7 @@ automation:
     - platform: state
       entity_id: binary_sensor.familyroomdimmer_channel_1_input
       from:
-        - 'off'
+        - 'on'
         - 'off'
       to:
         - 'on'
