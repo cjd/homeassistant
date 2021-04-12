@@ -178,6 +178,13 @@
                                     "entity": "binary_sensor.pantry_sensor_occupancy"
                                 }
                             ]
+                        },
+                        {
+                            "type": "glance",
+                            "entities": [
+                                "person.chris",
+                                "person.mel"
+                            ]
                         }
                     ]
                 },
@@ -733,6 +740,29 @@
                             "type": "custom:floorplan-card",
                             "config": "/local/floorplan/Deane-angle.yaml",
                             "full_height": true
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:map",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "map",
+                            "entities": [
+                                {
+                                    "entity": "person.chris"
+                                },
+                                {
+                                    "entity": "person.mel"
+                                },
+                                {
+                                    "entity": "device_tracker.chrisphone"
+                                }
+                            ],
+                            "default_zoom": 14,
+                            "hours_to_show": 24
                         }
                     ]
                 }
