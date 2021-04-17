@@ -3,3 +3,32 @@ light:
     name: Driveway Lights
     entities:
       - light.frontdoordimmer
+
+automation:
+  - id: '1618649719644'
+    alias: Motion - Driveway person
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.driveway_person_motion
+      from: 'off'
+      to: 'on'
+    condition:
+    - condition: or
+      conditions:
+      - condition: sun
+        before: sunrise
+        before_offset: '-1:00:00'
+      - condition: sun
+        after: sunset
+        after_offset: '-1:00:00'
+    action:
+    - service: light.turn_on
+      entity_id: light.driveway_lights
+    - wait_for_trigger:
+      - platform: state
+        entity_id: binary_sensor.driveway_person_motion
+        to: 'off'
+    - service: light.turn_off
+      entity_id: light.driveway_lights
+    mode: restart
