@@ -176,6 +176,18 @@
                                 },
                                 {
                                     "entity": "binary_sensor.pantry_sensor_occupancy"
+                                },
+                                {
+                                    "entity": "binary_sensor.driveway_person_motion"
+                                },
+                                {
+                                    "entity": "binary_sensor.garage_person_motion"
+                                },
+                                {
+                                    "entity": "camera.garage_person"
+                                },
+                                {
+                                    "entity": "camera.driveway_person"
                                 }
                             ]
                         },
@@ -315,30 +327,6 @@
                             "state_color": true,
                             "title": "Lights",
                             "show_header_toggle": false
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.lucasdimmer_power"
-                                },
-                                {
-                                    "entity": "sensor.bedroomdimmer_power"
-                                },
-                                {
-                                    "entity": "sensor.xanderdimmer_power"
-                                },
-                                {
-                                    "entity": "sensor.craftdimmer_power"
-                                },
-                                {
-                                    "entity": "sensor.kitchenfront_power"
-                                },
-                                {
-                                    "entity": "sensor.dining_power"
-                                }
-                            ],
-                            "title": "Power"
                         },
                         {
                             "type": "entities",
@@ -499,6 +487,26 @@
                                     ]
                                 }
                             ]
+                        },
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities",
+                                "state_color": false
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "*_power",
+                                        "domain": "sensor"
+                                    }
+                                ],
+                                "exclude": []
+                            },
+                            "sort": {
+                                "method": "state",
+                                "reverse": true
+                            }
                         }
                     ]
                 },
@@ -638,10 +646,6 @@
                                     "entity": "switch.powerboard3_outlet_4"
                                 }
                             ]
-                        },
-                        {
-                            "type": "light",
-                            "entity": "light.robedimmer"
                         }
                     ]
                 },
@@ -752,13 +756,19 @@
                             "type": "map",
                             "entities": [
                                 {
-                                    "entity": "person.chris"
-                                },
-                                {
-                                    "entity": "person.mel"
-                                },
-                                {
                                     "entity": "device_tracker.chrisphone"
+                                },
+                                {
+                                    "entity": "device_tracker.melphone"
+                                },
+                                {
+                                    "entity": "zone.home"
+                                },
+                                {
+                                    "entity": "zone.church"
+                                },
+                                {
+                                    "entity": "zone.school"
                                 }
                             ],
                             "default_zoom": 14,
