@@ -126,13 +126,10 @@
                                     "entity": "light.xander_lights"
                                 },
                                 {
-                                    "type": "button",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
-                                    "entity": "light.backlight_switch",
-                                    "icon": "mdi:television-ambient-light",
-                                    "name": "TV Backlight"
+                                    "type": "light",
+                                    "entity": "light.laundry_lights",
+                                    "icon": "mdi:washing-machine",
+                                    "name": "Laundry"
                                 },
                                 {
                                     "type": "light",
@@ -153,6 +150,12 @@
                                 {
                                     "type": "light",
                                     "entity": "light.garage_lights"
+                                },
+                                {
+                                    "type": "light",
+                                    "entity": "light.sidedoor_lights",
+                                    "name": "Sidedoor",
+                                    "icon": "mdi:door"
                                 }
                             ]
                         },
@@ -298,12 +301,13 @@
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.driveway_lights",
-                                    "type": "custom:slider-entity-row"
+                                    "entity": "light.driveway_lights"
                                 },
                                 {
-                                    "entity": "light.gardenlights",
-                                    "type": "custom:slider-entity-row"
+                                    "entity": "light.laundry_lights"
+                                },
+                                {
+                                    "entity": "light.sidedoor_lights"
                                 },
                                 {
                                     "entity": "light.office_lights"
