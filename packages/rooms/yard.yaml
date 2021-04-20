@@ -1,0 +1,5 @@
+light:
+  - platform: group
+    name: Sidedoor Lights
+    entities:
+      - light.sidedoor

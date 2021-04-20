@@ -42,6 +42,10 @@ google_assistant:
       expose: true
     light.garage_lights:
       expose: true
+    light.laundry_lights:
+      expose: true
+    light.sidedoor_lights:
+      expose: true
     camera.backroom:
       expose: true
     camera.entrycam:

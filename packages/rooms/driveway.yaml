@@ -2,9 +2,32 @@ light:
   - platform: group
     name: Driveway Lights
     entities:
-      - light.frontdoordimmer
+      - light.entrylight
 
 automation:
+  - id: '1618737848710'
+    alias: Front Door opened at night
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door_sensor_contact
+      from: 'off'
+      to: 'on'
+    condition:
+    - condition: sun
+      after: sunset
+      after_offset: -01:00:00
+    action:
+    - service: light.turn_on
+      entity_id: light.driveway_lights
+    - delay:
+        hours: 0
+        minutes: 1
+        seconds: 0
+        milliseconds: 0
+    - service: light.turn_off
+      entity_id: light.driveway_lights
+    mode: restart
   - id: '1618649719644'
     alias: Motion - Driveway person
     description: ''
@@ -32,3 +55,15 @@ automation:
     - service: light.turn_off
       entity_id: light.driveway_lights
     mode: restart
+  - id: '1618649719648'
+    alias: Notify of events
+    trigger:
+      platform: mqtt
+      topic: frigate/events
+    action:
+      - service: notify.mobile_app_chrisphone
+        data_template:
+          message: 'A {{trigger.payload_json["after"]["label"]}} was detected.'
+          data:
+            image: 'https://ha.adebenham.com/api/frigate/notifications/{{trigger.payload_json["after"]["id"]}}/thumbnail.jpg?format=android'
+            tag: '{{trigger.payload_json["after"]["id"]}}'
