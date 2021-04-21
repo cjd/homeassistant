@@ -55,15 +55,36 @@ automation:
     - service: light.turn_off
       entity_id: light.driveway_lights
     mode: restart
-  - id: '1618649719648'
-    alias: Notify of events
+  - id: '1618963905348'
+    alias: Notify - Car
+    description: ''
     trigger:
-      platform: mqtt
-      topic: frigate/events
+    - platform: state
+      entity_id: binary_sensor.top_of_driveway_car_motion
+      from: 'off'
+      to: 'on'
+    condition: []
     action:
-      - service: notify.mobile_app_chrisphone
-        data_template:
-          message: 'A {{trigger.payload_json["after"]["label"]}} was detected.'
-          data:
-            image: 'https://ha.adebenham.com/api/frigate/notifications/{{trigger.payload_json["after"]["id"]}}/thumbnail.jpg?format=android'
-            tag: '{{trigger.payload_json["after"]["id"]}}'
+    - service: notify.mobile_app_chrisphone
+      data:
+        message: A car was detected
+        data:
+          image: /api/camera_proxy/camera.entrycam
+    mode: single
+  - id: '1618964005086'
+    alias: Notify - Person on Driveway
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.driveway_person_motion
+      from: 'off'
+      to: 'on'
+    condition: []
+    action:
+    - service: notify.mobile_app_chrisphone
+      data:
+        message: A person is on the driveway
+        data:
+          image: /api/camera_proxy/camera.driveway_person
+    mode: single
+  
