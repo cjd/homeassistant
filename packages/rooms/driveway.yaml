@@ -69,7 +69,7 @@ automation:
       data:
         message: A car was detected
         data:
-          image: /api/camera_proxy/camera.entrycam
+          image: /api/camera_proxy/camera.driveway_car
     mode: single
   - id: '1618964005086'
     alias: Notify - Person on Driveway
