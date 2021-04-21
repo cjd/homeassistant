@@ -6,7 +6,7 @@ light:
 
 automation:
   - id: moon_on
-    alias: Moon - turn on
+    alias: Xander - Moon - turn on
     trigger:
       platform: time
       at: "18:00:00"
@@ -16,7 +16,7 @@ automation:
         entity_id: light.moon_led
         effect: Slow Random Effect
   - id: moon_off
-    alias: Moon - turn off
+    alias: Xander - Moon - turn off
     trigger:
       platform: time
       at: "07:00:00"

@@ -6,7 +6,7 @@ light:
 
 automation:
   - id: '1618737848710'
-    alias: Front Door opened at night
+    alias: Driveway - Front Door opened at night
     description: ''
     trigger:
     - platform: state

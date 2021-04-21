@@ -4,9 +4,31 @@ light:
     entities:
       - light.bedroomdimmer
 
+binary_sensor:
+  - platform: mqtt
+    name: RFremotebuttonA
+    state_topic: 'tele/RFRemote/RESULT'
+    value_template: >-
+      {% if value_json.RfReceived.Data == 'B12201' %}
+        {{'ON'}}
+      {% else %}
+        {{states('binary_sensor.rfremotebuttona') | upper}}
+      {% endif %}
+    off_delay: 5
+  - platform: mqtt
+    name: RFremotebuttonB
+    state_topic: 'tele/RFRemote/RESULT'
+    value_template: >-
+      {% if value_json.RfReceived.Data == '361F01' %}
+        {{'ON'}}
+      {% else %}
+        {{states('binary_sensor.rfremotebuttona') | upper}}
+      {% endif %}
+    off_delay: 5
+
 automation:
   - id: '1610172763965'
-    alias: Main bedroom - Kid indicator on
+    alias: Bedroom - Kid indicator on
     trigger:
     - platform: state
       entity_id: light.lucas_lights
@@ -31,7 +53,7 @@ automation:
           ''on'') %} green {% elif is_state(''light.lucas_lights'', ''on'') and is_state(''light.xander_lights'',
           ''off'') %} blue {% else %} black {% endif %}'
   - id: '1610172763966'
-    alias: Main bedroom - Kid indicator off
+    alias: Bedroom - Kid indicator off
     trigger:
     - platform: state
       entity_id: light.lucas_lights
@@ -51,7 +73,7 @@ automation:
       data_template:
         entity_id: light.bedroom_led
   - id: '1610190580265'
-    alias: Bedroom night light
+    alias: Bedroom - night light
     description: ''
     trigger:
     - platform: time
@@ -66,7 +88,7 @@ automation:
         entity_id: light.bedroom_lights
         brightness_pct: 10
   - id: '1611015024885'
-    alias: Bedroom_Left
+    alias: Bedroom - Left Button
     description: ''
     trigger:
     - platform: state
@@ -89,7 +111,7 @@ automation:
         entity_id: script.turn_tv_lights_off
     mode: single
   - id: '1611015024886'
-    alias: Bedroom_Right
+    alias: Bedroom - Right Button
     description: ''
     trigger:
     - platform: state

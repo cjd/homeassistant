@@ -101,7 +101,7 @@ camera:
 
 automation:
   - id: '1613520733143'
-    alias: Familyroom Switch 1
+    alias: Familyroom - Switch 1
     description: ''
     trigger:
     - platform: state
@@ -114,7 +114,7 @@ automation:
       entity_id: switch.familyroom_dim
     mode: single
   - id: '1613520733144'
-    alias: Familyroom Switch 2
+    alias: Familyroom - Switch 2
     description: ''
     trigger:
     - platform: state
@@ -127,7 +127,7 @@ automation:
       entity_id: switch.familyroom_low
     mode: single
   - id: '1613520733145'
-    alias: Familyroom Switch 3
+    alias: Familyroom - Switch 3
     description: ''
     trigger:
     - platform: state
@@ -140,7 +140,7 @@ automation:
       entity_id: switch.familyroom_normal
     mode: single
   - id: '1610429484473'
-    alias: Family room light strip on
+    alias: Family room - light strip on in evening
     description: ''
     trigger:
     - platform: time
@@ -159,11 +159,11 @@ automation:
         brightness_pct: 75
     mode: single
   - id: '1610429484474'
-    alias: Family room light strip off
+    alias: Family room - light strip off at night
     description: ''
     trigger:
     - platform: time
-      at: '22:00:00'
+      at: '23:00:00'
     condition: []
     action:
     - service: light.turn_off
@@ -171,39 +171,8 @@ automation:
     - service: light.turn_off
       entity_id: light.familyroom_shelfstrip
     mode: single
-  - id: '1610430895469'
-    alias: TV Backlight on
-    description: ''
-    trigger:
-    - platform: state
-      entity_id: media_player.samsung_tv_remote
-      from: 'off'
-      to: 'on'
-      for: 0:00:30
-    condition: []
-    action:
-    - service: light.turn_on
-      data:
-        color_name: blue
-        brightness_pct: 100
-      entity_id: light.tv_backlight
-    mode: single
-  - id: '1610430895470'
-    alias: TV Backlight off
-    description: ''
-    trigger:
-    - platform: state
-      entity_id: media_player.samsung_tv_remote
-      from: 'on'
-      to: 'off'
-      for: 0:00:02
-    condition: []
-    action:
-    - service: light.turn_off
-      entity_id: light.tv_backlight
-    mode: single
   - id: '1610430895471'
-    alias: Familyroom Outside Switch - lights on
+    alias: Familyroom - Outside Switch - lights on
     trigger:
     - platform: state
       entity_id: binary_sensor.familyroomdimmer_channel_1_input
@@ -221,7 +190,7 @@ automation:
       - service: scene.turn_on
         entity_id: scene.familyroom_off
   - id: '1610430895472'
-    alias: Familyroom Outside Switch - lights off
+    alias: Familyroom - Outside Switch - lights off
     trigger:
     - platform: state
       entity_id: binary_sensor.familyroomdimmer_channel_1_input

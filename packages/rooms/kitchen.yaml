@@ -7,7 +7,7 @@ light:
 
 automation:
   - id: '1615539466617'
-    alias: Turn on the kitchen strip when the sun is set
+    alias: Kitchen - Turn on strip when the sun is set
     description: ''
     trigger:
       - platform: sun
@@ -21,7 +21,7 @@ automation:
           effect: Cycle
     mode: single
   - id: '1615539466618'
-    alias: Turn off the kitchen strip when the sun is up
+    alias: Kitchen - Turn off strip when the sun is up
     description: ''
     trigger:
       - platform: sun

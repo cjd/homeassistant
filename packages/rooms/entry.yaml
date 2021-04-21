@@ -6,7 +6,7 @@ light:
 
 automation:
   - id: '1618214320098'
-    alias: turn entry lights on at sunset
+    alias: Entry - Lights on at sunset
     description: ''
     trigger:
     - platform: sun
@@ -21,7 +21,7 @@ automation:
       brightness_pct: 100
     mode: single
   - id: '1618214320099'
-    alias: turn entry lights off at sunrise
+    alias: Entry - Lights off at sunrise
     description: ''
     trigger:
     - platform: sun
