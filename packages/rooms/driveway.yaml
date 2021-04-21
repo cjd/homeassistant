@@ -79,7 +79,21 @@ automation:
       entity_id: binary_sensor.driveway_person_motion
       from: 'off'
       to: 'on'
-    condition: []
+    condition:
+    - condition: or
+      conditions:
+      - condition: time
+        after: 08:30:00
+        before: '15:00:00'
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+      - condition: time
+        after: '20:00:00'
+        before: 06:00:00
     action:
     - service: notify.mobile_app_chrisphone
       data:
@@ -87,4 +101,3 @@ automation:
         data:
           image: /api/camera_proxy/camera.driveway_person
     mode: single
-  

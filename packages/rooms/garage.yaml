@@ -38,3 +38,58 @@ automation:
     - service: light.turn_off
       entity_id: light.garage_lights
     mode: restart
+  - id: '1618977583813'
+    alias: Cameras - Turn On Garage recording at night or when away
+    description: ''
+    trigger:
+    - platform: time
+      at: '19:00:00'
+    - platform: state
+      entity_id: person.chris
+      to: not_home
+    - platform: state
+      entity_id: person.mel
+      to: not_home
+    condition:
+    - condition: or
+      conditions:
+      - condition: time
+        after: '19:00:00'
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: person.chris
+          state: not_home
+        - condition: state
+          entity_id: person.mel
+          state: not_home
+    action:
+    - service: switch.turn_on
+      entity_id: switch.garage_clips
+    mode: single
+  - id: '1618978148074'
+    alias: Cameras - Turn Off Garage recording when home
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: person.chris
+      to: home
+    - platform: state
+      entity_id: person.mel
+      to: home
+    - platform: time
+      at: 08:00:00
+    condition:
+    - condition: or
+      conditions:
+      - condition: state
+        entity_id: person.chris
+        state: home
+      - condition: state
+        entity_id: person.mel
+        state: home
+    action:
+    - service: switch.turn_off
+      entity_id: switch.garage_clips
+    mode: single
+  
