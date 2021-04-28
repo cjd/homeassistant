@@ -70,21 +70,21 @@
                                     "tap_action": {
                                         "action": "toggle"
                                     },
-                                    "entity": "switch.familyroom_normal"
+                                    "entity": "switch.loungeroom_normal"
                                 },
                                 {
                                     "type": "button",
                                     "tap_action": {
                                         "action": "toggle"
                                     },
-                                    "entity": "switch.familyroom_low"
+                                    "entity": "switch.loungeroom_low"
                                 },
                                 {
                                     "type": "button",
                                     "tap_action": {
                                         "action": "toggle"
                                     },
-                                    "entity": "switch.familyroom_dim",
+                                    "entity": "switch.loungeroom_dim",
                                     "show_icon": true,
                                     "show_state": false
                                 }
@@ -107,7 +107,7 @@
                                 },
                                 {
                                     "type": "light",
-                                    "entity": "light.familyroom_lights"
+                                    "entity": "light.loungeroom_lights"
                                 },
                                 {
                                     "type": "light",
@@ -191,6 +191,9 @@
                                 },
                                 {
                                     "entity": "camera.driveway_person"
+                                },
+                                {
+                                    "entity": "camera.driveway_car"
                                 }
                             ]
                         },
@@ -277,7 +280,7 @@
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
-                                    "entity": "light.familyroom_lights",
+                                    "entity": "light.loungeroom_lights",
                                     "type": "custom:slider-entity-row"
                                 },
                                 {
@@ -713,6 +716,12 @@
                     "cards": [
                         {
                             "type": "picture-entity",
+                            "entity": "camera.yard",
+                            "show_name": false,
+                            "show_state": false
+                        },
+                        {
+                            "type": "picture-entity",
                             "entity": "camera.livingroom",
                             "camera_image": "camera.livingroom",
                             "show_state": false,
@@ -720,19 +729,19 @@
                         },
                         {
                             "type": "picture-entity",
-                            "entity": "camera.familyroom",
+                            "entity": "camera.driveway",
+                            "show_state": false,
+                            "show_name": false
+                        },
+                        {
+                            "type": "picture-entity",
+                            "entity": "camera.loungeroom",
                             "show_name": false,
                             "show_state": false
                         },
                         {
                             "type": "picture-entity",
                             "entity": "camera.garage",
-                            "show_name": false,
-                            "show_state": false
-                        },
-                        {
-                            "type": "picture-entity",
-                            "entity": "camera.entrycam",
                             "show_state": false,
                             "show_name": false
                         }

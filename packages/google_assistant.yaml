@@ -20,7 +20,7 @@ google_assistant:
       expose: true
     light.entry_lights:
       expose: true
-    light.familyroom_lights:
+    light.loungeroom_lights:
       expose: true
     light.frontdoor_lights:
       expose: true
@@ -50,13 +50,13 @@ google_assistant:
       expose: true
     camera.entrycam:
       expose: true
-    camera.familyroom:
+    camera.loungeroom:
       expose: true
     camera.livingroom:
       expose: true
-    scene.familyroom_normal:
+    scene.loungeroom_normal:
       expose: true
-    scene.familyroom_low:
+    scene.loungeroom_low:
       expose: true
-    scene.familyroom_dim:
+    scene.loungeroom_dim:
       expose: true

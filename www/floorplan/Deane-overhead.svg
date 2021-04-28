@@ -78,7 +78,7 @@
        y="125.99686" />
     <rect
        style="opacity:0.5;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37953;paint-order:markers fill stroke"
-       id="light.familyroom_lights"
+       id="light.loungeroom_lights"
        width="309.24933"
        height="194.32428"
        x="201.81779"
@@ -233,7 +233,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.6667px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none"
        x="215.74333"
        y="530.24207"
-       id="sensor.familyroom_sensor_temperature"><tspan
+       id="sensor.loungeroom_sensor_temperature"><tspan
          sodipodi:role="line"
          id="tspan1501-38"
          x="215.74333"

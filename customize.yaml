@@ -13,8 +13,8 @@ light.ensuite_lights:
 light.entry_lights:
   friendly_name: Entry
   icon: mdi:ceiling-light
-light.familyroom_lights:
-  friendly_name: Familyroom
+light.loungeroom_lights:
+  friendly_name: Loungeroom
   icon: mdi:television
 light.garage_lights:
   friendly_name: Garage

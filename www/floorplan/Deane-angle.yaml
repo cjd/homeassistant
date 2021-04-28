@@ -5,7 +5,7 @@ rules:
     entities:
       - light.office_lights
       - light.xander_lights
-      - light.familyroom_lights
+      - light.loungeroom_lights
       - light.bedroom_lights
       - light.lucas_lights
       - light.craftroom_lights

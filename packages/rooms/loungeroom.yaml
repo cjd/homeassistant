@@ -1,23 +1,23 @@
 group:
-  familyroom_lightgroup:
-    name: Familyroom Light Group
+  loungeroom_lightgroup:
+    name: Loungeroom Light Group
     entities:
-      - light.family_bl
-      - light.family_br
-      - light.family_ml
-      - light.family_mr
-      - light.family_fl
-      - light.family_fr
+      - light.lounge_bl
+      - light.lounge_br
+      - light.lounge_ml
+      - light.lounge_mr
+      - light.lounge_fl
+      - light.lounge_fr
 light:
   - platform: group
-    name: Familyroom Lights
+    name: loungeroom Lights
     entities:
-      - light.family_bl
-      - light.family_br
-      - light.family_ml
-      - light.family_mr
-      - light.family_fl
-      - light.family_fr
+      - light.lounge_bl
+      - light.lounge_br
+      - light.lounge_ml
+      - light.lounge_mr
+      - light.lounge_fl
+      - light.lounge_fr
   - platform: template
     lights:
       backlight_switch:
@@ -33,11 +33,11 @@ light:
 switch:
   - platform: template
     switches:
-      familyroom_normal:
-        friendly_name: "Familyroom Full"
+      loungeroom_normal:
+        friendly_name: "Loungeroom Full"
         value_template: >
-          {% if states('light.family_ml') %}
-            {% if state_attr('light.family_ml','brightness') == 255 %}
+          {% if states('light.lounge_ml') %}
+            {% if state_attr('light.lounge_ml','brightness') == 255 %}
               true
             {% else %}
               false
@@ -48,16 +48,16 @@ switch:
         turn_on:
           service: scene.turn_on
           target:
-            entity_id: scene.familyroom_normal
+            entity_id: scene.loungeroom_normal
         turn_off:
           service: scene.turn_on
           target:
-            entity_id: scene.familyroom_off
-      familyroom_low:
-        friendly_name: "Familyroom Medium"
+            entity_id: scene.loungeroom_off
+      loungeroom_low:
+        friendly_name: "Loungeroom Medium"
         value_template: >
-          {% if states('light.family_ml') %}
-            {% if ((state_attr('light.family_ml','brightness')|int > 100) and (state_attr('light.family_ml','brightness')|int < 200)) %}
+          {% if states('light.lounge_ml') %}
+            {% if ((state_attr('light.lounge_ml','brightness')|int > 100) and (state_attr('light.lounge_ml','brightness')|int < 200)) %}
               true
             {% else %}
               false
@@ -68,16 +68,16 @@ switch:
         turn_on:
           service: scene.turn_on
           target:
-            entity_id: scene.familyroom_low
+            entity_id: scene.loungeroom_low
         turn_off:
           service: scene.turn_on
           target:
-            entity_id: scene.familyroom_off
-      familyroom_dim:
-        friendly_name: "Familyroom Dim"
+            entity_id: scene.loungeroom_off
+      loungeroom_dim:
+        friendly_name: "Loungeroom Dim"
         value_template: >
-          {% if states('light.family_ml') %}
-            {% if ((state_attr('light.family_ml','brightness')|int < 100) and (state_attr('light.family_ml','brightness')|int > 0)) %}
+          {% if states('light.lounge_ml') %}
+            {% if ((state_attr('light.lounge_ml','brightness')|int < 100) and (state_attr('light.lounge_ml','brightness')|int > 0)) %}
               true
             {% else %}
               false
@@ -88,59 +88,54 @@ switch:
         turn_on:
           service: scene.turn_on
           target:
-            entity_id: scene.familyroom_dim
+            entity_id: scene.loungeroom_dim
         turn_off:
           service: scene.turn_on
           target:
-            entity_id: scene.familyroom_off
-
-camera:
-  - platform: ffmpeg
-    name: familyroom
-    input: rtsp://192.168.0.80:8554/unicast
+            entity_id: scene.loungeroom_off
 
 automation:
   - id: '1613520733143'
-    alias: Familyroom - Switch 1
+    alias: Loungeroom - Switch 1
     description: ''
     trigger:
     - platform: state
-      entity_id: binary_sensor.familyroom_switch1
+      entity_id: binary_sensor.loungeroom_switch1
       from: 'off'
       to: 'on'
     condition: []
     action:
     - service: switch.toggle
-      entity_id: switch.familyroom_dim
+      entity_id: switch.loungeroom_dim
     mode: single
   - id: '1613520733144'
-    alias: Familyroom - Switch 2
+    alias: Loungeroom - Switch 2
     description: ''
     trigger:
     - platform: state
-      entity_id: binary_sensor.familyroom_switch2
+      entity_id: binary_sensor.loungeroom_switch2
       from: 'off'
       to: 'on'
     condition: []
     action:
     - service: switch.toggle
-      entity_id: switch.familyroom_low
+      entity_id: switch.loungeroom_low
     mode: single
   - id: '1613520733145'
-    alias: Familyroom - Switch 3
+    alias: Loungeroom - Switch 3
     description: ''
     trigger:
     - platform: state
-      entity_id: binary_sensor.familyroom_switch3
+      entity_id: binary_sensor.loungeroom_switch3
       from: 'off'
       to: 'on'
     condition: []
     action:
     - service: switch.toggle
-      entity_id: switch.familyroom_normal
+      entity_id: switch.loungeroom_normal
     mode: single
   - id: '1610429484473'
-    alias: Family room - light strip on in evening
+    alias: Lounge room - light strip on in evening
     description: ''
     trigger:
     - platform: time
@@ -149,17 +144,17 @@ automation:
     action:
     - service: light.turn_on
       data:
-        entity_id: light.familyroom_lowerstrip
+        entity_id: light.loungeroom_lowerstrip
         color_name: green
         brightness_pct: 50
     - service: light.turn_on
       data:
-        entity_id: light.familyroom_shelfstrip
+        entity_id: light.loungeroom_shelfstrip
         color_name: blue
         brightness_pct: 75
     mode: single
   - id: '1610429484474'
-    alias: Family room - light strip off at night
+    alias: Lounge room - light strip off at night
     description: ''
     trigger:
     - platform: time
@@ -167,15 +162,15 @@ automation:
     condition: []
     action:
     - service: light.turn_off
-      entity_id: light.familyroom_lowerstrip
+      entity_id: light.loungeroom_lowerstrip
     - service: light.turn_off
-      entity_id: light.familyroom_shelfstrip
+      entity_id: light.loungeroom_shelfstrip
     mode: single
   - id: '1610430895471'
-    alias: Familyroom - Outside Switch - lights on
+    alias: Loungeroom - Outside Switch - lights on
     trigger:
     - platform: state
-      entity_id: binary_sensor.familyroomdimmer_channel_1_input
+      entity_id: binary_sensor.loungeroomdimmer_channel_1_input
       from:
         - 'on'
         - 'off'
@@ -184,16 +179,16 @@ automation:
         - 'off'
     condition: 
       - condition: state
-        entity_id: light.familyroom_lights
+        entity_id: light.loungeroom_lights
         state: 'on'
     action:
       - service: scene.turn_on
-        entity_id: scene.familyroom_off
+        entity_id: scene.loungeroom_off
   - id: '1610430895472'
-    alias: Familyroom - Outside Switch - lights off
+    alias: Loungeroom - Outside Switch - lights off
     trigger:
     - platform: state
-      entity_id: binary_sensor.familyroomdimmer_channel_1_input
+      entity_id: binary_sensor.loungeroomdimmer_channel_1_input
       from:
         - 'on'
         - 'off'
@@ -202,11 +197,11 @@ automation:
         - 'off'
     condition: 
       - condition: state
-        entity_id: light.familyroom_lights
+        entity_id: light.loungeroom_lights
         state: 'off'
     action:
       - service: scene.turn_on
-        entity_id: scene.familyroom_low
+        entity_id: scene.loungeroom_low
 
 script:
   turn_tv_lights_on:
@@ -219,7 +214,7 @@ script:
           rgb_color: [0,0,255]
           effect: None
       - service: light.turn_on
-        entity_id: light.familyroom_lowerstrip
+        entity_id: light.loungeroom_lowerstrip
         data:
           brightness: 150
           rgb_color: [0,255,0]
@@ -227,7 +222,7 @@ script:
       - delay:
           seconds: 2
       - service: light.turn_on
-        entity_id: light.familyroom_shelfstrip
+        entity_id: light.loungeroom_shelfstrip
         data:
           brightness: 200
           rgb_color: [0,0,255]
@@ -238,11 +233,11 @@ script:
       - service: light.turn_off
         entity_id: light.tv_backlight
       - service: light.turn_off
-        entity_id: light.familyroom_lowerstrip
+        entity_id: light.loungeroom_lowerstrip
       - delay:
           seconds: 2
       - service: light.turn_off
-        entity_id: light.familyroom_shelfstrip
+        entity_id: light.loungeroom_shelfstrip
 
 scene:
   - id: '1611195993245'
@@ -253,12 +248,12 @@ scene:
         rgb_color: [0,0,255]
         effect: None
         state: "on"
-      light.familyroom_lowerstrip:
+      light.loungeroom_lowerstrip:
         brightness: 128
         rgb_color: [0,255,0]
         effect: None
         state: "on"
-      light.familyroom_shelfstrip:
+      light.loungeroom_shelfstrip:
         brightness: 255
         rgb_color: [0,0,255]
         effect: None
@@ -269,15 +264,15 @@ scene:
     entities:
       light.tv_backlight:
         state: "off"
-      light.familyroom_lowerstrip:
+      light.loungeroom_lowerstrip:
         state: "off"
-      light.familyroom_shelfstrip:
+      light.loungeroom_shelfstrip:
         state: "off"
     icon: mdi:television
   - id: '1613889672194'
-    name: Familyroom Normal
+    name: Loungeroom Normal
     entities:
-      light.familyroom_lights:
+      light.loungeroom_lights:
         brightness: 255
         color_temp: 402
         effect: None
@@ -287,43 +282,43 @@ scene:
         rgb_color: [0,0,255]
         effect: None
         state: 'on'
-      light.familyroom_lowerstrip:
+      light.loungeroom_lowerstrip:
         brightness: 150
         rgb_color: [0,255,0]
         effect: None
         state: 'on'
-      light.familyroom_shelfstrip:
+      light.loungeroom_shelfstrip:
         brightness: 200
         rgb_color: [0,0,255]
         effect: None
         state: 'on'
   - id: '1613889765919'
-    name: Familyroom Dim
+    name: Loungeroom Dim
     entities:
-      light.family_bl:
+      light.lounge_bl:
         state: 'off'
-      light.family_br:
+      light.lounge_br:
         state: 'off'
-      light.family_fl:
+      light.lounge_fl:
         state: 'off'
-      light.family_fr:
+      light.lounge_fr:
         state: 'off'
-      light.family_ml:
+      light.lounge_ml:
         brightness: 70
         color_temp: 402
         effect: None
         state: 'on'
-      light.family_mr:
+      light.lounge_mr:
         brightness: 70
         color_temp: 402
         effect: None
         state: 'on'
-      light.familyroom_lowerstrip:
+      light.loungeroom_lowerstrip:
         brightness: 150
         rgb_color: [0,255,0]
         effect: None
         state: 'on'
-      light.familyroom_shelfstrip:
+      light.loungeroom_shelfstrip:
         brightness: 200
         rgb_color: [0,0,255]
         effect: None
@@ -334,35 +329,35 @@ scene:
         effect: None
         state: 'on'
   - id: '1613889879080'
-    name: Familyroom Off
+    name: Loungeroom Off
     entities:
-      light.familyroom_lowerstrip:
+      light.loungeroom_lowerstrip:
         state: 'off'
-      light.familyroom_shelfstrip:
+      light.loungeroom_shelfstrip:
         state: 'off'
-      light.familyroom_lights:
+      light.loungeroom_lights:
         state: 'off'
       light.tv_backlight:
         state: 'off'
   - id: '1614067231868'
-    name: Familyroom Low
+    name: Loungeroom Low
     entities:
       light.tv_backlight:
         brightness: 255
         rgb_color: [0,0,255]
         effect: None
         state: 'on'
-      light.familyroom_lowerstrip:
+      light.loungeroom_lowerstrip:
         brightness: 150
         rgb_color: [0,255,0]
         effect: None
         state: 'on'
-      light.familyroom_shelfstrip:
+      light.loungeroom_shelfstrip:
         brightness: 200
         rgb_color: [0,0,255]
         effect: None
         state: 'on'
-      light.familyroom_lights:
+      light.loungeroom_lights:
         brightness: 150
         color_temp: 402
         effect: None

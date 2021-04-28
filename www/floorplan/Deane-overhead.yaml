@@ -9,7 +9,7 @@ rules:
       - light.dining_lights
       - light.office_lights
       - light.xander_lights
-      - light.familyroom_lights
+      - light.loungeroom_lights
       - light.bedroom_lights
       - light.lucas_lights
       - light.craftroom_lights
@@ -37,7 +37,7 @@ rules:
       - sensor.netatmo_netatmo_indoor_temperature
       - sensor.office_temperature
       - sensor.carport_sensor_temperature
-      - sensor.familyroom_sensor_temperature
+      - sensor.loungeroom_sensor_temperature
       - sensor.bedroom_temperature
       - sensor.bathroom_sensor_temperature
       - sensor.lucas_bedroom_sensor_temperature
