@@ -4,13 +4,13 @@ panel_iframe:
     url: https://home.adebenham.com/int/esphome/
     icon: mdi:cog
     require_admin: true
-  nodered:
-    title: NodeRed
-    url: https://home.adebenham.com/int/nodered/
-    icon: mdi:sitemap
-    require_admin: true
   vscode:
     title: VSCode
     url: https://home.adebenham.com/int/vscode/
     icon: mdi:code-tags
+    require_admin: true
+  frigate:
+    title: Frigate
+    url: https://frigate.adebenham.com/
+    icon: mdi:video
     require_admin: true

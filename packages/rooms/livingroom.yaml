@@ -4,9 +4,3 @@ light:
     entities:
       - light.livingmiddle
       - light.livingside
-
-camera:
-  - platform: mjpeg
-    name: Livingroom
-    still_image_url: http://dock.lan:8765/picture/1/current/
-    mjpeg_url: http://dock.lan:58081
