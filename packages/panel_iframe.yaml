@@ -6,11 +6,16 @@ panel_iframe:
     require_admin: true
   vscode:
     title: VSCode
-    url: https://home.adebenham.com/int/vscode/
+    url: https://v.adebenham.com/
     icon: mdi:code-tags
     require_admin: true
   frigate:
     title: Frigate
     url: https://frigate.adebenham.com/
     icon: mdi:video
+    require_admin: true
+  zigbee:
+    title: Zigbee
+    url: https://home.adebenham.com/int/zigbee/
+    icon: mdi:network
     require_admin: true
