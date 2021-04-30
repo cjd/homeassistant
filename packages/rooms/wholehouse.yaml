@@ -1,0 +1,25 @@
+automation:
+  - id: '1610484353994'
+    alias: Reset Brightness in day
+    description: ''
+    trigger:
+    - platform: state
+      entity_id:
+      - light.xander_lights
+      - light.office_lights
+      - light.lucas_lights
+      - light.bedroom_lights
+      - light.entry_lights
+      from: 'off'
+      to: 'on'
+    condition:
+    - condition: time
+      after: 05:00
+      before: '18:00'
+    action:
+    - service: light.turn_on
+      data:
+        brightness_pct: 100
+        entity_id: '{{ trigger.entity_id }}'
+    mode: parallel
+    max: 100

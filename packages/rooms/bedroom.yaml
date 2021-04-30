@@ -73,7 +73,7 @@ automation:
       data_template:
         entity_id: light.bedroom_led
   - id: '1610190580265'
-    alias: Bedroom - night light
+    alias: Bedroom - Night light
     description: ''
     trigger:
     - platform: time
@@ -132,3 +132,19 @@ automation:
       data:
         entity_id: script.turn_tv_lights_off
     mode: single
+  - id: '1619755214062'
+    alias: Bedroom - External Button
+    description: ''
+    trigger:
+    - platform: device
+      domain: mqtt
+      device_id: 2ef7caaf49576189a87de78baf54888e
+      type: action
+      subtype: single
+      discovery_id: 0x00158d00057316be action_single
+    condition: []
+    action:
+    - service: light.toggle
+      entity_id: light.bedroom_lights
+    mode: single
+  
