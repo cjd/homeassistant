@@ -163,16 +163,16 @@
                             "type": "glance",
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.garage_sensor_contact"
+                                    "entity": "binary_sensor.garage_door_contact"
                                 },
                                 {
-                                    "entity": "binary_sensor.front_door_sensor_contact"
+                                    "entity": "binary_sensor.front_door_contact"
                                 },
                                 {
-                                    "entity": "binary_sensor.backdoor_sensor_contact"
+                                    "entity": "binary_sensor.back_door_contact"
                                 },
                                 {
-                                    "entity": "binary_sensor.sidedoor_sensor_contact"
+                                    "entity": "binary_sensor.side_door_contact"
                                 },
                                 {
                                     "entity": "binary_sensor.laundry_door_contact"
