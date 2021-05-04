@@ -788,6 +788,23 @@
                             "hours_to_show": 24
                         }
                     ]
+                },
+                {
+                    "icon": "mdi:robot-vacuum",
+                    "title": "V",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:xiaomi-vacuum-card",
+                            "entity": "vacuum.roborock_vacuum_a08"
+                        },
+                        {
+                            "type": "custom:xiaomi-vacuum-map-card",
+                            "entity": "vacuum.roborock_vacuum_a08",
+                            "map_camera": "camera.roborock_map",
+                            "camera_calibration": true
+                        }
+                    ]
                 }
             ]
         }

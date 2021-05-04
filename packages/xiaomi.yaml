@@ -1,0 +1,10 @@
+camera:
+  - platform: xiaomi_cloud_map_extractor
+    name: "Roborock Map"
+    host: !secret xiaomi_vacuum_host
+    token: !secret xiaomi_vacuum_token
+    username: !secret xiaomi_cloud_username
+    password: !secret xiaomi_cloud_password
+    draw: ['all']
+    attributes:
+      - calibration_points
