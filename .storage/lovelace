@@ -406,10 +406,10 @@
                                     ]
                                 },
                                 {
-                                    "entity": "light.familyroom_lowerstrip"
+                                    "entity": "light.loungeroom_lowerstrip"
                                 },
                                 {
-                                    "entity": "light.familyroom_lowerstrip",
+                                    "entity": "light.loungeroom_lowerstrip",
                                     "type": "custom:rgb-light-card",
                                     "justify": "around",
                                     "colors": [
@@ -428,10 +428,10 @@
                                     ]
                                 },
                                 {
-                                    "entity": "light.familyroom_shelfstrip"
+                                    "entity": "light.loungeroom_shelfstrip"
                                 },
                                 {
-                                    "entity": "light.familyroom_shelfstrip",
+                                    "entity": "light.loungeroom_shelfstrip",
                                     "type": "custom:rgb-light-card",
                                     "justify": "around",
                                     "colors": [
