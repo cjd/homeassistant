@@ -1,0 +1,42 @@
+{
+    "config": {
+        "abort": {
+            "already_configured": "This camera is already configured"
+        },
+        "error": {
+            "cannot_connect": "Failed to connect with the camera",
+            "invalid_auth": "Invalid username or password",
+            "unknown": "Unexpected error"
+        },
+        "step": {
+            "user": {
+                "data": {
+                    "host": "Host",
+                    "port": "Port",
+                    "username": "Username",
+                    "password": "Password"
+                }
+            },
+            "nvr": {
+                "data": {
+                    "channel": "Channel"
+                }
+            }
+        }
+    },
+    "options": {
+        "step": {
+            "init": {
+                "data": {
+                    "protocol": "Protocol",
+                    "stream": "Stream",
+                    "timeout": "Timeout (seconds)",
+                    "motion_off_delay": "Motion sensor off delay (seconds)",
+                    "playback_months": "Playback range (months)",
+                    "playback_thumbnails": "Create thumbnails for playback items",
+                    "playback_thumbnail_offset": "Pre-Record offset (seconds) for thumbnail"
+                }
+            }
+        }
+    }
+}
