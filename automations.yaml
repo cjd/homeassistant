@@ -1,0 +1,57 @@
+- id: '1620182760825'
+  alias: Notify - Mel leaving school
+  description: ''
+  trigger:
+  - platform: zone
+    entity_id: person.mel
+    zone: zone.school
+    event: leave
+  condition: []
+  action:
+  - service: notify.mobile_app_chrisphone
+    data:
+      message: Mel Left School
+  mode: single
+- id: '1620696771165'
+  alias: Spinnner Brightness Down
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.spinner_action
+    to: rotate_left
+  condition: []
+  action:
+  - service: light.turn_on
+    target:
+      entity_id: light.office_lights
+    data:
+      brightness_step_pct: -5
+  mode: single
+- id: '1620696771166'
+  alias: Spinnner Brightness Up
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.spinner_action
+    to: rotate_right
+  condition: []
+  action:
+  - service: light.turn_on
+    target:
+      entity_id: light.office_lights
+    data:
+      brightness_step_pct: 5
+  mode: single
+- id: '1620696771167'
+  alias: Spinnner Press
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.spinner_action
+    to: play_pause
+  condition: []
+  action:
+  - service: light.toggle
+    target:
+      entity_id: light.office_lights
+  mode: single
