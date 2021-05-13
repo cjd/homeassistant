@@ -3,3 +3,32 @@ light:
     name: Bathroom Lights
     entities:
       - light.bathroom
+
+automation:
+  - id: '1620862005725'
+    alias: Bathroom - Moon On at Sunset
+    description: ''
+    trigger:
+    - platform: sun
+      event: sunset
+    condition: []
+    action:
+    - service: light.turn_on
+      target:
+        entity_id: light.bathroom_moon
+      data:
+        brightness_pct: 25
+        color_temp: 443
+    mode: single
+  - id: '1620862057642'
+    alias: Bathroom - Moon Off at sunrise
+    description: ''
+    trigger:
+    - platform: sun
+      event: sunrise
+    condition: []
+    action:
+    - service: light.turn_off
+      target:
+        entity_id: light.bathroom_moon
+    mode: single
