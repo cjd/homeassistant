@@ -313,7 +313,8 @@
                                     "entity": "light.sidedoor_lights"
                                 },
                                 {
-                                    "entity": "light.office_lights"
+                                    "entity": "light.office_lights",
+                                    "type": "custom:slider-entity-row"
                                 },
                                 {
                                     "entity": "light.garage_lights"
@@ -343,155 +344,28 @@
                                     "entity": "light.bedroom_led"
                                 },
                                 {
-                                    "type": "custom:rgb-light-card",
-                                    "justify": "around",
-                                    "entity": "light.bedroom_led",
-                                    "colors": [
-                                        {
-                                            "color_name": "red",
-                                            "brightness": 100
-                                        },
-                                        {
-                                            "color_name": "green",
-                                            "brightness": 100
-                                        },
-                                        {
-                                            "color_name": "blue",
-                                            "brightness": 100
-                                        }
-                                    ]
-                                },
-                                {
                                     "entity": "light.kitchen_strip"
-                                },
-                                {
-                                    "entity": "light.kitchen_strip",
-                                    "type": "custom:rgb-light-card",
-                                    "justify": "around",
-                                    "colors": [
-                                        {
-                                            "color_name": "red",
-                                            "brightness": 220
-                                        },
-                                        {
-                                            "color_name": "green",
-                                            "brightness": 220
-                                        },
-                                        {
-                                            "color_name": "blue",
-                                            "brightness": 220
-                                        }
-                                    ]
                                 },
                                 {
                                     "entity": "light.moon_led"
                                 },
                                 {
-                                    "entity": "light.moon_led",
-                                    "type": "custom:rgb-light-card",
-                                    "justify": "around",
-                                    "colors": [
-                                        {
-                                            "color_name": "red",
-                                            "brightness": 220
-                                        },
-                                        {
-                                            "color_name": "green",
-                                            "brightness": 220
-                                        },
-                                        {
-                                            "color_name": "blue",
-                                            "brightness": 220
-                                        }
-                                    ]
+                                    "entity": "light.bathroom_moon"
                                 },
                                 {
                                     "entity": "light.loungeroom_lowerstrip"
                                 },
                                 {
-                                    "entity": "light.loungeroom_lowerstrip",
-                                    "type": "custom:rgb-light-card",
-                                    "justify": "around",
-                                    "colors": [
-                                        {
-                                            "color_name": "red",
-                                            "brightness": 220
-                                        },
-                                        {
-                                            "color_name": "green",
-                                            "brightness": 220
-                                        },
-                                        {
-                                            "color_name": "blue",
-                                            "brightness": 220
-                                        }
-                                    ]
-                                },
-                                {
                                     "entity": "light.loungeroom_shelfstrip"
-                                },
-                                {
-                                    "entity": "light.loungeroom_shelfstrip",
-                                    "type": "custom:rgb-light-card",
-                                    "justify": "around",
-                                    "colors": [
-                                        {
-                                            "color_name": "red",
-                                            "brightness": 220
-                                        },
-                                        {
-                                            "color_name": "green",
-                                            "brightness": 220
-                                        },
-                                        {
-                                            "color_name": "blue",
-                                            "brightness": 220
-                                        }
-                                    ]
                                 },
                                 {
                                     "entity": "light.tv_backlight"
                                 },
                                 {
-                                    "entity": "light.tv_backlight",
-                                    "type": "custom:rgb-light-card",
-                                    "justify": "around",
-                                    "colors": [
-                                        {
-                                            "color_name": "red",
-                                            "brightness": 220
-                                        },
-                                        {
-                                            "color_name": "green",
-                                            "brightness": 220
-                                        },
-                                        {
-                                            "color_name": "blue",
-                                            "brightness": 220
-                                        }
-                                    ]
-                                },
-                                {
                                     "entity": "light.office_strip"
                                 },
                                 {
-                                    "entity": "light.office_strip",
-                                    "type": "custom:rgb-light-card",
-                                    "justify": "around",
-                                    "colors": [
-                                        {
-                                            "color_name": "red",
-                                            "brightness": 220
-                                        },
-                                        {
-                                            "color_name": "green",
-                                            "brightness": 220
-                                        },
-                                        {
-                                            "color_name": "blue",
-                                            "brightness": 220
-                                        }
-                                    ]
+                                    "entity": "light.bathroom_moon"
                                 }
                             ]
                         },
@@ -723,7 +597,6 @@
                         {
                             "type": "picture-entity",
                             "entity": "camera.livingroom",
-                            "camera_image": "camera.livingroom",
                             "show_state": false,
                             "show_name": false
                         },
