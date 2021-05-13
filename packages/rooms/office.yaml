@@ -2,7 +2,7 @@ light:
   - platform: group
     name: Office Lights
     entities:
-      - light.office_light
+      - light.officedimmer
 
 automation:
   - alias: Office - Switch 1
