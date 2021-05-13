@@ -70,6 +70,32 @@ automation:
         message: A car was detected
         data:
           image: /api/camera_proxy/camera.driveway_car
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 30
+        milliseconds: 0
+    mode: single
+  - id: '1618963905349'
+    alias: Notify - Person Top
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.top_of_driveway_person_motion
+      from: 'off'
+      to: 'on'
+    condition: []
+    action:
+    - service: notify.mobile_app_chrisphone
+      data:
+        message: A person was detected at the top of the driveway
+        data:
+          image: /api/camera_proxy/camera.driveway_car
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 30
+        milliseconds: 0
     mode: single
   - id: '1618964005086'
     alias: Notify - Person on Driveway
@@ -100,6 +126,11 @@ automation:
         message: A person is on the driveway
         data:
           image: /api/camera_proxy/camera.driveway_person
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 30
+        milliseconds: 0
     mode: single
   - id: '1618649719645'
     alias: Motion - Top of Driveway car
