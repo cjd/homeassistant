@@ -17,4 +17,4 @@ influxdb:
       - sensor.*_humidity
       - sensor.*_pressure
       - sensor.*_power
-
+      - sensor.*_weight
