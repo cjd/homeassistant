@@ -22,7 +22,7 @@ automation:
       entity_id: light.driveway_lights
     - delay:
         hours: 0
-        minutes: 1
+        minutes: 3
         seconds: 0
         milliseconds: 0
     - service: light.turn_off
@@ -71,10 +71,7 @@ automation:
         data:
           image: /api/camera_proxy/camera.driveway_car
     - delay:
-        hours: 0
-        minutes: 0
-        seconds: 30
-        milliseconds: 0
+        minutes: 3
     mode: single
   - id: '1618963905349'
     alias: Notify - Person Top
@@ -90,12 +87,9 @@ automation:
       data:
         message: A person was detected at the top of the driveway
         data:
-          image: /api/camera_proxy/camera.driveway_car
+          image: /api/camera_proxy/camera.driveway_person
     - delay:
-        hours: 0
-        minutes: 0
-        seconds: 30
-        milliseconds: 0
+        minutes: 5
     mode: single
   - id: '1618964005086'
     alias: Notify - Person on Driveway
@@ -127,10 +121,7 @@ automation:
         data:
           image: /api/camera_proxy/camera.driveway_person
     - delay:
-        hours: 0
-        minutes: 0
-        seconds: 30
-        milliseconds: 0
+        minutes: 5
     mode: single
   - id: '1618649719645'
     alias: Motion - Top of Driveway car
@@ -153,7 +144,7 @@ automation:
     - service: light.turn_on
       entity_id: light.driveway_lights
     - delay:
-        minutes: 3
+        minutes: 5
     - service: light.turn_off
       entity_id: light.driveway_lights
     mode: restart
@@ -177,10 +168,7 @@ automation:
     - service: light.turn_on
       entity_id: light.driveway_lights
     - delay:
-        hours: 0
         minutes: 3
-        seconds: 0
-        milliseconds: 0
     - service: light.turn_off
       entity_id: light.driveway_lights
     mode: restart
