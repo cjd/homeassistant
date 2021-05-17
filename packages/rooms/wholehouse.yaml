@@ -6,7 +6,6 @@ automation:
     - platform: state
       entity_id:
       - light.xander_lights
-      - light.office_lights
       - light.lucas_lights
       - light.bedroom_lights
       - light.entry_lights
