@@ -1,7 +1,7 @@
 automation:
   - alias: 'Startup - set theme'
     id: startup_actions
-    initial_state: 'on'
+    initial_state: true
     trigger:
       - platform: homeassistant
         event: start
