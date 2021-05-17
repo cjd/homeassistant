@@ -5,6 +5,18 @@ light:
       - light.garage_left
       - light.garage_right
 
+binary_sensor:
+  - platform: mqtt
+    name: Garage Entry Open
+    state_topic: 'tele/RFRemote/RESULT'
+    value_template: >-
+      {% if value_json.RfReceived.Data == '372DF6' %}
+        {{'ON'}}
+      {% else %}
+        {{states('binary_sensor.rfremotebuttona') | upper}}
+      {% endif %}
+    off_delay: 5
+
 automation:
   - id: '1618649719643'
     alias: Motion - Garage person
@@ -12,6 +24,10 @@ automation:
     trigger:
     - platform: state
       entity_id: binary_sensor.garage_person_motion
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.garage_entry_open
       from: 'off'
       to: 'on'
     condition:
