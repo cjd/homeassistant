@@ -56,7 +56,7 @@ automation:
       entity_id: light.driveway_lights
     mode: restart
   - id: '1618963905348'
-    alias: Notify - Car
+    alias: Notify - Car Top
     description: ''
     trigger:
     - platform: state
@@ -70,6 +70,32 @@ automation:
         message: A car was detected
         data:
           image: /api/camera_proxy/camera.driveway_car
+          actions:
+            - action: URI
+              title: "Open Camera"
+              uri: /lovelace/camera
+    - delay:
+        minutes: 3
+    mode: single
+  - id: '1618963905350'
+    alias: Notify - Car Top Yard
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.top_of_driveway_yard_car_motion
+      from: 'off'
+      to: 'on'
+    condition: []
+    action:
+    - service: notify.mobile_app_chrisphone
+      data:
+        message: A car was detected
+        data:
+          image: /api/camera_proxy/camera.yard_car
+          actions:
+            - action: URI
+              title: "Open Camera"
+              uri: /lovelace/camera
     - delay:
         minutes: 3
     mode: single
@@ -88,6 +114,32 @@ automation:
         message: A person was detected at the top of the driveway
         data:
           image: /api/camera_proxy/camera.driveway_person
+          actions:
+            - action: URI
+              title: "Open Camera"
+              uri: /lovelace/camera
+    - delay:
+        minutes: 5
+    mode: single
+  - id: '1618963905352'
+    alias: Notify - Person Top Yard
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.top_of_driveway_yard_person_motion
+      from: 'off'
+      to: 'on'
+    condition: []
+    action:
+    - service: notify.mobile_app_chrisphone
+      data:
+        message: A person was detected at the top of the driveway
+        data:
+          image: /api/camera_proxy/camera.yard_person
+          actions:
+            - action: URI
+              title: "Open Camera"
+              uri: /lovelace/camera
     - delay:
         minutes: 5
     mode: single
@@ -120,6 +172,10 @@ automation:
         message: A person is on the driveway
         data:
           image: /api/camera_proxy/camera.driveway_person
+          actions:
+            - action: URI
+              title: "Open Camera"
+              uri: https://frigate.adebenham.com/cameras/driveway
     - delay:
         minutes: 5
     mode: single
