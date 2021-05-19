@@ -209,6 +209,7 @@
                 {
                     "icon": "mdi:music",
                     "title": "",
+                    "path": "media",
                     "badges": [],
                     "cards": [
                         {
@@ -532,6 +533,7 @@
                 },
                 {
                     "icon": "mdi:chart-timeline-variant",
+                    "path": "graphs",
                     "badges": [],
                     "cards": [
                         {
@@ -586,6 +588,7 @@
                 },
                 {
                     "icon": "mdi:video",
+                    "path": "camera",
                     "badges": [],
                     "cards": [
                         {
@@ -636,6 +639,7 @@
                 {
                     "icon": "mdi:map",
                     "panel": true,
+                    "path": "map",
                     "badges": [],
                     "cards": [
                         {
@@ -665,6 +669,7 @@
                 {
                     "icon": "mdi:robot-vacuum",
                     "title": "V",
+                    "path": "vacuum",
                     "badges": [],
                     "cards": [
                         {
