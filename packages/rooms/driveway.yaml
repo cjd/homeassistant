@@ -73,7 +73,7 @@ automation:
           actions:
             - action: URI
               title: "Open Camera"
-              uri: /lovelace/camera
+              uri: https://frigate.adebenham.com/cameras/driveway
     - delay:
         minutes: 3
     mode: single
@@ -95,7 +95,7 @@ automation:
           actions:
             - action: URI
               title: "Open Camera"
-              uri: /lovelace/camera
+              uri: https://frigate.adebenham.com/cameras/yard
     - delay:
         minutes: 3
     mode: single
@@ -117,7 +117,7 @@ automation:
           actions:
             - action: URI
               title: "Open Camera"
-              uri: /lovelace/camera
+              uri: https://frigate.adebenham.com/cameras/driveway
     - delay:
         minutes: 5
     mode: single
@@ -139,7 +139,7 @@ automation:
           actions:
             - action: URI
               title: "Open Camera"
-              uri: /lovelace/camera
+              uri: https://frigate.adebenham.com/cameras/yard
     - delay:
         minutes: 5
     mode: single
