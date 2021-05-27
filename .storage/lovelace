@@ -194,6 +194,9 @@
                                 },
                                 {
                                     "entity": "camera.driveway_car"
+                                },
+                                {
+                                    "entity": "camera.yard_car"
                                 }
                             ]
                         },
@@ -583,6 +586,9 @@
                                 }
                             ],
                             "graph_span": "7d"
+                        },
+                        {
+                            "type": "custom:sun-card"
                         }
                     ]
                 },
@@ -620,6 +626,29 @@
                             "entity": "camera.garage",
                             "show_state": false,
                             "show_name": false
+                        },
+                        {
+                            "type": "glance",
+                            "entities": [
+                                {
+                                    "entity": "camera.driveway_person"
+                                },
+                                {
+                                    "entity": "camera.garage_person"
+                                },
+                                {
+                                    "entity": "camera.loungeroom_person"
+                                },
+                                {
+                                    "entity": "camera.yard_person"
+                                },
+                                {
+                                    "entity": "camera.driveway_car"
+                                },
+                                {
+                                    "entity": "camera.yard_car"
+                                }
+                            ]
                         }
                     ]
                 },
