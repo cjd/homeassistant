@@ -37,10 +37,11 @@ rules:
       - sensor.netatmo_netatmo_indoor_temperature
       - sensor.office_temperature
       - sensor.carport_sensor_temperature
-      - sensor.loungeroom_sensor_temperature
+      - sensor.familyroom_sensor_temperature
       - sensor.bedroom_temperature
       - sensor.bathroom_sensor_temperature
       - sensor.lucas_bedroom_sensor_temperature
+      - sensor.craftroom_sensor_temperature
       - sensor.pantry_sensor_temperature
     state_action:
       action: call-service
@@ -48,6 +49,7 @@ rules:
       service_data: '${Math.round(entity.state*10)/10}°'
   - entities:
       - sensor.bathroom_sensor_humidity
+      - sensor.craftroom_sensor_humidity
     state_action:
       action: call-service
       service: floorplan.text_set
