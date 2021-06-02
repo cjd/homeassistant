@@ -24,6 +24,8 @@ rules:
       - light.livingroom_lights
       - light.entry_lights
       - light.driveway_lights
+      - light.deck_lights
+      - light.alcove_lights
     tap_action:
       service: homeassistant.toggle
     state_action:
@@ -55,11 +57,12 @@ rules:
       service: floorplan.text_set
       service_data: '${Math.round(entity.state)}%'
   - entities:
-      - binary_sensor.garage_sensor_contact
-      - binary_sensor.front_door_sensor_contact
-      - binary_sensor.sidedoor_sensor_contact
-      - binary_sensor.backdoor_sensor_contact
+      - binary_sensor.garage_door_contact
+      - binary_sensor.front_door_contact
+      - binary_sensor.side_door_contact
+      - binary_sensor.back_door_contact
       - binary_sensor.laundry_door_contact
+      - binary_sensor.garageentry_contact
     state_action:
       action: call-service
       service: floorplan.class_set

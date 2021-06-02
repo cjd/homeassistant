@@ -3,3 +3,8 @@ light:
     name: Sidedoor Lights
     entities:
       - light.sidedoor
+  - platform: group
+    name: Deck Lights
+    entities:
+      - light.deck
+      - light.kitchendoor

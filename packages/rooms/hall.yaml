@@ -3,3 +3,7 @@ light:
     name: Hall Lights
     entities:
       - light.halldimmer
+  - platform: group
+    name: Alcove Lights
+    entities:
+      - light.alcove

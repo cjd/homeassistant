@@ -38,14 +38,14 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1227"
-     inkscape:window-height="1060"
+     inkscape:window-width="1589"
+     inkscape:window-height="1401"
      id="namedview4"
      showgrid="false"
-     inkscape:zoom="0.68111408"
-     inkscape:cx="525.64847"
-     inkscape:cy="947.70365"
-     inkscape:window-x="3249"
+     inkscape:zoom="3.8529631"
+     inkscape:cx="405.54502"
+     inkscape:cy="453.43847"
+     inkscape:window-x="0"
      inkscape:window-y="18"
      inkscape:window-maximized="1"
      inkscape:current-layer="g10"
@@ -61,14 +61,14 @@
      id="g10"
      transform="translate(-160,-100)">
     <image
-       sodipodi:absref="/local/floorplan/Deane-overhead.jpg"
+       sodipodi:absref="/home/debenham/Nextcloud/Documents/Floorplan/Deane-overhead.jpg"
        xlink:href="/local/floorplan/Deane-overhead.jpg"
-       y="0"
-       x="0"
-       id="image2084"
-       preserveAspectRatio="none"
+       width="1000"
        height="1600"
-       width="1000" />
+       preserveAspectRatio="none"
+       id="image2084"
+       x="0"
+       y="0" />
     <rect
        style="opacity:0.5;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.37953;paint-order:markers fill stroke"
        id="light.garage_lights"
@@ -167,7 +167,7 @@
     <path
        style="opacity:0.5;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 593.33596,1130.9132 74.38189,-10.7025 2.63683,42.1413 -63.24526,19.4921 z"
-       id="light.laundry_lights_2" />
+       id="light.alcove_lights" />
     <path
        style="opacity:0.5;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 511.06714,584.22186 v 405.3808 l 24.72795,36.78454 85.74823,-3.0945 -1.88671,-111.52267 -25.12888,-1.25308 -1.50541,-326.35206 z"
@@ -271,23 +271,23 @@
          y="762.63629">00%</tspan></text>
     <rect
        style="opacity:0.5;fill:#ff0000;fill-opacity:1;stroke-width:1.37953;paint-order:markers fill stroke"
-       id="binary_sensor.garage_sensor_contact"
+       id="binary_sensor.garage_door_contact"
        width="10.46347"
        height="176.37628"
        x="503.77335"
        y="204.24481" />
     <path
-       id="binary_sensor.front_door_sensor_contact"
+       id="binary_sensor.front_door_contact"
        style="opacity:0.5;fill:#ff0000;fill-opacity:1;stroke-width:2.69066;paint-order:markers fill stroke"
        d="m 521.06853,428.42745 69.27418,0.4107 -8.7385,33.74341 -62.32434,-0.88606 z"
        sodipodi:nodetypes="ccccc" />
     <path
-       id="binary_sensor.backdoor_sensor_contact"
+       id="binary_sensor.back_door_contact"
        style="opacity:0.5;fill:#ff0000;stroke-width:1.37953;paint-order:markers fill stroke"
        d="m 355.93487,1236.2493 63.07703,-0.1225 -7.55038,45.6496 -69.72002,-0.5267 z"
        sodipodi:nodetypes="ccccc" />
     <path
-       id="binary_sensor.sidedoor_sensor_contact"
+       id="binary_sensor.side_door_contact"
        style="opacity:0.5;fill:#ff0000;stroke-width:1.37953;paint-order:markers fill stroke"
        d="m 315.10976,1135.7018 15.62577,-24.5032 0.39756,91.3807 -15.11154,32.639 z"
        sodipodi:nodetypes="ccccc" />
@@ -327,5 +327,14 @@
          id="tspan1501-7-8"
          x="692.44379"
          y="866.02393">00%</tspan></text>
+    <path
+       style="fill:#000000;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;opacity:0.5"
+       d="m 307.47105,1104.5007 -78.35655,-34.376 -6.24659,383.5535 277.78905,-33.155 -2.88544,-105.3509 -187.935,-21.6261 -2.36547,-189.0455"
+       id="light.deck_lights" />
+    <path
+       id="binary_sensor.garageentry_contact"
+       style="opacity:0.5;fill:#ff0000;fill-opacity:1;stroke-width:2.69066;paint-order:markers fill stroke"
+       d="m 507.08168,463.17972 6.35028,-0.11333 1.08259,35.69671 -6.37938,-0.43391 z"
+       sodipodi:nodetypes="ccccc" />
   </g>
 </svg>
