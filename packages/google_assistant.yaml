@@ -60,3 +60,13 @@ google_assistant:
       expose: true
     scene.loungeroom_dim:
       expose: true
+    script.clean_diningroom:
+      expose: true
+    script.clean_kitchen:
+      expose: true
+    script.clean_livingroom:
+      expose: true
+    script.clean_hall:
+      expose: true
+    script.clean_loungeroom:
+      expose: true

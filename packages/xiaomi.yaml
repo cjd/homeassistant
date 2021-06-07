@@ -12,3 +12,55 @@ camera:
       vacuum_radius: 6
     attributes:
       - calibration_points
+
+script:
+  clean_kitchen:
+    alias: Clean kitchen
+    sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        segments:
+        - 19
+      target:
+        entity_id: vacuum.roborock_vacuum_a08
+    mode: single
+  clean_livingroom:
+    alias: Clean Livingroom
+    sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        segments:
+        - 17
+      target:
+        entity_id: vacuum.roborock_vacuum_a08
+    mode: single
+  clean_diningroom:
+    alias: Clean Diningroom
+    sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        segments:
+        - 21
+      target:
+        entity_id: vacuum.roborock_vacuum_a08
+    mode: single
+  clean_hall:
+    alias: Clean Hall
+    sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        segments:
+        - 18
+      target:
+        entity_id: vacuum.roborock_vacuum_a08
+    mode: single
+  clean_loungeroom:
+    alias: Clean Loungeroom
+    sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        segments:
+        - 17
+      target:
+        entity_id: vacuum.roborock_vacuum_a08
+    mode: single
