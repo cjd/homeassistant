@@ -94,6 +94,26 @@ switch:
           target:
             entity_id: scene.loungeroom_off
 
+cover:
+  - platform: mqtt
+    # requires SetOption59 1, TuyaMCU 21,2
+    name: "Loungeroom Blind"
+    device_class: shade 
+    command_topic: "cmnd/LoungeroomBlind/TuyaSend4"
+    payload_open: "1,0"
+    payload_close: "1,2"
+    payload_stop: "1,1"
+    position_open: 0
+    position_closed: 100
+    position_topic: "tele/LoungeroomBlind/STATE"
+    state_topic: "tele/LoungeroomBlind/STATE"
+    value_template: '{{ value_json.Dimmer }}'
+    set_position_topic: "cmnd/LoungeroomBlind/Dimmer"
+    set_position_template: '{{ 100 - position | int }}'
+    availability_topic: "tele/LoungeroomBlind/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+
 automation:
   - id: '1613520733143'
     alias: Loungeroom - Switch 1
