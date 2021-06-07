@@ -153,9 +153,9 @@
                                 },
                                 {
                                     "type": "light",
-                                    "entity": "light.sidedoor_lights",
-                                    "name": "Sidedoor",
-                                    "icon": "mdi:door"
+                                    "entity": "light.deck_lights",
+                                    "icon": "mdi:door",
+                                    "name": "Deck"
                                 }
                             ]
                         },
@@ -178,6 +178,9 @@
                                     "entity": "binary_sensor.laundry_door_contact"
                                 },
                                 {
+                                    "entity": "binary_sensor.garageentry_contact"
+                                },
+                                {
                                     "entity": "binary_sensor.pantry_sensor_occupancy"
                                 },
                                 {
@@ -185,18 +188,6 @@
                                 },
                                 {
                                     "entity": "binary_sensor.garage_person_motion"
-                                },
-                                {
-                                    "entity": "camera.garage_person"
-                                },
-                                {
-                                    "entity": "camera.driveway_person"
-                                },
-                                {
-                                    "entity": "camera.driveway_car"
-                                },
-                                {
-                                    "entity": "camera.yard_car"
                                 }
                             ]
                         },
