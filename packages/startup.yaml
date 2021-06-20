@@ -13,3 +13,11 @@ automation:
         data:
           topic: "tasmotas/cmnd/state"
           payload: ""
+      - service: mqtt.publish
+        data:
+          topic: "cmnd/LoungeroomBlind/shutterposition"
+          payload: ""        
+      - service: mqtt.publish
+        data:
+          topic: "cmnd/LoungeroomBlind/serialsend5"
+          payload: "55aa0001000000"
