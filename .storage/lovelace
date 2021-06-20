@@ -4,6 +4,41 @@
     "data": {
         "config": {
             "title": "Home",
+            "decluttering_templates": {
+                "slider_button_template": {
+                    "card": {
+                        "type": "custom:slider-button-card",
+                        "entity": "[[entity_id]]",
+                        "slider": {
+                            "percentage": true,
+                            "direction": "left-right",
+                            "background": "gradient",
+                            "use_state_color": false,
+                            "use_percentage_bg_opacity": false,
+                            "show_track": false,
+                            "force_square": false
+                        },
+                        "show_name": true,
+                        "show_state": false,
+                        "icon": {
+                            "show": true,
+                            "use_state_color": true,
+                            "rotate": false,
+                            "tap_action": {
+                                "action": "more-info"
+                            }
+                        },
+                        "action_button": {
+                            "mode": "toggle",
+                            "show": true,
+                            "show_spinner": true,
+                            "tap_action": {
+                                "action": "toggle"
+                            }
+                        }
+                    }
+                }
+            },
             "views": [
                 {
                     "path": "default_view",
@@ -91,73 +126,31 @@
                             ]
                         },
                         {
-                            "type": "grid",
-                            "cards": [
-                                {
-                                    "type": "light",
-                                    "entity": "light.entry_lights"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.bedroom_lights"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.craftroom_lights"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.loungeroom_lights"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.hall_lights"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.lucas_lights"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.office_lights"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.xander_lights"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.laundry_lights",
-                                    "icon": "mdi:washing-machine",
-                                    "name": "Laundry"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.dining_lights"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.kitchen_lights"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.livingroom_lights"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.driveway_lights"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.garage_lights"
-                                },
-                                {
-                                    "type": "light",
-                                    "entity": "light.deck_lights",
-                                    "icon": "mdi:door",
-                                    "name": "Deck"
-                                }
-                            ]
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "grid",
+                                "square": false,
+                                "columns": 4
+                            },
+                            "card_param": "cards",
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "*_lights",
+                                        "options": {
+                                            "type": "light"
+                                        }
+                                    }
+                                ],
+                                "exclude": [
+                                    {
+                                        "state": "unavailable"
+                                    }
+                                ]
+                            },
+                            "sort": {
+                                "method": "friendly_name"
+                            }
                         },
                         {
                             "type": "glance",
@@ -196,6 +189,12 @@
                             "entities": [
                                 "person.chris",
                                 "person.mel"
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "cover.loungeroom_blind"
                             ]
                         }
                     ]
@@ -264,120 +263,159 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "light.bedroom_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.hall_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.loungeroom_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.lucas_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.xander_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.craftroom_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.entry_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.pantry_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.driveway_lights"
-                                },
-                                {
-                                    "entity": "light.laundry_lights"
-                                },
-                                {
-                                    "entity": "light.sidedoor_lights"
-                                },
-                                {
-                                    "entity": "light.office_lights",
-                                    "type": "custom:slider-entity-row"
-                                },
-                                {
-                                    "entity": "light.garage_lights"
-                                },
-                                {
-                                    "entity": "light.kitchen_lights"
-                                },
-                                {
-                                    "entity": "light.dining_lights"
-                                },
-                                {
-                                    "entity": "light.livingroom_lights"
-                                },
-                                {
-                                    "entity": "light.backlight_switch"
-                                }
-                            ],
-                            "state_color": true,
-                            "title": "Lights",
-                            "show_header_toggle": false
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "grid",
+                                "square": false
+                            },
+                            "card_param": "cards",
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "*_lights",
+                                        "options": {
+                                            "type": "custom:slider-button-card",
+                                            "slider": {
+                                                "percentage": true,
+                                                "direction": "left-right",
+                                                "background": "gradient",
+                                                "use_state_color": false,
+                                                "use_percentage_bg_opacity": false,
+                                                "show_track": false,
+                                                "force_square": false
+                                            },
+                                            "show_name": true,
+                                            "show_state": false,
+                                            "icon": {
+                                                "show": true,
+                                                "use_state_color": true,
+                                                "rotate": false,
+                                                "tap_action": {
+                                                    "action": "more-info"
+                                                }
+                                            },
+                                            "action_button": {
+                                                "mode": "toggle",
+                                                "show": true,
+                                                "show_spinner": true,
+                                                "tap_action": {
+                                                    "action": "toggle"
+                                                }
+                                            }
+                                        }
+                                    }
+                                ],
+                                "exclude": [
+                                    {
+                                        "state": "unavailable"
+                                    }
+                                ]
+                            },
+                            "sort": {
+                                "method": "friendly_name"
+                            }
                         },
                         {
-                            "type": "entities",
-                            "show_header_toggle": false,
-                            "entities": [
+                            "type": "grid",
+                            "cards": [
                                 {
-                                    "entity": "light.bedroom_led"
+                                    "type": "custom:decluttering-card",
+                                    "template": "slider_button_template",
+                                    "variables": [
+                                        {
+                                            "entity_id": "light.bedroom_led"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "entity": "light.kitchen_strip"
+                                    "type": "custom:decluttering-card",
+                                    "template": "slider_button_template",
+                                    "variables": [
+                                        {
+                                            "entity_id": "light.kitchen_strip"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "entity": "light.moon_led"
+                                    "type": "custom:decluttering-card",
+                                    "template": "slider_button_template",
+                                    "variables": [
+                                        {
+                                            "entity_id": "light.moon_led"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "entity": "light.bathroom_moon"
+                                    "type": "custom:decluttering-card",
+                                    "template": "slider_button_template",
+                                    "variables": [
+                                        {
+                                            "entity_id": "light.bathroom_moon"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "entity": "light.loungeroom_lowerstrip"
+                                    "type": "custom:decluttering-card",
+                                    "template": "slider_button_template",
+                                    "variables": [
+                                        {
+                                            "entity_id": "light.loungeroom_lowerstrip"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "entity": "light.loungeroom_shelfstrip"
+                                    "type": "custom:decluttering-card",
+                                    "template": "slider_button_template",
+                                    "variables": [
+                                        {
+                                            "entity_id": "light.loungeroom_shelfstrip"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "entity": "light.tv_backlight"
+                                    "type": "custom:decluttering-card",
+                                    "template": "slider_button_template",
+                                    "variables": [
+                                        {
+                                            "entity_id": "light.tv_backlight"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "entity": "light.office_strip"
+                                    "type": "custom:decluttering-card",
+                                    "template": "slider_button_template",
+                                    "variables": [
+                                        {
+                                            "entity_id": "light.office_strip"
+                                        }
+                                    ]
                                 },
                                 {
-                                    "entity": "light.bathroom_moon"
+                                    "type": "custom:decluttering-card",
+                                    "template": "slider_button_template",
+                                    "variables": [
+                                        {
+                                            "entity_id": "light.bathroom_moon"
+                                        }
+                                    ]
                                 }
-                            ]
+                            ],
+                            "square": false
                         },
                         {
                             "type": "custom:auto-entities",
                             "card": {
-                                "type": "entities",
+                                "type": "glance",
                                 "state_color": false
                             },
                             "filter": {
                                 "include": [
                                     {
                                         "entity_id": "*_power",
-                                        "domain": "sensor"
+                                        "domain": "sensor",
+                                        "state": "> 0"
                                     }
-                                ],
-                                "exclude": []
+                                ]
                             },
                             "sort": {
                                 "method": "state",
@@ -701,6 +739,41 @@
                             "entity": "vacuum.roborock_vacuum_a08",
                             "map_camera": "camera.roborock_map",
                             "camera_calibration": true
+                        }
+                    ]
+                },
+                {
+                    "title": "3D",
+                    "path": "3d",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:floor3d-card",
+                            "name": "Deane",
+                            "path": "/local/floorplan/obj/",
+                            "objfile": "Deane.obj",
+                            "mtlfile": "Deane.mtl",
+                            "backgroundColor": "#000001",
+                            "globalLightPower": 0.4,
+                            "entities": [
+                                {
+                                    "entity": "light.office_lights",
+                                    "type3d": "light",
+                                    "object_id": "room_115_766",
+                                    "light": {
+                                        "lumens": 3000
+                                    }
+                                },
+                                {
+                                    "entity": "light.livingroom_lights",
+                                    "type3d": "light",
+                                    "object_id": "room_124_775",
+                                    "light": {
+                                        "lumens": "2700"
+                                    }
+                                }
+                            ]
                         }
                     ]
                 }

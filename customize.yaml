@@ -39,3 +39,13 @@ light.livingroom_lights:
   icon: mdi:seat
 light.hall_lights:
   friendly_name: Hall
+light.laundry_lights:
+  friendly_name: Laundry
+  icon: mdi:washing-machine
+light.driveway_lights:
+  friendly_name: Driveway
+light.pantry_lights:
+  friendly_name: Pantry
+  icon: mdi:food
+light.deck_lights:
+  friendly_name: Deck
