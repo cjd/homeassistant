@@ -12,23 +12,31 @@ google_assistant:
     - camera
   expose_by_default: false
   entity_config:
+    light.alcove_lights:
+      expose: true
     light.bedroom_lights:
       expose: true
     light.craftroom_lights:
       expose: true
+    light.deck_lights:
+      expose: true
     light.dining_lights:
+      expose: true
+    light.driveway_lights:
       expose: true
     light.entry_lights:
       expose: true
-    light.loungeroom_lights:
-      expose: true
-    light.frontdoor_lights:
+    light.garage_lights:
       expose: true
     light.hall_lights:
       expose: true
     light.kitchen_lights:
       expose: true
+    light.laundry_lights:
+      expose: true
     light.livingroom_lights:
+      expose: true
+    light.loungeroom_lights:
       expose: true
     light.lucas_lights:
       expose: true
@@ -40,12 +48,6 @@ google_assistant:
       expose: true
     light.backlight_switch:
       expose: true
-    light.garage_lights:
-      expose: true
-    light.laundry_lights:
-      expose: true
-    light.sidedoor_lights:
-      expose: true
     camera.backroom:
       expose: true
     camera.entrycam:
@@ -53,6 +55,8 @@ google_assistant:
     camera.loungeroom:
       expose: true
     camera.livingroom:
+      expose: true
+    camera.yard:
       expose: true
     scene.loungeroom_normal:
       expose: true
@@ -69,4 +73,6 @@ google_assistant:
     script.clean_hall:
       expose: true
     script.clean_loungeroom:
+      expose: true
+    cover.loungeroom_blind:
       expose: true
