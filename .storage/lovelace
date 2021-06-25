@@ -192,10 +192,37 @@
                             ]
                         },
                         {
-                            "type": "entities",
-                            "entities": [
-                                "cover.loungeroom_blind"
-                            ]
+                            "type": "custom:slider-button-card",
+                            "entity": "cover.loungeroom_blind",
+                            "slider": {
+                                "percentage": true,
+                                "direction": "left-right",
+                                "background": "gradient",
+                                "use_state_color": true,
+                                "use_percentage_bg_opacity": false,
+                                "show_track": false,
+                                "toggle_on_click": false,
+                                "force_square": false
+                            },
+                            "show_name": true,
+                            "show_state": true,
+                            "icon": {
+                                "show": true,
+                                "use_state_color": true,
+                                "rotate": false,
+                                "tap_action": {
+                                    "action": "more-info"
+                                }
+                            },
+                            "action_button": {
+                                "mode": "toggle",
+                                "icon": "mdi:power",
+                                "show": false,
+                                "show_spinner": true,
+                                "tap_action": {
+                                    "action": "toggle"
+                                }
+                            }
                         }
                     ]
                 },
@@ -558,6 +585,32 @@
                                         "action": "toggle"
                                     },
                                     "entity": "switch.powerboard3_outlet_4"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.cyberpower_battery_charge"
+                                },
+                                {
+                                    "entity": "sensor.cyberpower_battery_runtime"
+                                },
+                                {
+                                    "entity": "sensor.cyberpower_battery_voltage"
+                                },
+                                {
+                                    "entity": "sensor.cyberpower_low_battery_runtime"
+                                },
+                                {
+                                    "entity": "sensor.cyberpower_nominal_battery_voltage"
+                                },
+                                {
+                                    "entity": "sensor.cyberpower_status"
+                                },
+                                {
+                                    "entity": "sensor.cyberpower_status_data"
                                 }
                             ]
                         }
