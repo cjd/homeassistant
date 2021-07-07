@@ -12,5 +12,6 @@
       "macaddress": "18B430*"
     }
   ],
-  "iot_class": "cloud_push"
+  "iot_class": "cloud_push",
+  "version": "2.0.0"
 }

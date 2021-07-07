@@ -643,6 +643,9 @@ class JellyfinClientManager(object):
                     self.jf_client.stop()
                     time.sleep(timeout)
                     if self.login():
+                        self.jf_client.callback = event
+                        self.jf_client.callback_ws = event
+                        self.jf_client.start(True)
                         break
             elif event_name in ("LibraryChanged", "UserDataChanged"):
                 for sensor in self.hass.data[DOMAIN][self.host]["sensor"]["entities"]:
@@ -713,8 +716,9 @@ class JellyfinClientManager(object):
                 return
 
             for item in self._yamc["Items"]:
-                item["stream_url"] = (await self.get_stream_url(item["Id"], item["Type"]))[0]
-                item["info"] = (await self.get_stream_url(item["Id"], item["Type"]))[2]
+                stream_info = await self.get_stream_url(item["Id"], item["Type"])
+                item["stream_url"] = stream_info[0]
+                item["info"] = stream_info[2]
             
             _LOGGER.debug("update yamc query: %s", str(query))
             _LOGGER.debug("         response: %s", str(self._yamc))
@@ -1226,6 +1230,9 @@ class JellyfinClientManager(object):
         if selected is None:
             return (None, None, None)
 
+        url = ""
+        mimetype = "none/none"
+        info = "Not playable"
         if selected["SupportsDirectStream"]:
             if media_content_type in ("Audio", "track"):
                 mimetype = "audio/" + selected["Container"]
