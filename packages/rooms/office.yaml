@@ -5,7 +5,8 @@ light:
       - light.officedimmer
 
 automation:
-  - alias: Office - Switch 1
+  - id: '1610484353901'
+    alias: Office - Switch 1
     trigger:
       - entity_id: binary_sensor.office_switch1
         platform: state
@@ -17,7 +18,8 @@ automation:
         entity_id: light.office_strip
         data:
           effect: Rainbow
-  - alias: Office - Switch 2
+  - id: '1610484353902'
+    alias: Office - Switch 2
     trigger:
       - entity_id: binary_sensor.office_switch2
         platform: state
@@ -31,7 +33,8 @@ automation:
         entity_id: switch.powerboard3_outlet_2
       - service: switch.turn_on
         entity_id: switch.powerboard3_outlet_4
-  - alias: Office - Switch 3
+  - id: '1610484353903'
+    alias: Office - Switch 3
     trigger:
       - entity_id: binary_sensor.office_switch3
         platform: state
@@ -49,3 +52,46 @@ automation:
         entity_id: light.office_strip
       - service: light.turn_off
         entity_id: light.office_lights
+  - id: '1620696771165'
+    alias: Spinnner Brightness Down
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: sensor.spinner_action
+      to: rotate_left
+    condition: []
+    action:
+    - service: light.turn_on
+      target:
+        entity_id: light.office_lights
+      data:
+        brightness_step_pct: -5
+    mode: single
+  - id: '1620696771166'
+    alias: Spinnner Brightness Up
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: sensor.spinner_action
+      to: rotate_right
+    condition: []
+    action:
+    - service: light.turn_on
+      target:
+        entity_id: light.office_lights
+      data:
+        brightness_step_pct: 5
+    mode: single
+  - id: '1620696771167'
+    alias: Spinnner Press
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: sensor.spinner_action
+      to: play_pause
+    condition: []
+    action:
+    - service: light.toggle
+      target:
+        entity_id: light.office_lights
+    mode: single

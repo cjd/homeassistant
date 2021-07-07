@@ -1,0 +1,15 @@
+automation:
+  - id: '1620182760825'
+    alias: Notify - Mel leaving school
+    description: ''
+    trigger:
+    - platform: zone
+      entity_id: person.mel
+      zone: zone.school
+      event: leave
+    condition: []
+    action:
+    - service: notify.mobile_app_chrisphone
+      data:
+        message: Mel Left School
+    mode: single

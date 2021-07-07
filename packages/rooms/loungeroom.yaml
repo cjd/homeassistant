@@ -257,6 +257,86 @@ automation:
     action:
       - service: scene.turn_on
         entity_id: scene.loungeroom_low
+  - id: '1623134323431'
+    alias: Blinds - Open at sunrise
+    description: ''
+    trigger:
+    - platform: sun
+      event: sunrise
+    condition: []
+    action:
+    - service: cover.stop_cover
+      target:
+        entity_id: cover.loungeroom_blind
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: cover.open_cover
+      target:
+        entity_id: cover.loungeroom_blind
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: cover.set_cover_position
+      data:
+        position: 99
+      target:
+        entity_id: cover.loungeroom_blind
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: cover.set_cover_position
+      target:
+        entity_id: cover.loungeroom_blind
+      data:
+        position: 100
+    mode: single
+  - id: '1623134374989'
+    alias: Blinds - Close at sunset
+    description: ''
+    trigger:
+    - platform: sun
+      event: sunset
+      offset: '1:00:00'
+    condition: []
+    action:
+    - service: cover.stop_cover
+      target:
+        entity_id: cover.loungeroom_blind
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: cover.close_cover
+      target:
+        entity_id: cover.loungeroom_blind
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: cover.set_cover_position
+      target:
+        entity_id: cover.loungeroom_blind
+      data:
+        position: 1
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: cover.set_cover_position
+      data:
+        position: 0
+    mode: single
+
 
 script:
   turn_tv_lights_on:
@@ -417,4 +497,3 @@ scene:
         color_temp: 402
         effect: None
         state: 'on'
-  
