@@ -44,7 +44,7 @@ rules:
       - sensor.bathroom_sensor_temperature
       - sensor.lucas_bedroom_sensor_temperature
       - sensor.craftroom_sensor_temperature
-      - sensor.pantry_sensor_temperature
+      - sensor.entry_sensor_temperature
     state_action:
       action: call-service
       service: floorplan.text_set
