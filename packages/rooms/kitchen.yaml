@@ -10,8 +10,10 @@ automation:
     alias: Kitchen - Turn on strip when the sun is set
     description: ''
     trigger:
-      - platform: sun
-        event: sunset
+      - platform: numeric_state
+        entity_id: sensor.entry_sensor_illuminance_lux
+        below: 200
+        for: "00:05:00"
     condition: []
     action:
       - service: light.turn_on
@@ -24,8 +26,10 @@ automation:
     alias: Kitchen - Turn off strip when the sun is up
     description: ''
     trigger:
-      - platform: sun
-        event: sunrise
+      - platform: numeric_state
+        entity_id: sensor.entry_sensor_illuminance_lux
+        above: 200
+        for: "00:15:00"
     condition: []
     action:
       - service: light.turn_off

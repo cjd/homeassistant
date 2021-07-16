@@ -31,26 +31,15 @@ automation:
       from: 'off'
       to: 'on'
     condition:
-    - condition: or
-      conditions:
-      - condition: sun
-        before: sunrise
-        before_offset: '-1:00:00'
-      - condition: sun
-        after: sunset
-        after_offset: '-1:00:00'
+      - alias: "Brightness below 200"
+        condition: numeric_state
+        entity_id: sensor.entry_sensor_illuminance_lux
+        below: 200
     action:
     - service: light.turn_on
       entity_id: light.garage_lights
-    - wait_for_trigger:
-      - platform: state
-        entity_id: binary_sensor.garage_person_motion
-        to: 'off'
-      - platform: state
-        entity_id: binary_sensor.garageentry_contact
-        to: 'off'
-      timeout:
-        minutes: 30
+    - delay:
+        minutes: 3
     - service: light.turn_off
       entity_id: light.garage_lights
     mode: restart

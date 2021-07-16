@@ -6,7 +6,7 @@ light:
 
 automation:
   - id: '1618214320098'
-    alias: Entry - Lights on at sunset
+    alias: Entry - Lights on when dark
     description: ''
     trigger:
     - platform: numeric_state
@@ -22,11 +22,13 @@ automation:
       brightness_pct: 100
     mode: single
   - id: '1618214320099'
-    alias: Entry - Lights off at sunrise
+    alias: Entry - Lights off when bright
     description: ''
     trigger:
-    - platform: sun
-      event: sunrise
+    - platform: numeric_state
+      entity_id: sensor.entry_sensor_illuminance_lux
+      above: 200
+      for: "00:15:00"
     condition: []
     action:
     - domain: light
