@@ -174,7 +174,7 @@
                                     "entity": "binary_sensor.garageentry_contact"
                                 },
                                 {
-                                    "entity": "binary_sensor.pantry_sensor_occupancy"
+                                    "entity": "binary_sensor.entry_sensor_occupancy"
                                 },
                                 {
                                     "entity": "binary_sensor.driveway_person_motion"
