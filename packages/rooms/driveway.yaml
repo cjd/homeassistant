@@ -28,8 +28,8 @@ automation:
     - service: light.turn_off
       entity_id: light.driveway_lights
     mode: restart
-  - id: '1618649719644'
-    alias: Motion - Driveway person
+  - id: '1618649719654'
+    alias: Driveway - person motion
     description: ''
     trigger:
     - platform: state
@@ -174,8 +174,8 @@ automation:
     - delay:
         minutes: 5
     mode: single
-  - id: '1618649719645'
-    alias: Motion - Top of Driveway car
+  - id: '1618649719675'
+    alias: Driveway - Top of Driveway car motion
     description: ''
     trigger:
     - platform: state
@@ -195,7 +195,7 @@ automation:
       entity_id: light.driveway_lights
     mode: restart
   - id: '1619735738674'
-    alias: Turn driveway lights on when arriving home
+    alias: Driveway - lights on when arriving home
     description: ''
     trigger:
     - platform: zone

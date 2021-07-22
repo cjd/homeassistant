@@ -17,32 +17,92 @@ binary_sensor:
       {% endif %}
     off_delay: 5
 
+timer:
+  garage_mcl:
+    duration: '00:00:10'
+
+input_boolean:
+  garage_mcl:
+    name: Motion-Controlled Garage Light
+    initial: true
+
 automation:
   - id: '1618649719643'
-    alias: Motion - Garage person
-    description: ''
+    alias: Garage - Light Auto-on
     trigger:
     - platform: state
       entity_id: binary_sensor.garage_person_motion
       from: 'off'
       to: 'on'
     - platform: state
-      entity_id: binary_sensor.garageentry_contact
+      entity_id: binary_sensor.door_sensor_contact
       from: 'off'
       to: 'on'
     condition:
-      - alias: "Brightness below 200"
-        condition: numeric_state
-        entity_id: sensor.entry_sensor_illuminance_lux
-        below: 200
+      - condition: and
+        conditions:
+        - condition: numeric_state
+          entity_id: sensor.entry_sensor_illuminance_lux
+          below: 200000
+        - condition: state
+          entity_id: light.garage_lights
+          state: 'off'
+        - condition: template
+          value_template: "{{ is_state('input_boolean.garage_mcl', 'on') }}"
     action:
     - service: light.turn_on
       entity_id: light.garage_lights
-    - delay:
-        minutes: 3
-    - service: light.turn_off
-      entity_id: light.garage_lights
     mode: restart
+  - id: '1618649719644'
+    alias: Garage - Light Auto-off
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.garage_person_motion
+        to: 'off'
+        for: '00:03:00'
+      - platform: state
+        entity_id: binary_sensor.door_sensor_contact
+        from: 'on'
+        to: 'off'
+    condition:
+      - condition: template
+        value_template: "{{ is_state('input_boolean.garage_mcl', 'on') }}"
+    action:
+      service: light.turn_off
+      entity_id: light.garage_lights
+  - id: '1618649719645'
+    alias: Garage - Light manual off
+    trigger:
+      platform: state
+      entity_id: light.garage_lights
+      from: 'on'
+      to: 'off'
+    action:
+      service: timer.start
+      entity_id: timer.garage_mcl
+  - id: '1618649719646'
+    alias: Garage - Light manual on
+    trigger:
+      platform: state
+      entity_id: light.garage_lights
+      from: 'off'
+      to: 'on'
+    condition:
+      - condition: template
+        value_template: "{{ is_state('timer.garage_mcl', 'active') }}"
+    action:
+      service: input_boolean.turn_off
+      entity_id: input_boolean.garage_mcl
+  - id: '1618649719647'
+    alias: Garage - Light MCL Re-Enable
+    trigger:
+      platform: state
+      entity_id: input_boolean.garage_mcl
+      to: 'off'
+      for: '01:00:00'
+    action:
+      service: input_boolean.turn_on
+      entity_id: input_boolean.garage_mcl
   - id: '1618977583813'
     alias: Cameras - Turn On Garage recording at night or when away
     description: ''
