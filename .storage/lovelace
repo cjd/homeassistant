@@ -13,7 +13,7 @@
                             "percentage": true,
                             "direction": "left-right",
                             "background": "gradient",
-                            "use_state_color": false,
+                            "use_state_color": true,
                             "use_percentage_bg_opacity": false,
                             "show_track": false,
                             "force_square": false
@@ -426,6 +426,15 @@
                                     "variables": [
                                         {
                                             "entity_id": "light.bathroom_moon"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "custom:decluttering-card",
+                                    "template": "slider_button_template",
+                                    "variables": [
+                                        {
+                                            "entity_id": "light.big_lightbulb"
                                         }
                                     ]
                                 }
