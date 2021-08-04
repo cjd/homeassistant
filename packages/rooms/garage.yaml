@@ -16,6 +16,16 @@ binary_sensor:
         {{states('binary_sensor.rfremotebuttona') | upper}}
       {% endif %}
     off_delay: 5
+  - platform: template
+    sensors:
+      outback_presence:
+        friendly_name: "Outback Presense"
+        device_class: presence
+        value_template: "{{ is_state('input_boolean.outback_home', 'on') }}"
+      imporeza_presence:
+        friendly_name: "Impreza Presense"
+        device_class: presence
+        value_template: "{{ is_state('input_boolean.impreza_home', 'on') }}"
 
 timer:
   garage_mcl:
@@ -25,8 +35,97 @@ input_boolean:
   garage_mcl:
     name: Motion-Controlled Garage Light
     initial: true
+  outback_home:
+    name: Outback presence input
+    initial: false
+  impreza_home:
+    name: Impreza presence input
+    initial: false
+
 
 automation:
+  - id: '1627699444400'
+    alias: Notify - Outback home
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.outback_presense
+      from: 'off'
+      to: 'on'
+    condition: []
+    action:
+    - service: notify.mobile_app_chrisphone
+      data:
+        message: Outback is home
+    mode: single
+  - id: '1628117617684'
+    alias: Car - Set outback away
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.outback
+      to: 'off'
+      for: 0:30:00
+    condition: []
+    action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.outback_home
+    mode: single
+  - id: '1628117617685'
+    alias: Car - Set outback home
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.outback
+      to: 'on'
+    condition: []
+    action:
+    - service: input_boolean.turn_on
+      target:
+        entity_id: input_boolean.outback_home
+    mode: single
+  - id: '1627699444401'
+    alias: Notify - Impreza home
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.impreza_presense
+      from: 'off'
+      to: 'on'
+    condition: []
+    action:
+    - service: notify.mobile_app_chrisphone
+      data:
+        message: Impreza is home
+    mode: single
+  - id: '1628117617686'
+    alias: Car - Set Impreza away
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.impreza
+      to: 'off'
+      for: 0:30:00
+    condition: []
+    action:
+    - service: input_boolean.turn_off
+      target:
+        entity_id: input_boolean.impreza_home
+    mode: single
+  - id: '1628117617687'
+    alias: Car - Set Impreza home
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.impreza
+      to: 'on'
+    condition: []
+    action:
+    - service: input_boolean.turn_on
+      target:
+        entity_id: input_boolean.impreza_home
+    mode: single
   - id: '1618649719643'
     alias: Garage - Light Auto-on
     trigger:
