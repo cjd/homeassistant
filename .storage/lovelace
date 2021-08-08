@@ -634,6 +634,14 @@
                                     "entity": "sensor.cyberpower_status_data"
                                 }
                             ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "sensor.deluge_down_speed",
+                                "sensor.deluge_status",
+                                "sensor.deluge_up_speed"
+                            ]
                         }
                     ]
                 },
@@ -702,15 +710,14 @@
                         {
                             "type": "statistics-graph",
                             "entities": [
-                                "sensor.familyroom_sensor_temperature"
+                                "sensor.familyroom_sensor_temperature",
+                                "sensor.entry_sensor_temperature",
+                                "sensor.bedroom_temperature"
                             ],
-                            "days_to_show": 30,
                             "stat_types": [
-                                "min",
-                                "max",
-                                "sum",
                                 "mean"
-                            ]
+                            ],
+                            "days_to_show": 7
                         }
                     ]
                 },
