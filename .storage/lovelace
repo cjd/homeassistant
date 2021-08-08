@@ -642,6 +642,43 @@
                                 "sensor.deluge_status",
                                 "sensor.deluge_up_speed"
                             ]
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.dock_core0_freq"
+                                },
+                                {
+                                    "entity": "sensor.dock_system_load"
+                                },
+                                {
+                                    "entity": "sensor.dock_system_cpu_idle"
+                                },
+                                {
+                                    "entity": "sensor.dock_system_cpu_user"
+                                },
+                                {
+                                    "entity": "sensor.dock_system_cpu_system"
+                                },
+                                {
+                                    "entity": "sensor.piserve_core0_freq"
+                                },
+                                {
+                                    "entity": "sensor.piserve_system_load"
+                                },
+                                {
+                                    "entity": "sensor.piserve_system_cpu_idle"
+                                },
+                                {
+                                    "entity": "sensor.piserve_system_cpu_user"
+                                },
+                                {
+                                    "entity": "sensor.piserve_system_cpu_system"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0
                         }
                     ]
                 },

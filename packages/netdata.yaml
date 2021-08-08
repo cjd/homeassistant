@@ -1,0 +1,43 @@
+sensor:
+  - platform: netdata
+    host: "192.168.0.10"
+    port: "19999"
+    name: dock
+    resources:
+      system_load:
+        data_group: system.load
+        element: load15
+      core0_freq:
+        data_group: "cpu.cpufreq"
+        element: "cpu0"
+        icon: mdi:chip
+      system_cpu_user:
+        data_group: system.cpu
+        element: "user"
+      system_cpu_system:
+        data_group: system.cpu
+        element: "system"
+      system_cpu_idle:
+        data_group: system.cpu
+        element: "idle"
+  - platform: netdata
+    host: "192.168.0.9"
+    port: "19999"
+    name: piserve
+    resources:
+      system_load:
+        data_group: system.load
+        element: load15
+      core0_freq:
+        data_group: "cpu.cpufreq"
+        element: "cpu0"
+        icon: mdi:chip
+      system_cpu_user:
+        data_group: system.cpu
+        element: "user"
+      system_cpu_system:
+        data_group: system.cpu
+        element: "system"
+      system_cpu_idle:
+        data_group: system.cpu
+        element: "idle"
