@@ -9,26 +9,24 @@ automation:
     alias: Entry - Lights on when dark
     description: ''
     trigger:
-    - platform: numeric_state
-      entity_id: sensor.entry_sensor_illuminance_lux
-      below: 200
-      for: "00:05:00"
+      - platform: state
+        entity_id: input_boolean.night_mode
+        to: "on"
     condition: []
     action:
-    - domain: light
-      entity_id: light.entry_lights
-      device_id: 07c0c8a603f37f42fd7614d1fd6c7946
-      type: turn_on
-      brightness_pct: 100
+      - domain: light
+        entity_id: light.entry_lights
+        device_id: 07c0c8a603f37f42fd7614d1fd6c7946
+        type: turn_on
+        brightness_pct: 100
     mode: single
   - id: '1618214320099'
     alias: Entry - Lights off when bright
     description: ''
     trigger:
-    - platform: numeric_state
-      entity_id: sensor.entry_sensor_illuminance_lux
-      above: 200
-      for: "00:15:00"
+    - platform: state
+      entity_id: input_boolean.night_mode
+      to: "off"
     condition: []
     action:
     - domain: light

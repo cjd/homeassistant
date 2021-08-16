@@ -140,9 +140,9 @@ automation:
     condition:
       - condition: and
         conditions:
-        - condition: numeric_state
-          entity_id: sensor.entry_sensor_illuminance_lux
-          below: 200000
+        - condition: state
+          entity_id: input_boolean.night_mode
+          state: 'on'
         - condition: state
           entity_id: light.garage_lights
           state: 'off'

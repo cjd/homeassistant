@@ -9,10 +9,9 @@ automation:
     alias: Bathroom - Moon On at Sunset
     description: ''
     trigger:
-      - platform: numeric_state
-        entity_id: sensor.entry_sensor_illuminance_lux
-        below: 200
-        for: "00:05:00"
+      - platform: state
+        entity_id: input_boolean.night_mode
+        to: "on"
     condition: []
     action:
     - service: light.turn_on
@@ -26,10 +25,9 @@ automation:
     alias: Bathroom - Moon Off at sunrise
     description: ''
     trigger:
-      - platform: numeric_state
-        entity_id: sensor.entry_sensor_illuminance_lux
-        above: 200
-        for: "00:15:00"
+      - platform: state
+        entity_id: input_boolean.night_mode
+        to: "off"
     condition: []
     action:
     - service: light.turn_off
