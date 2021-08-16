@@ -56,7 +56,9 @@ google_assistant:
       expose: true
     camera.livingroom:
       expose: true
-    camera.yard:
+    camera.topyard:
+      expose: true
+    camera.backyard:
       expose: true
     scene.loungeroom_normal:
       expose: true
