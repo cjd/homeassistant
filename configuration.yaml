@@ -4,6 +4,8 @@ homeassistant:
   customize: !include customize.yaml
   external_url: "https://ha.adebenham.com"
   internal_url: "https://ha.adebenham.com"
+  unit_system: metric
+  currency: AUD
 
 
 http:
