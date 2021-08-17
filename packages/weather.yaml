@@ -1,7 +1,6 @@
 sensor:
-  - platform: min_max
-    entity_ids:
-      - sensor.holman_ws5029_65068_ws
+  - platform: statistics
+    entity_id: sensor.holman_ws5029_65068_ws
   - platform: template
     sensors:
       bom_current_text:
