@@ -21,3 +21,7 @@ automation:
         data:
           topic: "cmnd/LoungeroomBlind/serialsend5"
           payload: "55aa0001000000"
+      - service: tts.google_translate_say
+        data:
+          entity_id: media_player.office_speaker_2
+          message: Home Assistant Started
