@@ -14,6 +14,9 @@ automation:
         for: "00:05:00"
       - platform: time
         at: "18:30:00"
+      - platform: sun
+        event: sunset
+        offset: "00:30:00"
     condition: []
     action:
     - service: input_boolean.turn_on
@@ -29,6 +32,9 @@ automation:
         for: "00:15:00"
       - platform: time
         at: "06:30:00"
+      - platform: sun
+        event: sunrise
+        offset: "-00:30:00"
     condition: []
     action:
     - service: input_boolean.turn_off
