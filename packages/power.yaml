@@ -1,0 +1,58 @@
+template:
+  - sensor:
+      - name: "Unallocated power"
+        unit_of_measurement: W
+        state_class: measurement
+        device_class: energy
+        state: "{{ states('sensor.house_power')|float
+                  - states('sensor.lights_energy_power')|float
+                  - states('sensor.desk_energy_power')|float 
+                  - states('sensor.freezer_energy_power')|float
+                  - states('sensor.fridge_energy_power')|float
+                  - states('sensor.serverstack_energy_power')|float
+                  - states('sensor.tvunit_energy_power')|float}}"
+      - name: "Lights ENERGY Total 2"
+        unit_of_measurement: kWh
+        state_class: measurement
+        device_class: energy
+        state: "{{ states('sensor.alcove_energy')|float
+                  + states('sensor.bedroomdimmer_energy')|float
+                  + states('sensor.craftdimmer_energy')|float
+                  + states('sensor.dining_energy')|float
+                  + states('sensor.entrydimmer_energy')|float
+                  + states('sensor.garage_left_energy')|float
+                  + states('sensor.garage_right_energy')|float
+                  + states('sensor.kitchendoor_energy')|float
+                  + states('sensor.kitchenfront_energy')|float
+                  + states('sensor.livingmiddle_energy')|float
+                  + states('sensor.livingside_energy')|float
+                  + states('sensor.lucasdimmer_energy')|float
+                  + states('sensor.pantry_energy')|float
+                  + states('sensor.sidedoor_energy')|float
+                  + states('sensor.xanderdimmer_energy')|float}}"
+      - name: "Lights ENERGY Power"
+        unit_of_measurement: W
+        state_class: measurement
+        device_class: power
+        state: "{{ states('sensor.alcove_power')|float
+                  + states('sensor.bedroomdimmer_power')|float
+                  + states('sensor.craftdimmer_power')|float
+                  + states('sensor.dining_power')|float
+                  + states('sensor.entrydimmer_power')|float
+                  + states('sensor.garage_left_power')|float
+                  + states('sensor.garage_right_power')|float
+                  + states('sensor.kitchendoor_power')|float
+                  + states('sensor.kitchenfront_power')|float
+                  + states('sensor.livingmiddle_power')|float
+                  + states('sensor.livingside_power')|float
+                  + states('sensor.lucasdimmer_power')|float
+                  + states('sensor.pantry_power')|float
+                  + states('sensor.sidedoor_power')|float
+                  + states('sensor.xanderdimmer_power')|float}}"
+
+sensor:
+  - platform: integration
+    source: sensor.lights_energy_power
+    name: "Lights ENERGY Total"
+    unit_prefix: k
+    round: 2

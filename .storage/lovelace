@@ -634,6 +634,12 @@
                     "badges": [],
                     "cards": [
                         {
+                            "type": "entities",
+                            "entities": [
+                                "input_boolean.night_mode"
+                            ]
+                        },
+                        {
                             "type": "custom:apexcharts-card",
                             "header": {
                                 "show": true,
@@ -652,14 +658,8 @@
                                     "name": "Loungeroom"
                                 },
                                 {
-                                    "entity": "sensor.netatmo_netatmo_indoor_temperature"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_netatmo_indoor_outdoor_temperature"
-                                },
-                                {
                                     "entity": "sensor.holman_ws5029_65068_t",
-                                    "name": "Outdoor2"
+                                    "name": "Outdoor"
                                 },
                                 {
                                     "entity": "sensor.bedroom_temperature"
@@ -684,16 +684,12 @@
                             },
                             "series": [
                                 {
-                                    "entity": "sensor.netatmo_netatmo_indoor_humidity",
-                                    "name": "Livingroom"
-                                },
-                                {
-                                    "entity": "sensor.netatmo_netatmo_indoor_outdoor_humidity",
-                                    "name": "Outdoor"
-                                },
-                                {
                                     "entity": "sensor.bathroom_sensor_humidity",
                                     "name": "Bathroom"
+                                },
+                                {
+                                    "entity": "sensor.holman_ws5029_65068_h",
+                                    "name": "Outdoor"
                                 }
                             ],
                             "graph_span": "7d"
@@ -706,12 +702,6 @@
                             "type": "history-graph",
                             "entities": [
                                 "sensor.entry_sensor_illuminance_lux"
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                "input_boolean.night_mode"
                             ]
                         },
                         {
@@ -990,16 +980,6 @@
                             "refresh_interval": 0
                         },
                         {
-                            "type": "history-graph",
-                            "entities": [
-                                "sensor.freezer_energy_power",
-                                "sensor.serverstack_energy_power",
-                                "sensor.tvunit_energy_power"
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0
-                        },
-                        {
                             "type": "custom:auto-entities",
                             "card": {
                                 "type": "glance",
@@ -1011,6 +991,9 @@
                                         "entity_id": "*_power",
                                         "domain": "sensor",
                                         "state": "> 0"
+                                    },
+                                    {
+                                        "entity_id": "sensor.power_misc"
                                     }
                                 ],
                                 "exclude": [
@@ -1036,6 +1019,29 @@
                                 "min",
                                 "max"
                             ]
+                        },
+                        {
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "history-graph",
+                                "state_color": false
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "*_energy_power",
+                                        "domain": "sensor"
+                                    },
+                                    {
+                                        "entity_id": "sensor.power_misc"
+                                    }
+                                ]
+                            },
+                            "sort": {
+                                "method": "name",
+                                "reverse": true,
+                                "numeric": true
+                            }
                         }
                     ]
                 }
