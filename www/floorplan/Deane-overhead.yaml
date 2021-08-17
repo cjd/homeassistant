@@ -35,8 +35,8 @@ rules:
         class: '${(entity.state === "on") ? "light-on" : "light-off"}'
   - entities:
       - sensor.xander_bedroom_sensor_temperature
-      - sensor.netatmo_netatmo_indoor_outdoor_temperature
-      - sensor.netatmo_netatmo_indoor_temperature
+      - sensor.holman_ws5029_65068_t
+      - sensor.livingroom_temperature
       - sensor.office_temperature
       - sensor.carport_sensor_temperature
       - sensor.familyroom_sensor_temperature
