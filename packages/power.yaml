@@ -10,26 +10,8 @@ template:
                   - states('sensor.freezer_energy_power')|float
                   - states('sensor.fridge_energy_power')|float
                   - states('sensor.serverstack_energy_power')|float
+                  - states('sensor.livingtv_energy_power')|float
                   - states('sensor.tvunit_energy_power')|float}}"
-      - name: "Lights ENERGY Total 2"
-        unit_of_measurement: kWh
-        state_class: measurement
-        device_class: energy
-        state: "{{ states('sensor.alcove_energy')|float
-                  + states('sensor.bedroomdimmer_energy')|float
-                  + states('sensor.craftdimmer_energy')|float
-                  + states('sensor.dining_energy')|float
-                  + states('sensor.entrydimmer_energy')|float
-                  + states('sensor.garage_left_energy')|float
-                  + states('sensor.garage_right_energy')|float
-                  + states('sensor.kitchendoor_energy')|float
-                  + states('sensor.kitchenfront_energy')|float
-                  + states('sensor.livingmiddle_energy')|float
-                  + states('sensor.livingside_energy')|float
-                  + states('sensor.lucasdimmer_energy')|float
-                  + states('sensor.pantry_energy')|float
-                  + states('sensor.sidedoor_energy')|float
-                  + states('sensor.xanderdimmer_energy')|float}}"
       - name: "Lights ENERGY Power"
         unit_of_measurement: W
         state_class: measurement
@@ -46,9 +28,22 @@ template:
                   + states('sensor.livingmiddle_power')|float
                   + states('sensor.livingside_power')|float
                   + states('sensor.lucasdimmer_power')|float
+                  + states('sensor.officedimmer_power')|float
                   + states('sensor.pantry_power')|float
                   + states('sensor.sidedoor_power')|float
-                  + states('sensor.xanderdimmer_power')|float}}"
+                  + states('sensor.xanderdimmer_power')|float
+                  + states('sensor.loungeroom_power')|float
+                  + states('sensor.kitchenback_power')|float}}"
+      - name: "Loungeroom power"
+        unit_of_measurement: W
+        state_class: measurement
+        device_class: power
+        state: "{{ state_attr('light.loungeroom_lights', 'brightness') * 45 / 255 }}"
+      - name: "Kitchenback power"
+        unit_of_measurement: W
+        state_class: measurement
+        device_class: power
+        state: "{% if is_state('light.kitchenback', 'on') -%}24{%- else -%}0{%- endif %}"
 
 sensor:
   - platform: integration
@@ -56,3 +51,27 @@ sensor:
     name: "Lights ENERGY Total"
     unit_prefix: k
     round: 2
+  - platform: filter
+    name: "Freezer power"
+    entity_id: sensor.freezer_energy_power
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 2.0
+      - filter: lowpass
+        time_constant: 10
+      - filter: time_simple_moving_average
+        window_size: "00:15"
+        precision: 2
+  - platform: filter
+    name: "Fridge power"
+    entity_id: sensor.fridge_energy_power
+    filters:
+      - filter: outlier
+        window_size: 4
+        radius: 2.0
+      - filter: lowpass
+        time_constant: 10
+      - filter: time_simple_moving_average
+        window_size: "00:15"
+        precision: 2

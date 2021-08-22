@@ -554,27 +554,21 @@
                             ]
                         },
                         {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "sensor.cyberpower_battery_charge"
-                                },
-                                {
-                                    "entity": "sensor.cyberpower_battery_runtime"
-                                },
-                                {
-                                    "entity": "sensor.cyberpower_battery_voltage"
-                                },
-                                {
-                                    "entity": "sensor.cyberpower_low_battery_runtime"
-                                },
-                                {
-                                    "entity": "sensor.cyberpower_nominal_battery_voltage"
-                                },
-                                {
-                                    "entity": "sensor.cyberpower_status"
-                                }
-                            ]
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities",
+                                "square": false
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "sensor.cyberpower_*"
+                                    }
+                                ]
+                            },
+                            "sort": {
+                                "method": "friendly_name"
+                            }
                         },
                         {
                             "type": "custom:apexcharts-card",
@@ -999,6 +993,12 @@
                                 "exclude": [
                                     {
                                         "entity_id": "sensor.sidedoor_power"
+                                    },
+                                    {
+                                        "entity_id": "sensor.fridge_energy_power"
+                                    },
+                                    {
+                                        "entity_id": "sensor.freezer_energy_power"
                                     }
                                 ]
                             },
@@ -1034,6 +1034,20 @@
                                     },
                                     {
                                         "entity_id": "sensor.power_misc"
+                                    },
+                                    {
+                                        "entity_id": "sensor.freezer_power"
+                                    },
+                                    {
+                                        "entity_id": "sensor.fridge_power"
+                                    }
+                                ],
+                                "exclude": [
+                                    {
+                                        "entity_id": "sensor.freezer_energy_power"
+                                    },
+                                    {
+                                        "entity_id": "sensor.fridge_energy_power"
                                     }
                                 ]
                             },
