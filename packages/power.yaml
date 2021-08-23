@@ -11,6 +11,7 @@ template:
                   - states('sensor.fridge_energy_power')|float
                   - states('sensor.serverstack_energy_power')|float
                   - states('sensor.livingtv_energy_power')|float
+                  - states('sensor.garagebench_energy_power')|float
                   - states('sensor.tvunit_energy_power')|float}}"
       - name: "Lights ENERGY Power"
         unit_of_measurement: W
