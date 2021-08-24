@@ -49,7 +49,7 @@
                             "type": "custom:bom-weather-card",
                             "title": "BOM Weather",
                             "entity_current_conditions": "sensor.narara_icon_descriptor_0",
-                            "entity_temperature": "sensor.holman_ws5029_65068_t",
+                            "entity_temperature": "sensor.holman_ws5029_45250_t",
                             "entity_forecast_high_temp_1": "sensor.narara_temp_max_1",
                             "entity_forecast_high_temp_2": "sensor.narara_temp_max_2",
                             "entity_forecast_high_temp_3": "sensor.narara_temp_max_3",
@@ -239,34 +239,6 @@
                     ]
                 },
                 {
-                    "icon": "mdi:music",
-                    "title": "",
-                    "path": "media",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "media-control",
-                            "entity": "media_player.family_room_tv"
-                        },
-                        {
-                            "type": "media-control",
-                            "entity": "media_player.living_room_speaker"
-                        },
-                        {
-                            "type": "media-control",
-                            "entity": "media_player.living_room_tv"
-                        },
-                        {
-                            "type": "media-control",
-                            "entity": "media_player.whole_house"
-                        },
-                        {
-                            "type": "media-control",
-                            "entity": "media_player.livingroom"
-                        }
-                    ]
-                },
-                {
                     "title": "",
                     "path": "house",
                     "panel": true,
@@ -416,295 +388,6 @@
                                 }
                             ],
                             "square": false
-                        }
-                    ]
-                },
-                {
-                    "title": "",
-                    "path": "office",
-                    "icon": "mdi:laptop",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "horizontal-stack",
-                            "cards": [
-                                {
-                                    "type": "button",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
-                                    "entity": "light.office_monitors_strip"
-                                },
-                                {
-                                    "type": "button",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
-                                    "entity": "light.office_strip"
-                                },
-                                {
-                                    "type": "button",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
-                                    "entity": "light.office_lights"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "grid",
-                            "columns": 4,
-                            "square": false,
-                            "cards": [
-                                {
-                                    "type": "button",
-                                    "entity": "switch.powerboardusb_outlet_1",
-                                    "name": "USB1"
-                                },
-                                {
-                                    "type": "button",
-                                    "entity": "switch.powerboardusb_outlet_2",
-                                    "name": "USB2"
-                                },
-                                {
-                                    "type": "button",
-                                    "entity": "switch.powerboardusb_outlet_3",
-                                    "name": "USB3"
-                                },
-                                {
-                                    "type": "button",
-                                    "entity": "switch.powerboardusb_outlet_4",
-                                    "name": "USB4"
-                                },
-                                {
-                                    "type": "button",
-                                    "entity": "switch.powerboard_outlet_1"
-                                },
-                                {
-                                    "type": "button",
-                                    "entity": "switch.powerboard_outlet_2"
-                                },
-                                {
-                                    "type": "button",
-                                    "entity": "switch.powerboard_outlet_3"
-                                },
-                                {
-                                    "type": "button",
-                                    "entity": "switch.powerboard_outlet_4"
-                                },
-                                {
-                                    "type": "button",
-                                    "entity": "switch.powerboard3_outlet_1"
-                                },
-                                {
-                                    "type": "button",
-                                    "entity": "switch.powerboard3_outlet_2"
-                                },
-                                {
-                                    "type": "button",
-                                    "entity": "switch.powerboard3_outlet_3"
-                                },
-                                {
-                                    "type": "button",
-                                    "entity": "switch.powerboard3_outlet_4"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "custom:apexcharts-card",
-                            "header": {
-                                "show": true,
-                                "title": "Piserve",
-                                "show_states": false,
-                                "colorize_states": true
-                            },
-                            "update_interval": "1m",
-                            "graph_span": "24h",
-                            "stacked": true,
-                            "chart_type": "line",
-                            "all_series_config": {
-                                "type": "area",
-                                "stroke_width": 1,
-                                "yaxis_id": "hundred"
-                            },
-                            "yaxis": [
-                                {
-                                    "id": "hundred",
-                                    "min": 0,
-                                    "max": 100,
-                                    "apex_config": {
-                                        "decimalsInFloat": 0,
-                                        "tickAmount": 4
-                                    }
-                                }
-                            ],
-                            "series": [
-                                {
-                                    "entity": "sensor.piserve_smoothed_cpu_iowait",
-                                    "name": "IO"
-                                },
-                                {
-                                    "entity": "sensor.piserve_smoothed_cpu_system",
-                                    "name": "System"
-                                },
-                                {
-                                    "entity": "sensor.piserve_smoothed_cpu_user",
-                                    "name": "User"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "custom:auto-entities",
-                            "card": {
-                                "type": "entities",
-                                "square": false
-                            },
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "sensor.cyberpower_*"
-                                    }
-                                ]
-                            },
-                            "sort": {
-                                "method": "friendly_name"
-                            }
-                        },
-                        {
-                            "type": "custom:apexcharts-card",
-                            "header": {
-                                "show": true,
-                                "title": "Dock",
-                                "show_states": false,
-                                "colorize_states": true
-                            },
-                            "stacked": true,
-                            "chart_type": "line",
-                            "all_series_config": {
-                                "type": "area",
-                                "stroke_width": 1,
-                                "yaxis_id": "hundred"
-                            },
-                            "yaxis": [
-                                {
-                                    "id": "hundred",
-                                    "min": 0,
-                                    "max": 100,
-                                    "apex_config": {
-                                        "decimalsInFloat": 0,
-                                        "tickAmount": 4
-                                    }
-                                }
-                            ],
-                            "series": [
-                                {
-                                    "entity": "sensor.dock_smoothed_cpu_iowait",
-                                    "name": "IO"
-                                },
-                                {
-                                    "entity": "sensor.dock_smoothed_cpu_system",
-                                    "name": "System"
-                                },
-                                {
-                                    "entity": "sensor.dock_smoothed_cpu_user",
-                                    "name": "User"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                "sensor.dock_system_load",
-                                "sensor.piserve_system_load"
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0
-                        }
-                    ]
-                },
-                {
-                    "icon": "mdi:chart-timeline-variant",
-                    "path": "graphs",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "entities",
-                            "entities": [
-                                "input_boolean.night_mode"
-                            ]
-                        },
-                        {
-                            "type": "custom:apexcharts-card",
-                            "header": {
-                                "show": true,
-                                "title": "Temperatures",
-                                "show_states": true,
-                                "colorize_states": true
-                            },
-                            "all_series_config": {
-                                "type": "line",
-                                "stroke_width": 2
-                            },
-                            "graph_span": "7d",
-                            "series": [
-                                {
-                                    "entity": "sensor.familyroom_sensor_temperature",
-                                    "name": "Loungeroom"
-                                },
-                                {
-                                    "entity": "sensor.holman_ws5029_65068_t",
-                                    "name": "Outdoor"
-                                },
-                                {
-                                    "entity": "sensor.bedroom_temperature"
-                                },
-                                {
-                                    "entity": "sensor.office_temperature",
-                                    "name": "Office"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "custom:apexcharts-card",
-                            "header": {
-                                "show": true,
-                                "title": "Humidity",
-                                "show_states": true,
-                                "colorize_states": true
-                            },
-                            "all_series_config": {
-                                "type": "line",
-                                "stroke_width": 1
-                            },
-                            "series": [
-                                {
-                                    "entity": "sensor.bathroom_sensor_humidity",
-                                    "name": "Bathroom"
-                                },
-                                {
-                                    "entity": "sensor.holman_ws5029_65068_h",
-                                    "name": "Outdoor"
-                                }
-                            ],
-                            "graph_span": "7d"
-                        },
-                        {
-                            "type": "custom:sun-card",
-                            "darkMode": true
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                "sensor.entry_sensor_illuminance_lux"
-                            ]
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                "sensor.holman_ws5029_65068_ws"
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0
                         }
                     ]
                 },
@@ -860,49 +543,345 @@
                             ],
                             "camera_image": "camera.garage",
                             "camera_view": "live"
-                        }
-                    ]
-                },
-                {
-                    "path": "",
-                    "icon": "mdi:home",
-                    "panel": true,
-                    "badges": [],
-                    "cards": [
+                        },
                         {
-                            "type": "custom:floorplan-card",
-                            "config": "/local/floorplan/Deane-angle.yaml",
-                            "full_height": true
-                        }
-                    ]
-                },
-                {
-                    "icon": "mdi:map",
-                    "panel": true,
-                    "path": "map",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "map",
+                            "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "device_tracker.chrisphone"
+                                    "type": "custom:fold-entity-row",
+                                    "head": "media_player.whole_house",
+                                    "entities": [
+                                        {
+                                            "type": "custom:auto-entities",
+                                            "card": {
+                                                "type": "entities",
+                                                "square": false
+                                            },
+                                            "filter": {
+                                                "include": [
+                                                    {
+                                                        "entity_id": "media_player.*"
+                                                    }
+                                                ],
+                                                "exclude": [
+                                                    {
+                                                        "state": "unavailable"
+                                                    }
+                                                ]
+                                            },
+                                            "sort": {
+                                                "method": "friendly_name"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "",
+                    "path": "office",
+                    "icon": "mdi:laptop",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "grid",
+                            "columns": 4,
+                            "square": false,
+                            "cards": [
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "light.office_monitors_strip"
                                 },
                                 {
-                                    "entity": "device_tracker.melphone"
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "light.office_strip"
                                 },
                                 {
-                                    "entity": "zone.home"
+                                    "type": "custom:slider-button-card",
+                                    "entity": "light.office_lights",
+                                    "slider": {
+                                        "percentage": true,
+                                        "direction": "left-right",
+                                        "background": "gradient",
+                                        "use_state_color": false,
+                                        "use_percentage_bg_opacity": false,
+                                        "show_track": false,
+                                        "force_square": false
+                                    },
+                                    "show_name": true,
+                                    "show_state": false,
+                                    "icon": {
+                                        "show": true,
+                                        "use_state_color": true,
+                                        "rotate": false,
+                                        "tap_action": {
+                                            "action": "more-info"
+                                        }
+                                    },
+                                    "action_button": {
+                                        "mode": "toggle",
+                                        "show": true,
+                                        "show_spinner": true,
+                                        "tap_action": null
+                                    },
+                                    "action": "toggle"
                                 },
                                 {
-                                    "entity": "zone.church"
+                                    "type": "button"
                                 },
                                 {
-                                    "entity": "zone.school"
+                                    "type": "button",
+                                    "entity": "switch.powerboardusb_outlet_1",
+                                    "name": "USB1"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.powerboardusb_outlet_2",
+                                    "name": "USB2"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.powerboardusb_outlet_3",
+                                    "name": "USB3"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.powerboardusb_outlet_4",
+                                    "name": "USB4"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.powerboard_outlet_1"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.powerboard_outlet_2"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.powerboard_outlet_3"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.powerboard_outlet_4"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.powerboard3_outlet_1"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.powerboard3_outlet_2"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.powerboard3_outlet_3"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.powerboard3_outlet_4"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "type": "custom:fold-entity-row",
+                                    "head": "sensor.cyberpower_status",
+                                    "entities": [
+                                        {
+                                            "type": "custom:auto-entities",
+                                            "card": {
+                                                "type": "entities",
+                                                "square": false
+                                            },
+                                            "filter": {
+                                                "include": [
+                                                    {
+                                                        "entity_id": "sensor.cyberpower_*"
+                                                    }
+                                                ]
+                                            },
+                                            "sort": {
+                                                "method": "friendly_name"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:apexcharts-card",
+                            "header": {
+                                "show": true,
+                                "title": "Piserve",
+                                "show_states": false,
+                                "colorize_states": true
+                            },
+                            "update_interval": "1m",
+                            "graph_span": "24h",
+                            "stacked": true,
+                            "chart_type": "line",
+                            "all_series_config": {
+                                "type": "area",
+                                "stroke_width": 1,
+                                "yaxis_id": "hundred"
+                            },
+                            "yaxis": [
+                                {
+                                    "id": "hundred",
+                                    "min": 0,
+                                    "max": 100,
+                                    "apex_config": {
+                                        "decimalsInFloat": 0,
+                                        "tickAmount": 4
+                                    }
                                 }
                             ],
-                            "default_zoom": 14,
-                            "hours_to_show": 24
+                            "series": [
+                                {
+                                    "entity": "sensor.piserve_smoothed_cpu_iowait",
+                                    "name": "IO"
+                                },
+                                {
+                                    "entity": "sensor.piserve_smoothed_cpu_system",
+                                    "name": "System"
+                                },
+                                {
+                                    "entity": "sensor.piserve_smoothed_cpu_user",
+                                    "name": "User"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:apexcharts-card",
+                            "header": {
+                                "show": true,
+                                "title": "Dock",
+                                "show_states": false,
+                                "colorize_states": true
+                            },
+                            "stacked": true,
+                            "chart_type": "line",
+                            "all_series_config": {
+                                "type": "area",
+                                "stroke_width": 1,
+                                "yaxis_id": "hundred"
+                            },
+                            "yaxis": [
+                                {
+                                    "id": "hundred",
+                                    "min": 0,
+                                    "max": 100,
+                                    "apex_config": {
+                                        "decimalsInFloat": 0,
+                                        "tickAmount": 4
+                                    }
+                                }
+                            ],
+                            "series": [
+                                {
+                                    "entity": "sensor.dock_smoothed_cpu_iowait",
+                                    "name": "IO"
+                                },
+                                {
+                                    "entity": "sensor.dock_smoothed_cpu_system",
+                                    "name": "System"
+                                },
+                                {
+                                    "entity": "sensor.dock_smoothed_cpu_user",
+                                    "name": "User"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                "sensor.dock_system_load",
+                                "sensor.piserve_system_load"
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.ping_internet"
+                                },
+                                {
+                                    "entity": "sensor.ping_router"
+                                },
+                                {
+                                    "entity": "sensor.speedtest_ping"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                "sensor.speedtest_download",
+                                "sensor.speedtest_upload"
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:chart-timeline-variant",
+                    "path": "graphs",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                "input_boolean.night_mode"
+                            ]
+                        },
+                        {
+                            "type": "statistics-graph",
+                            "entities": [
+                                "sensor.office_temperature",
+                                "sensor.familyroom_sensor_temperature",
+                                "sensor.bedroom_temperature",
+                                "sensor.livingroom_temperature",
+                                "sensor.outside_temperature"
+                            ],
+                            "days_to_show": 7,
+                            "stat_types": [
+                                "mean"
+                            ],
+                            "chart_type": "line"
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                "sensor.entry_sensor_illuminance_lux"
+                            ]
+                        },
+                        {
+                            "type": "custom:sun-card",
+                            "darkMode": true
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                "sensor.outside_wind_speed"
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0
                         }
                     ]
                 },
@@ -921,41 +900,6 @@
                             "entity": "vacuum.roborock_vacuum_a08",
                             "map_camera": "camera.roborock_map",
                             "camera_calibration": true
-                        }
-                    ]
-                },
-                {
-                    "title": "3D",
-                    "path": "3d",
-                    "panel": true,
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "custom:floor3d-card",
-                            "name": "Deane",
-                            "path": "/local/floorplan/obj/",
-                            "objfile": "Deane.obj",
-                            "mtlfile": "Deane.mtl",
-                            "backgroundColor": "#000001",
-                            "globalLightPower": 0.4,
-                            "entities": [
-                                {
-                                    "entity": "light.office_lights",
-                                    "type3d": "light",
-                                    "object_id": "room_115_766",
-                                    "light": {
-                                        "lumens": 3000
-                                    }
-                                },
-                                {
-                                    "entity": "light.livingroom_lights",
-                                    "type3d": "light",
-                                    "object_id": "room_124_775",
-                                    "light": {
-                                        "lumens": "2700"
-                                    }
-                                }
-                            ]
                         }
                     ]
                 },
@@ -1056,6 +1000,84 @@
                                 "reverse": true,
                                 "numeric": true
                             }
+                        }
+                    ]
+                },
+                {
+                    "title": "3D",
+                    "path": "3d",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:floor3d-card",
+                            "name": "Deane",
+                            "path": "/local/floorplan/obj/",
+                            "objfile": "Deane.obj",
+                            "mtlfile": "Deane.mtl",
+                            "backgroundColor": "#000001",
+                            "globalLightPower": 0.4,
+                            "entities": [
+                                {
+                                    "entity": "light.office_lights",
+                                    "type3d": "light",
+                                    "object_id": "room_115_766",
+                                    "light": {
+                                        "lumens": 3000
+                                    }
+                                },
+                                {
+                                    "entity": "light.livingroom_lights",
+                                    "type3d": "light",
+                                    "object_id": "room_124_775",
+                                    "light": {
+                                        "lumens": "2700"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:map",
+                    "panel": true,
+                    "path": "map",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "map",
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.chrisphone"
+                                },
+                                {
+                                    "entity": "device_tracker.melphone"
+                                },
+                                {
+                                    "entity": "zone.home"
+                                },
+                                {
+                                    "entity": "zone.church"
+                                },
+                                {
+                                    "entity": "zone.school"
+                                }
+                            ],
+                            "default_zoom": 14,
+                            "hours_to_show": 24
+                        }
+                    ]
+                },
+                {
+                    "path": "",
+                    "icon": "mdi:home",
+                    "panel": true,
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:floorplan-card",
+                            "config": "/local/floorplan/Deane-angle.yaml",
+                            "full_height": true
                         }
                     ]
                 }
