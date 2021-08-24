@@ -1,0 +1,26 @@
+binary_sensor:
+  - platform: ping
+    host: 192.168.0.1
+    name: "Ping Router"
+  - platform: ping
+    host: 8.8.8.8
+    name: "Ping Internet"
+  - platform: ping
+    host: adebenham.com
+    name: "Ping Website"
+
+sensor:
+  - platform: template
+    sensors:
+      ping_router:
+        unit_of_measurement: 'ms'
+        friendly_name: "Router Ping"
+        value_template: "{{ state_attr('binary_sensor.ping_router', 'round_trip_time_avg') }}"
+      ping_internet:
+        unit_of_measurement: 'ms'
+        friendly_name: "Internet Ping"
+        value_template: "{{ state_attr('binary_sensor.ping_internet', 'round_trip_time_avg') }}"
+      ping_website:
+        unit_of_measurement: 'ms'
+        friendly_name: "Website Ping"
+        value_template: "{{ state_attr('binary_sensor.ping_website', 'round_trip_time_avg') }}"
