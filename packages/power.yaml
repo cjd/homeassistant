@@ -11,7 +11,8 @@ template:
                   - states('sensor.fridge_energy_power')|float
                   - states('sensor.serverstack_energy_power')|float
                   - states('sensor.livingtv_energy_power')|float
-                  - states('sensor.garagebench_energy_power')|float
+                  - states('sensor.hallpower_energy_power')|float
+                  - states('sensor.dishwasher_power')|float
                   - states('sensor.tvunit_energy_power')|float}}"
       - name: "Lights ENERGY Power"
         unit_of_measurement: W
@@ -45,6 +46,11 @@ template:
         state_class: measurement
         device_class: power
         state: "{% if is_state('light.kitchenback', 'on') -%}24{%- else -%}0{%- endif %}"
+  - binary_sensor:
+      - name: "Dishwasher Running"
+        state: "{{ states('sensor.dishwasher_energy_power') | float > 5 }}"
+        delay_on: "0:00:10"
+        delay_off: "0:00:10"
 
 sensor:
   - platform: integration
