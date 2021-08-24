@@ -1,6 +1,29 @@
+template:
+  - sensor:
+      - name: "Outside Humidity"
+        state: "{{ states('sensor.holman_ws5029_45250_h') }}"
+        state_class: measurement
+        unit_of_measurement: "%"
+        device_class: humidity
+      - name: "Outside Rain"
+        state: "{{ states('sensor.holman_ws5029_45250_rt') }}"
+        state_class: measurement
+        unit_of_measurement: "mm"
+      - name: "Outside Temperature"
+        state: "{{ states('sensor.holman_ws5029_45250_t') }}"
+        state_class: measurement
+        unit_of_measurement: "°C"
+        device_class: temperature
+      - name: "Outside Wind Direction"
+        state: "{{ states('sensor.holman_ws5029_45250_wd') }}"
+        state_class: measurement
+        unit_of_measurement: "°"
+      - name: "Outside Wind Speed"
+        state: "{{ states('sensor.holman_ws5029_45250_ws') }}"
+        state_class: measurement
+        unit_of_measurement: "km/h"
+
 sensor:
-  - platform: statistics
-    entity_id: sensor.holman_ws5029_65068_ws
   - platform: template
     sensors:
       bom_current_text:
