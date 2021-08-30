@@ -24,6 +24,8 @@ template:
         unit_of_measurement: "km/h"
 
 sensor:
+  - platform: statistics
+    entity_id: sensor.outside_wind_speed
   - platform: template
     sensors:
       bom_current_text:
