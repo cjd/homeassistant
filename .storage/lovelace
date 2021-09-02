@@ -43,13 +43,21 @@
                 {
                     "path": "default_view",
                     "title": "Home",
+                    "visible": [
+                        {
+                            "user": "24e5927095604f13a7771fae293ea29b"
+                        },
+                        {
+                            "user": "3b570878dcc144a887903309d4f5cbc7"
+                        }
+                    ],
                     "badges": [],
                     "cards": [
                         {
                             "type": "custom:bom-weather-card",
                             "title": "BOM Weather",
                             "entity_current_conditions": "sensor.narara_icon_descriptor_0",
-                            "entity_temperature": "sensor.holman_ws5029_45250_t",
+                            "entity_temperature": "sensor.outside_temperature",
                             "entity_forecast_high_temp_1": "sensor.narara_temp_max_1",
                             "entity_forecast_high_temp_2": "sensor.narara_temp_max_2",
                             "entity_forecast_high_temp_3": "sensor.narara_temp_max_3",
@@ -70,8 +78,7 @@
                             "entity_summary_3": "sensor.narara_short_text_3",
                             "entity_summary_4": "sensor.narara_short_text_4",
                             "entity_summary_5": "sensor.narara_short_text_5",
-                            "entity_sun": "sun.sun",
-                            "entity_humidity": "sensor.gosford_humidity",
+                            "entity_humidity": "sensor.outside_humidity",
                             "entity_apparent_temp": "sensor.gosford_temp_feels_like",
                             "entity_daily_summary": "sensor.narara_extended_text_0",
                             "entity_pop": "sensor.narara_rain_chance_0",
@@ -87,13 +94,9 @@
                             "entity_pop_3": "sensor.narara_rain_chance_3",
                             "entity_pop_4": "sensor.narara_rain_chance_4",
                             "entity_pop_5": "sensor.narara_rain_chance_5",
-                            "entity_fire_danger_summary": "sensor.narara_fire_danger_0",
-                            "entity_uv_alert_summary": "sensor.narara_uv_category_0",
-                            "entity_wind_bearing": "sensor.gosford_wind_direction",
-                            "entity_wind_speed": "sensor.gosford_wind_speed_kilometre",
+                            "entity_wind_bearing": "sensor.outside_wind_direction",
+                            "entity_wind_speed": "sensor.outside_wind_speed",
                             "entity_current_text": "sensor.bom_current_text",
-                            "entity_uv_alert": "sensor.bom_uv_alert",
-                            "entity_fire_danger": "sensor.bom_fire_danger",
                             "entity_daytime_high": "sensor.bom_today_max",
                             "entity_daytime_low": "sensor.bom_today_min"
                         },
@@ -170,9 +173,6 @@
                                     "entity": "binary_sensor.laundry_door_contact"
                                 },
                                 {
-                                    "entity": "binary_sensor.garageentry_contact"
-                                },
-                                {
                                     "entity": "binary_sensor.entry_sensor_occupancy"
                                 },
                                 {
@@ -194,12 +194,6 @@
                                 },
                                 {
                                     "entity": "person.mel"
-                                },
-                                {
-                                    "entity": "binary_sensor.outback_presence"
-                                },
-                                {
-                                    "entity": "binary_sensor.imporeza_presence"
                                 }
                             ]
                         },
@@ -239,10 +233,164 @@
                     ]
                 },
                 {
+                    "path": "cast",
+                    "icon": "mdi:home",
+                    "visible": [
+                        {
+                            "user": "24e5927095604f13a7771fae293ea29b"
+                        },
+                        {
+                            "user": "51cfb85df7714a8098a3eaeab257e4d0"
+                        }
+                    ],
+                    "type": "panel",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "grid",
+                            "cards": [
+                                {
+                                    "type": "vertical-stack",
+                                    "cards": [
+                                        {
+                                            "type": "custom:bom-weather-card",
+                                            "title": "BOM Weather",
+                                            "entity_current_conditions": "sensor.narara_icon_descriptor_0",
+                                            "entity_temperature": "sensor.outside_temperature",
+                                            "entity_forecast_high_temp_1": "sensor.narara_temp_max_1",
+                                            "entity_forecast_high_temp_2": "sensor.narara_temp_max_2",
+                                            "entity_forecast_high_temp_3": "sensor.narara_temp_max_3",
+                                            "entity_forecast_high_temp_4": "sensor.narara_temp_max_4",
+                                            "entity_forecast_high_temp_5": "sensor.narara_temp_max_5",
+                                            "entity_forecast_icon_1": "sensor.narara_icon_descriptor_1",
+                                            "entity_forecast_icon_2": "sensor.narara_icon_descriptor_2",
+                                            "entity_forecast_icon_3": "sensor.narara_icon_descriptor_3",
+                                            "entity_forecast_icon_4": "sensor.narara_icon_descriptor_4",
+                                            "entity_forecast_icon_5": "sensor.narara_icon_descriptor_5",
+                                            "entity_forecast_low_temp_1": "sensor.narara_temp_min_1",
+                                            "entity_forecast_low_temp_2": "sensor.narara_temp_min_2",
+                                            "entity_forecast_low_temp_3": "sensor.narara_temp_min_3",
+                                            "entity_forecast_low_temp_4": "sensor.narara_temp_min_4",
+                                            "entity_forecast_low_temp_5": "sensor.narara_temp_min_5",
+                                            "entity_summary_1": "sensor.narara_short_text_1",
+                                            "entity_summary_2": "sensor.narara_short_text_2",
+                                            "entity_summary_3": "sensor.narara_short_text_3",
+                                            "entity_summary_4": "sensor.narara_short_text_4",
+                                            "entity_summary_5": "sensor.narara_short_text_5",
+                                            "entity_humidity": "sensor.outside_humidity",
+                                            "entity_apparent_temp": "sensor.gosford_temp_feels_like",
+                                            "entity_daily_summary": "sensor.narara_extended_text_0",
+                                            "entity_pop": "sensor.narara_rain_chance_0",
+                                            "entity_pop_intensity": "sensor.gosford_rain_since_9am",
+                                            "entity_possible_today": "sensor.narara_rain_amount_range_0",
+                                            "entity_pos_1": "sensor.narara_rain_amount_range_1",
+                                            "entity_pos_2": "sensor.narara_rain_amount_range_2",
+                                            "entity_pos_3": "sensor.narara_rain_amount_range_3",
+                                            "entity_pos_4": "sensor.narara_rain_amount_range_4",
+                                            "entity_pos_5": "sensor.narara_rain_amount_range_5",
+                                            "entity_pop_1": "sensor.narara_rain_chance_1",
+                                            "entity_pop_2": "sensor.narara_rain_chance_2",
+                                            "entity_pop_3": "sensor.narara_rain_chance_3",
+                                            "entity_pop_4": "sensor.narara_rain_chance_4",
+                                            "entity_pop_5": "sensor.narara_rain_chance_5",
+                                            "entity_wind_bearing": "sensor.outside_wind_direction",
+                                            "entity_wind_speed": "sensor.outside_wind_speed",
+                                            "entity_current_text": "sensor.bom_current_text",
+                                            "entity_daytime_high": "sensor.bom_today_max",
+                                            "entity_daytime_low": "sensor.bom_today_min"
+                                        },
+                                        {
+                                            "type": "grid",
+                                            "cards": [
+                                                {
+                                                    "type": "picture-entity",
+                                                    "entity": "camera.driveway",
+                                                    "show_name": false,
+                                                    "show_state": false
+                                                },
+                                                {
+                                                    "type": "picture-entity",
+                                                    "entity": "camera.topyard",
+                                                    "show_name": false,
+                                                    "show_state": false
+                                                },
+                                                {
+                                                    "type": "picture-entity",
+                                                    "entity": "camera.backyard",
+                                                    "show_name": false,
+                                                    "show_state": false
+                                                }
+                                            ],
+                                            "columns": 2,
+                                            "square": false
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "custom:floorplan-card",
+                                    "config": "/local/floorplan/Deane-overhead.yaml",
+                                    "full_height": true
+                                },
+                                {
+                                    "type": "vertical-stack",
+                                    "cards": [
+                                        {
+                                            "type": "custom:auto-entities",
+                                            "card": {
+                                                "type": "grid",
+                                                "square": false,
+                                                "columns": 3
+                                            },
+                                            "card_param": "cards",
+                                            "filter": {
+                                                "include": [
+                                                    {
+                                                        "entity_id": "*_lights",
+                                                        "options": {
+                                                            "type": "button"
+                                                        }
+                                                    }
+                                                ],
+                                                "exclude": [
+                                                    {
+                                                        "state": "unavailable"
+                                                    }
+                                                ]
+                                            },
+                                            "sort": {
+                                                "method": "friendly_name"
+                                            }
+                                        },
+                                        {
+                                            "type": "glance",
+                                            "entities": [
+                                                {
+                                                    "entity": "person.chris"
+                                                },
+                                                {
+                                                    "entity": "person.mel"
+                                                }
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
                     "title": "",
                     "path": "house",
-                    "panel": true,
                     "icon": "mdi:home",
+                    "type": "panel",
+                    "visible": [
+                        {
+                            "user": "24e5927095604f13a7771fae293ea29b"
+                        },
+                        {
+                            "user": "3b570878dcc144a887903309d4f5cbc7"
+                        }
+                    ],
                     "badges": [],
                     "cards": [
                         {
@@ -256,6 +404,14 @@
                     "title": "",
                     "path": "lights",
                     "icon": "mdi:lightbulb",
+                    "visible": [
+                        {
+                            "user": "24e5927095604f13a7771fae293ea29b"
+                        },
+                        {
+                            "user": "3b570878dcc144a887903309d4f5cbc7"
+                        }
+                    ],
                     "badges": [],
                     "cards": [
                         {
@@ -385,6 +541,15 @@
                                             "entity_id": "light.office_strip"
                                         }
                                     ]
+                                },
+                                {
+                                    "type": "custom:decluttering-card",
+                                    "template": "slider_button_template",
+                                    "variables": [
+                                        {
+                                            "entity_id": "light.gardenlights"
+                                        }
+                                    ]
                                 }
                             ],
                             "square": false
@@ -397,151 +562,49 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "picture-elements",
-                            "elements": [
-                                {
-                                    "type": "state-icon",
-                                    "entity": "camera.topyard_person",
-                                    "title": "person",
-                                    "style": {
-                                        "bottom": "0%",
-                                        "left": "8%"
-                                    }
-                                },
-                                {
-                                    "type": "state-icon",
-                                    "entity": "camera.topyard_car",
-                                    "title": "car",
-                                    "style": {
-                                        "bottom": "0%",
-                                        "left": "20%"
-                                    }
-                                },
-                                {
-                                    "type": "state-icon",
-                                    "icon": "mdi:video",
-                                    "entity": "camera.topyard",
-                                    "title": "Show",
-                                    "style": {
-                                        "bottom": "0%",
-                                        "right": "0%"
-                                    }
-                                }
-                            ],
-                            "camera_image": "camera.topyard",
-                            "camera_view": "live"
+                            "type": "picture-entity",
+                            "entity": "camera.backyard",
+                            "show_name": false,
+                            "camera_view": "live",
+                            "show_state": false,
+                            "hold_action": {
+                                "action": "navigate",
+                                "navigation_path": "https://frigate.adebenham.com/cameras/backyard"
+                            }
                         },
                         {
-                            "type": "picture-elements",
-                            "elements": [
-                                {
-                                    "type": "state-icon",
-                                    "entity": "camera.livingroom",
-                                    "title": "Show",
-                                    "style": {
-                                        "bottom": "0%",
-                                        "right": "0%"
-                                    },
-                                    "icon": "mdi:video"
-                                }
-                            ],
-                            "camera_image": "camera.livingroom",
-                            "camera_view": "live"
+                            "type": "picture-entity",
+                            "entity": "camera.garage",
+                            "show_name": false,
+                            "camera_view": "live",
+                            "show_state": false
                         },
                         {
-                            "type": "picture-elements",
-                            "elements": [
-                                {
-                                    "type": "state-icon",
-                                    "entity": "camera.driveway_person",
-                                    "title": "person",
-                                    "style": {
-                                        "bottom": "0%",
-                                        "left": "8%"
-                                    }
-                                },
-                                {
-                                    "type": "state-icon",
-                                    "entity": "camera.driveway_car",
-                                    "title": "car",
-                                    "style": {
-                                        "bottom": "0%",
-                                        "left": "20%"
-                                    }
-                                },
-                                {
-                                    "type": "state-icon",
-                                    "entity": "camera.driveway",
-                                    "title": "Show",
-                                    "icon": "mdi:video",
-                                    "style": {
-                                        "bottom": "0%",
-                                        "right": "0%"
-                                    }
-                                }
-                            ],
-                            "camera_image": "camera.driveway",
+                            "type": "picture-entity",
                             "entity": "camera.driveway",
+                            "show_name": false,
+                            "show_state": false,
                             "camera_view": "live"
                         },
                         {
-                            "type": "picture-elements",
-                            "elements": [
-                                {
-                                    "type": "state-icon",
-                                    "icon": "mdi:video",
-                                    "entity": "camera.loungeroom",
-                                    "title": "Show",
-                                    "style": {
-                                        "bottom": "0%",
-                                        "right": "0%"
-                                    }
-                                }
-                            ],
-                            "camera_image": "camera.loungeroom",
+                            "type": "picture-entity",
+                            "entity": "camera.livingroom",
+                            "show_name": false,
+                            "show_state": false,
                             "camera_view": "live"
                         },
                         {
-                            "type": "picture-elements",
-                            "elements": [
-                                {
-                                    "type": "state-icon",
-                                    "entity": "camera.backyard",
-                                    "title": "Show",
-                                    "style": {
-                                        "bottom": "0%",
-                                        "right": "0%"
-                                    },
-                                    "icon": "mdi:video"
-                                }
-                            ],
-                            "camera_image": "camera.backyard",
+                            "type": "picture-entity",
+                            "entity": "camera.topyard",
+                            "show_state": false,
+                            "show_name": false,
                             "camera_view": "live"
                         },
                         {
-                            "type": "picture-elements",
-                            "elements": [
-                                {
-                                    "type": "state-icon",
-                                    "entity": "camera.garage_person",
-                                    "title": "person",
-                                    "style": {
-                                        "bottom": "0%",
-                                        "left": "10%"
-                                    }
-                                },
-                                {
-                                    "type": "state-icon",
-                                    "entity": "camera.garage",
-                                    "title": "Show",
-                                    "style": {
-                                        "bottom": "0%",
-                                        "right": "0%"
-                                    },
-                                    "icon": "mdi:video"
-                                }
-                            ],
-                            "camera_image": "camera.garage",
+                            "type": "picture-entity",
+                            "entity": "camera.loungeroom",
+                            "show_name": false,
+                            "show_state": false,
                             "camera_view": "live"
                         },
                         {
@@ -583,6 +646,14 @@
                     "title": "",
                     "path": "office",
                     "icon": "mdi:laptop",
+                    "visible": [
+                        {
+                            "user": "24e5927095604f13a7771fae293ea29b"
+                        },
+                        {
+                            "user": "3b570878dcc144a887903309d4f5cbc7"
+                        }
+                    ],
                     "badges": [],
                     "cards": [
                         {
@@ -823,6 +894,9 @@
                                 },
                                 {
                                     "entity": "sensor.speedtest_ping"
+                                },
+                                {
+                                    "entity": "sensor.ping_zigbee"
                                 }
                             ],
                             "hours_to_show": 24,
@@ -851,19 +925,41 @@
                             ]
                         },
                         {
-                            "type": "statistics-graph",
+                            "type": "history-graph",
                             "entities": [
-                                "sensor.office_temperature",
-                                "sensor.familyroom_sensor_temperature",
                                 "sensor.bedroom_temperature",
+                                "sensor.familyroom_sensor_temperature",
                                 "sensor.livingroom_temperature",
+                                "sensor.office_temperature",
                                 "sensor.outside_temperature"
                             ],
-                            "days_to_show": 7,
-                            "stat_types": [
-                                "mean"
+                            "hours_to_show": 168,
+                            "refresh_interval": 0
+                        },
+                        {
+                            "type": "custom:sun-card",
+                            "darkMode": true
+                        },
+                        {
+                            "type": "custom:compass-card",
+                            "indicator_sensors": [
+                                {
+                                    "sensor": "sensor.outside_wind_direction"
+                                }
                             ],
-                            "chart_type": "line"
+                            "value_sensors": [
+                                {
+                                    "sensor": "sensor.outside_wind_speed"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                "sensor.outside_rain"
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0
                         },
                         {
                             "type": "history-graph",
@@ -872,16 +968,16 @@
                             ]
                         },
                         {
-                            "type": "custom:sun-card",
-                            "darkMode": true
-                        },
-                        {
-                            "type": "history-graph",
+                            "type": "statistics-graph",
                             "entities": [
                                 "sensor.outside_wind_speed"
                             ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0
+                            "days_to_show": 30,
+                            "stat_types": [
+                                "mean",
+                                "min",
+                                "max"
+                            ]
                         }
                     ]
                 },
@@ -932,6 +1028,9 @@
                                     },
                                     {
                                         "entity_id": "sensor.power_misc"
+                                    },
+                                    {
+                                        "entity_id": "sensor.house_power_consumption"
                                     }
                                 ],
                                 "exclude": [
@@ -1006,7 +1105,15 @@
                 {
                     "title": "3D",
                     "path": "3d",
-                    "panel": true,
+                    "type": "panel",
+                    "visible": [
+                        {
+                            "user": "24e5927095604f13a7771fae293ea29b"
+                        },
+                        {
+                            "user": "3b570878dcc144a887903309d4f5cbc7"
+                        }
+                    ],
                     "badges": [],
                     "cards": [
                         {
@@ -1039,9 +1146,28 @@
                     ]
                 },
                 {
+                    "path": "",
+                    "icon": "mdi:home",
+                    "type": "panel",
+                    "title": "3D",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "custom:floorplan-card",
+                            "config": "/local/floorplan/Deane-angle.yaml",
+                            "full_height": true
+                        }
+                    ]
+                },
+                {
                     "icon": "mdi:map",
-                    "panel": true,
                     "path": "map",
+                    "type": "panel",
+                    "visible": [
+                        {
+                            "user": "24e5927095604f13a7771fae293ea29b"
+                        }
+                    ],
                     "badges": [],
                     "cards": [
                         {
@@ -1065,19 +1191,6 @@
                             ],
                             "default_zoom": 14,
                             "hours_to_show": 24
-                        }
-                    ]
-                },
-                {
-                    "path": "",
-                    "icon": "mdi:home",
-                    "panel": true,
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "custom:floorplan-card",
-                            "config": "/local/floorplan/Deane-angle.yaml",
-                            "full_height": true
                         }
                     ]
                 }
