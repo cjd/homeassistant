@@ -33,3 +33,17 @@ automation:
       - service: light.turn_off
         entity_id: light.kitchen_strip
     mode: single
+  - id: '1630278899301'
+    alias: Notify - Dishwasher Finished
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.dishwasher_running
+      from: 'on'
+      to: 'off'
+    condition: []
+    action:
+    - service: notify.mobile_app_chrisphone
+      data:
+        message: Dishwasher finished
+    mode: single
