@@ -1,0 +1,68 @@
+sensor:
+  # Sensor for monitoring the bridge state
+  - platform: mqtt
+    name: Zigbee2MQTT Bridge state
+    state_topic: "zigbee2mqtt/bridge/state"
+    icon: mdi:router-wireless
+  # Sensor for Showing the Zigbee2MQTT Version
+  - platform: mqtt
+    name: Zigbee2MQTT Version
+    state_topic: "zigbee2mqtt/bridge/info"
+    value_template: "{{ value_json.version }}"
+    icon: mdi:zigbee
+  # Sensor for Showing the Coordinator Version
+  - platform: mqtt
+    name: Coordinator Version
+    state_topic: "zigbee2mqtt/bridge/info"
+    value_template: "{{ value_json.coordinator }}"
+    icon: mdi:chip
+
+template:
+  - trigger:
+    - platform: time_pattern
+      minutes: "*"
+    binary_sensor:
+      - name: "Last Zigbee Update"
+        state: "{{ (as_timestamp(now()) -
+          as_timestamp(
+          [states.sensor.familyroom_sensor_temperature.last_updated,
+          states.sensor.bathroom_sensor_temperature.last_updated,
+          states.sensor.xander_bedroom_sensor_temperature.last_updated,
+          states.sensor.craftroom_sensor_temperature.last_updated,
+          states.sensor.lucas_bedroom_sensor_temperature.last_updated,
+          states.sensor.entry_sensor_temperature.last_updated] | max)) > 185 }}"
+    sensor:
+      - name: "Last Zigbee Update"
+        state: "{{ (as_timestamp(now()) -
+          as_timestamp(
+          [states.sensor.familyroom_sensor_temperature.last_updated,
+          states.sensor.bathroom_sensor_temperature.last_updated,
+          states.sensor.xander_bedroom_sensor_temperature.last_updated,
+          states.sensor.craftroom_sensor_temperature.last_updated,
+          states.sensor.lucas_bedroom_sensor_temperature.last_updated,
+          states.sensor.entry_sensor_temperature.last_updated] | max)) | int}}"
+        unit_of_measurement: "seconds"
+
+automation:
+  - id: '1630297441529'
+    alias: Zigbee - Restart controller on fail
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: sensor.zigbee2mqtt_bridge_state
+      to: offline
+      for: 0:00:30
+    condition: []
+    action:
+    - service: switch.turn_off
+      target:
+        entity_id: switch.stack_plug_top
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 10
+        milliseconds: 0
+    - service: switch.turn_on
+      target:
+        entity_id: switch.stack_plug_top
+    mode: single
