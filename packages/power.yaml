@@ -13,6 +13,8 @@ template:
                   - states('sensor.livingtv_energy_power')|float
                   - states('sensor.hallpower_energy_power')|float
                   - states('sensor.dishwasher_power')|float
+                  - states('sensor.ac_power')|float
+                  - states('sensor.oven_power')|float
                   - states('sensor.tvunit_energy_power')|float}}"
       - name: "Lights ENERGY Power"
         unit_of_measurement: W
@@ -40,7 +42,7 @@ template:
         unit_of_measurement: W
         state_class: measurement
         device_class: power
-        state: "{{ state_attr('light.loungeroom_lights', 'brightness') * 45 / 255 }}"
+        state: "{{ (state_attr('light.loungeroom_lights', 'brightness') * 45 / 255 ) | int }}"
       - name: "Kitchenback power"
         unit_of_measurement: W
         state_class: measurement
@@ -56,6 +58,16 @@ sensor:
   - platform: integration
     source: sensor.lights_energy_power
     name: "Lights ENERGY Total"
+    unit_prefix: k
+    round: 2
+  - platform: integration
+    source: sensor.ac_power
+    name: "AC ENERGY Total"
+    unit_prefix: k
+    round: 2
+  - platform: integration
+    source: sensor.oven_power
+    name: "Oven ENERGY Total"
     unit_prefix: k
     round: 2
   - platform: filter

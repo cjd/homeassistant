@@ -972,7 +972,7 @@
                             "entities": [
                                 "sensor.outside_wind_speed"
                             ],
-                            "days_to_show": 30,
+                            "days_to_show": 3,
                             "stat_types": [
                                 "mean",
                                 "min",
@@ -1006,14 +1006,6 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "history-graph",
-                            "entities": [
-                                "sensor.house_power"
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0
-                        },
-                        {
                             "type": "custom:auto-entities",
                             "card": {
                                 "type": "glance",
@@ -1030,7 +1022,7 @@
                                         "entity_id": "sensor.power_misc"
                                     },
                                     {
-                                        "entity_id": "sensor.house_power_consumption"
+                                        "entity_id": "sensor.home_power_consumption"
                                     }
                                 ],
                                 "exclude": [
@@ -1054,7 +1046,8 @@
                         {
                             "type": "statistics-graph",
                             "entities": [
-                                "sensor.house_power"
+                                "sensor.house_power",
+                                "sensor.home_power_consumption"
                             ],
                             "days_to_show": 2,
                             "stat_types": [
@@ -1091,6 +1084,9 @@
                                     },
                                     {
                                         "entity_id": "sensor.fridge_energy_power"
+                                    },
+                                    {
+                                        "entity_id": "sensor.dishwasher_energy_power"
                                     }
                                 ]
                             },
@@ -1099,6 +1095,31 @@
                                 "reverse": true,
                                 "numeric": true
                             }
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.oven_power"
+                                },
+                                {
+                                    "entity": "sensor.ac_power"
+                                },
+                                {
+                                    "entity": "sensor.house_power"
+                                },
+                                {
+                                    "entity": "sensor.house_voltage"
+                                },
+                                {
+                                    "entity": "sensor.dishwasher_energy_power"
+                                },
+                                {
+                                    "entity": "sensor.home_power_consumption"
+                                }
+                            ],
+                            "refresh_interval": 0,
+                            "hours_to_show": 0.1
                         }
                     ]
                 },
