@@ -4,7 +4,7 @@ template:
         unit_of_measurement: W
         state_class: measurement
         device_class: energy
-        state: "{{ states('sensor.house_power')|float
+        state: "{{ states('sensor.home_power_consumption')|float
                   - states('sensor.lights_energy_power')|float
                   - states('sensor.desk_energy_power')|float 
                   - states('sensor.freezer_energy_power')|float
@@ -65,11 +65,13 @@ sensor:
     name: "AC ENERGY Total"
     unit_prefix: k
     round: 2
+    method: left
   - platform: integration
     source: sensor.oven_power
     name: "Oven ENERGY Total"
     unit_prefix: k
     round: 2
+    method: left
   - platform: filter
     name: "Freezer power"
     entity_id: sensor.freezer_energy_power
