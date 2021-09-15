@@ -4,3 +4,32 @@ light:
     entities:
       - light.deck
       - light.kitchendoor
+
+automation:
+  - id: '1615539466627'
+    alias: Deck - Turn on spotlights when the sun is set
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: input_boolean.night_mode
+        to: "on"
+    condition: []
+    action:
+      - service: light.turn_on
+        entity_id: light.gardenlights
+        data:
+          brightness_pct: 50
+          effect: Cycle
+    mode: single
+  - id: '1615539466628'
+    alias: Deck - Turn off spotlights when the sun is up
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: input_boolean.night_mode
+        to: "off"
+    condition: []
+    action:
+      - service: light.turn_off
+        entity_id: light.gardenlights
+    mode: single
