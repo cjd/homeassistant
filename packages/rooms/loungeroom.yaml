@@ -298,7 +298,7 @@ automation:
         position: 99
     mode: single
   - id: '1623134374989'
-    alias: Blinds - Close at sunset
+    alias: Blinds - Close 1hr after sunset
     description: ''
     trigger:
     - platform: sun
