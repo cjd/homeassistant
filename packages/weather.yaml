@@ -21,7 +21,7 @@ template:
       - name: "Outside Wind Speed"
         state: "{{ states('sensor.holman_ws5029_45250_ws') }}"
         state_class: measurement
-        unit_of_measurement: "km/h"
+        unit_of_measurement: "°C"
 
 sensor:
   - platform: template
