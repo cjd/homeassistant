@@ -1,21 +1,26 @@
 template:
   - sensor:
+      - name: "Allocated power"
+        unit_of_measurement: W
+        state_class: measurement
+        device_class: energy
+        state: "{{ [(states('sensor.lights_energy_power')|float
+                  + states('sensor.desk_energy_power')|float 
+                  + states('sensor.freezer_energy_power')|float
+                  + states('sensor.fridge_energy_power')|float
+                  + states('sensor.serverstack_energy_power')|float
+                  + states('sensor.livingtv_energy_power')|float
+                  + states('sensor.hallpower_energy_power')|float
+                  + states('sensor.dishwasher_power')|float
+                  + states('sensor.ac_power')|float
+                  + states('sensor.oven_power')|float
+                  + states('sensor.tvunit_energy_power')|float),0]|max}}"
       - name: "Unallocated power"
         unit_of_measurement: W
         state_class: measurement
         device_class: energy
-        state: "{{ states('sensor.home_power_consumption')|float
-                  - states('sensor.lights_energy_power')|float
-                  - states('sensor.desk_energy_power')|float 
-                  - states('sensor.freezer_energy_power')|float
-                  - states('sensor.fridge_energy_power')|float
-                  - states('sensor.serverstack_energy_power')|float
-                  - states('sensor.livingtv_energy_power')|float
-                  - states('sensor.hallpower_energy_power')|float
-                  - states('sensor.dishwasher_power')|float
-                  - states('sensor.ac_power')|float
-                  - states('sensor.oven_power')|float
-                  - states('sensor.tvunit_energy_power')|float}}"
+        state: "{{ [(states('sensor.home_power_consumption')|float
+                  - states('sensor.allocated_power')|float),0]|max}}"
       - name: "Lights ENERGY Power"
         unit_of_measurement: W
         state_class: measurement
