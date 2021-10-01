@@ -8,7 +8,7 @@ automation:
     action:
       - service: frontend.set_theme
         data:
-          name: "yourname"
+          name: "waves-dark"
       - service: mqtt.publish
         data:
           topic: "tasmotas/cmnd/state"
@@ -21,7 +21,3 @@ automation:
         data:
           topic: "cmnd/LoungeroomBlind/serialsend5"
           payload: "55aa0001000000"
-      - service: tts.google_translate_say
-        data:
-          entity_id: media_player.office_speaker_2
-          message: Home Assistant Started
