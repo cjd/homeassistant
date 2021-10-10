@@ -35,3 +35,4 @@ partitions.csv
 .ssh/id_rsa.pub
 .ssh/known_hosts
 home-assistant.log.1
+home-assistant.log.fault
