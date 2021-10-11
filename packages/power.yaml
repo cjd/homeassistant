@@ -4,50 +4,50 @@ template:
         unit_of_measurement: W
         state_class: measurement
         device_class: energy
-        state: "{{ [(states('sensor.lights_energy_power')|float
-                  + states('sensor.desk_energy_power')|float 
-                  + states('sensor.freezer_energy_power')|float
-                  + states('sensor.fridge_energy_power')|float
-                  + states('sensor.serverstack_energy_power')|float
-                  + states('sensor.livingtv_energy_power')|float
-                  + states('sensor.hallpower_energy_power')|float
-                  + states('sensor.dishwasher_power')|float
-                  + states('sensor.ac_power')|float
-                  + states('sensor.oven_power')|float
-                  + states('sensor.tvunit_energy_power')|float),0]|max}}"
+        state: "{{ [(states('sensor.lights_energy_power')|float(0)
+                  + states('sensor.desk_energy_power')|float(0)
+                  + states('sensor.freezer_energy_power')|float(0)
+                  + states('sensor.fridge_energy_power')|float(0)
+                  + states('sensor.serverstack_energy_power')|float(0)
+                  + states('sensor.livingtv_energy_power')|float(0)
+                  + states('sensor.hallpower_energy_power')|float(0)
+                  + states('sensor.dishwasher_power')|float(0)
+                  + states('sensor.ac_power')|float(0)
+                  + states('sensor.oven_power')|float(0)
+                  + states('sensor.tvunit_energy_power')|float(0)),0]|max}}"
       - name: "Unallocated power"
         unit_of_measurement: W
         state_class: measurement
         device_class: energy
-        state: "{{ [(states('sensor.home_power_consumption')|float
-                  - states('sensor.allocated_power')|float),0]|max}}"
+        state: "{{ [(states('sensor.home_power_consumption')|float(0)
+                  - states('sensor.allocated_power')|float(0)),0]|max}}"
       - name: "Lights ENERGY Power"
         unit_of_measurement: W
         state_class: measurement
         device_class: power
-        state: "{{ states('sensor.alcove_power')|float
-                  + states('sensor.bedroomdimmer_power')|float
-                  + states('sensor.craftdimmer_power')|float
-                  + states('sensor.dining_power')|float
-                  + states('sensor.entrydimmer_power')|float
-                  + states('sensor.garage_left_power')|float
-                  + states('sensor.garage_right_power')|float
-                  + states('sensor.kitchendoor_power')|float
-                  + states('sensor.kitchenfront_power')|float
-                  + states('sensor.livingmiddle_power')|float
-                  + states('sensor.livingside_power')|float
-                  + states('sensor.lucasdimmer_power')|float
-                  + states('sensor.officedimmer_power')|float
-                  + states('sensor.pantry_power')|float
-                  + states('sensor.sidedoor_power')|float
-                  + states('sensor.xanderdimmer_power')|float
-                  + states('sensor.loungeroom_power')|float
-                  + states('sensor.kitchenback_power')|float}}"
+        state: "{{ states('sensor.alcove_power')|float(0)
+                  + states('sensor.bedroomdimmer_power')|float(0)
+                  + states('sensor.craftdimmer_power')|float(0)
+                  + states('sensor.dining_power')|float(0)
+                  + states('sensor.entrydimmer_power')|float(0)
+                  + states('sensor.garage_left_power')|float(0)
+                  + states('sensor.garage_right_power')|float(0)
+                  + states('sensor.kitchendoor_power')|float(0)
+                  + states('sensor.kitchenfront_power')|float(0)
+                  + states('sensor.livingmiddle_power')|float(0)
+                  + states('sensor.livingside_power')|float(0)
+                  + states('sensor.lucasdimmer_power')|float(0)
+                  + states('sensor.officedimmer_power')|float(0)
+                  + states('sensor.pantry_power')|float(0)
+                  + states('sensor.sidedoor_power')|float(0)
+                  + states('sensor.xanderdimmer_power')|float(0)
+                  + states('sensor.loungeroom_power')|float(0)
+                  + states('sensor.kitchenback_power')|float(0)}}"
       - name: "Loungeroom power"
         unit_of_measurement: W
         state_class: measurement
         device_class: power
-        state: "{{ (state_attr('light.loungeroom_lights', 'brightness') * 45 / 255 ) | int }}"
+        state: "{{ (state_attr('light.loungeroom_lights', 'brightness') * 45 / 255 ) | int(0) }}"
       - name: "Kitchenback power"
         unit_of_measurement: W
         state_class: measurement
@@ -55,7 +55,7 @@ template:
         state: "{% if is_state('light.kitchenback', 'on') -%}24{%- else -%}0{%- endif %}"
   - binary_sensor:
       - name: "Dishwasher Running"
-        state: "{{ states('sensor.dishwasher_energy_power') | float > 5 }}"
+        state: "{{ states('sensor.dishwasher_energy_power') | float(0) > 5 }}"
         delay_on: "0:00:10"
         delay_off: "0:00:10"
 
