@@ -94,6 +94,26 @@ switch:
           service: scene.turn_on
           target:
             entity_id: scene.loungeroom_off
+      loungeroom_party:
+        friendly_name: "Loungeroom Party"
+        value_template: >
+          {% if states('light.lounge_ml') %}
+            {% if ((state_attr('light.lounge_ml','brightness')|int < 100) and (state_attr('light.lounge_ml','brightness')|int > 0)) %}
+              true
+            {% else %}
+              false
+            {% endif %}
+          {% else %}
+            false
+          {% endif %}
+        turn_on:
+          service: scene.turn_on
+          target:
+            entity_id: scene.loungeroom_party
+        turn_off:
+          service: scene.turn_on
+          target:
+            entity_id: scene.loungeroom_off
   - platform: mqtt
     name: "Loungeroom Blind Motor Direction"
     icon: mdi:blinds
@@ -150,6 +170,23 @@ binary_sensor:
       {% endif %}
 
 automation:
+  - id: '1613520733142'
+    alias: Loungeroom - Party Mode
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: switch.loungeroom_relay_2
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: switch.loungeroom_relay_2
+      from: 'on'
+      to: 'off'
+    condition: []
+    action:
+    - service: scene.turn_on
+      entity_id: scene.loungeroom_party
+    mode: single
   - id: '1613520733143'
     alias: Loungeroom - Switch 1
     description: ''
@@ -496,4 +533,27 @@ scene:
         brightness: 150
         color_temp: 402
         effect: None
+        state: 'on'
+  - id: '1614067231869'
+    name: Loungeroom Party
+    entities:
+      light.tv_backlight:
+        brightness: 255
+        rgb_color: [0,0,255]
+        effect: Rainbow
+        state: 'on'
+      light.loungeroom_lowerstrip:
+        brightness: 150
+        rgb_color: [0,255,0]
+        effect: Rainbow
+        state: 'on'
+      light.loungeroom_shelfstrip:
+        brightness: 200
+        rgb_color: [0,0,255]
+        effect: Rainbow
+        state: 'on'
+      light.loungeroom_lights:
+        brightness: 255
+        rgb_color: [0,0,255]
+        effect: Random
         state: 'on'
