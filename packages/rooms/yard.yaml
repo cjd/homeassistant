@@ -33,3 +33,35 @@ automation:
       - service: light.turn_off
         entity_id: light.gardenlights
     mode: single
+
+fan:
+  - platform: mqtt
+    name: "Deck Fan"
+    unique_id: master_bedroom_fan
+    command_topic: "cmnd/deckfan/tasmota_55DA72/POWER2"
+    state_topic: "stat/deckfan/tasmota_55DA72/POWER2"
+    preset_mode_command_topic: "cmnd/deckfan/tasmota_55DA72/Backlog"
+    preset_mode_command_template: >
+      {% if value == 'low' %}
+        Event s=1
+      {% elif value == 'medium' %}
+        Event s=2
+      {% elif value == 'high' %}
+        Event s=3
+      {% endif %}
+    preset_mode_state_topic: "stat/deckfan/tasmota_55DA72/fanspeed"
+    preset_mode_value_template: >
+      {% if value == '2' %}
+        high
+      {% elif value == '1' %}
+        medium
+      {% elif value == '3' %}
+        low
+      {% endif %}
+    availability_topic: "tele/deckfan/tasmota_55DA72/LWT"
+    payload_available: "Online"
+    payload_not_available: "Offline"
+    preset_modes:
+      - 'low'
+      - 'medium'
+      - 'high'
