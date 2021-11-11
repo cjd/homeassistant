@@ -1,0 +1,45 @@
+sensor:
+  - platform: fronius_inverter
+    ip_address: '192.168.0.191'
+    powerflow: true
+    smartmeter: true
+    units: kWh
+    device_id: 1
+    smartmeter_device_id: 0
+  # - platform: fronius
+  #   resource: 'http://192.168.0.191'
+  #   monitored_conditions:
+  #   - sensor_type: logger_info
+  #   - sensor_type: inverter
+  #     scope: system
+  #   - sensor_type: meter
+  #     device: 0
+  #   - sensor_type: power_flow
+  # - platform: template
+  #   sensors:
+  #     # The raw Fronius photovoltaic state goes to unknown after dark, so force it to zero
+  #     photovoltaics_power:
+  #       friendly_name: "Solar Photovoltaics Power"
+  #       unit_of_measurement: 'W'
+  #       value_template:
+  #         "{{ states('sensor.power_photovoltaics_fronius_power_flow_0_http_192_168_0_191')|float }}"
+
+  #     house_power:
+  #       friendly_name: "Total House Power Consumption"
+  #       unit_of_measurement: 'W'
+  #       value_template:
+  #         "{{ 0 - states('sensor.power_load_fronius_power_flow_0_http_192_168_0_191')|float }}"
+
+  #     # The raw grid power is negative if exporting and positive if importing, so produce
+  #     # separate figures here so we can calculate energy based on them below
+  #     grid_import_power:
+  #       friendly_name: "Grid Imported Power"
+  #       unit_of_measurement: 'W'
+  #       value_template:
+  #         "{{ [states('sensor.power_grid_fronius_power_flow_0_http_192_168_0_191')|float, 0]|max }}"
+
+  #     grid_export_power:
+  #       friendly_name: "Grid Exported Power"
+  #       unit_of_measurement: 'W'
+  #       value_template:
+  #         "{{ [0 - states('sensor.power_grid_fronius_power_flow_0_http_192_168_0_191')|float, 0]|max }}"
