@@ -47,7 +47,7 @@ template:
         unit_of_measurement: W
         state_class: measurement
         device_class: power
-        state: "{{ (state_attr('light.loungeroom_lights', 'brightness') * 45 / 255 ) | int(0) }}"
+        state: "{{ (state_attr('light.loungeroom_lights', 'brightness')|float(0) * 45 / 255 ) | int(0) }}"
       - name: "Kitchenback power"
         unit_of_measurement: W
         state_class: measurement
