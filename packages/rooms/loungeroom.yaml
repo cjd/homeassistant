@@ -23,7 +23,7 @@ light:
     lights:
       backlight_switch:
         friendly_name: "TV Backlight"
-        value_template: "{{ is_state('light.tv_backlight', 'on') }}"
+        value_template: "{{ is_state('light.tvbacklight', 'on') }}"
         turn_on:
           service: script.turn_on
           entity_id: script.turn_tv_lights_on
@@ -236,14 +236,12 @@ automation:
     action:
     - service: light.turn_on
       data:
-        entity_id: light.loungeroom_lowerstrip
-        color_name: green
-        brightness_pct: 50
-    - service: light.turn_on
+        entity_id: light.loungeroomstrip_master
+    - service: select.select_option
+      target:
+        entity_id: select.loungeroomstrip_preset
       data:
-        entity_id: light.loungeroom_shelfstrip
-        color_name: blue
-        brightness_pct: 75
+        option: Default
     mode: single
   - id: '1610429484474'
     alias: Lounge room - light strip off at night
@@ -254,9 +252,7 @@ automation:
     condition: []
     action:
     - service: light.turn_off
-      entity_id: light.loungeroom_lowerstrip
-    - service: light.turn_off
-      entity_id: light.loungeroom_shelfstrip
+      entity_id: light.loungeroomstrip_master
     mode: single
   - id: '1610430895471'
     alias: Loungeroom - Outside Switch - lights on
@@ -380,65 +376,46 @@ script:
     mode: restart
     sequence:
       - service: light.turn_on
-        entity_id: light.tv_backlight
+        entity_id: light.tvbacklight
+      - service: select.select_option
+        target:
+          entity_id: select.tvbacklight_preset
         data:
-          brightness: 255
-          rgb_color: [0,0,255]
-          effect: None
+          option: Default
       - service: light.turn_on
-        entity_id: light.loungeroom_lowerstrip
+        entity_id: light.loungeroomstrip_master
+      - service: select.select_option
+        target:
+          entity_id: select.loungeroomstrip_preset
         data:
-          brightness: 150
-          rgb_color: [0,255,0]
-          effect: None
-      - delay:
-          seconds: 2
-      - service: light.turn_on
-        entity_id: light.loungeroom_shelfstrip
-        data:
-          brightness: 200
-          rgb_color: [0,0,255]
-          effect: None
+          option: Default
   turn_tv_lights_off:
     mode: restart
     sequence:
       - service: light.turn_off
-        entity_id: light.tv_backlight
+        entity_id: light.tvbacklight
       - service: light.turn_off
-        entity_id: light.loungeroom_lowerstrip
-      - delay:
-          seconds: 2
-      - service: light.turn_off
-        entity_id: light.loungeroom_shelfstrip
+        entity_id: light.loungeroomstrip_preset
 
 scene:
   - id: '1611195993245'
     name: Watching TV
     entities:
-      light.tv_backlight:
-        brightness: 255
-        rgb_color: [0,0,255]
-        effect: None
+      light.tvbacklight:
         state: "on"
-      light.loungeroom_lowerstrip:
-        brightness: 128
-        rgb_color: [0,255,0]
-        effect: None
+      light.tvbacklight_preset:
+        state: Default
+      light.loungeroomstrip_master:
         state: "on"
-      light.loungeroom_shelfstrip:
-        brightness: 255
-        rgb_color: [0,0,255]
-        effect: None
-        state: "on"
+      select.loungeroomstrip_preset:
+        state: Default
     icon: mdi:television-ambient-light
   - id: '1611195993246'
     name: Not Watching TV
     entities:
-      light.tv_backlight:
+      light.tvbacklight:
         state: "off"
-      light.loungeroom_lowerstrip:
-        state: "off"
-      light.loungeroom_shelfstrip:
+      light.loungeroomstrip_master:
         state: "off"
     icon: mdi:television
   - id: '1613889672194'
@@ -449,21 +426,14 @@ scene:
         color_temp: 402
         effect: None
         state: 'on'
-      light.tv_backlight:
-        brightness: 255
-        rgb_color: [0,0,255]
-        effect: None
+      light.tvbacklight:
         state: 'on'
-      light.loungeroom_lowerstrip:
-        brightness: 150
-        rgb_color: [0,255,0]
-        effect: None
-        state: 'on'
-      light.loungeroom_shelfstrip:
-        brightness: 200
-        rgb_color: [0,0,255]
-        effect: None
-        state: 'on'
+      light.tvbacklight_preset:
+        state: Default
+      light.loungeroomstrip_master:
+        state: "on"
+      select.loungeroomstrip_preset:
+        state: Default
   - id: '1613889765919'
     name: Loungeroom Dim
     entities:
@@ -485,50 +455,34 @@ scene:
         color_temp: 402
         effect: None
         state: 'on'
-      light.loungeroom_lowerstrip:
-        brightness: 150
-        rgb_color: [0,255,0]
-        effect: None
+      light.loungeroomstrip_master:
+        state: "on"
+      select.loungeroomstrip_preset:
+        state: Default
+      light.tvbacklight:
         state: 'on'
-      light.loungeroom_shelfstrip:
-        brightness: 200
-        rgb_color: [0,0,255]
-        effect: None
-        state: 'on'
-      light.tv_backlight:
-        brightness: 255
-        rgb_color: [0,0,255]
-        effect: None
-        state: 'on'
+      light.tvbacklight_preset:
+        state: Default
   - id: '1613889879080'
     name: Loungeroom Off
     entities:
-      light.loungeroom_lowerstrip:
-        state: 'off'
-      light.loungeroom_shelfstrip:
+      light.loungeroomstrip_master:
         state: 'off'
       light.loungeroom_lights:
         state: 'off'
-      light.tv_backlight:
+      light.tvbacklight:
         state: 'off'
   - id: '1614067231868'
     name: Loungeroom Low
     entities:
-      light.tv_backlight:
-        brightness: 255
-        rgb_color: [0,0,255]
-        effect: None
+      light.tvbacklight:
         state: 'on'
-      light.loungeroom_lowerstrip:
-        brightness: 150
-        rgb_color: [0,255,0]
-        effect: None
-        state: 'on'
-      light.loungeroom_shelfstrip:
-        brightness: 200
-        rgb_color: [0,0,255]
-        effect: None
-        state: 'on'
+      light.tvbacklight_preset:
+        state: Default
+      light.loungeroomstrip_master:
+        state: "on"
+      select.loungeroomstrip_preset:
+        state: Default
       light.loungeroom_lights:
         brightness: 150
         color_temp: 402
@@ -537,21 +491,14 @@ scene:
   - id: '1614067231869'
     name: Loungeroom Party
     entities:
-      light.tv_backlight:
-        brightness: 255
-        rgb_color: [0,0,255]
-        effect: Rainbow
+      light.tvbacklight:
         state: 'on'
-      light.loungeroom_lowerstrip:
-        brightness: 150
-        rgb_color: [0,255,0]
-        effect: Rainbow
-        state: 'on'
-      light.loungeroom_shelfstrip:
-        brightness: 200
-        rgb_color: [0,0,255]
-        effect: Rainbow
-        state: 'on'
+      light.tvbacklight_preset:
+        state: 'Party'
+      light.loungeroomstrip_master:
+        state: "on"
+      select.loungeroomstrip_preset:
+        state: Default
       light.loungeroom_lights:
         brightness: 255
         rgb_color: [0,0,255]
