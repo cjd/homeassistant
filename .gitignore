@@ -36,3 +36,4 @@ partitions.csv
 .ssh/known_hosts
 home-assistant.log.1
 home-assistant.log.fault
+custom_components
