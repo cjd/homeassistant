@@ -967,14 +967,16 @@
                     "badges": [],
                     "cards": [
                         {
-                            "type": "custom:xiaomi-vacuum-card",
-                            "entity": "vacuum.roborock_vacuum_a08"
-                        },
-                        {
                             "type": "custom:xiaomi-vacuum-map-card",
+                            "map_source": {
+                                "camera": "camera.roborock_map"
+                            },
+                            "calibration_source": {
+                                "camera": true
+                            },
                             "entity": "vacuum.roborock_vacuum_a08",
-                            "map_camera": "camera.roborock_map",
-                            "camera_calibration": true
+                            "vacuum_platform": "default",
+                            "map_locked": false
                         }
                     ]
                 },
@@ -1073,19 +1075,33 @@
                             }
                         },
                         {
-                            "type": "custom:auto-entities",
-                            "card": {
-                                "type": "entities"
-                            },
-                            "show_header_toggle": false,
-                            "title": "Fronius",
-                            "filter": {
-                                "include": [
-                                    {
-                                        "entity_id": "*fronius*"
-                                    }
-                                ]
-                            }
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "type": "custom:fold-entity-row",
+                                    "head": "sensor.fronius_house_load",
+                                    "entities": [
+                                        {
+                                            "type": "custom:auto-entities",
+                                            "card": {
+                                                "type": "entities",
+                                                "square": false
+                                            },
+                                            "filter": {
+                                                "include": [
+                                                    {
+                                                        "entity_id": "*fronius*"
+                                                    }
+                                                ]
+                                            },
+                                            "sort": {
+                                                "method": "friendly_name"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": true
                         }
                     ]
                 },
@@ -1121,6 +1137,59 @@
                             ],
                             "default_zoom": 14,
                             "hours_to_show": 24
+                        }
+                    ]
+                },
+                {
+                    "icon": "mdi:pine-tree",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "button",
+                            "tap_action": {
+                                "action": "toggle"
+                            },
+                            "entity": "switch.yard_plug_bottom"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "light.wled1_master"
+                                },
+                                {
+                                    "entity": "select.wled1_preset"
+                                },
+                                {
+                                    "entity": "number.wled1_speed"
+                                },
+                                {
+                                    "entity": "number.wled1_segment_1_speed"
+                                },
+                                {
+                                    "entity": "number.wled1_segment_2_speed"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "light.wled_tree_master"
+                                },
+                                {
+                                    "entity": "select.wled_tree_preset"
+                                },
+                                {
+                                    "entity": "number.wled_tree_speed"
+                                },
+                                {
+                                    "entity": "number.wled_tree_segment_1_speed"
+                                },
+                                {
+                                    "entity": "number.wled_tree_segment_2_speed"
+                                }
+                            ]
                         }
                     ]
                 }
