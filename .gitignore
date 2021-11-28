@@ -37,3 +37,4 @@ partitions.csv
 home-assistant.log.1
 home-assistant.log.fault
 custom_components
+www/community
