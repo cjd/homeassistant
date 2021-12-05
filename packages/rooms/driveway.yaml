@@ -231,7 +231,7 @@ automation:
       - condition: template
         value_template: '{{ trigger.to_state.state != trigger.from_state.state }}'
     action:
-      - service: notify.mobile_app
+      - service: notify.mobile_app_chrisphone
         data:
           message: |-
             {% if trigger.to_state.attributes.match is defined %}
