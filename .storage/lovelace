@@ -365,7 +365,7 @@
                                     "template": "slider_button_template",
                                     "variables": [
                                         {
-                                            "entity_id": "light.loungeroom_lowerstrip"
+                                            "entity_id": "light.loungeroomstrip_master"
                                         }
                                     ]
                                 },
@@ -374,16 +374,7 @@
                                     "template": "slider_button_template",
                                     "variables": [
                                         {
-                                            "entity_id": "light.loungeroom_shelfstrip"
-                                        }
-                                    ]
-                                },
-                                {
-                                    "type": "custom:decluttering-card",
-                                    "template": "slider_button_template",
-                                    "variables": [
-                                        {
-                                            "entity_id": "light.tv_backlight"
+                                            "entity_id": "light.tvbacklight"
                                         }
                                     ]
                                 },
@@ -1155,19 +1146,12 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "light.wled1_master"
+                                    "entity": "light.wled1_master",
+                                    "name": "Driveway Lights"
                                 },
                                 {
-                                    "entity": "select.wled1_preset"
-                                },
-                                {
-                                    "entity": "number.wled1_speed"
-                                },
-                                {
-                                    "entity": "number.wled1_segment_1_speed"
-                                },
-                                {
-                                    "entity": "number.wled1_segment_2_speed"
+                                    "entity": "select.wled1_preset",
+                                    "name": "Preset"
                                 }
                             ]
                         },
@@ -1175,19 +1159,25 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "light.wled_tree_master"
+                                    "entity": "light.wled_tree_master",
+                                    "name": "Christmas Tree"
                                 },
                                 {
-                                    "entity": "select.wled_tree_preset"
+                                    "entity": "select.wled_tree_preset",
+                                    "name": "Preset"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "light.nativity_master",
+                                    "name": "Nativity"
                                 },
                                 {
-                                    "entity": "number.wled_tree_speed"
-                                },
-                                {
-                                    "entity": "number.wled_tree_segment_1_speed"
-                                },
-                                {
-                                    "entity": "number.wled_tree_segment_2_speed"
+                                    "entity": "select.nativity_preset",
+                                    "name": "Preset"
                                 }
                             ]
                         }
