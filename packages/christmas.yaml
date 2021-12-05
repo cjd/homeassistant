@@ -17,6 +17,13 @@ automation:
         entity_id: select.wled1_preset
       data:
         option: Colourful
+    - service: light.turn_on
+      entity_id: light.nativity_master
+    - service: select_option
+      target:
+        entity_id: select.nativity_preset
+      data:
+        option: Default
     mode: single
   - id: '1637094246273'
     alias: Christmas Lights Off
@@ -30,6 +37,8 @@ automation:
       entity_id: switch.yard_plug_bottom
     - service: light.turn_off
       entity_id: light.wled1_master
+    - service: light.turn_off
+      entity_id: light.nativity_master
     mode: single
   - id: '1637094246274'
     alias: Christmas Tree On
