@@ -395,7 +395,7 @@ script:
       - service: light.turn_off
         entity_id: light.tvbacklight
       - service: light.turn_off
-        entity_id: light.loungeroomstrip_preset
+        entity_id: light.loungeroomstrip_master
 
 scene:
   - id: '1611195993245'
@@ -420,6 +420,7 @@ scene:
     icon: mdi:television
   - id: '1613889672194'
     name: Loungeroom Normal
+    icon: mdi:sofa
     entities:
       light.loungeroom_lights:
         brightness: 255
@@ -490,6 +491,7 @@ scene:
         state: 'on'
   - id: '1614067231869'
     name: Loungeroom Party
+    icon: mdi:party-popper
     entities:
       light.tvbacklight:
         state: 'on'
@@ -498,7 +500,7 @@ scene:
       light.loungeroomstrip_master:
         state: "on"
       select.loungeroomstrip_preset:
-        state: Default
+        state: 'Party'
       light.loungeroom_lights:
         brightness: 255
         rgb_color: [0,0,255]

@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace",
     "data": {
         "config": {
@@ -173,16 +174,13 @@
                                     "entity": "binary_sensor.laundry_door_contact"
                                 },
                                 {
-                                    "entity": "binary_sensor.entry_sensor_occupancy"
-                                },
-                                {
                                     "entity": "binary_sensor.driveway_person_motion"
                                 },
                                 {
-                                    "entity": "binary_sensor.garage_person_motion"
+                                    "entity": "binary_sensor.door_sensor_contact"
                                 },
                                 {
-                                    "entity": "binary_sensor.door_sensor_contact"
+                                    "entity": "cover.garage_door"
                                 }
                             ]
                         },
@@ -198,37 +196,52 @@
                             ]
                         },
                         {
-                            "type": "custom:slider-button-card",
-                            "entity": "cover.loungeroom_blind",
-                            "slider": {
-                                "percentage": true,
-                                "direction": "left-right",
-                                "background": "gradient",
-                                "use_state_color": true,
-                                "use_percentage_bg_opacity": false,
-                                "show_track": false,
-                                "toggle_on_click": false,
-                                "force_square": false
-                            },
-                            "show_name": true,
-                            "show_state": true,
-                            "icon": {
-                                "show": true,
-                                "use_state_color": true,
-                                "rotate": false,
-                                "tap_action": {
-                                    "action": "more-info"
+                            "type": "grid",
+                            "cards": [
+                                {
+                                    "type": "custom:slider-button-card",
+                                    "entity": "cover.loungeroom_blind",
+                                    "slider": {
+                                        "percentage": true,
+                                        "direction": "left-right",
+                                        "background": "gradient",
+                                        "use_state_color": true,
+                                        "use_percentage_bg_opacity": false,
+                                        "show_track": false,
+                                        "toggle_on_click": false,
+                                        "force_square": false
+                                    },
+                                    "show_name": true,
+                                    "show_state": true,
+                                    "icon": {
+                                        "show": true,
+                                        "use_state_color": true,
+                                        "rotate": false,
+                                        "tap_action": {
+                                            "action": "more-info"
+                                        }
+                                    },
+                                    "action_button": {
+                                        "mode": "toggle",
+                                        "icon": "mdi:power",
+                                        "show": false,
+                                        "show_spinner": true,
+                                        "tap_action": {
+                                            "action": "toggle"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "button",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "entity": "switch.deckpowerplug",
+                                    "name": "Pool Filter",
+                                    "icon": "mdi:pool"
                                 }
-                            },
-                            "action_button": {
-                                "mode": "toggle",
-                                "icon": "mdi:power",
-                                "show": false,
-                                "show_spinner": true,
-                                "tap_action": {
-                                    "action": "toggle"
-                                }
-                            }
+                            ],
+                            "columns": 2
                         }
                     ]
                 },
@@ -395,6 +408,15 @@
                                             "entity_id": "light.gardenlights"
                                         }
                                     ]
+                                },
+                                {
+                                    "type": "custom:decluttering-card",
+                                    "template": "slider_button_template",
+                                    "variables": [
+                                        {
+                                            "entity_id": "light.livingroom_strip"
+                                        }
+                                    ]
                                 }
                             ],
                             "square": false
@@ -431,8 +453,7 @@
                                                 "provider": "frigate-jsmpeg"
                                             },
                                             "dimensions": {
-                                                "aspect_ratio_mode": "static",
-                                                "aspect_ratio": "4:3"
+                                                "aspect_ratio_mode": "static"
                                             },
                                             "class": "col-lg"
                                         },
@@ -476,8 +497,7 @@
                                             },
                                             "frigate_url": "https://frigate.adebenham.com/",
                                             "dimensions": {
-                                                "aspect_ratio_mode": "static",
-                                                "aspect_ratio": "4:3"
+                                                "aspect_ratio_mode": "static"
                                             },
                                             "class": "col-lg"
                                         }
@@ -701,6 +721,22 @@
                                 {
                                     "type": "button",
                                     "entity": "switch.powerboard3_outlet_4"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.garage_powerboard_outlet_1"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.garage_powerboard_outlet_2"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.garage_powerboard_outlet_3"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.garage_powerboard_outlet_4"
                                 }
                             ]
                         },
@@ -948,6 +984,19 @@
                                 "min",
                                 "max"
                             ]
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                "sensor.holman_ws5029_37058_t",
+                                "sensor.holman_ws5029_45248_t",
+                                "sensor.holman_ws5029_45248_rssi",
+                                "sensor.holman_ws5029_37058_rssi",
+                                "sensor.holman_ws5029_45250_rssi",
+                                "sensor.holman_ws5029_45250_t"
+                            ],
+                            "refresh_interval": 0,
+                            "hours_to_show": 72
                         }
                     ]
                 },
@@ -977,6 +1026,35 @@
                     "path": "power",
                     "badges": [],
                     "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "type": "custom:fold-entity-row",
+                                    "head": "sensor.fronius_house_load",
+                                    "entities": [
+                                        {
+                                            "type": "custom:auto-entities",
+                                            "card": {
+                                                "type": "entities",
+                                                "square": false
+                                            },
+                                            "filter": {
+                                                "include": [
+                                                    {
+                                                        "entity_id": "*fronius*"
+                                                    }
+                                                ]
+                                            },
+                                            "sort": {
+                                                "method": "friendly_name"
+                                            }
+                                        }
+                                    ]
+                                }
+                            ],
+                            "show_header_toggle": true
+                        },
                         {
                             "grid_icon": "mdi:flash",
                             "grid_power_entity": "sensor.fronius_grid_usage",
@@ -1028,8 +1106,21 @@
                         {
                             "type": "custom:auto-entities",
                             "card": {
-                                "type": "history-graph",
-                                "state_color": false
+                                "type": "custom:apexcharts-card",
+                                "stacked": false,
+                                "all_series_config": {
+                                    "stroke_width": 1,
+                                    "type": "line"
+                                },
+                                "yaxis": [
+                                    {
+                                        "show": true,
+                                        "decimals": 0,
+                                        "apex_config": {
+                                            "tickAmount": 3
+                                        }
+                                    }
+                                ]
                             },
                             "filter": {
                                 "include": [
@@ -1061,38 +1152,8 @@
                             },
                             "sort": {
                                 "method": "name",
-                                "reverse": true,
-                                "numeric": true
+                                "reverse": true
                             }
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "type": "custom:fold-entity-row",
-                                    "head": "sensor.fronius_house_load",
-                                    "entities": [
-                                        {
-                                            "type": "custom:auto-entities",
-                                            "card": {
-                                                "type": "entities",
-                                                "square": false
-                                            },
-                                            "filter": {
-                                                "include": [
-                                                    {
-                                                        "entity_id": "*fronius*"
-                                                    }
-                                                ]
-                                            },
-                                            "sort": {
-                                                "method": "friendly_name"
-                                            }
-                                        }
-                                    ]
-                                }
-                            ],
-                            "show_header_toggle": true
                         }
                     ]
                 },
@@ -1180,6 +1241,13 @@
                                     "name": "Preset"
                                 }
                             ]
+                        },
+                        {
+                            "type": "button",
+                            "tap_action": {
+                                "action": "toggle"
+                            },
+                            "entity": "light.window_string"
                         }
                     ]
                 }

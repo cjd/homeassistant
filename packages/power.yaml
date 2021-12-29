@@ -53,11 +53,6 @@ template:
         state_class: measurement
         device_class: power
         state: "{% if is_state('light.kitchenback', 'on') -%}24{%- else -%}0{%- endif %}"
-  - binary_sensor:
-      - name: "Dishwasher Running"
-        state: "{{ states('sensor.dishwasher_energy_power') | float(0) > 5 }}"
-        delay_on: "0:00:10"
-        delay_off: "0:00:10"
 
 sensor:
   - platform: integration

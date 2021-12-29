@@ -5,6 +5,13 @@ light:
       - light.kitchenfront
       - light.kitchenback
 
+template:
+  - binary_sensor:
+      - name: "Dishwasher Running"
+        state: "{{ states('sensor.dishwasher_energy_power') | float(0) > 5 }}"
+        delay_on: "0:00:30"
+        delay_off: "0:00:30"
+
 automation:
   - id: '1615539466617'
     alias: Kitchen - Turn on strip when the sun is set
