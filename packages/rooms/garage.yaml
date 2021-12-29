@@ -5,6 +5,13 @@ light:
       - light.garage_left
       - light.garage_right
 
+template:
+  - binary_sensor:
+      - name: "GaragePlug Running"
+        state: "{{ states('sensor.garageplug_energy_power') | float(0) > 40 }}"
+        delay_on: "0:00:10"
+        delay_off: "0:00:10"
+
 binary_sensor:
   - platform: mqtt
     name: Garage Entry Open
@@ -42,8 +49,27 @@ input_boolean:
     name: Impreza presence input
     initial: false
 
-
 automation:
+  - id: '1640563153177'
+    alias: Notify - Garage Left Open
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: light.bedroom_lights
+      from: 'on'
+      to: 'off'
+    condition:
+    - condition: time
+      after: '20:00:00'
+    - condition: state
+      entity_id: cover.garage_door
+      state: open
+    action:
+    - service: tts.google_translate_say
+      data:
+        entity_id: media_player.lenovosmartclock2915
+        message: The garage door is open
+    mode: single
   - id: '1627699444400'
     alias: Notify - Outback home
     description: ''
@@ -256,4 +282,17 @@ automation:
     - service: switch.turn_off
       entity_id: switch.garage_clips
     mode: single
-  
+  - id: '1639524461025'
+    alias: Garage - Charger finished
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.garageplug_running
+      from: 'on'
+      to: 'off'
+    condition: []
+    action:
+    - service: notify.mobile_app_chrisphone
+      data:
+        message: Garage charger finished
+    mode: single
