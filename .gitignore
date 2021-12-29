@@ -38,3 +38,4 @@ home-assistant.log.1
 home-assistant.log.fault
 custom_components
 www/community
+nest/event_media
