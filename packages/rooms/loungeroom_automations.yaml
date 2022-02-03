@@ -1,0 +1,207 @@
+automation:
+## Wall switches
+  - id: '1613520733142'
+    alias: Loungeroom - Party Mode
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: switch.loungeroom_relay_2
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: switch.loungeroom_relay_2
+      from: 'on'
+      to: 'off'
+    condition: []
+    action:
+    - service: scene.turn_on
+      entity_id: scene.loungeroom_party
+    mode: single
+  - id: '1613520733143'
+    alias: Loungeroom - Switch 1
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.loungeroom_switch1
+      from: 'off'
+      to: 'on'
+    condition: []
+    action:
+    - service: switch.toggle
+      entity_id: switch.loungeroom_dim
+    mode: single
+  - id: '1613520733144'
+    alias: Loungeroom - Switch 2
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.loungeroom_switch2
+      from: 'off'
+      to: 'on'
+    condition: []
+    action:
+    - service: switch.toggle
+      entity_id: switch.loungeroom_low
+    mode: single
+  - id: '1613520733145'
+    alias: Loungeroom - Switch 3
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.loungeroom_switch3
+      from: 'off'
+      to: 'on'
+    condition: []
+    action:
+    - service: switch.toggle
+      entity_id: switch.loungeroom_normal
+    mode: single
+
+## Light Strips
+  - id: '1610429484473'
+    alias: Lounge room - light strip on in evening
+    description: ''
+    trigger:
+    - platform: time
+      at: '18:00:00'
+    condition: []
+    action:
+    - service: light.turn_on
+      data:
+        entity_id: light.loungeroomstrip_master
+    - service: select.select_option
+      target:
+        entity_id: select.loungeroomstrip_preset
+      data:
+        option: Default
+    mode: single
+  - id: '1610429484474'
+    alias: Lounge room - light strip off at night
+    description: ''
+    trigger:
+    - platform: time
+      at: '23:00:00'
+    condition: []
+    action:
+    - service: light.turn_off
+      entity_id: light.loungeroomstrip_master
+    mode: single
+  - id: '1610430895471'
+    alias: Loungeroom - Outside Switch - lights on
+    trigger:
+    - platform: state
+      entity_id: light.loungeroomdimmer
+      from:
+        - 'on'
+        - 'off'
+      to:
+        - 'on'
+        - 'off'
+    condition: 
+      - condition: state
+        entity_id: light.loungeroom_lights
+        state: 'on'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.loungeroom_off
+
+## Outside switches
+  - id: '1610430895472'
+    alias: Loungeroom - Outside Switch - lights off
+    trigger:
+    - platform: state
+      entity_id: light.loungeroomdimmer
+      from:
+        - 'on'
+        - 'off'
+      to:
+        - 'on'
+        - 'off'
+    condition: 
+      - condition: state
+        entity_id: light.loungeroom_lights
+        state: 'off'
+    action:
+      - service: scene.turn_on
+        entity_id: scene.loungeroom_low
+
+## Blinds
+  - id: '1623134323431'
+    alias: Blinds - Open at sunrise
+    description: ''
+    trigger:
+    - platform: sun
+      event: sunrise
+    condition: []
+    action:
+    - service: cover.stop_cover
+      target:
+        entity_id: cover.loungeroom_blind
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: cover.open_cover
+      target:
+        entity_id: cover.loungeroom_blind
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: cover.set_cover_position
+      data:
+        position: 99
+      target:
+        entity_id: cover.loungeroom_blind
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: cover.set_cover_position
+      target:
+        entity_id: cover.loungeroom_blind
+      data:
+        position: 100
+    mode: single
+  - id: '1623134374989'
+    alias: Blinds - Close 1hr after sunset
+    description: ''
+    trigger:
+    - platform: sun
+      event: sunset
+      offset: '1:00:00'
+    condition: []
+    action:
+    - service: cover.stop_cover
+      target:
+        entity_id: cover.loungeroom_blind
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: cover.close_cover
+      target:
+        entity_id: cover.loungeroom_blind
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: cover.set_cover_position
+      target:
+        entity_id: cover.loungeroom_blind
+      data:
+        position: 1
+    - delay:
+        hours: 0
+        minutes: 0
+        seconds: 1
+        milliseconds: 0
+    - service: cover.set_cover_position
+      data:
+        position: 0
+    mode: single
