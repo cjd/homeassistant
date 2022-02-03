@@ -6,11 +6,11 @@ template:
         unit_of_measurement: "%"
         device_class: humidity
       - name: "Outside Rain"
-        state: "{{ states('sensor.holman_ws5029_45250_rt') }}"
+        state: "{{ states('sensor.raing_guage') }}"
         state_class: measurement
         unit_of_measurement: "mm"
       - name: "Outside Temperature"
-        state: "{{ states('sensor.holman_ws5029_45250_t') }}"
+        state: "{{ states('sensor.outside_temperature_2') }}"
         state_class: measurement
         unit_of_measurement: "°C"
         device_class: temperature
