@@ -50,6 +50,43 @@ input_boolean:
     initial: false
 
 automation:
+  - id: '1642994206210'
+    alias: Garage - Open/Close Garage door
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.garage_right_input
+      from: 'off'
+      to: 'on'
+    condition: []
+    action:
+    - service: cover.toggle
+      target:
+        entity_id: cover.garage_door
+    mode: single
+  - id: '1642994206211'
+    alias: Garage - Sync Pair
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.garage_left_input
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.garage_left_input
+      from: 'on'
+      to: 'off'
+    condition: []
+    action:
+    - delay: "00:00:01"
+    - service: >-
+        {% if is_state('light.garage_left', 'on') %}
+        light.turn_on
+        {% else %}
+        light.turn_off
+        {% endif %}
+      entity_id: light.garage_right
+    mode: single
   - id: '1640563153177'
     alias: Notify - Garage Left Open
     description: ''
