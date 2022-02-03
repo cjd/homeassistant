@@ -4,3 +4,32 @@ light:
     entities:
       - light.livingmiddle
       - light.livingside
+
+automation:
+  - id: '1615539466619'
+    alias: Livingroom - Turn on window lights when the sun is set
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: input_boolean.night_mode
+        to: "on"
+    condition: []
+    action:
+      - service: light.turn_on
+        entity_id: light.window_string
+        data:
+          brightness_pct: 50
+          effect: Cycle
+    mode: single
+  - id: '1615539466620'
+    alias: Livingroom - Turn off window lights when the sun is up
+    description: ''
+    trigger:
+      - platform: state
+        entity_id: input_boolean.night_mode
+        to: "off"
+    condition: []
+    action:
+      - service: light.turn_off
+        entity_id: light.window_string
+    mode: single
