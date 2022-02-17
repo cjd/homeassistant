@@ -19,7 +19,7 @@ automation:
         entity_id: light.bathroom_moon
       data:
         brightness_pct: 25
-        color_temp: 443
+        rgbww_color: [0, 0, 0, 0, 255]
     mode: single
   - id: '1620862057642'
     alias: Bathroom - Moon Off at sunrise
