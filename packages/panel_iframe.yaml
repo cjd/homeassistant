@@ -1,14 +1,4 @@
 panel_iframe:
-  esphome:
-    title: Esphome
-    url: https://home.adebenham.com/int/esphome/
-    icon: mdi:cog
-    require_admin: true
-  vscode:
-    title: VSCode
-    url: https://v.adebenham.com/
-    icon: mdi:code-tags
-    require_admin: true
   frigate:
     title: Frigate
     url: https://frigate.adebenham.com/
