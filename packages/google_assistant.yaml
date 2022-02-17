@@ -1,5 +1,5 @@
 google_assistant:
-  project_id: homeassistant-234121
+  project_id: !secret google_project_id
   service_account:
     private_key: !secret google_private_key
     client_email: !secret google_client_email
@@ -10,6 +10,7 @@ google_assistant:
     - climate
     - scene
     - camera
+  secure_devices_pin: !secret google_secure_devices_pin
   expose_by_default: false
   entity_config:
     light.alcove_lights:
@@ -86,4 +87,5 @@ google_assistant:
       expose: true
     light.wled1_master:
       expose: true
-    
+    cover.garage_door:
+      expose: true
