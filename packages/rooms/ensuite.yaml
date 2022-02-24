@@ -1,5 +1,9 @@
 light:
-  - platform: group
-    name: Ensuite Lights
-    entities:
-      - light.ensuite
+  - platform: template
+    lights:
+      ensuite_lights:
+        friendly_name: Ensuite Lights
+        turn_on:
+          service: script.noop
+        turn_off:
+          service: script.noop

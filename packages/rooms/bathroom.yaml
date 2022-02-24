@@ -1,8 +1,12 @@
 light:
-  - platform: group
-    name: Bathroom Lights
-    entities:
-      - light.bathroom
+  - platform: template
+    lights:
+      bathroom_lights:
+        friendly_name: Bathroom Lights
+        turn_on:
+          service: script.noop
+        turn_off:
+          service: script.noop
 
 automation:
   - id: '1620862005725'

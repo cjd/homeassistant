@@ -1,5 +1,9 @@
 light:
-  - platform: group
-    name: Robe Lights
-    entities:
-      - light.robe
+  - platform: template
+    lights:
+      robe_lights:
+        friendly_name: Robe Lights
+        turn_on:
+          service: script.noop
+        turn_off:
+          service: script.noop

@@ -1,5 +1,9 @@
 light:
-  - platform: group
-    name: Toilet Lights
-    entities:
-      - light.toilet
+  - platform: template
+    lights:
+      toilet_lights:
+        friendly_name: Toilet Lights
+        turn_on:
+          service: script.noop
+        turn_off:
+          service: script.noop
