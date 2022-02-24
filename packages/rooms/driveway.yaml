@@ -55,7 +55,7 @@ automation:
     description: ''
     trigger:
     - platform: state
-      entity_id: binary_sensor.top_of_driveway_car_motion
+      entity_id: binary_sensor.top_of_driveway_vehicle_motion
       from: 'off'
       to: 'on'
     condition: []
@@ -64,7 +64,7 @@ automation:
       data:
         message: A car was detected
         data:
-          image: /api/camera_proxy/camera.driveway_car
+          image: /api/camera_proxy/camera.driveway_vehicle
           actions:
             - action: URI
               title: "Open Camera"
@@ -77,7 +77,7 @@ automation:
     description: ''
     trigger:
     - platform: state
-      entity_id: binary_sensor.top_of_driveway_topyard_car_motion
+      entity_id: binary_sensor.top_of_driveway_topyard_vehicle_motion
       from: 'off'
       to: 'on'
     condition: []
@@ -86,7 +86,7 @@ automation:
       data:
         message: A car was detected
         data:
-          image: /api/camera_proxy/camera.topyard_car
+          image: /api/camera_proxy/camera.topyard_vehicle
           actions:
             - action: URI
               title: "Open Camera"
@@ -121,7 +121,7 @@ automation:
     description: ''
     trigger:
     - platform: state
-      entity_id: binary_sensor.top_of_driveway_yard_person_motion
+      entity_id: binary_sensor.top_of_driveway_topyard_person_motion
       from: 'off'
       to: 'on'
     condition: []
@@ -179,7 +179,7 @@ automation:
     description: ''
     trigger:
     - platform: state
-      entity_id: binary_sensor.top_of_driveway_car_motion
+      entity_id: binary_sensor.top_of_driveway_vehicle_motion
       from: 'off'
       to: 'on'
     condition:
