@@ -201,7 +201,7 @@ scene:
     entities:
       light.tvbacklight:
         state: "on"
-      light.tvbacklight_preset:
+      select.tvbacklight_preset:
         state: Default
       light.loungeroomstrip_master:
         state: "on"
@@ -227,7 +227,7 @@ scene:
         state: 'on'
       light.tvbacklight:
         state: 'on'
-      light.tvbacklight_preset:
+      select.tvbacklight_preset:
         state: Default
       light.loungeroomstrip_master:
         state: "on"
@@ -260,7 +260,7 @@ scene:
         state: Default
       light.tvbacklight:
         state: 'on'
-      light.tvbacklight_preset:
+      select.tvbacklight_preset:
         state: Default
   - id: '1613889879080'
     name: Loungeroom Off
@@ -276,7 +276,7 @@ scene:
     entities:
       light.tvbacklight:
         state: 'on'
-      light.tvbacklight_preset:
+      select.tvbacklight_preset:
         state: Default
       light.loungeroomstrip_master:
         state: "on"
@@ -293,7 +293,7 @@ scene:
     entities:
       light.tvbacklight:
         state: 'on'
-      light.tvbacklight_preset:
+      select.tvbacklight_preset:
         state: 'Party'
       light.loungeroomstrip_master:
         state: "on"
