@@ -4,28 +4,6 @@ light:
     entities:
       - light.bedroomdimmer
 
-binary_sensor:
-  - platform: mqtt
-    name: RFremotebuttonA
-    state_topic: 'tele/RFRemote/RESULT'
-    value_template: >-
-      {% if value_json.RfReceived.Data == 'B12201' %}
-        {{'ON'}}
-      {% else %}
-        {{states('binary_sensor.rfremotebuttona') | upper}}
-      {% endif %}
-    off_delay: 5
-  - platform: mqtt
-    name: RFremotebuttonB
-    state_topic: 'tele/RFRemote/RESULT'
-    value_template: >-
-      {% if value_json.RfReceived.Data == '361F01' %}
-        {{'ON'}}
-      {% else %}
-        {{states('binary_sensor.rfremotebuttona') | upper}}
-      {% endif %}
-    off_delay: 5
-
 automation:
   - id: '1610172763965'
     alias: Bedroom - Kid indicator on
@@ -92,8 +70,8 @@ automation:
     description: ''
     trigger:
     - platform: state
-      entity_id: sensor.double_switch_click
-      to: left
+      entity_id: sensor.double_switch_action
+      to: single_left
     condition: []
     action:
     - service: light.turn_on
@@ -109,18 +87,14 @@ automation:
     - service: script.turn_on
       data:
         entity_id: script.turn_tv_lights_off
-    - service: light.turn_on
-      data:
-        entity_id: light.big_lightbulb
-        brightness_pct: 100
     mode: single
   - id: '1611015024886'
     alias: Bedroom - Right Button
     description: ''
     trigger:
     - platform: state
-      entity_id: sensor.double_switch_click
-      to: right
+      entity_id: sensor.double_switch_action
+      to: single_right
     condition: []
     action:
     - service: light.turn_off
@@ -137,7 +111,7 @@ automation:
         entity_id: script.turn_tv_lights_off
     - service: light.turn_off
       data:
-        entity_id: light.big_lightbulb
+        entity_id: light.bedroom_led
     mode: single
   - id: '1619755214062'
     alias: Bedroom - External Button
