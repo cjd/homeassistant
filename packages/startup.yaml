@@ -21,3 +21,8 @@ automation:
         data:
           topic: "cmnd/LoungeroomBlind/serialsend5"
           payload: "55aa0001000000"
+
+script:
+  noop:
+    sequence:
+      delay: 00:00:00
