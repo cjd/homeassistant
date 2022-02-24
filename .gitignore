@@ -41,3 +41,5 @@ www/community
 nest/event_media
 image/platerecognizer
 watchman_report.txt
+.vscode/settings.json
+workspace.code-workspace
