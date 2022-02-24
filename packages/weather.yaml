@@ -1,12 +1,12 @@
 template:
   - sensor:
       - name: "Outside Humidity"
-        state: "{{ states('sensor.holman_ws5029_45250_h') }}"
+        state: "{{ states('sensor.gosford_humidity') }}"
         state_class: measurement
         unit_of_measurement: "%"
         device_class: humidity
       - name: "Outside Rain"
-        state: "{{ states('sensor.raing_guage') }}"
+        state: "{{ states('sensor.rain_gauge') }}"
         state_class: measurement
         unit_of_measurement: "mm"
       - name: "Outside Temperature"
@@ -15,13 +15,13 @@ template:
         unit_of_measurement: "°C"
         device_class: temperature
       - name: "Outside Wind Direction"
-        state: "{{ states('sensor.holman_ws5029_45250_wd') }}"
+        state: "{{ states('sensor.gosford_wind_direction') }}"
         state_class: measurement
         unit_of_measurement: "°"
       - name: "Outside Wind Speed"
-        state: "{{ states('sensor.holman_ws5029_45250_ws') }}"
+        state: "{{ states('sensor.gosford_wind_speed_kilometre') }}"
         state_class: measurement
-        unit_of_measurement: "°C"
+        unit_of_measurement: "km/h"
 
 sensor:
   - platform: template
@@ -96,16 +96,6 @@ sensor:
           {{states('sensor.narara_temp_max_5')|round(0)}}°/{{states('sensor.narara_temp_min_5')|round(0)}}°/{{states('sensor.narara_rain_chance_5')|round(0)}}%
         entity_picture_template: >-
           {{ '/local/icons/bom_icons/' ~ states('sensor.narara_icon_descriptor_5') ~ '.png' }}
-
-      bom_forecast_6:
-        friendly_name_template: >
-          {%- set date = as_timestamp(now()) + (6 * 86400 ) -%}
-          {{ date | timestamp_custom('%A (%-d/%-m)') }}
-        value_template: >
-          {{states('sensor.narara_temp_max_6')|round(0)}}°/{{states('sensor.narara_temp_min_6')|round(0)}}°/{{states('sensor.narara_rain_chance_6')|round(0)}}%
-        entity_picture_template: >-
-          {{ '/local/icons/bom_icons/' ~ states('sensor.narara_icon_descriptor_6') ~ '.png' }}
-
 
       bom_today_max:
         value_template: >
