@@ -4,22 +4,27 @@ template:
         unit_of_measurement: W
         state_class: measurement
         device_class: energy
-        state: "{{ [(states('sensor.lights_energy_power')|float(0)
+        state: "{{ states('sensor.ac_power')|float(0)
+                  + states('sensor.bedroomplug_energy_power')|float(0)
                   + states('sensor.desk_energy_power')|float(0)
+                  + states('sensor.dishwasher_energy_power')|float(0)
+                  + states('sensor.drivewayplug_energy_power')|float(0)
                   + states('sensor.freezer_energy_power')|float(0)
                   + states('sensor.fridge_energy_power')|float(0)
-                  + states('sensor.serverstack_energy_power')|float(0)
-                  + states('sensor.livingtv_energy_power')|float(0)
+                  + states('sensor.garageplug_energy_power')|float(0)
                   + states('sensor.hallpower_energy_power')|float(0)
-                  + states('sensor.dishwasher_power')|float(0)
-                  + states('sensor.ac_power')|float(0)
+                  + states('sensor.lights_energy_power')|float(0)
+                  + states('sensor.livingtv_energy_power')|float(0)
                   + states('sensor.oven_power')|float(0)
-                  + states('sensor.tvunit_energy_power')|float(0)),0]|max}}"
+                  + states('sensor.serverstack_energy_power')|float(0)
+                  + states('sensor.tvunit_energy_power')|float(0)
+                  + states('sensor.washingmachine_energy_power')|float(0)
+                  }}"
       - name: "Unallocated power"
         unit_of_measurement: W
         state_class: measurement
         device_class: energy
-        state: "{{ [(states('sensor.home_power_consumption')|float(0)
+        state: "{{ [ (-states('sensor.fronius_house_load')|float(0)
                   - states('sensor.allocated_power')|float(0)),0]|max}}"
       - name: "Lights ENERGY Power"
         unit_of_measurement: W
