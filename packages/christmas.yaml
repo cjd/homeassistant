@@ -24,30 +24,30 @@ automation:
     - service: switch.turn_off
       entity_id: switch.yard_plug_bottom
     mode: single
-  - id: '1637094246274'
-    alias: Christmas Tree On
-    description: ''
-    trigger:
-    - platform: time
-      at: "06:00:00"
-    condition: []
-    action:
-    - service: light.turn_on
-      entity_id: light.wled_tree_master
-    - service: select.select_option
-      target:
-        entity_id: select.wled_tree_preset
-      data:
-        option: Blue
-    mode: single
-  - id: '1637094246275'
-    alias: Christmas Tree Off
-    description: ''
-    trigger:
-    - platform: time
-      at: "21:30:00"
-    condition: []
-    action:
-    - service: light.turn_off
-      entity_id: light.wled_tree_master
-    mode: single
+  # - id: '1637094246274'
+  #   alias: Christmas Tree On
+  #   description: ''
+  #   trigger:
+  #   - platform: time
+  #     at: "06:00:00"
+  #   condition: []
+  #   action:
+  #   - service: light.turn_on
+  #     entity_id: light.wled_tree_master
+  #   - service: select.select_option
+  #     target:
+  #       entity_id: select.wled_tree_preset
+  #     data:
+  #       option: Blue
+  #   mode: single
+  # - id: '1637094246275'
+  #   alias: Christmas Tree Off
+  #   description: ''
+  #   trigger:
+  #   - platform: time
+  #     at: "21:30:00"
+  #   condition: []
+  #   action:
+  #   - service: light.turn_off
+  #     entity_id: light.wled_tree_master
+  #   mode: single
