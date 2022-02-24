@@ -49,9 +49,7 @@ google_assistant:
       expose: true
     light.backlight_switch:
       expose: true
-    camera.backroom:
-      expose: true
-    camera.entrycam:
+    camera.driveway:
       expose: true
     camera.loungeroom:
       expose: true
@@ -81,11 +79,7 @@ google_assistant:
       expose: true
     cover.loungeroom_blind:
       expose: true
-    light.wled_tree_master:
-      expose: true
     switch.yard_plug_bottom:
-      expose: true
-    light.wled1_master:
       expose: true
     cover.garage_door:
       expose: true
