@@ -1,0 +1,16 @@
+image_processing:
+  - platform: platerecognizer
+    api_token: !secret platerecognizer
+    regions:
+      - au
+    watched_plates:
+      - zaq201
+      - cxz96u
+    save_file_folder: /config/image/platerecognizer/
+    save_timestamped_file: True
+    always_save_latest_file: True
+    mmc: True
+    detection_rule: strict
+
+    source:
+      - entity_id: camera.driveway
