@@ -5,7 +5,7 @@ light:
       - light.deck
       - light.kitchendoor
 
-automation:
+  #automation:
   # - id: '1615539466627'
   #   alias: Deck - Turn on spotlights when the sun is set
   #   description: ''
