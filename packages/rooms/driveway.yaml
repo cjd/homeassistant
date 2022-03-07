@@ -50,6 +50,37 @@ automation:
     - service: light.turn_off
       entity_id: light.driveway_lights
     mode: restart
+  - id: '1644494465684'
+    alias: Driveway - Car seen
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.driveway_vehicle_motion
+    condition: []
+    action:
+    - service: image_processing.scan
+      data: {}
+      target:
+        entity_id: image_processing.platerecognizer_driveway
+    mode: single
+  - id: '1644808642992'
+    alias: Front Door - Person detected
+    description: ''
+    trigger:
+    - platform: device
+      device_id: 3243b58136136f6fa25f1f022e85b478
+      domain: nest
+      type: camera_motion
+    - platform: device
+      device_id: 3243b58136136f6fa25f1f022e85b478
+      domain: nest
+      type: doorbell_chime
+    condition: []
+    action:
+    - service: notify.mobile_app_chrisphone
+      data:
+        message: Person seen
+    mode: single
   - id: '1618963905348'
     alias: Notify - Car Top
     description: ''
