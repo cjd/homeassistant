@@ -24,7 +24,7 @@ template:
         unit_of_measurement: W
         state_class: measurement
         device_class: energy
-        state: "{{ [ (-states('sensor.fronius_house_load')|float(0)
+        state: "{{ [ (-states('sensor.power_load_fronius_power_flow_0_192_168_0_191')|float(0)
                   - states('sensor.allocated_power')|float(0)),0]|max}}"
       - name: "Lights ENERGY Power"
         unit_of_measurement: W
@@ -33,6 +33,7 @@ template:
         state: "{{ states('sensor.alcove_power')|float(0)
                   + states('sensor.bedroomdimmer_power')|float(0)
                   + states('sensor.craftdimmer_power')|float(0)
+                  + states('sensor.diningdimmer_power')|float(0)
                   + states('sensor.dining_power')|float(0)
                   + states('sensor.entrydimmer_power')|float(0)
                   + states('sensor.garage_left_power')|float(0)
