@@ -124,7 +124,7 @@ switch:
         {% if value_json['TuyaReceived'].DpType1Id5 is defined %}
         {{ value_json.TuyaReceived.DpType1Id5 }}
         {% else %}  
-        {{ states('switch.motor_direction') }}
+        {{ states('switch.loungeroom_blind_motor_direction') }}
         {% endif %}  
     command_topic: "cmnd/LoungeroomBlind/TuyaSend"
     payload_on: "5,1"

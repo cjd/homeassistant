@@ -86,11 +86,13 @@ automation:
     - service: light.turn_off
       entity_id: light.loungeroomstrip_master
     mode: single
+
+## Outside switches
   - id: '1610430895471'
     alias: Loungeroom - Outside Switch - lights on
     trigger:
     - platform: state
-      entity_id: light.loungeroomdimmer
+      entity_id: light.mediaroomremote
       from:
         - 'on'
         - 'off'
@@ -104,13 +106,11 @@ automation:
     action:
       - service: scene.turn_on
         entity_id: scene.loungeroom_off
-
-## Outside switches
   - id: '1610430895472'
     alias: Loungeroom - Outside Switch - lights off
     trigger:
     - platform: state
-      entity_id: light.loungeroomdimmer
+      entity_id: light.mediaroomremote
       from:
         - 'on'
         - 'off'
