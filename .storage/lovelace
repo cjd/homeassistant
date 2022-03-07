@@ -38,6 +38,75 @@
                             }
                         }
                     }
+                },
+                "graph_template": {
+                    "card": {
+                        "type": "custom:plotly-graph",
+                        "entities": [
+                            {
+                                "entity": "[[entity_1]]",
+                                "name": "[[name_1]]"
+                            },
+                            {
+                                "entity": "[[entity_2]]",
+                                "name": "[[name_2]]"
+                            },
+                            {
+                                "entity": "[[entity_3]]",
+                                "name": "[[name_3]]"
+                            },
+                            {
+                                "entity": "[[entity_4]]",
+                                "name": "[[name_4]]"
+                            },
+                            {
+                                "entity": "[[entity_5]]",
+                                "name": "[[name_5]]"
+                            },
+                            {
+                                "entity": "[[entity_6]]",
+                                "name": "[[name_6]]"
+                            },
+                            {
+                                "entity": "[[entity_7]]",
+                                "name": "[[name_7]]"
+                            }
+                        ],
+                        "hours_to_show": 24,
+                        "refresh_interval": 10,
+                        "layout": {
+                            "showlegend": true,
+                            "legend": {
+                                "itemclick": "toggleothers",
+                                "orientation": "h"
+                            },
+                            "xaxis": {
+                                "rangeselector": {
+                                    "y": 1.2,
+                                    "activecolor": "#448",
+                                    "bgcolor": "#224",
+                                    "buttons": [
+                                        {
+                                            "count": 6,
+                                            "step": "hour"
+                                        },
+                                        {
+                                            "count": 1,
+                                            "step": "day"
+                                        },
+                                        {
+                                            "count": 2,
+                                            "step": "day"
+                                        },
+                                        {
+                                            "count": 7,
+                                            "step": "day"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
                 }
             },
             "views": [
@@ -79,11 +148,11 @@
                             "entity_summary_3": "sensor.narara_short_text_3",
                             "entity_summary_4": "sensor.narara_short_text_4",
                             "entity_summary_5": "sensor.narara_short_text_5",
-                            "entity_humidity": "sensor.outside_humidity",
+                            "entity_humidity": "sensor.gosford_humidity",
                             "entity_apparent_temp": "sensor.gosford_temp_feels_like",
                             "entity_daily_summary": "sensor.narara_extended_text_0",
                             "entity_pop": "sensor.narara_rain_chance_0",
-                            "entity_pop_intensity": "sensor.gosford_rain_since_9am",
+                            "entity_pop_intensity": "sensor.total_daily_rain",
                             "entity_possible_today": "sensor.narara_rain_amount_range_0",
                             "entity_pos_1": "sensor.narara_rain_amount_range_1",
                             "entity_pos_2": "sensor.narara_rain_amount_range_2",
@@ -159,7 +228,7 @@
                             "type": "glance",
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.garage_door_contact"
+                                    "entity": "binary_sensor.door_sensor_contact"
                                 },
                                 {
                                     "entity": "binary_sensor.front_door_contact"
@@ -236,7 +305,7 @@
                                     "tap_action": {
                                         "action": "toggle"
                                     },
-                                    "entity": "switch.deckpowerplug",
+                                    "entity": "switch.pool",
                                     "name": "Pool Filter",
                                     "icon": "mdi:pool"
                                 }
@@ -338,100 +407,67 @@
                             "type": "grid",
                             "cards": [
                                 {
-                                    "type": "custom:decluttering-card",
-                                    "template": "slider_button_template",
-                                    "variables": [
-                                        {
-                                            "entity_id": "light.bedroom_led"
-                                        }
-                                    ]
+                                    "type": "button",
+                                    "entity": "light.bedroom_led"
                                 },
                                 {
-                                    "type": "custom:decluttering-card",
-                                    "template": "slider_button_template",
-                                    "variables": [
-                                        {
-                                            "entity_id": "light.kitchen_strip"
-                                        }
-                                    ]
+                                    "type": "button",
+                                    "entity": "light.kitchen_strip"
                                 },
                                 {
-                                    "type": "custom:decluttering-card",
-                                    "template": "slider_button_template",
-                                    "variables": [
-                                        {
-                                            "entity_id": "light.moon_led"
-                                        }
-                                    ]
+                                    "type": "button",
+                                    "entity": "light.moon_led"
                                 },
                                 {
-                                    "type": "custom:decluttering-card",
-                                    "template": "slider_button_template",
-                                    "variables": [
-                                        {
-                                            "entity_id": "light.bathroom_moon"
-                                        }
-                                    ]
+                                    "type": "button",
+                                    "entity": "light.bathroom_moon"
                                 },
                                 {
-                                    "type": "custom:decluttering-card",
-                                    "template": "slider_button_template",
-                                    "variables": [
-                                        {
-                                            "entity_id": "light.loungeroomstrip_master"
-                                        }
-                                    ]
+                                    "type": "button",
+                                    "entity": "light.loungeroomstrip_master"
                                 },
                                 {
-                                    "type": "custom:decluttering-card",
-                                    "template": "slider_button_template",
-                                    "variables": [
-                                        {
-                                            "entity_id": "light.tvbacklight"
-                                        }
-                                    ]
+                                    "type": "button",
+                                    "entity": "light.tvbacklight"
                                 },
                                 {
-                                    "type": "custom:decluttering-card",
-                                    "template": "slider_button_template",
-                                    "variables": [
-                                        {
-                                            "entity_id": "light.office_strip"
-                                        }
-                                    ]
+                                    "type": "button",
+                                    "entity": "light.wave_projector"
                                 },
                                 {
-                                    "type": "custom:decluttering-card",
-                                    "template": "slider_button_template",
-                                    "variables": [
-                                        {
-                                            "entity_id": "light.gardenlights"
-                                        }
-                                    ]
+                                    "type": "button",
+                                    "entity": "light.wave_speed"
                                 },
                                 {
-                                    "type": "custom:decluttering-card",
-                                    "template": "slider_button_template",
-                                    "variables": [
-                                        {
-                                            "entity_id": "light.livingroom_strip"
-                                        }
-                                    ]
+                                    "type": "button",
+                                    "entity": "light.wled1_master"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "light.livingroom_strip"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.yard_plug_top"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "switch.yard_plug_bottom"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "light.window_string"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "fan.deck_fan_speed"
+                                },
+                                {
+                                    "type": "button",
+                                    "entity": "scene.loungeroom_party"
                                 }
                             ],
                             "square": false
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                "scene.loungeroom_party"
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                "fan.deck_fan_speed"
-                            ]
                         }
                     ]
                 },
@@ -450,7 +486,7 @@
                                             "type": "custom:frigate-card",
                                             "camera_entity": "camera.driveway",
                                             "live": {
-                                                "provider": "frigate-jsmpeg"
+                                                "provider": "frigate"
                                             },
                                             "dimensions": {
                                                 "aspect_ratio_mode": "static"
@@ -461,7 +497,7 @@
                                             "type": "custom:frigate-card",
                                             "camera_entity": "camera.backyard",
                                             "live": {
-                                                "provider": "frigate-jsmpeg"
+                                                "provider": "frigate"
                                             },
                                             "frigate_url": "https://frigate.adebenham.com/",
                                             "dimensions": {
@@ -480,7 +516,7 @@
                                             "type": "custom:frigate-card",
                                             "camera_entity": "camera.garage",
                                             "live": {
-                                                "provider": "frigate-jsmpeg"
+                                                "provider": "frigate"
                                             },
                                             "frigate_url": "https://frigate.adebenham.com/",
                                             "class": "col-lg",
@@ -493,7 +529,7 @@
                                             "type": "custom:frigate-card",
                                             "camera_entity": "camera.topyard",
                                             "live": {
-                                                "provider": "frigate-jsmpeg"
+                                                "provider": "frigate"
                                             },
                                             "frigate_url": "https://frigate.adebenham.com/",
                                             "dimensions": {
@@ -523,10 +559,6 @@
                                             "type": "custom:frigate-card",
                                             "camera_entity": "camera.loungeroom",
                                             "frigate_url": "https://frigate.adebenham.com/",
-                                            "controls": {},
-                                            "live": {
-                                                "provider": "frigate-jsmpeg"
-                                            },
                                             "dimensions": {
                                                 "aspect_ratio_mode": "static",
                                                 "aspect_ratio": "16:9"
@@ -539,7 +571,7 @@
                                             "camera_entity": "camera.livingroom",
                                             "frigate_url": "https://frigate.adebenham.com/",
                                             "live": {
-                                                "provider": "frigate-jsmpeg"
+                                                "provider": "frigate"
                                             },
                                             "dimensions": {
                                                 "aspect_ratio_mode": "static",
@@ -558,7 +590,7 @@
                                             "camera_entity": "camera.garage",
                                             "frigate_url": "https://frigate.adebenham.com/",
                                             "live": {
-                                                "provider": "frigate-jsmpeg"
+                                                "provider": "frigate"
                                             },
                                             "dimensions": {
                                                 "aspect_ratio_mode": "static",
@@ -769,58 +801,6 @@
                             ]
                         },
                         {
-                            "type": "custom:apexcharts-card",
-                            "header": {
-                                "show": true,
-                                "title": "Piserve",
-                                "show_states": false,
-                                "colorize_states": true
-                            },
-                            "update_interval": "1m",
-                            "graph_span": "24h",
-                            "stacked": true,
-                            "chart_type": "line",
-                            "all_series_config": {
-                                "type": "area",
-                                "stroke_width": 1,
-                                "yaxis_id": "hundred"
-                            },
-                            "yaxis": [
-                                {
-                                    "id": "hundred",
-                                    "min": 0,
-                                    "max": 100,
-                                    "apex_config": {
-                                        "decimalsInFloat": 0,
-                                        "tickAmount": 4
-                                    }
-                                }
-                            ],
-                            "series": [
-                                {
-                                    "entity": "sensor.piserve_smoothed_cpu_iowait",
-                                    "name": "IO"
-                                },
-                                {
-                                    "entity": "sensor.piserve_smoothed_cpu_system",
-                                    "name": "System"
-                                },
-                                {
-                                    "entity": "sensor.piserve_smoothed_cpu_user",
-                                    "name": "User"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                "sensor.dock_system_load",
-                                "sensor.piserve_system_load"
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0
-                        },
-                        {
                             "type": "entities",
                             "entities": [
                                 {
@@ -849,73 +829,158 @@
                             ]
                         },
                         {
-                            "type": "custom:apexcharts-card",
-                            "header": {
-                                "show": true,
-                                "title": "Dock",
-                                "show_states": false,
-                                "colorize_states": true
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "entities"
                             },
-                            "stacked": true,
-                            "chart_type": "line",
-                            "all_series_config": {
-                                "type": "area",
-                                "stroke_width": 1,
-                                "yaxis_id": "hundred"
-                            },
-                            "yaxis": [
-                                {
-                                    "id": "hundred",
-                                    "min": 0,
-                                    "max": 100,
-                                    "apex_config": {
-                                        "decimalsInFloat": 0,
-                                        "tickAmount": 4
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "*disk_free"
                                     }
-                                }
-                            ],
-                            "series": [
+                                ],
+                                "exclude": []
+                            },
+                            "sort": {
+                                "method": "none"
+                            }
+                        },
+                        {
+                            "type": "custom:decluttering-card",
+                            "template": "graph_template",
+                            "variables": [
                                 {
-                                    "entity": "sensor.dock_smoothed_cpu_iowait",
-                                    "name": "IO"
+                                    "entity_1": "sensor.piserve_smoothed_cpu_iowait"
                                 },
                                 {
-                                    "entity": "sensor.dock_smoothed_cpu_system",
-                                    "name": "System"
+                                    "name_1": "Piserve IO"
                                 },
                                 {
-                                    "entity": "sensor.dock_smoothed_cpu_user",
-                                    "name": "User"
+                                    "entity_2": "sensor.piserve_smoothed_cpu_system"
+                                },
+                                {
+                                    "name_2": "System"
+                                },
+                                {
+                                    "entity_3": "sensor.piserve_smoothed_cpu_user"
+                                },
+                                {
+                                    "name_3": "User"
+                                },
+                                {
+                                    "entity_4": "sensor.piserve_system_load"
+                                },
+                                {
+                                    "name_4": "Load"
                                 }
                             ]
                         },
                         {
-                            "type": "history-graph",
-                            "entities": [
+                            "type": "custom:decluttering-card",
+                            "template": "graph_template",
+                            "variables": [
                                 {
-                                    "entity": "sensor.ping_internet"
+                                    "entity_1": "sensor.dock_smoothed_cpu_iowait"
                                 },
                                 {
-                                    "entity": "sensor.ping_router"
+                                    "name_1": "Dock IO"
                                 },
                                 {
-                                    "entity": "sensor.speedtest_ping"
+                                    "entity_2": "sensor.dock_smoothed_cpu_system"
                                 },
                                 {
-                                    "entity": "sensor.ping_zigbee"
+                                    "name_2": "System"
+                                },
+                                {
+                                    "entity_3": "sensor.dock_smoothed_cpu_user"
+                                },
+                                {
+                                    "name_3": "User"
+                                },
+                                {
+                                    "entity_4": "sensor.dock_system_load"
+                                },
+                                {
+                                    "name_4": "Load"
                                 }
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0
+                            ]
                         },
                         {
-                            "type": "history-graph",
-                            "entities": [
-                                "sensor.speedtest_download",
-                                "sensor.speedtest_upload"
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0
+                            "type": "custom:decluttering-card",
+                            "template": "graph_template",
+                            "variables": [
+                                {
+                                    "entity_1": "sensor.jimbob_smoothed_cpu_iowait"
+                                },
+                                {
+                                    "name_1": "Jimbob IO"
+                                },
+                                {
+                                    "entity_2": "sensor.jimbob_smoothed_cpu_system"
+                                },
+                                {
+                                    "name_2": "System"
+                                },
+                                {
+                                    "entity_3": "sensor.jimbob_smoothed_cpu_user"
+                                },
+                                {
+                                    "name_3": "User"
+                                },
+                                {
+                                    "entity_4": "sensor.jimbob_system_load"
+                                },
+                                {
+                                    "name_4": "Load"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "custom:decluttering-card",
+                            "template": "graph_template",
+                            "variables": [
+                                {
+                                    "entity_1": "sensor.speedtest_download"
+                                },
+                                {
+                                    "name_1": "SpeedTest Download"
+                                },
+                                {
+                                    "entity_2": "sensor.speedtest_upload"
+                                },
+                                {
+                                    "name_2": "SpeedTest Upload"
+                                },
+                                {
+                                    "entity_3": "sensor.speedtest_ping"
+                                },
+                                {
+                                    "name_3": "SpeedTest Ping"
+                                },
+                                {
+                                    "entity_4": "sensor.ping_internet"
+                                },
+                                {
+                                    "name_4": "Internet Ping"
+                                },
+                                {
+                                    "entity_5": "sensor.ping_router"
+                                },
+                                {
+                                    "name_5": "Router ping"
+                                }
+                            ]
+                        },
+                        {
+                            "type": "markdown",
+                            "content": "<h2> <ha-icon icon='mdi:shield-half-full'></ha-icon> Watchman report<h2> <h3>Missing Entities: {{ states.sensor.watchman_missing_entities.state }} </h3> {%- for item in state_attr(\"sensor.watchman_missing_entities\", \"entities\") %} <hr> <table><tr> <td> <ha-icon icon='mdi: {%- if item.state==\"missing\"-%}cloud-alert' {%- elif item.state==\"unavail\" -%}cloud-off-outline' {%- else-%}cloud-question' {%- endif -%} ></ha-icon> {{ item.id }} [{{item.state}}] <a title=\"{{item.occurrences}}\"> {{item.occurrences.split('/')[-1].split(':')[0]}}</a> </td></tr></table> {%- endfor %}",
+                            "card_mod": {
+                                "style": {
+                                    "ha-markdown": {
+                                        "$": "ha-markdown-element:first-of-type hr{\n  border-color: [#303030](https://github.com/dummylabs/thewatchman/issues/303030);\n}\n"
+                                    }
+                                }
+                            }
                         }
                     ]
                 },
@@ -931,72 +996,179 @@
                             ]
                         },
                         {
-                            "type": "history-graph",
-                            "entities": [
-                                "sensor.bedroom_temperature",
-                                "sensor.familyroom_sensor_temperature",
-                                "sensor.livingroom_temperature",
-                                "sensor.office_temperature",
-                                "sensor.outside_temperature"
-                            ],
-                            "hours_to_show": 168,
-                            "refresh_interval": 0
-                        },
-                        {
                             "type": "custom:sun-card",
                             "darkMode": true
                         },
                         {
-                            "type": "custom:compass-card",
-                            "indicator_sensors": [
+                            "type": "custom:decluttering-card",
+                            "template": "graph_template",
+                            "variables": [
                                 {
-                                    "sensor": "sensor.outside_wind_direction"
-                                }
-                            ],
-                            "value_sensors": [
+                                    "entity_1": "sensor.bathroom_sensor_temperature"
+                                },
                                 {
-                                    "sensor": "sensor.outside_wind_speed"
+                                    "name_1": "Bathroom"
+                                },
+                                {
+                                    "entity_2": "sensor.bedroom_temperature"
+                                },
+                                {
+                                    "name_2": "Bedroom"
+                                },
+                                {
+                                    "entity_3": "sensor.craftroom_sensor_temperature"
+                                },
+                                {
+                                    "name_3": "Craftroom"
+                                },
+                                {
+                                    "entity_4": "sensor.familyroom_sensor_temperature"
+                                },
+                                {
+                                    "name_4": "Media"
+                                },
+                                {
+                                    "entity_5": "sensor.livingroom_temperature"
+                                },
+                                {
+                                    "name_5": "Living"
+                                },
+                                {
+                                    "entity_6": "sensor.office_temperature"
+                                },
+                                {
+                                    "name_6": "Office"
+                                },
+                                {
+                                    "entity_7": "sensor.outside_temperature"
+                                },
+                                {
+                                    "name_7": "Outside"
                                 }
                             ]
                         },
                         {
-                            "type": "history-graph",
-                            "entities": [
-                                "sensor.outside_rain"
-                            ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "custom:plotly-graph",
+                                "hours_to_show": 24,
+                                "refresh_interval": 10,
+                                "layout": {
+                                    "showlegend": true,
+                                    "legend": {
+                                        "itemclick": "toggleothers",
+                                        "orientation": "h"
+                                    },
+                                    "xaxis": {
+                                        "rangeselector": {
+                                            "y": 1.2,
+                                            "buttons": [
+                                                {
+                                                    "count": 6,
+                                                    "step": "hour"
+                                                },
+                                                {
+                                                    "count": 1,
+                                                    "step": "day"
+                                                },
+                                                {
+                                                    "count": 2,
+                                                    "step": "day"
+                                                },
+                                                {
+                                                    "count": 7,
+                                                    "step": "day"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "*_humidity",
+                                        "domain": "sensor"
+                                    }
+                                ],
+                                "exclude": [
+                                    {
+                                        "entity_id": "sensor.outside_humidity"
+                                    }
+                                ]
+                            },
+                            "sort": {
+                                "method": "name",
+                                "reverse": true
+                            }
                         },
                         {
-                            "type": "history-graph",
-                            "entities": [
-                                "sensor.entry_sensor_illuminance_lux"
+                            "type": "custom:auto-entities",
+                            "card": {
+                                "type": "custom:plotly-graph",
+                                "hours_to_show": 24,
+                                "refresh_interval": 10,
+                                "layout": {
+                                    "showlegend": true,
+                                    "legend": {
+                                        "itemclick": "toggleothers",
+                                        "orientation": "h"
+                                    },
+                                    "xaxis": {
+                                        "rangeselector": {
+                                            "y": 1.2,
+                                            "buttons": [
+                                                {
+                                                    "count": 6,
+                                                    "step": "hour"
+                                                },
+                                                {
+                                                    "count": 1,
+                                                    "step": "day"
+                                                },
+                                                {
+                                                    "count": 2,
+                                                    "step": "day"
+                                                },
+                                                {
+                                                    "count": 7,
+                                                    "step": "day"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            },
+                            "filter": {
+                                "include": [
+                                    {
+                                        "entity_id": "*_pressure",
+                                        "domain": "sensor"
+                                    }
+                                ]
+                            },
+                            "sort": {
+                                "method": "name",
+                                "reverse": true
+                            }
+                        },
+                        {
+                            "type": "custom:decluttering-card",
+                            "template": "graph_template",
+                            "variables": [
+                                {
+                                    "entity_1": "sensor.rain_gauge"
+                                },
+                                {
+                                    "name_1": "Rain Rate"
+                                },
+                                {
+                                    "entity_2": "sensor.total_daily_rain"
+                                },
+                                {
+                                    "name_2": "Total Rain"
+                                }
                             ]
-                        },
-                        {
-                            "type": "statistics-graph",
-                            "entities": [
-                                "sensor.outside_wind_speed"
-                            ],
-                            "days_to_show": 3,
-                            "stat_types": [
-                                "mean",
-                                "min",
-                                "max"
-                            ]
-                        },
-                        {
-                            "type": "history-graph",
-                            "entities": [
-                                "sensor.holman_ws5029_37058_t",
-                                "sensor.holman_ws5029_45248_t",
-                                "sensor.holman_ws5029_45248_rssi",
-                                "sensor.holman_ws5029_37058_rssi",
-                                "sensor.holman_ws5029_45250_rssi",
-                                "sensor.holman_ws5029_45250_t"
-                            ],
-                            "refresh_interval": 0,
-                            "hours_to_show": 72
                         }
                     ]
                 },
@@ -1057,11 +1229,11 @@
                         },
                         {
                             "grid_icon": "mdi:flash",
-                            "grid_power_entity": "sensor.fronius_grid_usage",
-                            "home_energy_entity": "sensor.fronius_house_load",
+                            "grid_power_entity": "sensor.power_grid_fronius_power_flow_0_192_168_0_191",
+                            "home_energy_entity": "sensor.power_load_fronius_power_flow_0_192_168_0_191",
                             "production_is_positive": false,
                             "solar_icon": "mdi:white-balance-sunny",
-                            "solar_power_entity": "sensor.fronius_panel_status",
+                            "solar_power_entity": "sensor.power_photovoltaics_fronius_power_flow_0_192_168_0_191",
                             "title": "Solar Power",
                             "type": "custom:power-wheel-card"
                         },
@@ -1106,21 +1278,35 @@
                         {
                             "type": "custom:auto-entities",
                             "card": {
-                                "type": "custom:apexcharts-card",
-                                "stacked": false,
-                                "all_series_config": {
-                                    "stroke_width": 1,
-                                    "type": "line"
-                                },
-                                "yaxis": [
-                                    {
-                                        "show": true,
-                                        "decimals": 0,
-                                        "apex_config": {
-                                            "tickAmount": 3
+                                "type": "custom:plotly-graph",
+                                "hours_to_show": 24,
+                                "refresh_interval": 10,
+                                "layout": {
+                                    "showlegend": false,
+                                    "xaxis": {
+                                        "rangeselector": {
+                                            "y": 1.2,
+                                            "buttons": [
+                                                {
+                                                    "count": 6,
+                                                    "step": "hour"
+                                                },
+                                                {
+                                                    "count": 1,
+                                                    "step": "day"
+                                                },
+                                                {
+                                                    "count": 2,
+                                                    "step": "day"
+                                                },
+                                                {
+                                                    "count": 7,
+                                                    "step": "day"
+                                                }
+                                            ]
                                         }
                                     }
-                                ]
+                                }
                             },
                             "filter": {
                                 "include": [
@@ -1154,100 +1340,6 @@
                                 "method": "name",
                                 "reverse": true
                             }
-                        }
-                    ]
-                },
-                {
-                    "icon": "mdi:map",
-                    "path": "map",
-                    "type": "panel",
-                    "visible": [
-                        {
-                            "user": "24e5927095604f13a7771fae293ea29b"
-                        }
-                    ],
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "map",
-                            "entities": [
-                                {
-                                    "entity": "device_tracker.chrisphone"
-                                },
-                                {
-                                    "entity": "device_tracker.melphone"
-                                },
-                                {
-                                    "entity": "zone.home"
-                                },
-                                {
-                                    "entity": "zone.church"
-                                },
-                                {
-                                    "entity": "zone.school"
-                                }
-                            ],
-                            "default_zoom": 14,
-                            "hours_to_show": 24
-                        }
-                    ]
-                },
-                {
-                    "icon": "mdi:pine-tree",
-                    "badges": [],
-                    "cards": [
-                        {
-                            "type": "button",
-                            "tap_action": {
-                                "action": "toggle"
-                            },
-                            "entity": "switch.yard_plug_bottom"
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "light.wled1_master",
-                                    "name": "Driveway Lights"
-                                },
-                                {
-                                    "entity": "select.wled1_preset",
-                                    "name": "Preset"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "light.wled_tree_master",
-                                    "name": "Christmas Tree"
-                                },
-                                {
-                                    "entity": "select.wled_tree_preset",
-                                    "name": "Preset"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "light.nativity_master",
-                                    "name": "Nativity"
-                                },
-                                {
-                                    "entity": "select.nativity_preset",
-                                    "name": "Preset"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "button",
-                            "tap_action": {
-                                "action": "toggle"
-                            },
-                            "entity": "light.window_string"
                         }
                     ]
                 }
