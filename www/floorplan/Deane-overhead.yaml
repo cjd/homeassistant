@@ -57,7 +57,6 @@ rules:
       service: floorplan.text_set
       service_data: '${Math.round(entity.state)}%'
   - entities:
-      - binary_sensor.garage_door_contact
       - binary_sensor.front_door_contact
       - binary_sensor.side_door_contact
       - binary_sensor.back_door_contact
@@ -68,4 +67,11 @@ rules:
       service: floorplan.class_set
       service_data:
         class: '${(entity.state === "on") ? "sensor-open" : "sensor-closed"}'
+  - entities:
+      - cover.garage_door
+    state_action:
+      action: call-service
+      service: floorplan.class_set
+      service_data:
+        class: '${(entity.state === "open") ? "sensor-open" : "sensor-closed"}'
 stylesheet: /local/floorplan/Deane.css?v=1

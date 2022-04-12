@@ -271,7 +271,7 @@
          y="762.63629">00%</tspan></text>
     <rect
        style="opacity:0.5;fill:#ff0000;fill-opacity:1;stroke-width:1.37953;paint-order:markers fill stroke"
-       id="binary_sensor.garage_door_contact"
+       id="cover.garage_door"
        width="10.46347"
        height="176.37628"
        x="503.77335"
