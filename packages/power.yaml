@@ -1,64 +1,63 @@
 template:
   - sensor:
-      - name: "Allocated power"
-        unit_of_measurement: W
-        state_class: measurement
-        device_class: energy
-        state: "{{ states('sensor.ac_power')|float(0)
-                  + states('sensor.bedroomplug_energy_power')|float(0)
-                  + states('sensor.desk_energy_power')|float(0)
-                  + states('sensor.dishwasher_energy_power')|float(0)
-                  + states('sensor.drivewayplug_energy_power')|float(0)
-                  + states('sensor.freezer_energy_power')|float(0)
-                  + states('sensor.fridge_energy_power')|float(0)
-                  + states('sensor.garageplug_energy_power')|float(0)
-                  + states('sensor.hallpower_energy_power')|float(0)
-                  + states('sensor.lights_energy_power')|float(0)
-                  + states('sensor.livingtv_energy_power')|float(0)
-                  + states('sensor.oven_power')|float(0)
-                  + states('sensor.serverstack_energy_power')|float(0)
-                  + states('sensor.tvunit_energy_power')|float(0)
-                  + states('sensor.washingmachine_energy_power')|float(0)
-                  }}"
-      - name: "Unallocated power"
-        unit_of_measurement: W
-        state_class: measurement
-        device_class: energy
-        state: "{{ [ (-states('sensor.power_load_fronius_power_flow_0_192_168_0_191')|float(0)
-                  - states('sensor.allocated_power')|float(0)),0]|max}}"
-      - name: "Lights ENERGY Power"
-        unit_of_measurement: W
-        state_class: measurement
-        device_class: power
-        state: "{{ states('sensor.alcove_power')|float(0)
-                  + states('sensor.bedroomdimmer_power')|float(0)
-                  + states('sensor.craftdimmer_power')|float(0)
-                  + states('sensor.diningdimmer_power')|float(0)
-                  + states('sensor.dining_power')|float(0)
-                  + states('sensor.entrydimmer_power')|float(0)
-                  + states('sensor.garage_left_power')|float(0)
-                  + states('sensor.garage_right_power')|float(0)
-                  + states('sensor.kitchendoor_power')|float(0)
-                  + states('sensor.kitchenfront_power')|float(0)
-                  + states('sensor.livingmiddle_power')|float(0)
-                  + states('sensor.livingside_power')|float(0)
-                  + states('sensor.lucasdimmer_power')|float(0)
-                  + states('sensor.officedimmer_power')|float(0)
-                  + states('sensor.pantry_power')|float(0)
-                  + states('sensor.sidedoor_power')|float(0)
-                  + states('sensor.xanderdimmer_power')|float(0)
-                  + states('sensor.loungeroom_power')|float(0)
-                  + states('sensor.kitchenback_power')|float(0)}}"
-      - name: "Loungeroom power"
-        unit_of_measurement: W
-        state_class: measurement
-        device_class: power
-        state: "{{ (state_attr('light.loungeroom_lights', 'brightness')|float(0) * 45 / 255 ) | int(0) }}"
-      - name: "Kitchenback power"
-        unit_of_measurement: W
-        state_class: measurement
-        device_class: power
-        state: "{% if is_state('light.kitchenback', 'on') -%}24{%- else -%}0{%- endif %}"
+    - name:  "Solar Production"
+      unit_of_measurement: 'W'
+      state_class: measurement
+      state: "{{ states('sensor.power_photovoltaics_fronius_power_flow_0_192_168_0_191')|float(0)}}"
+    - name: "Allocated power"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.ac_power')|float(0)
+                + states('sensor.bedroomplug_energy_power')|float(0)
+                + states('sensor.desk_energy_power')|float(0)
+                + states('sensor.dishwasher_energy_power')|float(0)
+                + states('sensor.drivewayplug_energy_power')|float(0)
+                + states('sensor.freezer_energy_power')|float(0)
+                + states('sensor.fridge_energy_power')|float(0)
+                + states('sensor.garageplug_energy_power')|float(0)
+                + states('sensor.hallpower_energy_power')|float(0)
+                + states('sensor.lights_energy_power')|float(0)
+                + states('sensor.livingtv_energy_power')|float(0)
+                + states('sensor.oven_power')|float(0)
+                + states('sensor.serverstack_energy_power')|float(0)
+                + states('sensor.tvunit_energy_power')|float(0)
+                + states('sensor.washingmachine_energy_power')|float(0)
+                }}"
+    - name: "Unallocated power"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ [ (-states('sensor.power_load_fronius_power_flow_0_192_168_0_191')|float(0)
+                - states('sensor.allocated_power')|float(0)),0]|max}}"
+    - name: "Lights ENERGY Power"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: power
+      state: "{{ states('sensor.alcove_power')|float(0)
+                + states('sensor.bedroomdimmer_power')|float(0)
+                + states('sensor.craftdimmer_power')|float(0)
+                + states('sensor.diningdimmer_power')|float(0)
+                + states('sensor.dining_power')|float(0)
+                + states('sensor.entrydimmer_power')|float(0)
+                + states('sensor.garage_left_power')|float(0)
+                + states('sensor.garage_right_power')|float(0)
+                + states('sensor.kitchendoor_power')|float(0)
+                + states('sensor.kitchenfront_power')|float(0)
+                + states('sensor.livingmiddle_power')|float(0)
+                + states('sensor.livingside_power')|float(0)
+                + states('sensor.lucasdimmer_power')|float(0)
+                + states('sensor.officedimmer_power')|float(0)
+                + states('sensor.pantry_power')|float(0)
+                + states('sensor.sidedoor_power')|float(0)
+                + states('sensor.xanderdimmer_power')|float(0)
+                + states('sensor.loungeroom_power')|float(0)
+                + states('sensor.kitchenback_power')|float(0)}}"
+    - name: "Kitchenback power"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: power
+      state: "{% if is_state('light.kitchenback', 'on') -%}24{%- else -%}0{%- endif %}"
 
 sensor:
   - platform: integration

@@ -11,6 +11,18 @@ template:
         state: "{{ states('sensor.dishwasher_energy_power') | float(0) > 5 }}"
         delay_on: "0:00:30"
         delay_off: "0:00:30"
+  - sensor:
+    - name: "Kitchen Wattage"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.kitchenback_power')|float(0)
+               + states('sensor.kitchenfront_power')|float(0)
+               + states('sensor.kitchenfront_power')|float(0)
+               + states('sensor.fridge_power')|float(0)
+               + states('sensor.oven_power')|float(0)
+               + states('sensor.dishwasher_energy_power')|float(0)
+               + states('sensor.kitchendoor_power')|float(0)}}"
 
 automation:
   - id: '1615539466617'

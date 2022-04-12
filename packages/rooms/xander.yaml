@@ -4,6 +4,14 @@ light:
     entities:
       - light.xanderdimmer
 
+template:
+  - sensor:
+    - name: "Xander Wattage"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.xanderdimmer_power')|float(0)}}"
+
 automation:
   - id: moon_on
     alias: Xander - Moon - turn on

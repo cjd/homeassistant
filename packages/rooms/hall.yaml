@@ -7,3 +7,14 @@ light:
     name: Alcove Lights
     entities:
       - light.alcove
+
+
+template:
+  - sensor:
+    - name: "Hall Wattage"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.halldimmer_power')|float(0)
+               + states('sensor.hallpower_energy_power')|float(0)
+               + states('sensor.entrydimmer_power')|float(0)}}"

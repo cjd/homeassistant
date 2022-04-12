@@ -4,6 +4,16 @@ light:
     entities:
       - light.officedimmer
 
+template:
+  - sensor:
+    - name: "Office Wattage"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.desk_energy_power')|float(0)
+               + states('sensor.officedimmer_power')|float(0)
+               + states('sensor.serverstack_energy_power')|float(0)}}"
+
 automation:
   - id: '1610484353901'
     alias: Office - Switch 1

@@ -3,3 +3,13 @@ light:
     name: Craftroom Lights
     entities:
       - light.craftdimmer
+
+
+template:
+  - sensor:
+    - name: "Craftroom Wattage"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.craftdimmer_power')|float(0)
+               + states('sensor.printer_energy_power')|float(0)}}"

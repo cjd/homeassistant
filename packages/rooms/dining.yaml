@@ -3,3 +3,12 @@ light:
     name: Dining Lights
     entities:
       - light.diningdimmer
+
+
+template:
+  - sensor:
+    - name: "Diningroom Wattage"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.diningroom_power')|float(0)}}"

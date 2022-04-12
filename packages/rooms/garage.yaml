@@ -11,6 +11,14 @@ template:
         state: "{{ states('sensor.garageplug_energy_power') | float(0) > 40 }}"
         delay_on: "0:00:10"
         delay_off: "0:00:10"
+  - sensor:
+    - name: "Garage Wattage"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.garageplug_energy_power')|float(0)
+               + states('sensor.garage_left_power')|float(0)
+               + states('sensor.garage_right_power')|float(0) }}"
 
 binary_sensor:
   - platform: template

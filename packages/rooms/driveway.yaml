@@ -4,6 +4,15 @@ light:
     entities:
       - light.entrylight
 
+template:
+  - sensor:
+    - name: "Driveway Wattage"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.bedroomdimmer_power')|float(0)
+               + states('sensor.drivewayplug_energy_power')|float(0)}}"
+
 automation:
   - id: '1618737848710'
     alias: Driveway - Front Door opened at night
@@ -100,9 +109,21 @@ automation:
             - action: URI
               title: "Open Camera"
               uri: https://frigate.adebenham.com/cameras/driveway
+            - action: OPEN_GARAGE
+              title: "Open/Close Garage Door"
     - delay:
         minutes: 3
     mode: single
+  - alias: Notify - Handle Garage action
+    trigger:
+      platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: OPEN_GARAGE
+    condition: []
+    action:
+    - service: cover.open_cover
+      entity_id: cover.garage_door
   - id: '1618963905350'
     alias: Notify - Car Top Yard
     description: ''
@@ -122,6 +143,8 @@ automation:
             - action: URI
               title: "Open Camera"
               uri: https://frigate.adebenham.com/cameras/topyard
+            - action: OPEN_GARAGE
+              title: "Open/Close Garage Door"
     - delay:
         minutes: 3
     mode: single

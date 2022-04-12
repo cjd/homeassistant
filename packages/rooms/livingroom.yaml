@@ -5,6 +5,16 @@ light:
       - light.livingmiddle
       - light.livingside
 
+template:
+  - sensor:
+    - name: "Livingroom Wattage"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.livingmiddle_power')|float(0)
+               + states('sensor.livingside_power')|float(0)
+               + states('sensor.livingtv_energy_power')|float(0)}}"
+
 automation:
   - id: '1615539466619'
     alias: Livingroom - Turn on window lights when the sun is set

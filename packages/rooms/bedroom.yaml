@@ -4,6 +4,15 @@ light:
     entities:
       - light.bedroomdimmer
 
+template:
+  - sensor:
+    - name: "Bedroom Wattage"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.bedroomdimmer_power')|float(0)
+               + states('sensor.bedroomplug_energy_power')|float(0)}}"
+
 automation:
   - id: '1610172763965'
     alias: Bedroom - Kid indicator on

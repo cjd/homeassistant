@@ -3,3 +3,11 @@ light:
     name: Lucas Lights
     entities:
       - light.lucasdimmer
+
+template:
+  - sensor:
+    - name: "Lucas Wattage"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.lucasdimmer_power')|float(0)}}"

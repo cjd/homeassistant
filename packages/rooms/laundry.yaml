@@ -3,3 +3,13 @@ light:
     name: Laundry Lights
     entities:
       - light.laundry
+
+
+template:
+  - sensor:
+    - name: "Laundry Wattage"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.freezer_power')|float(0)
+               + states('sensor.washimgmachine_energy_power')|float(0)}}"

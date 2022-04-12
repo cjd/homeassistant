@@ -9,6 +9,21 @@ group:
       - light.lounge_fl
       - light.lounge_fr
 
+template:
+  - sensor:
+    - name: "Loungeroom power"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: power
+      state: "{{ (state_attr('light.loungeroom_lights', 'brightness')|float(0) * 45 / 255 ) | int(0) }}"
+    - name: "Loungeroom Wattage"
+      unit_of_measurement: W
+      state_class: measurement
+      device_class: energy
+      state: "{{ states('sensor.loungeroom_power')|float(0)
+               + states('sensor.tvunit_energy_power')|float(0)}}"
+               
+
 light:
   - platform: group
     name: loungeroom Lights
