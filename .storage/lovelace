@@ -484,29 +484,33 @@
                                     "cards": [
                                         {
                                             "type": "custom:frigate-card",
-                                            "camera_entity": "camera.driveway",
-                                            "live": {
-                                                "provider": "frigate"
-                                            },
                                             "dimensions": {
-                                                "aspect_ratio_mode": "static"
+                                                "aspect_ratio_mode": "static",
+                                                "aspect_ratio": "4:3"
                                             },
+                                            "cameras": [
+                                                {
+                                                    "camera_entity": "camera.driveway",
+                                                    "frigate_url": "https://frigate.adebenham.com/"
+                                                }
+                                            ],
                                             "class": "col-lg"
                                         },
                                         {
                                             "type": "custom:frigate-card",
-                                            "camera_entity": "camera.backyard",
-                                            "live": {
-                                                "provider": "frigate"
-                                            },
-                                            "frigate_url": "https://frigate.adebenham.com/",
+                                            "cameras": [
+                                                {
+                                                    "camera_entity": "camera.backyard",
+                                                    "frigate_url": "https://frigate.adebenham.com/"
+                                                }
+                                            ],
                                             "dimensions": {
-                                                "aspect_ratio_mode": "static"
+                                                "aspect_ratio_mode": "static",
+                                                "aspect_ratio": "4:3"
                                             },
                                             "class": "col-lg"
                                         }
-                                    ],
-                                    "aspect_ratio": "4:3"
+                                    ]
                                 },
                                 {
                                     "type": "row",
@@ -514,11 +518,12 @@
                                     "cards": [
                                         {
                                             "type": "custom:frigate-card",
-                                            "camera_entity": "camera.garage",
-                                            "live": {
-                                                "provider": "frigate"
-                                            },
-                                            "frigate_url": "https://frigate.adebenham.com/",
+                                            "cameras": [
+                                                {
+                                                    "camera_entity": "camera.garage",
+                                                    "frigate_url": "https://frigate.adebenham.com/"
+                                                }
+                                            ],
                                             "class": "col-lg",
                                             "dimensions": {
                                                 "aspect_ratio_mode": "static",
@@ -527,13 +532,15 @@
                                         },
                                         {
                                             "type": "custom:frigate-card",
-                                            "camera_entity": "camera.topyard",
-                                            "live": {
-                                                "provider": "frigate"
-                                            },
-                                            "frigate_url": "https://frigate.adebenham.com/",
+                                            "cameras": [
+                                                {
+                                                    "camera_entity": "camera.topyard",
+                                                    "frigate_url": "https://frigate.adebenham.com/"
+                                                }
+                                            ],
                                             "dimensions": {
-                                                "aspect_ratio_mode": "static"
+                                                "aspect_ratio_mode": "static",
+                                                "aspect_ratio": "4:3"
                                             },
                                             "class": "col-lg"
                                         }
@@ -557,22 +564,26 @@
                                     "cards": [
                                         {
                                             "type": "custom:frigate-card",
-                                            "camera_entity": "camera.loungeroom",
-                                            "frigate_url": "https://frigate.adebenham.com/",
+                                            "cameras": [
+                                                {
+                                                    "camera_entity": "camera.loungeroom",
+                                                    "frigate_url": "https://frigate.adebenham.com/"
+                                                }
+                                            ],
                                             "dimensions": {
                                                 "aspect_ratio_mode": "static",
                                                 "aspect_ratio": "16:9"
                                             },
-                                            "class": "col-lg",
-                                            "webrtc": {}
+                                            "class": "col-lg"
                                         },
                                         {
                                             "type": "custom:frigate-card",
-                                            "camera_entity": "camera.livingroom",
-                                            "frigate_url": "https://frigate.adebenham.com/",
-                                            "live": {
-                                                "provider": "frigate"
-                                            },
+                                            "cameras": [
+                                                {
+                                                    "camera_entity": "camera.livingroom",
+                                                    "frigate_url": "https://frigate.adebenham.com/"
+                                                }
+                                            ],
                                             "dimensions": {
                                                 "aspect_ratio_mode": "static",
                                                 "aspect_ratio": "16:9"
@@ -587,11 +598,12 @@
                                     "cards": [
                                         {
                                             "type": "custom:frigate-card",
-                                            "camera_entity": "camera.garage",
-                                            "frigate_url": "https://frigate.adebenham.com/",
-                                            "live": {
-                                                "provider": "frigate"
-                                            },
+                                            "cameras": [
+                                                {
+                                                    "camera_entity": "camera.garage",
+                                                    "frigate_url": "https://frigate.adebenham.com/"
+                                                }
+                                            ],
                                             "dimensions": {
                                                 "aspect_ratio_mode": "static",
                                                 "aspect_ratio": "16:9"
@@ -836,102 +848,248 @@
                             "filter": {
                                 "include": [
                                     {
-                                        "entity_id": "*disk_free"
+                                        "entity_id": "*glances_free"
                                     }
                                 ],
                                 "exclude": []
                             },
                             "sort": {
                                 "method": "none"
-                            }
+                            },
+                            "show_empty": false
                         },
                         {
-                            "type": "custom:decluttering-card",
-                            "template": "graph_template",
-                            "variables": [
+                            "type": "entities",
+                            "entities": [
                                 {
-                                    "entity_1": "sensor.piserve_smoothed_cpu_iowait"
-                                },
-                                {
-                                    "name_1": "Piserve IO"
-                                },
-                                {
-                                    "entity_2": "sensor.piserve_smoothed_cpu_system"
-                                },
-                                {
-                                    "name_2": "System"
-                                },
-                                {
-                                    "entity_3": "sensor.piserve_smoothed_cpu_user"
-                                },
-                                {
-                                    "name_3": "User"
-                                },
-                                {
-                                    "entity_4": "sensor.piserve_system_load"
-                                },
-                                {
-                                    "name_4": "Load"
+                                    "type": "custom:fold-entity-row",
+                                    "head": "sensor.octoprint_estimated_finish_time",
+                                    "entities": [
+                                        {
+                                            "type": "custom:auto-entities",
+                                            "card": {
+                                                "type": "entities",
+                                                "square": false
+                                            },
+                                            "filter": {
+                                                "include": [
+                                                    {
+                                                        "entity_id": "sensor.octoprint_*"
+                                                    }
+                                                ]
+                                            },
+                                            "sort": {
+                                                "method": "friendly_name"
+                                            }
+                                        }
+                                    ]
                                 }
-                            ]
+                            ],
+                            "show_header_toggle": true
                         },
                         {
-                            "type": "custom:decluttering-card",
-                            "template": "graph_template",
-                            "variables": [
+                            "type": "vertical-stack",
+                            "cards": [
                                 {
-                                    "entity_1": "sensor.dock_smoothed_cpu_iowait"
+                                    "type": "entities",
+                                    "entities": [
+                                        "input_select.host_select"
+                                    ]
                                 },
                                 {
-                                    "name_1": "Dock IO"
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "input_select.host_select",
+                                            "state": "piserve"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "custom:decluttering-card",
+                                        "template": "graph_template",
+                                        "variables": [
+                                            {
+                                                "entity_1": "sensor.piserve_cpu_load"
+                                            },
+                                            {
+                                                "name_1": "Piserve Load"
+                                            },
+                                            {
+                                                "entity_2": "sensor.piserve_cpu_used"
+                                            },
+                                            {
+                                                "name_2": "CPU Usage"
+                                            },
+                                            {
+                                                "entity_3": "sensor.piserve_ram_used_percent"
+                                            },
+                                            {
+                                                "name_3": "Memory Usage"
+                                            },
+                                            {
+                                                "entity_4": "sensor.piserve_glances_conf_free"
+                                            },
+                                            {
+                                                "name_4": "Disk Free"
+                                            }
+                                        ]
+                                    }
                                 },
                                 {
-                                    "entity_2": "sensor.dock_smoothed_cpu_system"
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "input_select.host_select",
+                                            "state": "church"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "custom:decluttering-card",
+                                        "template": "graph_template",
+                                        "variables": [
+                                            {
+                                                "entity_1": "sensor.church_cpu_load"
+                                            },
+                                            {
+                                                "name_1": "Church Load"
+                                            },
+                                            {
+                                                "entity_2": "sensor.church_cpu_used"
+                                            },
+                                            {
+                                                "name_2": "CPU Usage"
+                                            },
+                                            {
+                                                "entity_3": "sensor.church_ram_used_percent"
+                                            },
+                                            {
+                                                "name_3": "Memory Usage"
+                                            },
+                                            {
+                                                "entity_4": "sensor.church_glances_conf_free"
+                                            },
+                                            {
+                                                "name_4": "Disk Free"
+                                            }
+                                        ]
+                                    }
                                 },
                                 {
-                                    "name_2": "System"
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "input_select.host_select",
+                                            "state": "dock"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "custom:decluttering-card",
+                                        "template": "graph_template",
+                                        "variables": [
+                                            {
+                                                "entity_1": "sensor.dock_cpu_load"
+                                            },
+                                            {
+                                                "name_1": "Dock Load"
+                                            },
+                                            {
+                                                "entity_2": "sensor.dock_cpu_used"
+                                            },
+                                            {
+                                                "name_2": "CPU Usage"
+                                            },
+                                            {
+                                                "entity_3": "sensor.dock_ram_used_percent"
+                                            },
+                                            {
+                                                "name_3": "Memory Usage"
+                                            },
+                                            {
+                                                "entity_4": "sensor.dock_glances_conf_free"
+                                            },
+                                            {
+                                                "name_4": "Disk free"
+                                            }
+                                        ]
+                                    }
                                 },
                                 {
-                                    "entity_3": "sensor.dock_smoothed_cpu_user"
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "input_select.host_select",
+                                            "state": "jimbob"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "custom:decluttering-card",
+                                        "template": "graph_template",
+                                        "variables": [
+                                            {
+                                                "entity_1": "sensor.jimbob_cpu_load"
+                                            },
+                                            {
+                                                "name_1": "Jimbob Load"
+                                            },
+                                            {
+                                                "entity_2": "sensor.jimbob_cpu_used"
+                                            },
+                                            {
+                                                "name_2": "CPU Usage"
+                                            },
+                                            {
+                                                "entity_3": "sensor.jimbob_ram_used_percent"
+                                            },
+                                            {
+                                                "name_3": "Memory Usage"
+                                            },
+                                            {
+                                                "entity_4": "sensor.jimbob_glances_conf_free"
+                                            },
+                                            {
+                                                "name_4": "Disk Free"
+                                            }
+                                        ]
+                                    }
                                 },
                                 {
-                                    "name_3": "User"
-                                },
-                                {
-                                    "entity_4": "sensor.dock_system_load"
-                                },
-                                {
-                                    "name_4": "Load"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "custom:decluttering-card",
-                            "template": "graph_template",
-                            "variables": [
-                                {
-                                    "entity_1": "sensor.jimbob_smoothed_cpu_iowait"
-                                },
-                                {
-                                    "name_1": "Jimbob IO"
-                                },
-                                {
-                                    "entity_2": "sensor.jimbob_smoothed_cpu_system"
-                                },
-                                {
-                                    "name_2": "System"
-                                },
-                                {
-                                    "entity_3": "sensor.jimbob_smoothed_cpu_user"
-                                },
-                                {
-                                    "name_3": "User"
-                                },
-                                {
-                                    "entity_4": "sensor.jimbob_system_load"
-                                },
-                                {
-                                    "name_4": "Load"
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "input_select.host_select",
+                                            "state": "arm"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "custom:decluttering-card",
+                                        "template": "graph_template",
+                                        "variables": [
+                                            {
+                                                "entity_1": "sensor.arm_cpu_load"
+                                            },
+                                            {
+                                                "name_1": "Arm Load"
+                                            },
+                                            {
+                                                "entity_2": "sensor.arm_cpu_used"
+                                            },
+                                            {
+                                                "name_2": "CPU Usage"
+                                            },
+                                            {
+                                                "entity_3": "sensor.arm_ram_used_percent"
+                                            },
+                                            {
+                                                "name_3": "Memory Usage"
+                                            },
+                                            {
+                                                "entity_4": "sensor.arm_glances_conf_free"
+                                            },
+                                            {
+                                                "name_4": "Disk Free"
+                                            }
+                                        ]
+                                    }
                                 }
                             ]
                         },
@@ -970,17 +1128,6 @@
                                     "name_5": "Router ping"
                                 }
                             ]
-                        },
-                        {
-                            "type": "markdown",
-                            "content": "<h2> <ha-icon icon='mdi:shield-half-full'></ha-icon> Watchman report<h2> <h3>Missing Entities: {{ states.sensor.watchman_missing_entities.state }} </h3> {%- for item in state_attr(\"sensor.watchman_missing_entities\", \"entities\") %} <hr> <table><tr> <td> <ha-icon icon='mdi: {%- if item.state==\"missing\"-%}cloud-alert' {%- elif item.state==\"unavail\" -%}cloud-off-outline' {%- else-%}cloud-question' {%- endif -%} ></ha-icon> {{ item.id }} [{{item.state}}] <a title=\"{{item.occurrences}}\"> {{item.occurrences.split('/')[-1].split(':')[0]}}</a> </td></tr></table> {%- endfor %}",
-                            "card_mod": {
-                                "style": {
-                                    "ha-markdown": {
-                                        "$": "ha-markdown-element:first-of-type hr{\n  border-color: [#303030](https://github.com/dummylabs/thewatchman/issues/303030);\n}\n"
-                                    }
-                                }
-                            }
                         }
                     ]
                 },
@@ -1233,7 +1380,7 @@
                             "home_energy_entity": "sensor.power_load_fronius_power_flow_0_192_168_0_191",
                             "production_is_positive": false,
                             "solar_icon": "mdi:white-balance-sunny",
-                            "solar_power_entity": "sensor.power_photovoltaics_fronius_power_flow_0_192_168_0_191",
+                            "solar_power_entity": "sensor.solar_production",
                             "title": "Solar Power",
                             "type": "custom:power-wheel-card"
                         },
