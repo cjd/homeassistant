@@ -15,6 +15,33 @@ template:
                + states('sensor.serverstack_energy_power')|float(0)}}"
 
 automation:
+  - id: '1648014715445'
+    alias: Notify - Printing Finished
+    description: ''
+    trigger:
+    - platform: state
+      entity_id: binary_sensor.octoprint_printing
+      from: 'on'
+      to: 'off'
+    condition: []
+    action:
+    - service: notify.mobile_app_chrisphone
+      data:
+        message: 3D Printer finished
+        actions:
+          - action: TURN_OFF_3DPRINTER
+            title: "Turn off 3D Printer"
+    mode: single
+  - alias: Notify - Handle 3D Printer action
+    trigger:
+      platform: event
+      event_type: mobile_app_notification_action
+      event_data:
+        action: TURN_OFF_3DPRINTER
+    condition: []
+    action:
+    - service: switch.turn_off
+      entity_id: switch.powerboard_outlet_1
   - id: '1610484353901'
     alias: Office - Switch 1
     trigger:
