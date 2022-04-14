@@ -11,4 +11,4 @@ template:
       unit_of_measurement: W
       state_class: measurement
       device_class: energy
-      state: "{{ states('sensor.diningroom_power')|float(0)}}"
+      state: "{{ states('sensor.diningdimmer_power')|float(0)}}"

@@ -4,6 +4,10 @@ template:
       unit_of_measurement: 'W'
       state_class: measurement
       state: "{{ states('sensor.power_photovoltaics_fronius_power_flow_0_192_168_0_191')|float(0)}}"
+    - name:  "House Power"
+      unit_of_measurement: 'W'
+      state_class: measurement
+      state: "{{ -(states('sensor.power_load_fronius_power_flow_0_192_168_0_191')|float(0))}}"
     - name: "Allocated power"
       unit_of_measurement: W
       state_class: measurement
