@@ -1,0 +1,19 @@
+template:
+  - sensor:
+    - name: "Updates Pending"
+      state: "{{ states.update | selectattr('state', 'eq', 'on') | list | count }}"
+    - name: "Low Battery Devices"
+      state: |-
+        {% set low_batt_device = states.sensor
+                            | selectattr("entity_id", "search", ".*battery.*") 
+                            | rejectattr("entity_id", "search", ".*voltage.*")
+                            | rejectattr("entity_id", "search", "sensor.body*")
+                            | rejectattr("entity_id", "search", ".*ipad*")
+                            | rejectattr("entity_id", "search", ".*iphone*")
+                            | selectattr("state", 'is_number')
+                            | map(attribute='state')
+                            | sort(attribute='state', reverse=false)  
+                            | map('int') 
+                            | select("lessthan", 50) 
+                            | list %}
+        {{ low_batt_devices | count }}
