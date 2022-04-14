@@ -8,7 +8,7 @@ automation:
     action:
       - service: frontend.set_theme
         data:
-          name: "waves-dark"
+          name: "Mushroom"
       - service: mqtt.publish
         data:
           topic: "tasmotas/cmnd/state"
