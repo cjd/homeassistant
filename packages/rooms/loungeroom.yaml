@@ -129,24 +129,24 @@ switch:
           service: scene.turn_on
           target:
             entity_id: scene.loungeroom_off
-  - platform: mqtt
-    name: "Loungeroom Blind Motor Direction"
-    icon: mdi:blinds
-    state_topic: "tele/LoungeroomBlind/RESULT"
-    state_on: 1
-    state_off: 0
-    value_template: >-
-        {% if value_json['TuyaReceived'].DpType1Id5 is defined %}
-        {{ value_json.TuyaReceived.DpType1Id5 }}
-        {% else %}  
-        {{ states('switch.loungeroom_blind_motor_direction') }}
-        {% endif %}  
-    command_topic: "cmnd/LoungeroomBlind/TuyaSend"
-    payload_on: "5,1"
-    payload_off: "5,0"
-    availability_topic: "tele/LoungeroomBlind/LWT"
-    payload_available: "Online"
-    payload_not_available: "Offline"
+  # - platform: mqtt
+  #   name: "Loungeroom Blind Motor Direction"
+  #   icon: mdi:blinds
+  #   state_topic: "tele/LoungeroomBlind/RESULT"
+  #   state_on: 1
+  #   state_off: 0
+  #   value_template: >-
+  #       {% if value_json['TuyaReceived'].DpType1Id5 is defined %}
+  #       {{ value_json.TuyaReceived.DpType1Id5 }}
+  #       {% else %}  
+  #       {{ states('switch.loungeroom_blind_motor_direction') }}
+  #       {% endif %}  
+  #   command_topic: "cmnd/LoungeroomBlind/TuyaSend"
+  #   payload_on: "5,1"
+  #   payload_off: "5,0"
+  #   availability_topic: "tele/LoungeroomBlind/LWT"
+  #   payload_available: "Online"
+  #   payload_not_available: "Offline"
 
 
 cover:
@@ -168,21 +168,21 @@ cover:
     payload_available: "Online"
     payload_not_available: "Offline"
 
-binary_sensor:
-- platform: mqtt
-  name: "Loungeroom Blind Motor Error"
-  state_topic: "tele/LoungeroomBlind/RESULT"
-  device_class: problem
-  value_template: >-
-      {% if value_json.TuyaReceived.DpType5Id10 is defined %}      
-        {% if value_json.TuyaReceived.DpType5Id10  == '0x00' %}      
-        OFF
-        {% else %}
-        ON
-        {% endif %}
-      {% else %}
-      OFF
-      {% endif %}
+# binary_sensor:
+# - platform: mqtt
+#   name: "Loungeroom Blind Motor Error"
+#   state_topic: "tele/LoungeroomBlind/RESULT"
+#   device_class: problem
+#   value_template: >-
+#       {% if value_json.TuyaReceived.DpType5Id10 is defined %}      
+#         {% if value_json.TuyaReceived.DpType5Id10  == '0x00' %}      
+#         OFF
+#         {% else %}
+#         ON
+#         {% endif %}
+#       {% else %}
+#       OFF
+#       {% endif %}
 
 script:
   turn_tv_lights_on:
