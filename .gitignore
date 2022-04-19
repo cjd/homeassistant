@@ -43,3 +43,4 @@ image/platerecognizer
 watchman_report.txt
 .vscode/settings.json
 workspace.code-workspace
+backups/
