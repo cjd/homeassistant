@@ -21,7 +21,8 @@ template:
       state_class: measurement
       device_class: energy
       state: "{{ states('sensor.loungeroom_power')|float(0)
-               + states('sensor.tvunit_energy_power')|float(0)}}"
+               + states('sensor.tvunit_energy_power')|float(0)
+               + states('sensor.mediaroomside_energy_power')|float(0)}}"
                
 
 light:

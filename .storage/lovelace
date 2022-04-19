@@ -263,7 +263,7 @@
                                     "hold_action": {
                                         "action": "toggle"
                                     },
-                                    "secondary": "{{ states('sensor.outside_temperature')}}\u00b0 / {{ states('sensor.deck_wattage')|int}}W",
+                                    "secondary": "{{ states('sensor.outside_temperature')}}\u00b0",
                                     "icon_color": "{% if is_state('light.deck_lights','on') %}\norange\n{% endif %}"
                                 },
                                 {
@@ -390,7 +390,7 @@
                                     "hold_action": {
                                         "action": "toggle"
                                     },
-                                    "secondary": "{{ states('sensor.familyroom_sensor_temperature')}}\u00b0 / {{ states('sensor.loungeroom_wattage')|int}}W",
+                                    "secondary": "{{ states('sensor.mediaroom_sensor_temperature')}}\u00b0 / {{ states('sensor.loungeroom_wattage')|int}}W",
                                     "icon_color": "{% if is_state('light.loungeroom_lights','on') %}\norange\n{% endif %}",
                                     "icon": "mdi:television"
                                 },
@@ -465,13 +465,25 @@
                             "cards": [
                                 {
                                     "type": "custom:mushroom-person-card",
-                                    "entity": "person.chris"
+                                    "entity": "person.chris",
+                                    "use_entity_picture": true
                                 },
                                 {
                                     "type": "custom:mushroom-person-card",
-                                    "entity": "person.mel"
+                                    "entity": "person.mel",
+                                    "use_entity_picture": true,
+                                    "hide_state": false
                                 }
                             ]
+                        },
+                        {
+                            "type": "custom:mini-media-player",
+                            "entity": "media_player.whole_house",
+                            "replace_mute": "play_pause",
+                            "sound_mode": "full",
+                            "tts": {
+                                "platform": "google_translate"
+                            }
                         }
                     ]
                 },
@@ -1101,16 +1113,38 @@
                                         "action": "toggle"
                                     },
                                     "name": "Pantry  Lights"
-                                },
+                                }
+                            ]
+                        },
+                        {
+                            "square": false,
+                            "columns": 3,
+                            "type": "grid",
+                            "cards": [
                                 {
                                     "type": "custom:mushroom-light-card",
                                     "entity": "light.livingroom_strip",
                                     "use_light_color": true,
-                                    "show_brightness_control": true,
-                                    "show_color_control": true,
+                                    "show_brightness_control": false,
+                                    "show_color_control": false,
                                     "tap_action": {
                                         "action": "toggle"
-                                    }
+                                    },
+                                    "layout": "vertical"
+                                },
+                                {
+                                    "type": "custom:mushroom-light-card",
+                                    "entity": "light.window_string",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "show_brightness_control": false,
+                                    "layout": "vertical"
+                                },
+                                {
+                                    "type": "custom:mushroom-light-card",
+                                    "entity": "light.kitchen_strip",
+                                    "layout": "vertical"
                                 }
                             ]
                         },
@@ -1265,9 +1299,6 @@
                                         "domain": "sensor"
                                     },
                                     {
-                                        "entity_id": "sensor.power_misc"
-                                    },
-                                    {
                                         "entity_id": "sensor.freezer_power"
                                     },
                                     {
@@ -1319,8 +1350,9 @@
                                     "hours_to_show": 24,
                                     "graph": "line",
                                     "type": "sensor",
-                                    "entity": "sensor.familyroom_sensor_temperature",
-                                    "detail": 1
+                                    "entity": "sensor.mediaroom_sensor_temperature",
+                                    "detail": 1,
+                                    "name": "Temperature"
                                 }
                             ]
                         },
@@ -1346,14 +1378,20 @@
                                     "entity": "switch.loungeroom_low",
                                     "layout": "vertical",
                                     "name": "Low",
-                                    "secondary_info": "none"
+                                    "secondary_info": "none",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
                                 },
                                 {
                                     "type": "custom:mushroom-entity-card",
                                     "entity": "switch.loungeroom_dim",
                                     "name": "Dim",
                                     "secondary_info": "none",
-                                    "layout": "vertical"
+                                    "layout": "vertical",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
                                 },
                                 {
                                     "type": "custom:mushroom-entity-card",
@@ -1361,7 +1399,10 @@
                                     "name": "Party",
                                     "icon": "mdi:party-popper",
                                     "secondary_info": "none",
-                                    "layout": "vertical"
+                                    "layout": "vertical",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
                                 }
                             ]
                         },
@@ -1431,7 +1472,7 @@
                         },
                         {
                             "type": "media-control",
-                            "entity": "media_player.nesthub0a27"
+                            "entity": "media_player.lounge_room_display"
                         }
                     ]
                 },
@@ -1831,7 +1872,10 @@
                                 {
                                     "type": "custom:mushroom-entity-card",
                                     "entity": "switch.pool",
-                                    "name": "Pool Pump"
+                                    "name": "Pool Pump",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    }
                                 }
                             ]
                         },
