@@ -45,3 +45,4 @@ watchman_report.txt
 workspace.code-workspace
 backups/
 image/
+.vscode/settings.json
