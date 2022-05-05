@@ -4,7 +4,7 @@ image_processing:
     regions:
       - au
     watched_plates:
-      - zaq201
+      #      - zaq201
       - cxz96u
     save_file_folder: /config/image/platerecognizer/
     save_timestamped_file: True
