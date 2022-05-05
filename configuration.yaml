@@ -29,8 +29,6 @@ logger:
     
 recorder:
   db_url: !secret db_url
-updater:
-  include_used_components: true
 
 automation: !include automations.yaml
 script: !include scripts.yaml
