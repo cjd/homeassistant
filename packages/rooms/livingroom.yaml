@@ -1,10 +1,45 @@
 light:
-  - platform: group
-    name: Livingroom Lights
-    entities:
-      - light.livingmiddle
-      - light.livingside
-
+  - platform: template
+    lights:
+      livingroom_lights:
+        friendly_name: Livingroom Lights
+        value_template: >-
+          {% if is_state('light.livingmiddle','on') or is_state('light.livingside', 'on') %}
+            on
+          {% else %}
+            off
+          {% endif %}
+        level_template: >-
+          {% if is_state('light.livingmiddle','on') and is_state('light.livingside', 'on') %}
+            255
+          {% elif is_state('light.livingmiddle','on') and is_state('light.livingside', 'off') %}
+            170
+          {% elif is_state('light.livingmiddle','off') and is_state('light.livingside', 'on') %}
+            85
+          {% else %}
+            0
+          {% endif %}
+        turn_on:
+          - service: light.turn_on
+            entity_id: light.livingmiddle
+          - service: light.turn_on
+            entity_id: light.livingside
+        turn_off:
+          - service: light.turn_off
+            entity_id: light.livingmiddle
+          - service: light.turn_off
+            entity_id: light.livingside
+        set_level:
+          - service: light.turn_on
+            entity_id: light.livingside
+            data:
+              brightness: >-
+                {% if ((brightness > 0) and (brightness <= 85)) or (brightness>170)%}255{%else%}0{%endif%}
+          - service: light.turn_on
+            entity_id: light.livingmiddle
+            data:
+              brightness: >-
+                {% if brightness > 85 %}255{%else%}0{%endif%}
 template:
   - sensor:
     - name: "Livingroom Wattage"
