@@ -157,60 +157,25 @@ switch:
           service: scene.turn_on
           target:
             entity_id: scene.loungeroom_off
-  # - platform: mqtt
-  #   name: "Loungeroom Blind Motor Direction"
-  #   icon: mdi:blinds
-  #   state_topic: "tele/LoungeroomBlind/RESULT"
-  #   state_on: 1
-  #   state_off: 0
-  #   value_template: >-
-  #       {% if value_json['TuyaReceived'].DpType1Id5 is defined %}
-  #       {{ value_json.TuyaReceived.DpType1Id5 }}
-  #       {% else %}  
-  #       {{ states('switch.loungeroom_blind_motor_direction') }}
-  #       {% endif %}  
-  #   command_topic: "cmnd/LoungeroomBlind/TuyaSend"
-  #   payload_on: "5,1"
-  #   payload_off: "5,0"
-  #   availability_topic: "tele/LoungeroomBlind/LWT"
-  #   payload_available: "Online"
-  #   payload_not_available: "Offline"
 
-
-cover:
-  - platform: mqtt
-    # requires SetOption59 1, TuyaMCU 21,2
-    name: "Loungeroom Blind"
-    device_class: shade 
-    command_topic: "cmnd/LoungeroomBlind/TuyaSend4"
-    payload_open: "1,0"
-    payload_close: "1,2"
-    payload_stop: "1,1"
-    position_open: 0
-    position_closed: 100
-    position_topic: "tele/LoungeroomBlind/STATE"
-    position_template: '{{ value_json.Dimmer }}'
-    set_position_topic: "cmnd/LoungeroomBlind/Dimmer"
-    set_position_template: '{{ 100 - position | int }}'
-    availability_topic: "tele/LoungeroomBlind/LWT"
-    payload_available: "Online"
-    payload_not_available: "Offline"
-
-# binary_sensor:
-# - platform: mqtt
-#   name: "Loungeroom Blind Motor Error"
-#   state_topic: "tele/LoungeroomBlind/RESULT"
-#   device_class: problem
-#   value_template: >-
-#       {% if value_json.TuyaReceived.DpType5Id10 is defined %}      
-#         {% if value_json.TuyaReceived.DpType5Id10  == '0x00' %}      
-#         OFF
-#         {% else %}
-#         ON
-#         {% endif %}
-#       {% else %}
-#       OFF
-#       {% endif %}
+mqtt:
+  cover:
+    - # requires SetOption59 1, TuyaMCU 21,2
+      name: "Loungeroom Blind"
+      device_class: shade 
+      command_topic: "cmnd/LoungeroomBlind/TuyaSend4"
+      payload_open: "1,0"
+      payload_close: "1,2"
+      payload_stop: "1,1"
+      position_open: 0
+      position_closed: 100
+      position_topic: "tele/LoungeroomBlind/STATE"
+      position_template: '{{ value_json.Dimmer }}'
+      set_position_topic: "cmnd/LoungeroomBlind/Dimmer"
+      set_position_template: '{{ 100 - position | int }}'
+      availability_topic: "tele/LoungeroomBlind/LWT"
+      payload_available: "Online"
+      payload_not_available: "Offline"
 
 script:
   turn_tv_lights_on:
