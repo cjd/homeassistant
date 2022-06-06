@@ -147,11 +147,15 @@
                                 {
                                     "type": "template",
                                     "icon": "mdi:home-import-outline",
-                                    "content": "{{0-(states('sensor.power_load_fronius_power_flow_0_192_168_0_191')|int)}}W",
+                                    "content": "{{states('sensor.house_power')|int}}W",
                                     "tap_action": {
                                         "action": "navigate",
                                         "navigation_path": "power"
                                     }
+                                },
+                                {
+                                    "type": "entity",
+                                    "entity": "sensor.entry_sensor_illuminance_lux"
                                 }
                             ]
                         },
@@ -558,7 +562,7 @@
                                     ],
                                     "chip": {
                                         "type": "template",
-                                        "content": "          {% if states.sensor.low_battery_devices | int  == 0 %}\n          none.\n          {% elif states.sensor.low_battery_devices | int  > 0 %}\n          {{  states.sensor.low_battery_devices | int }}.\n          {% endif %}        \n",
+                                        "content": "          {% if states('sensor.low_battery_devices') | int  == 0 %}\n          none.\n          {% elif states('sensor.low_battery_devices') | int  > 0 %}\n          {{  states('sensor.low_battery_devices') | int }}.\n          {% endif %}        \n",
                                         "icon_color": "red",
                                         "icon": "mdi:battery-alert-variant-outline",
                                         "tap_action": {
@@ -577,7 +581,7 @@
                                     ],
                                     "chip": {
                                         "type": "template",
-                                        "content": "{% if  states.sensor.updates_pending | int == 0 %}\nnone.\n{% elif  states.sensor.updates_pending | int > 0 %}\n{{ states.sensor.updates_pending | int }} updates.\n{% endif %}",
+                                        "content": "{% if  states('sensor.updates_pending')| int == 0 %}\nnone.\n{% elif  states('sensor.updates_pending') | int > 0 %}\n{{ states('sensor.updates_pending') | int }} updates.\n{% endif %}",
                                         "icon": "mdi:cellphone-arrow-down",
                                         "icon_color": "red",
                                         "tap_action": {
@@ -585,24 +589,12 @@
                                             "navigation_path": "/lovelace-details/update"
                                         }
                                     }
-                                }
-                            ]
-                        },
-                        {
-                            "type": "horizontal-stack",
-                            "cards": [
+                                },
                                 {
-                                    "hours_to_show": 24,
-                                    "graph": "line",
-                                    "type": "sensor",
-                                    "entity": "sensor.office_temperature",
-                                    "detail": 1
+                                    "type": "entity",
+                                    "entity": "sensor.office_temperature"
                                 }
                             ]
-                        },
-                        {
-                            "type": "custom:mushroom-title-card",
-                            "subtitle": "Devices"
                         },
                         {
                             "type": "horizontal-stack",
@@ -636,24 +628,29 @@
                             "square": false,
                             "cards": [
                                 {
+                                    "show_name": true,
+                                    "show_icon": true,
                                     "type": "button",
                                     "entity": "switch.powerboardusb_outlet_1",
                                     "name": "USB1"
                                 },
                                 {
+                                    "show_name": true,
+                                    "show_icon": true,
                                     "type": "button",
-                                    "entity": "switch.powerboardusb_outlet_2",
-                                    "name": "USB2"
+                                    "entity": "switch.powerboardusb_outlet_2"
                                 },
                                 {
+                                    "show_name": true,
+                                    "show_icon": true,
                                     "type": "button",
-                                    "entity": "switch.powerboardusb_outlet_3",
-                                    "name": "USB3"
+                                    "entity": "switch.powerboardusb_outlet_3"
                                 },
                                 {
+                                    "show_name": true,
+                                    "show_icon": true,
                                     "type": "button",
-                                    "entity": "switch.powerboardusb_outlet_4",
-                                    "name": "USB4"
+                                    "entity": "switch.powerboardusb_outlet_4"
                                 },
                                 {
                                     "type": "button",
@@ -664,8 +661,10 @@
                                     "entity": "switch.powerboard_outlet_2"
                                 },
                                 {
+                                    "show_name": true,
+                                    "show_icon": true,
                                     "type": "button",
-                                    "entity": "switch.powerboard_outlet_3"
+                                    "entity": "switch.3dprinter"
                                 },
                                 {
                                     "type": "button",
@@ -1053,24 +1052,17 @@
                                     "type": "template",
                                     "content": "{{ states('sensor.livingroom_wattage')|int + states('sensor.kitchen_wattage')|int + states('sensor.diningroom_wattage')|int }} W",
                                     "icon": "mdi:lightning-bolt"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "horizontal-stack",
-                            "cards": [
+                                },
                                 {
-                                    "hours_to_show": 24,
-                                    "graph": "line",
-                                    "type": "sensor",
-                                    "entity": "sensor.livingroom_temperature",
-                                    "detail": 1
+                                    "type": "entity",
+                                    "entity": "sensor.livingroom_temperature"
+                                },
+                                {
+                                    "type": "template",
+                                    "content": "Dishwasher",
+                                    "icon": "{% if states('binary_sensor.dishwasher_running') == true %}\nmdi:dishwasher\n{% else %}\nmdi:dishwasher-off\n{% endif %}"
                                 }
                             ]
-                        },
-                        {
-                            "type": "custom:mushroom-title-card",
-                            "subtitle": "Devices"
                         },
                         {
                             "square": false,
@@ -1080,7 +1072,7 @@
                                 {
                                     "type": "custom:mushroom-light-card",
                                     "entity": "light.livingroom_lights",
-                                    "show_brightness_control": false,
+                                    "show_brightness_control": true,
                                     "hide_state": false,
                                     "tap_action": {
                                         "action": "toggle"
@@ -1214,7 +1206,7 @@
                         {
                             "grid_icon": "mdi:flash",
                             "grid_power_entity": "sensor.power_grid_fronius_power_flow_0_192_168_0_191",
-                            "home_energy_entity": "sensor.power_load_fronius_power_flow_0_192_168_0_191",
+                            "home_energy_entity": "sensor.power_real_fronius_meter_0_192_168_0_191",
                             "production_is_positive": false,
                             "solar_icon": "mdi:white-balance-sunny",
                             "solar_power_entity": "sensor.solar_production",
@@ -1340,25 +1332,12 @@
                                 {
                                     "type": "entity",
                                     "entity": "sensor.loungeroom_wattage"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "horizontal-stack",
-                            "cards": [
+                                },
                                 {
-                                    "hours_to_show": 24,
-                                    "graph": "line",
-                                    "type": "sensor",
-                                    "entity": "sensor.mediaroom_sensor_temperature",
-                                    "detail": 1,
-                                    "name": "Temperature"
+                                    "type": "entity",
+                                    "entity": "sensor.mediaroom_sensor_temperature"
                                 }
                             ]
-                        },
-                        {
-                            "type": "custom:mushroom-title-card",
-                            "subtitle": "Devices"
                         },
                         {
                             "type": "horizontal-stack",
@@ -1435,22 +1414,14 @@
                                 },
                                 {
                                     "type": "custom:mushroom-light-card",
-                                    "entity": "light.loungeroomstrip",
+                                    "entity": "light.mediaroom_strips",
                                     "tap_action": {
                                         "action": "toggle"
                                     },
                                     "show_brightness_control": true,
-                                    "name": "Mediaroom Strip",
+                                    "name": "LED Strips",
                                     "use_light_color": true,
                                     "show_color_control": true
-                                },
-                                {
-                                    "type": "custom:mushroom-light-card",
-                                    "entity": "light.loungeroomstrip_segment_1",
-                                    "name": "Mediaroom Shelf",
-                                    "use_light_color": true,
-                                    "show_color_control": true,
-                                    "show_brightness_control": true
                                 },
                                 {
                                     "type": "custom:mushroom-cover-card",
@@ -1471,8 +1442,14 @@
                             ]
                         },
                         {
-                            "type": "media-control",
-                            "entity": "media_player.lounge_room_display"
+                            "type": "custom:mini-media-player",
+                            "entity": "media_player.lounge_room_display",
+                            "replace_mute": "play_pause",
+                            "sound_mode": "full",
+                            "tts": {
+                                "platform": "google_translate"
+                            },
+                            "name": "Media Room Display"
                         }
                     ]
                 },
@@ -1492,24 +1469,12 @@
                                 {
                                     "type": "entity",
                                     "entity": "sensor.bedroom_wattage"
-                                }
-                            ]
-                        },
-                        {
-                            "type": "horizontal-stack",
-                            "cards": [
+                                },
                                 {
-                                    "hours_to_show": 24,
-                                    "graph": "line",
-                                    "type": "sensor",
-                                    "entity": "sensor.bedroom_temperature",
-                                    "detail": 1
+                                    "type": "entity",
+                                    "entity": "sensor.bedroom_temperature"
                                 }
                             ]
-                        },
-                        {
-                            "type": "custom:mushroom-title-card",
-                            "subtitle": "Devices"
                         },
                         {
                             "square": false,
@@ -1621,10 +1586,6 @@
                             ]
                         },
                         {
-                            "type": "custom:mushroom-title-card",
-                            "subtitle": "Devices"
-                        },
-                        {
                             "square": false,
                             "columns": 1,
                             "type": "grid",
@@ -1682,10 +1643,6 @@
                             ]
                         },
                         {
-                            "type": "custom:mushroom-title-card",
-                            "subtitle": "Devices"
-                        },
-                        {
                             "square": false,
                             "columns": 2,
                             "type": "grid",
@@ -1731,22 +1688,6 @@
                                     "entity": "sensor.garage_wattage"
                                 }
                             ]
-                        },
-                        {
-                            "type": "horizontal-stack",
-                            "cards": [
-                                {
-                                    "hours_to_show": 24,
-                                    "graph": "line",
-                                    "type": "sensor",
-                                    "entity": "sensor.garageplug_energy_power",
-                                    "detail": 1
-                                }
-                            ]
-                        },
-                        {
-                            "type": "custom:mushroom-title-card",
-                            "subtitle": "Devices"
                         },
                         {
                             "square": false,
@@ -1942,10 +1883,6 @@
                             ]
                         },
                         {
-                            "type": "custom:mushroom-title-card",
-                            "title": "Devices"
-                        },
-                        {
                             "square": false,
                             "columns": 2,
                             "type": "grid",
@@ -2138,10 +2075,6 @@
                             ]
                         },
                         {
-                            "type": "custom:mushroom-title-card",
-                            "subtitle": "Devices"
-                        },
-                        {
                             "square": false,
                             "columns": 2,
                             "type": "grid",
@@ -2164,7 +2097,7 @@
                         },
                         {
                             "type": "media-control",
-                            "entity": "media_player.bedroom_speaker"
+                            "entity": "media_player.craftroom_speaker"
                         }
                     ]
                 },
@@ -2184,12 +2117,14 @@
                                 {
                                     "type": "entity",
                                     "entity": "sensor.laundry_wattage"
+                                },
+                                {
+                                    "type": "template",
+                                    "entity": "binary_sensor.washing_machine_running",
+                                    "content": "Washing",
+                                    "icon": "{% if states('binary_sensor.washingmachine_running') == true %}\nmdi:washing-machine\n{% else %}\nmdi:washing-machine-off\n{% endif %}"
                                 }
                             ]
-                        },
-                        {
-                            "type": "custom:mushroom-title-card",
-                            "subtitle": "Devices"
                         },
                         {
                             "square": false,
@@ -2236,10 +2171,6 @@
                                     "entity": "sensor.hall_wattage"
                                 }
                             ]
-                        },
-                        {
-                            "type": "custom:mushroom-title-card",
-                            "subtitle": "Devices"
                         },
                         {
                             "square": false,
