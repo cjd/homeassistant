@@ -20,9 +20,9 @@ automation:
     description: ''
     trigger:
     - platform: state
-      entity_id: binary_sensor.octoprint_printing
-      from: 'on'
-      to: 'off'
+      entity_id: sensor.octoprint_current_state
+      from: 'Printing'
+      to: 'Operational'
     condition: []
     action:
     - service: notify.mobile_app_chrisphone
@@ -41,7 +41,7 @@ automation:
     condition: []
     action:
     - service: switch.turn_off
-      entity_id: switch.powerboard_outlet_1
+      entity_id: switch.3dprinter
   - id: '1610484353901'
     alias: Office - Switch 1
     trigger:

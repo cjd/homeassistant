@@ -10,7 +10,7 @@ template:
       - name: "Dishwasher Running"
         state: "{{ states('sensor.dishwasher_energy_power') | float(0) > 5 }}"
         delay_on: "0:00:30"
-        delay_off: "0:00:30"
+        delay_off: "0:05:00"
   - sensor:
     - name: "Kitchen Wattage"
       unit_of_measurement: W

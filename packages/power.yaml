@@ -14,6 +14,7 @@ template:
       device_class: energy
       state: "{{ states('sensor.ac_power')|float(0)
                 + states('sensor.bedroomplug_energy_power')|float(0)
+                + states('sensor.bedroombedplug_energy_power')|float(0)
                 + states('sensor.desk_energy_power')|float(0)
                 + states('sensor.dishwasher_energy_power')|float(0)
                 + states('sensor.drivewayplug_energy_power')|float(0)

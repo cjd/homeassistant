@@ -10,7 +10,7 @@ template:
         state_class: measurement
         unit_of_measurement: "mm"
       - name: "Outside Temperature"
-        state: "{{ states('sensor.outside_temperature_2') }}"
+        state: "{{ states('sensor.entry_sensor_temperature') }}"
         state_class: measurement
         unit_of_measurement: "°C"
         device_class: temperature

@@ -13,3 +13,8 @@ template:
       device_class: energy
       state: "{{ states('sensor.freezer_power')|float(0)
                + states('sensor.washingmachine_energy_power')|float(0)}}"
+  - binary_sensor:
+    - name: "Washing Machine Running"
+      state: "{{ states('sensor.washingmachine_energy_power') | float(0) > 5 }}"
+      delay_on: "0:00:30"
+      delay_off: "0:00:30"

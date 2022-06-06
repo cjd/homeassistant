@@ -112,7 +112,6 @@ automation:
       to: 'off'
     condition: []
     action:
-    - delay: "00:00:01"
     - service: >-
         {% if is_state('light.garage_left', 'on') %}
         light.turn_on
