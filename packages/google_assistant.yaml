@@ -81,3 +81,7 @@ google_assistant:
       expose: true
     cover.garage_door:
       expose: true
+    switch.office_heater:
+      expose: true
+    switch.3dprinter:
+      expose: true
