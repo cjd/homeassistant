@@ -137,7 +137,7 @@ automation:
     action:
     - service: tts.google_translate_say
       data:
-        entity_id: media_player.lenovosmartclock2915
+        entity_id: media_player.chris_clock
         message: The garage door is open
     mode: single
   - id: '1627699444400'
@@ -234,8 +234,7 @@ automation:
       from: 'off'
       to: 'on'
     condition:
-      - condition: and
-        conditions:
+      - and:
         - condition: state
           entity_id: input_boolean.night_mode
           state: 'on'
@@ -311,12 +310,10 @@ automation:
       entity_id: person.mel
       to: not_home
     condition:
-    - condition: or
-      conditions:
+    - or:
       - condition: time
         after: '19:00:00'
-      - condition: and
-        conditions:
+      - and:
         - condition: state
           entity_id: person.chris
           state: not_home
@@ -340,8 +337,7 @@ automation:
     - platform: time
       at: 08:00:00
     condition:
-    - condition: or
-      conditions:
+    - or:
       - condition: state
         entity_id: person.chris
         state: home

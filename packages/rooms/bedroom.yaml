@@ -22,15 +22,20 @@ automation:
       entity_id: light.lucas_lights
     - platform: state
       entity_id: light.xander_lights
+    - platform: state
+      entity_id: binary_sensor.chrisphone_is_charging
     condition: 
-      condition: or
-      conditions:
+      and:
         - condition: state
-          entity_id: light.lucas_lights
-          state: 'on'
-        - condition: state
-          entity_id: light.xander_lights
-          state: 'on'
+          entity_id: binary_sensor.chrisphone_is_charging
+          state: 'true'
+        - or:
+          - condition: state
+            entity_id: light.lucas_lights
+            state: 'on'
+          - condition: state
+            entity_id: light.xander_lights
+            state: 'on'
     action:
     - service: light.turn_on
       data_template:
@@ -47,15 +52,20 @@ automation:
       entity_id: light.lucas_lights
     - platform: state
       entity_id: light.xander_lights
+    - platform: state
+      entity_id: binary_sensor.chrisphone_is_charging
     condition: 
-      condition: and
-      conditions:
+      or:
         - condition: state
-          entity_id: light.lucas_lights
-          state: 'off'
-        - condition: state
-          entity_id: light.xander_lights
-          state: 'off'
+          entity_id: binary_sensor.chrisphone_is_charging
+          state: 'false'
+        - and:
+          - condition: state
+            entity_id: light.lucas_lights
+            state: 'off'
+          - condition: state
+            entity_id: light.xander_lights
+            state: 'off'
     action:
     - service: light.turn_off
       data_template:

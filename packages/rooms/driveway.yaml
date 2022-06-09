@@ -201,8 +201,7 @@ automation:
       from: 'off'
       to: 'on'
     condition:
-    - condition: or
-      conditions:
+    - or:
       - condition: time
         after: 08:30:00
         before: '15:00:00'
