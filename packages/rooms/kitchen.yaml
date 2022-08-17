@@ -1,14 +1,50 @@
 light:
-  - platform: group
-    name: Kitchen Lights
-    entities:
-      - light.kitchenfront
-      - light.kitchenback
+  - platform: template
+    lights:
+      kitchen_lights:
+        friendly_name: Kitchen Lights
+        value_template: >-
+          {% if is_state('light.kitchenfront','on') or is_state('light.kitchenback', 'on') %}
+            on
+          {% else %}
+            off
+          {% endif %}
+        level_template: >-
+          {% if is_state('light.kitchenfront','on') and is_state('light.kitchenback', 'on') %}
+            255
+          {% elif is_state('light.kitchenfront','on') and is_state('light.kitchenback', 'off') %}
+            170
+          {% elif is_state('light.kitchenfront','off') and is_state('light.kitchenback', 'on') %}
+            85
+          {% else %}
+            0
+          {% endif %}
+        turn_on:
+          - service: light.turn_on
+            entity_id: light.kitchenfront
+          - service: light.turn_on
+            entity_id: light.kitchenback
+        turn_off:
+          - service: light.turn_off
+            entity_id: light.kitchenfront
+          - service: light.turn_off
+            entity_id: light.kitchenback
+        set_level:
+          - service: light.turn_on
+            entity_id: light.kitchenback
+            data:
+              brightness: >-
+                {% if ((brightness > 0) and (brightness <= 85)) or (brightness>170)%}255{%else%}0{%endif%}
+          - service: light.turn_on
+            entity_id: light.kitchenfront
+            data:
+              brightness: >-
+                {% if brightness > 85 %}255{%else%}0{%endif%}
 
 template:
   - binary_sensor:
       - name: "Dishwasher Running"
-        state: "{{ states('sensor.dishwasher_energy_power') | float(0) > 5 }}"
+        state: "{{ states('sensor.dishwasher_energy_power') | float(0) > 2 }}"
         delay_on: "0:00:30"
         delay_off: "0:05:00"
   - sensor:
