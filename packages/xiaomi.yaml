@@ -12,6 +12,8 @@ camera:
       vacuum_radius: 6
     attributes:
       - calibration_points
+    scan_interval: 30
+
 
 script:
   clean_kitchen:
