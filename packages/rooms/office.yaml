@@ -55,6 +55,10 @@ automation:
         entity_id: light.office_strip
         data:
           effect: Rainbow
+      - service: light.turn_on
+        entity_id: light.asrock_b550_pro4_0
+        data:
+          effect: 'Rainbow'
   - id: '1610484353902'
     alias: Office - Switch 2
     trigger:
@@ -89,6 +93,10 @@ automation:
         entity_id: light.office_strip
       - service: light.turn_off
         entity_id: light.office_lights
+      - service: light.turn_on
+        entity_id: light.asrock_b550_pro4_0
+        data:
+          effect: 'Off'
   - id: '1620696771165'
     alias: Spinnner Brightness Down
     description: ''
@@ -131,4 +139,44 @@ automation:
     - service: light.toggle
       target:
         entity_id: light.office_lights
+    mode: single
+  - id: '1658097701179'
+    alias: Notify - Doorbell Pressed
+    description: ''
+    trigger:
+    - platform: device
+      device_id: 3243b58136136f6fa25f1f022e85b478
+      domain: nest
+      type: doorbell_chime
+    condition: []
+    action:
+    - service: notify.mobile_app_chrisphone
+      data:
+        message: Someone at the door
+    mode: single
+  - id: '1658282850142'
+    alias: Office - Doorbell
+    description: ''
+    trigger:
+    - platform: state
+      entity_id:
+      - sensor.officedoor_action
+      to: single
+    condition: []
+    action:
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.office_speaker
+      data:
+        media_content_id: media-source://media_source/local/THERES SOMEBODY AT THE DOOR.mp3
+        media_content_type: audio/mpeg
+      metadata:
+        title: THERES SOMEBODY AT THE DOOR.mp3
+        thumbnail:
+        media_class: music
+        children_media_class:
+        navigateIds:
+        - {}
+        - media_content_type: app
+          media_content_id: media-source://media_source
     mode: single
