@@ -16,6 +16,10 @@ automation:
         at: "18:30:00"
       - platform: sun
         event: sunset
+      - platform: numeric_state
+        entity_id: sensor.solar_production
+        below: 50
+        for: "00:30:00"
     condition: []
     action:
     - service: input_boolean.turn_on
@@ -33,6 +37,10 @@ automation:
         at: "06:30:00"
       - platform: sun
         event: sunrise
+      - platform: numeric_state
+        entity_id: sensor.solar_production
+        above: 50
+        for: "00:01:00"
     condition: []
     action:
     - service: input_boolean.turn_off
